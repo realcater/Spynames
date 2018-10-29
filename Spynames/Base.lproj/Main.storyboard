@@ -12,11 +12,14 @@
         <array key="Google-spies.ttf">
             <string>Google-spies</string>
         </array>
-        <array key="HiBd.otf">
-            <string>HiBd</string>
+        <array key="GovtAgentBB.otf">
+            <string>GovernmentAgentBB</string>
         </array>
-        <array key="TruenoBd.otf">
-            <string>TruenoBd</string>
+        <array key="Top Secret Stamp.ttf">
+            <string>TopSecretStamp</string>
+        </array>
+        <array key="_TOP_SECRET_.otf">
+            <string>TOPSECRET</string>
         </array>
     </customFonts>
     <scenes>
@@ -35,7 +38,7 @@
                                     <constraint firstAttribute="height" constant="50" id="HdP-if-IxJ"/>
                                     <constraint firstAttribute="width" constant="300" id="n86-C4-Iir"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="29"/>
                                 <state key="normal" title="Join a game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -47,8 +50,9 @@
                                     <constraint firstAttribute="height" constant="50" id="hoV-Ms-ark"/>
                                     <constraint firstAttribute="width" constant="300" id="jsl-Sn-Slu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
-                                <state key="normal" title="New game">
+                                <fontDescription key="fontDescription" name="TOPSECRET" family="[TOP_SECRET]" pointSize="30"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="8" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="[New game]">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -62,7 +66,7 @@
                                     <constraint firstAttribute="width" constant="300" id="MG0-mf-kVJ"/>
                                     <constraint firstAttribute="height" constant="50" id="lfb-nW-1dT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="GovernmentAgentBB" family="Government Agent BB" pointSize="26"/>
                                 <state key="normal" title="How to play">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -119,7 +123,7 @@
                                     <constraint firstAttribute="height" constant="180" id="gkP-gk-Auq"/>
                                     <constraint firstAttribute="width" constant="180" id="rMo-Qp-OOq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiBd" family="Hi." pointSize="28"/>
+                                <fontDescription key="fontDescription" name="GovernmentAgentBB" family="Government Agent BB" pointSize="28"/>
                                 <inset key="titleEdgeInsets" minX="-162" minY="-100" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="9" minY="55" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="4 Devices" image="4devices">
@@ -136,9 +140,9 @@
                                     <constraint firstAttribute="width" constant="180" id="2w0-X1-ZNJ"/>
                                     <constraint firstAttribute="height" constant="180" id="Zf6-LE-h3l"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="TOPSECRET" family="[TOP_SECRET]" pointSize="30"/>
                                 <inset key="titleEdgeInsets" minX="-120" minY="-100" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="17" minY="55" maxX="3" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="27" minY="55" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="3 Devices" image="3devices">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -225,8 +229,8 @@
                                             <constraint firstAttribute="height" constant="40" id="5My-NP-KSw"/>
                                             <constraint firstAttribute="width" constant="250" id="FR1-Lq-Zyv"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HiBd" family="Hi." pointSize="20"/>
-                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <fontDescription key="fontDescription" name="TOPSECRET" family="[TOP_SECRET]" pointSize="26"/>
+                                        <inset key="titleEdgeInsets" minX="25" minY="6" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title=" Red Spymaster" image="Crown1-80px"/>
                                     </button>
@@ -236,7 +240,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="EeQ-FF-gdO"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="TruenoBd" family="Trueno" pointSize="21"/>
+                                        <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="26"/>
                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Blue Spymaster" image="Crown1-80px">
@@ -252,8 +256,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="VVf-s7-qJa"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="24"/>
-                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <fontDescription key="fontDescription" name="GovernmentAgentBB" family="Government Agent BB" pointSize="25"/>
+                                        <inset key="titleEdgeInsets" minX="30" minY="1" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Red Operatives" image="Pawn-80px">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -268,8 +272,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="UV9-lq-ADY"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
-                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <fontDescription key="fontDescription" name="TOPSECRET" family="[TOP_SECRET]" pointSize="25"/>
+                                        <inset key="titleEdgeInsets" minX="30" minY="6" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Blue Operatives" image="Pawn-80px">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

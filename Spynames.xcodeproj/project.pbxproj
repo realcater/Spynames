@@ -10,9 +10,7 @@
 		CA3528EF2180BD1D005C489B /* ChooseRoleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528EE2180BD1D005C489B /* ChooseRoleVC.swift */; };
 		CA3528F2218226A5005C489B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528F1218226A5005C489B /* K.swift */; };
 		CA3528F72182319B005C489B /* Google-spies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3528F62182319B005C489B /* Google-spies.ttf */; };
-		CA3528FB21873BAA005C489B /* Hi.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA3528FA21873BAA005C489B /* Hi.otf */; };
-		CA3528FD21873C22005C489B /* HiBd.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA3528FC21873C22005C489B /* HiBd.otf */; };
-		CA3528FF21873C54005C489B /* TruenoBd.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA3528FE21873C54005C489B /* TruenoBd.otf */; };
+		CA35290121874162005C489B /* Top Secret Stamp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA35290021874162005C489B /* Top Secret Stamp.ttf */; };
 		CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB7217F62810009D072 /* AppDelegate.swift */; };
 		CA814BBA217F62810009D072 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB9217F62810009D072 /* StartVC.swift */; };
 		CA814BBD217F62810009D072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BBB217F62810009D072 /* Main.storyboard */; };
@@ -20,7 +18,6 @@
 		CA814BC2217F62820009D072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BC0217F62820009D072 /* LaunchScreen.storyboard */; };
 		CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */; };
 		CA814BD0217F71DD0009D072 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCF217F71DD0009D072 /* MyButton.swift */; };
-		CAB9E817217F906C002148CD /* ARIALUNI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CAB9E816217F906C002148CD /* ARIALUNI.TTF */; };
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,9 +25,7 @@
 		CA3528EE2180BD1D005C489B /* ChooseRoleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRoleVC.swift; sourceTree = "<group>"; };
 		CA3528F1218226A5005C489B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CA3528F62182319B005C489B /* Google-spies.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Google-spies.ttf"; sourceTree = "<group>"; };
-		CA3528FA21873BAA005C489B /* Hi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hi.otf; sourceTree = "<group>"; };
-		CA3528FC21873C22005C489B /* HiBd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HiBd.otf; sourceTree = "<group>"; };
-		CA3528FE21873C54005C489B /* TruenoBd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TruenoBd.otf; sourceTree = "<group>"; };
+		CA35290021874162005C489B /* Top Secret Stamp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Top Secret Stamp.ttf"; sourceTree = "<group>"; };
 		CA814BB4217F62810009D072 /* Spynames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spynames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA814BB7217F62810009D072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA814BB9217F62810009D072 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
@@ -40,7 +35,6 @@
 		CA814BC3217F62820009D072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeVC.swift; sourceTree = "<group>"; };
 		CA814BCF217F71DD0009D072 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
-		CAB9E816217F906C002148CD /* ARIALUNI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARIALUNI.TTF; sourceTree = "<group>"; };
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,11 +60,8 @@
 		CA3528F321822F03005C489B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				CA3528FE21873C54005C489B /* TruenoBd.otf */,
-				CA3528FC21873C22005C489B /* HiBd.otf */,
-				CA3528FA21873BAA005C489B /* Hi.otf */,
+				CA35290021874162005C489B /* Top Secret Stamp.ttf */,
 				CA3528F62182319B005C489B /* Google-spies.ttf */,
-				CAB9E816217F906C002148CD /* ARIALUNI.TTF */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -186,13 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA3528F72182319B005C489B /* Google-spies.ttf in Resources */,
-				CA3528FF21873C54005C489B /* TruenoBd.otf in Resources */,
+				CA35290121874162005C489B /* Top Secret Stamp.ttf in Resources */,
 				CA814BC2217F62820009D072 /* LaunchScreen.storyboard in Resources */,
 				CA814BBF217F62820009D072 /* Assets.xcassets in Resources */,
-				CAB9E817217F906C002148CD /* ARIALUNI.TTF in Resources */,
-				CA3528FB21873BAA005C489B /* Hi.otf in Resources */,
 				CA814BBD217F62810009D072 /* Main.storyboard in Resources */,
-				CA3528FD21873C22005C489B /* HiBd.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
