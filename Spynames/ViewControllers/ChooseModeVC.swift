@@ -12,24 +12,12 @@ class ChooseModeVC: UIViewController {
 
     @IBOutlet weak var threeDevicesBtn: MyButton!
     @IBOutlet weak var fourDevicesBtn: MyButton!
+    @IBOutlet weak var titleLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.makeAllButtonsRound(cornerRadius: K.cornerRadius)
-        
+        view.makeAllButtonsRound(cornerRadius: K.cornerRadius, color: K.Colors.foreground, sound: K.Sounds.click)
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
+        titleLabel.textColor = K.Colors.foreground
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

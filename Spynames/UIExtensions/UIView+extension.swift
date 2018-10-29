@@ -1,17 +1,10 @@
-//
-//  UIView+extension.swift
-//  Верю-Не-верю
-//
-//  Created by Dmitry Dementyev on 30.08.2018.
-//  Copyright © 2018 Dmitry Dementyev. All rights reserved.
-//
-
 import UIKit
+import AVFoundation
 
 extension UIView {
-    func makeAllButtonsRound(cornerRadius:  CGFloat? = nil) {
+    func makeAllButtonsRound(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, sound: AVAudioPlayer? = nil) {
         for case let button as MyButton in self.subviews {
-            button.makeRounded(cornerRadius: cornerRadius)
+            button.makeRounded(cornerRadius: cornerRadius, color: color, sound: sound)
         }
     }
     func setForAllImages(tintColor: UIColor) {

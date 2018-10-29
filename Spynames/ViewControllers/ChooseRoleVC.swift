@@ -15,22 +15,18 @@ class ChooseRoleVC: UIViewController {
     @IBOutlet weak var blueSpymasterBtn: MyButton!
     @IBOutlet weak var redOperBtn: MyButton!
     @IBOutlet weak var blueOperBtn: MyButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnsView.makeAllButtonsRound()
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
+        titleLabel.textColor = K.Colors.foreground
+        initBtns()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func initBtns() {
+        redSpymasterBtn.makeRounded(color: K.Colors.redDarker, sound: K.Sounds.click)
+        redOperBtn.makeRounded(color: K.Colors.redDarker, sound: K.Sounds.click)
+        blueSpymasterBtn.makeRounded(color: K.Colors.blueDarker, sound: K.Sounds.click)
+        blueOperBtn.makeRounded(color: K.Colors.blueDarker, sound: K.Sounds.click)
     }
-    */
-
 }
