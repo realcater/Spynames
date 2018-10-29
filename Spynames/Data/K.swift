@@ -2,7 +2,7 @@ import UIKit
 
 struct K {
     static let useSmallerFonts = (UIScreen.main.currentMode!.size.width >= 750) ? false : true
-    static let cornerRadius : CGFloat = 16
+    static let cornerRadius : CGFloat = 32
     
     struct Colors {
         static let foreground = UIColor(red: 0, green: 110/256, blue: 182/256, alpha: 1)
