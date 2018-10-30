@@ -2,9 +2,9 @@ import UIKit
 import AVFoundation
 
 extension UIView {
-    func makeAllButtonsRound(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, sound: AVAudioPlayer? = nil) {
+    func makeAllButtonsRound(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
         for case let button as MyButton in self.subviews {
-            button.makeRounded(cornerRadius: cornerRadius, color: color, sound: sound)
+            button.makeRounded(cornerRadius: cornerRadius, color: color, font: font, sound: sound)
         }
     }
     func setForAllImages(tintColor: UIColor) {
@@ -34,14 +34,5 @@ extension UIView {
             backgroundImageView.alpha = alpha
             insertSubview(backgroundImageView, at: 0)
         }
-    }
-    func doubleColor(color1: UIColor, color2: UIColor) {
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
-        //gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        //gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        //gradientLayer.locations = [0, 1.0]
-        gradientLayer.colors = [color1, color2]
-        layer.insertSublayer(gradientLayer, at: 0)
     }
 }

@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Spynames
-//
-//  Created by Dmitry Dementyev on 23/10/2018.
-//  Copyright © 2018 Dmitry Dementyev. All rights reserved.
-//
-
 import UIKit
 
 class StartVC: UIViewController {
@@ -19,18 +11,29 @@ class StartVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.makeAllButtonsRound(color: K.Colors.foreground, sound: K.Sounds.click)
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
-        view.doubleColor(color1: K.Colors.blueDarker, color2: K.Colors.redDarker)
-        titleLabel.textColor = K.Colors.foreground
+        prepareTitle()
+        prepareButtons()
         prepareNavigationBar()
-        leftSpyImg.tintColor = K.Colors.blueDarker
-        rightSpyImg.tintColor = K.Colors.redDarker
+        prepareImages()
     }
     private func prepareNavigationBar() {
         self.navigationController?.makeInvisible()
-        navigationController?.navigationBar.titleTextAttributes = [NSMutableAttributedString.Key.font: K.Fonts.navi!, NSMutableAttributedString.Key.foregroundColor :K.Colors.foreground]
         self.navigationController?.navigationBar.tintColor = K.Colors.foreground
+    }
+    private func prepareImages() {
+        leftSpyImg.tintColor = K.Colors.blueDarker
+        rightSpyImg.tintColor = K.Colors.redDarker
+    }
+    private func prepareButtons() {
+        newGameBtn.setTitle(K.Labels.Buttons.newGame, for: .normal)
+        joinGameBtn.setTitle(K.Labels.Buttons.joinGame, for: .normal)
+        helpBtn.setTitle(K.Labels.Buttons.howToPlay, for: .normal)
+        view.makeAllButtonsRound(color: K.Colors.foreground, font: K.Fonts.Buttons.startVC, sound: K.Sounds.click)
+    }
+    private func prepareTitle() {
+        titleLabel.textColor = K.Colors.foreground
+        titleLabel.font = K.Fonts.Titles.startVC
     }
 }
 

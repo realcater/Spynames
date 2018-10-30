@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GradientButton.setGradient(topGradientColor:bottomGradientColor:):GradientButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "layer.cornerRadius">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyButton.doubleColor(color1:color2:):MyButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "gradient.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

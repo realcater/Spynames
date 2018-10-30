@@ -1,11 +1,3 @@
-//
-//  ChooseGameVC.swift
-//  Spynames
-//
-//  Created by Dmitry Dementyev on 23/10/2018.
-//  Copyright © 2018 Dmitry Dementyev. All rights reserved.
-//
-
 import UIKit
 
 class ChooseModeVC: UIViewController {
@@ -16,8 +8,17 @@ class ChooseModeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.makeAllButtonsRound(cornerRadius: K.cornerRadius, color: K.Colors.foreground, sound: K.Sounds.click)
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
+        prepareButtons()
+        prepareTitle()
+    }
+    private func prepareButtons() {
+        threeDevicesBtn.setTitle(K.Labels.Buttons.threeDevices, for: .normal)
+        fourDevicesBtn.setTitle(K.Labels.Buttons.fourDevices, for: .normal)
+        view.makeAllButtonsRound(cornerRadius: K.cornerRadius, color: K.Colors.foreground,  font: K.Fonts.Buttons.chooseModeVC, sound: K.Sounds.click)
+    }
+    private func prepareTitle() {
         titleLabel.textColor = K.Colors.foreground
+        titleLabel.font = K.Fonts.Titles.defaultVC
     }
 }

@@ -1,11 +1,3 @@
-//
-//  ChooseRoleVC.swift
-//  Spynames
-//
-//  Created by Dmitry Dementyev on 24/10/2018.
-//  Copyright © 2018 Dmitry Dementyev. All rights reserved.
-//
-
 import UIKit
 
 class ChooseRole3dVC: UIViewController {
@@ -18,13 +10,17 @@ class ChooseRole3dVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
-        titleLabel.textColor = K.Colors.foreground
-        initBtns()
+        prepareBtns()
+        prepareTitle()
     }
-    private func initBtns() {
-        redSpymasterBtn.makeRounded(color: K.Colors.redDarker, sound: K.Sounds.click)
-        blueSpymasterBtn.makeRounded(color: K.Colors.blueDarker, sound: K.Sounds.click)
-        operBtn.makeRounded(sound: K.Sounds.click)
+    private func prepareBtns() {
+        redSpymasterBtn.makeRounded(color: K.Colors.redDarker, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
+        blueSpymasterBtn.makeRounded(color: K.Colors.blueDarker, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
+        operBtn.makeRounded(font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
         operBtn.makeDoubleColor(topColor: K.Colors.redDarker, bottomColor: K.Colors.blueDarker)
+    }
+    private func prepareTitle() {
+        titleLabel.textColor = K.Colors.foreground
+        titleLabel.font = K.Fonts.Titles.defaultVC
     }
 }

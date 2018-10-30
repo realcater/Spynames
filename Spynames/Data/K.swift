@@ -9,7 +9,6 @@ struct K {
         //static let correct = initSound(filename: "true.wav", volume: 0.2)
         //static let error = initSound(filename: "false.wav", volume: 0.5)
     }
-    
     struct Colors {
         static let blueLighter = UIColor(red: 0, green: 165/256, blue: 1, alpha: 1)
         static let blueNormal = UIColor(red: 0, green: 110/256, blue: 182/256, alpha: 1)
@@ -17,30 +16,36 @@ struct K {
         static let redDarker = UIColor(red: 148/256, green: 17/256, blue: 0, alpha: 1)
         
         static let foreground = blueDarker
-        static let background = UIColor.white
-        static let gray = UIColor.gray
     }
     struct Labels {
         struct Buttons {
-            static let startSingleGame = "Играем соло"
+            static let newGame = "New game"
+            static let joinGame = "Join a game"
+            static let howToPlay = "How to play"
+            static let threeDevices = "3 Devices"
+            static let fourDevices = "4 Devices"
+            static let redSpymaster = "Red Spymaster"
+            static let blueSpymaster = "Blue Spymaster"
+            static let redOperatives = "Red Operatives"
+            static let blueOperatives = "Blue Operatives"
+            static let operatives = "Operatives"
+            
             }
         struct Titles {
-            static let chooseGameMode = "Choose Game Mode"
-            static let startGame = "Spy games!"
+            static let spyNames = "Spy Names"
+            static let chooseGameMode = "Choose game mode"
+            static let chooseDeviceRole = "Choose device role"
             }
         }
     struct Fonts {
-        static let navi = UIFont(name: "Google spies", size: 64)
-        struct Name {
-            //static let systemRegular = UIFont.systemFont(ofSize: 20, weight: .regular).fontName
-            //static let systemSemibold = UIFont.systemFont(ofSize: 20, weight: .semibold).fontName
+        struct Titles {
+            static let startVC = UIFont(name: "Google spies", size: 72)
+            static let defaultVC = UIFont(name: "Google spies", size: 48)
         }
-        struct Size {
-            struct TextView {
-                static let zoomed : CGFloat = 18
-                static let normal : CGFloat = 21
-            }
-            static let naviBar: CGFloat = 20
+        struct Buttons {
+            static let startVC =  UIFont(name: "Top Secret Stamp", size: 32)
+            static let chooseModeVC =  UIFont(name: "Top Secret Stamp", size: 32)
+            static let chooseRole =  UIFont(name: "Top Secret Stamp", size: 28)
         }
     }
     struct Alpha {

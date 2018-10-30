@@ -1,11 +1,3 @@
-//
-//  MyButton+extension.swift
-//  Верю-Не-верю
-//
-//  Created by Dmitry Dementyev on 30.08.2018.
-//  Copyright © 2018 Dmitry Dementyev. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 
@@ -15,16 +7,16 @@ class MyButton: UIButton {
     @objc func playClickSound(_ sender: MyButton) {
         sound?.play()
     }
-    func makeRounded(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, textColor: UIColor? = nil, sound: AVAudioPlayer? = nil) {
-        
+    func makeRounded(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, textColor: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
         if let cornerRadius = cornerRadius {
-            self.layer.cornerRadius = cornerRadius
+            layer.cornerRadius = cornerRadius
         } else {
-            self.layer.cornerRadius = 0.5 * self.bounds.size.height
+            layer.cornerRadius = 0.5 * self.bounds.size.height
         }
-        if let color = color { self.backgroundColor = color }
-        if let textColor = textColor { self.setTitleColor(textColor, for: .normal) }
-        if let sound = sound { self.turnClickSoundOn(sound: sound) }
+        if let color = color { backgroundColor = color }
+        if let textColor = textColor { setTitleColor(textColor, for: .normal) }
+        if let font = font { titleLabel?.font = font }
+        if let sound = sound { turnClickSoundOn(sound: sound) }
     }
     func turnClickSoundOn(sound: AVAudioPlayer?) {
         self.addTarget(self, action: #selector(playClickSound), for: .touchDown)
