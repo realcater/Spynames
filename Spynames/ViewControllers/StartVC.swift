@@ -21,6 +21,7 @@ class StartVC: UIViewController {
         super.viewDidLoad()
         view.makeAllButtonsRound(color: K.Colors.foreground, sound: K.Sounds.click)
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
+        view.doubleColor(color1: K.Colors.blueDarker, color2: K.Colors.redDarker)
         titleLabel.textColor = K.Colors.foreground
         prepareNavigationBar()
         leftSpyImg.tintColor = K.Colors.blueDarker

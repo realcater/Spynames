@@ -16,6 +16,7 @@ class MyButton: UIButton {
         sound?.play()
     }
     func makeRounded(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, textColor: UIColor? = nil, sound: AVAudioPlayer? = nil) {
+        
         if let cornerRadius = cornerRadius {
             self.layer.cornerRadius = cornerRadius
         } else {
@@ -24,7 +25,6 @@ class MyButton: UIButton {
         if let color = color { self.backgroundColor = color }
         if let textColor = textColor { self.setTitleColor(textColor, for: .normal) }
         if let sound = sound { self.turnClickSoundOn(sound: sound) }
-        
     }
     func turnClickSoundOn(sound: AVAudioPlayer?) {
         self.addTarget(self, action: #selector(playClickSound), for: .touchDown)
@@ -39,5 +39,17 @@ class MyButton: UIButton {
         } else {
             self.removeTarget(nil, action: nil, for: .touchDown)
         }
+    }
+    func makeDoubleColor(topColor: UIColor, bottomColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.locations = [0, 0.5, 0.5, 1.0]
+        gradientLayer.colors = [topColor.cgColor, topColor.cgColor,
+                                bottomColor.cgColor, bottomColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        layer.masksToBounds = true
+        layer.insertSublayer(gradientLayer, at: 0)
+        if let imageView = imageView { bringSubviewToFront(imageView) }
     }
 }

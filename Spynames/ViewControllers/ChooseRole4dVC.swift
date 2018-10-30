@@ -8,9 +8,8 @@
 
 import UIKit
 
-class ChooseRoleVC: UIViewController {
+class ChooseRole4dVC: UIViewController {
 
-    @IBOutlet weak var btnsView: UIView!
     @IBOutlet weak var redSpymasterBtn: MyButton!
     @IBOutlet weak var blueSpymasterBtn: MyButton!
     @IBOutlet weak var redOperBtn: MyButton!

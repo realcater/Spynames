@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA3528EF2180BD1D005C489B /* ChooseRoleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528EE2180BD1D005C489B /* ChooseRoleVC.swift */; };
+		CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */; };
 		CA3528F2218226A5005C489B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528F1218226A5005C489B /* K.swift */; };
 		CA3528F72182319B005C489B /* Google-spies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3528F62182319B005C489B /* Google-spies.ttf */; };
 		CA35290121874162005C489B /* Top Secret Stamp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA35290021874162005C489B /* Top Secret Stamp.ttf */; };
@@ -24,10 +24,11 @@
 		CAD84F0F21875FD200E6C6E0 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = CAD84F0C21875FD200E6C6E0 /* click.wav */; };
 		CAD84F1021875FD200E6C6E0 /* false.wav in Resources */ = {isa = PBXBuildFile; fileRef = CAD84F0D21875FD200E6C6E0 /* false.wav */; };
 		CAD84F142187602B00E6C6E0 /* AVAudioPlayer+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD84F132187602B00E6C6E0 /* AVAudioPlayer+extension.swift */; };
+		CAD84F1821879AE400E6C6E0 /* ChooseRole3dVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD84F1721879AE400E6C6E0 /* ChooseRole3dVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA3528EE2180BD1D005C489B /* ChooseRoleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRoleVC.swift; sourceTree = "<group>"; };
+		CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRole4dVC.swift; sourceTree = "<group>"; };
 		CA3528F1218226A5005C489B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CA3528F62182319B005C489B /* Google-spies.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Google-spies.ttf"; sourceTree = "<group>"; };
 		CA35290021874162005C489B /* Top Secret Stamp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Top Secret Stamp.ttf"; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		CAD84F0C21875FD200E6C6E0 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
 		CAD84F0D21875FD200E6C6E0 /* false.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = false.wav; sourceTree = "<group>"; };
 		CAD84F132187602B00E6C6E0 /* AVAudioPlayer+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioPlayer+extension.swift"; sourceTree = "<group>"; };
+		CAD84F1721879AE400E6C6E0 /* ChooseRole3dVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRole3dVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +117,8 @@
 			children = (
 				CA814BB9217F62810009D072 /* StartVC.swift */,
 				CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */,
-				CA3528EE2180BD1D005C489B /* ChooseRoleVC.swift */,
+				CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */,
+				CAD84F1721879AE400E6C6E0 /* ChooseRole3dVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -125,8 +128,8 @@
 			children = (
 				CAB9E818217F9C4E002148CD /* UIView+extension.swift */,
 				CAD84F132187602B00E6C6E0 /* AVAudioPlayer+extension.swift */,
-				CA814BCF217F71DD0009D072 /* MyButton.swift */,
 				CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */,
+				CA814BCF217F71DD0009D072 /* MyButton.swift */,
 			);
 			path = UIExtensions;
 			sourceTree = "<group>";
@@ -222,7 +225,8 @@
 				CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */,
 				CAD84F0921875A7F00E6C6E0 /* UINavigationController+extension.swift in Sources */,
 				CA814BBA217F62810009D072 /* StartVC.swift in Sources */,
-				CA3528EF2180BD1D005C489B /* ChooseRoleVC.swift in Sources */,
+				CAD84F1821879AE400E6C6E0 /* ChooseRole3dVC.swift in Sources */,
+				CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */,
 				CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */,
 				CA814BD0217F71DD0009D072 /* MyButton.swift in Sources */,
 				CAD84F142187602B00E6C6E0 /* AVAudioPlayer+extension.swift in Sources */,
