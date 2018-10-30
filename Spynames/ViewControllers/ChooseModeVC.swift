@@ -20,5 +20,6 @@ class ChooseModeVC: UIViewController {
     private func prepareTitle() {
         titleLabel.textColor = K.Colors.foreground
         titleLabel.font = K.Fonts.Titles.defaultVC
+        titleLabel.text = K.Labels.Titles.chooseGameMode
     }
 }

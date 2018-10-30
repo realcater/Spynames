@@ -220,7 +220,7 @@
                                     <constraint firstAttribute="width" constant="260" id="FR1-Lq-Zyv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="28"/>
-                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title=" Red Spymaster" image="Crown1-80px"/>
                                 <state key="highlighted">
@@ -359,7 +359,7 @@
                                     <constraint firstAttribute="height" constant="40" id="aMY-zm-A9B"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="28"/>
-                                <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title=" Red Spymaster" image="Crown1-80px"/>
                                 <state key="highlighted">

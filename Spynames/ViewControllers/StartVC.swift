@@ -34,6 +34,7 @@ class StartVC: UIViewController {
     private func prepareTitle() {
         titleLabel.textColor = K.Colors.foreground
         titleLabel.font = K.Fonts.Titles.startVC
+        titleLabel.text = K.Labels.Titles.spyNames
     }
 }
 

@@ -18,9 +18,14 @@ class ChooseRole3dVC: UIViewController {
         blueSpymasterBtn.makeRounded(color: K.Colors.blueDarker, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
         operBtn.makeRounded(font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
         operBtn.makeDoubleColor(topColor: K.Colors.redDarker, bottomColor: K.Colors.blueDarker)
+        
+        redSpymasterBtn.setTitle(K.Labels.Buttons.redSpymaster, for: .normal)
+        blueSpymasterBtn.setTitle(K.Labels.Buttons.blueSpymaster, for: .normal)
+        operBtn.setTitle(K.Labels.Buttons.operatives, for: .normal)
     }
     private func prepareTitle() {
         titleLabel.textColor = K.Colors.foreground
         titleLabel.font = K.Fonts.Titles.defaultVC
+        titleLabel.text = K.Labels.Titles.chooseDeviceRole
     }
 }
