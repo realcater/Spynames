@@ -74,8 +74,8 @@ class GameCreatedVC: UIViewController {
         blueOperativesStatusImage.tintColor = K.Colors.blueDarker
         redOperativesStatusImage.tintColor = K.Colors.redDarker
         
-        blueSpymasterStatusImage.rotate(duration: 6)
-        redOperativesStatusImage.rotate(duration: 6)
-        blueOperativesStatusImage.rotate(duration: 6)
+        blueSpymasterStatusImage.rotate(duration: K.Durations.clockTurnAround)
+        redOperativesStatusImage.rotate(duration: K.Durations.clockTurnAround)
+        blueOperativesStatusImage.rotate(duration: K.Durations.clockTurnAround)
     }
 }
