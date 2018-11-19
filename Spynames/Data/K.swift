@@ -62,6 +62,6 @@ struct K {
         static let joined = "joined-icon-80px"
     }
     struct Durations {
-        static let clockTurnAround = 16.0
+        static let clockTurnAround = 4.0
     }
 }
