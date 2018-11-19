@@ -14,8 +14,11 @@ struct K {
         static let blueNormal = UIColor(red: 0, green: 110/256, blue: 182/256, alpha: 1)
         static let blueDarker = UIColor(red: 0, green: 73/256, blue: 121/256, alpha: 1)
         static let redDarker = UIColor(red: 148/256, green: 17/256, blue: 0, alpha: 1)
+        static let green = UIColor(red: 0, green: 110/256, blue: 0, alpha: 1)
+        static let gray = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
         
         static let foreground = blueDarker
+        static let buttonsText = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     }
     struct Labels {
         struct Buttons {
@@ -29,6 +32,7 @@ struct K {
             static let redOperatives = "Red Operatives"
             static let blueOperatives = "Blue Operatives"
             static let operatives = "Operatives"
+            static let startGame = "Start a game!"
             
             }
         struct Titles {
@@ -55,5 +59,6 @@ struct K {
     }
     struct FileNames {
         static let background = "textBackground"
+        static let joined = "joined-icon-80px"
     }
 }
