@@ -16,20 +16,26 @@ class GameCreatedVC: UIViewController {
     @IBOutlet var statusImages: [UIImageView]?
     
     var devices: [Device]!
+    var gameIsReady = false
     
     @IBAction func waitOrStartGameBtnPressed(_ sender: Any) {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-            self.devices[1].status = .joined
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-            self.devices[2].status = .joined
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.devices[3].status = .joined
-        })
-        waitOrStartGameBtn.setTitle(K.Labels.Buttons.startGame, for: .normal)
-        waitOrStartGameBtn.backgroundColor = K.Colors.foreground
+        if gameIsReady {
+            performSegue(withIdentifier: "startGame", sender: sender)
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.devices[1].status = .joined
+            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                self.devices[2].status = .joined
+            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                self.devices[3].status = .joined
+            })
+            waitOrStartGameBtn.setTitle(K.Labels.Buttons.startGame, for: .normal)
+            waitOrStartGameBtn.backgroundColor = K.Colors.foreground
+            gameIsReady = true
+        }
     }
     
     override func viewDidLoad() {
