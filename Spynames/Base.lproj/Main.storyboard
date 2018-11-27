@@ -325,9 +325,10 @@
         <!--Navigation Controller-->
         <scene sceneID="NI8-ND-Y9S">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="X4e-oy-7to" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X4e-oy-7to" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZNX-h8-lvI">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -707,19 +708,19 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="AQi-kT-I5c"/>
                     <connections>
-                        <outlet property="blueOperativesImage" destination="O5C-R2-beN" id="VIl-Xv-s5g"/>
-                        <outlet property="blueOperativesLabel" destination="XYO-y3-oqY" id="yGm-8m-09S"/>
-                        <outlet property="blueOperativesStatusImage" destination="Afz-fK-hJS" id="EAY-Lo-q2M"/>
-                        <outlet property="blueSpymasterImage" destination="p4Z-gk-9hv" id="jFG-Xe-fKW"/>
-                        <outlet property="blueSpymasterLabel" destination="iW8-uy-LPs" id="ZSf-Wh-dsP"/>
-                        <outlet property="blueSpymasterStatusImage" destination="pqG-qt-fO0" id="007-q7-7pn"/>
-                        <outlet property="redOperativesImage" destination="M5t-AN-Zo3" id="w2C-rN-a2K"/>
-                        <outlet property="redOperativesLabel" destination="lfN-JI-cQg" id="z5j-LY-F3C"/>
-                        <outlet property="redOperativesStatusImage" destination="cf4-UY-IDf" id="Act-pr-XaT"/>
-                        <outlet property="redSpymasterImage" destination="nSd-rv-N5n" id="TwY-Oy-shv"/>
-                        <outlet property="redSpymasterLabel" destination="haU-C5-mtd" id="TMn-Kw-aeP"/>
-                        <outlet property="redSpymasterStatusImage" destination="gTJ-hw-gFR" id="mYa-LN-X84"/>
                         <outlet property="waitOrStartGameBtn" destination="a5J-3l-TTC" id="47n-YI-FKg"/>
+                        <outletCollection property="images" destination="nSd-rv-N5n" collectionClass="NSMutableArray" id="GH1-Tv-JNb"/>
+                        <outletCollection property="images" destination="p4Z-gk-9hv" collectionClass="NSMutableArray" id="ZTB-5o-GxT"/>
+                        <outletCollection property="images" destination="M5t-AN-Zo3" collectionClass="NSMutableArray" id="RHZ-cj-tMF"/>
+                        <outletCollection property="images" destination="O5C-R2-beN" collectionClass="NSMutableArray" id="6FO-ph-F4i"/>
+                        <outletCollection property="labels" destination="haU-C5-mtd" collectionClass="NSMutableArray" id="XLT-0R-O2H"/>
+                        <outletCollection property="labels" destination="iW8-uy-LPs" collectionClass="NSMutableArray" id="4T5-Kf-n2H"/>
+                        <outletCollection property="labels" destination="lfN-JI-cQg" collectionClass="NSMutableArray" id="gEY-Ck-uXI"/>
+                        <outletCollection property="labels" destination="XYO-y3-oqY" collectionClass="NSMutableArray" id="syd-RK-xwB"/>
+                        <outletCollection property="statusImages" destination="gTJ-hw-gFR" collectionClass="NSMutableArray" id="i8Y-aL-b8b"/>
+                        <outletCollection property="statusImages" destination="pqG-qt-fO0" collectionClass="NSMutableArray" id="x9o-CU-9g1"/>
+                        <outletCollection property="statusImages" destination="cf4-UY-IDf" collectionClass="NSMutableArray" id="4pK-y3-Vbb"/>
+                        <outletCollection property="statusImages" destination="Afz-fK-hJS" collectionClass="NSMutableArray" id="Tin-Kx-FB9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JfO-fE-5Xs" userLabel="First Responder" sceneMemberID="firstResponder"/>

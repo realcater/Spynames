@@ -1,6 +1,17 @@
 import UIKit
 
+
+
 struct K {
+    static let allDeviceRoles = [DeviceRoles.redSpymaster,
+                                 DeviceRoles.blueSpymaster,
+                                 DeviceRoles.redOperatives,
+                                 DeviceRoles.blueOperatives
+    ]
+    static let imageForDeviceConnectStatus = [DeviceConnectStatus.you: "you-icon-80px",
+                                                  DeviceConnectStatus.joined: "joined-icon-80px",
+                                                  DeviceConnectStatus.waited: "wait-S80px"]
+    
     static let useSmallerFonts = (UIScreen.main.currentMode!.size.width >= 750) ? false : true
     static let cornerRadius : CGFloat = 32
     
@@ -19,6 +30,11 @@ struct K {
         
         static let foreground = blueDarker
         static let buttonsText = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        static let forRole = [DeviceRoles.redSpymaster: redDarker,
+                                  DeviceRoles.blueSpymaster: blueDarker,
+                                  DeviceRoles.redOperatives: redDarker,
+                                  DeviceRoles.blueOperatives: blueDarker
+                                  ]
     }
     struct Labels {
         struct Buttons {

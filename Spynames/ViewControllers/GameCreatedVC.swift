@@ -11,33 +11,22 @@ import UIKit
 class GameCreatedVC: UIViewController {
 
     @IBOutlet weak var waitOrStartGameBtn: MyButton!
+    @IBOutlet var labels: [UILabel]?
+    @IBOutlet var images: [UIImageView]?
+    @IBOutlet var statusImages: [UIImageView]?
     
-    @IBOutlet weak var redSpymasterLabel: UILabel!
-    @IBOutlet weak var blueSpymasterLabel: UILabel!
-    @IBOutlet weak var redOperativesLabel: UILabel!
-    @IBOutlet weak var blueOperativesLabel: UILabel!
-    @IBOutlet weak var redSpymasterImage: UIImageView!
-    @IBOutlet weak var blueSpymasterImage: UIImageView!
-    @IBOutlet weak var redOperativesImage: UIImageView!
-    @IBOutlet weak var blueOperativesImage: UIImageView!
-    @IBOutlet weak var redSpymasterStatusImage: UIImageView!
-    @IBOutlet weak var blueSpymasterStatusImage: UIImageView!
-    @IBOutlet weak var blueOperativesStatusImage: UIImageView!
-    @IBOutlet weak var redOperativesStatusImage: UIImageView!
+    var devices: [Device]!
+    
     @IBAction func waitOrStartGameBtnPressed(_ sender: Any) {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-            self.blueSpymasterStatusImage.stopRotating()
-            self.blueSpymasterStatusImage.image = UIImage(named: K.FileNames.joined)
-            
+            self.devices[1].status = .joined
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-            self.redOperativesStatusImage.stopRotating()
-            self.redOperativesStatusImage.image = UIImage(named: K.FileNames.joined)
+            self.devices[2].status = .joined
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.blueOperativesStatusImage.stopRotating()
-            self.blueOperativesStatusImage.image = UIImage(named: K.FileNames.joined)
+            self.devices[3].status = .joined
         })
         waitOrStartGameBtn.setTitle(K.Labels.Buttons.startGame, for: .normal)
         waitOrStartGameBtn.backgroundColor = K.Colors.foreground
@@ -47,35 +36,21 @@ class GameCreatedVC: UIViewController {
         super.viewDidLoad()
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
         waitOrStartGameBtn.makeRounded()
-        setUpLabels()
+        setUpDevices()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    private func setUpLabels() {
-        //view.setForAllImages(tintColor: K.Colors.icons)
-        redSpymasterLabel.backgroundColor = .clear
-        blueSpymasterLabel.backgroundColor = .clear
-        redOperativesLabel.backgroundColor = .clear
-        blueOperativesLabel.backgroundColor = .clear
-        
-        redSpymasterLabel.textColor = K.Colors.redDarker
-        blueSpymasterLabel.textColor = K.Colors.blueDarker
-        redOperativesLabel.textColor = K.Colors.redDarker
-        blueOperativesLabel.textColor = K.Colors.blueDarker
-        
-        redSpymasterImage.tintColor = K.Colors.redDarker
-        blueSpymasterImage.tintColor = K.Colors.blueDarker
-        redOperativesImage.tintColor = K.Colors.redDarker
-        blueOperativesImage.tintColor = K.Colors.blueDarker
-        
-        redSpymasterStatusImage.tintColor = K.Colors.redDarker
-        blueSpymasterStatusImage.tintColor = K.Colors.blueDarker
-        blueOperativesStatusImage.tintColor = K.Colors.blueDarker
-        redOperativesStatusImage.tintColor = K.Colors.redDarker
-        
-        blueSpymasterStatusImage.rotate(duration: K.Durations.clockTurnAround)
-        redOperativesStatusImage.rotate(duration: K.Durations.clockTurnAround)
-        blueOperativesStatusImage.rotate(duration: K.Durations.clockTurnAround)
+    private func setUpDevices() {
+        devices = [
+            Device(role: .redSpymaster, label: (labels?[0])!,
+                   image: (images?[0])!, statusImage: (statusImages?[0])!),
+            Device(role: .blueSpymaster, label: (labels?[1])!,
+                   image: (images?[1])!, statusImage: (statusImages?[1])!),
+            Device(role: .redOperatives, label: (labels?[2])!,
+                   image: (images?[2])!, statusImage: (statusImages?[2])!),
+            Device(role: .blueOperatives, label: (labels?[3])!,
+                   image: (images?[3])!, statusImage: (statusImages?[3])!)
+        ]
     }
 }

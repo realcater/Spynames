@@ -20,6 +20,7 @@
 		CA814BD0217F71DD0009D072 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCF217F71DD0009D072 /* MyButton.swift */; };
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
 		CAC1513E2188F2B400FA96CA /* GameCreatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */; };
+		CACA1F3C21A379B600DED049 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1F3B21A379B600DED049 /* Device.swift */; };
 		CAD28AF9219A09E9004C684A /* UIRotatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */; };
 		CAD84F0921875A7F00E6C6E0 /* UINavigationController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */; };
 		CAD84F0E21875FD200E6C6E0 /* true.wav in Resources */ = {isa = PBXBuildFile; fileRef = CAD84F0B21875FD100E6C6E0 /* true.wav */; };
@@ -45,6 +46,7 @@
 		CA814BCF217F71DD0009D072 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreatedVC.swift; sourceTree = "<group>"; };
+		CACA1F3B21A379B600DED049 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRotatedImageView.swift; sourceTree = "<group>"; };
 		CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+extension.swift"; sourceTree = "<group>"; };
 		CAD84F0B21875FD100E6C6E0 /* true.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = true.wav; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				CA3528F1218226A5005C489B /* K.swift */,
+				CACA1F3B21A379B600DED049 /* Device.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CACA1F3C21A379B600DED049 /* Device.swift in Sources */,
 				CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */,
 				CA3528F2218226A5005C489B /* K.swift in Sources */,
 				CAD28AF9219A09E9004C684A /* UIRotatedImageView.swift in Sources */,
