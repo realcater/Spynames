@@ -20,6 +20,7 @@
 		CA814BD0217F71DD0009D072 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCF217F71DD0009D072 /* MyButton.swift */; };
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
 		CAC1513E2188F2B400FA96CA /* GameCreatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */; };
+		CAC9504E21B64B00002262BA /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9504D21B64B00002262BA /* Chat.swift */; };
 		CACA1F3C21A379B600DED049 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1F3B21A379B600DED049 /* Device.swift */; };
 		CACA1F3E21ADDA1200DED049 /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1F3D21ADDA1200DED049 /* mainVC.swift */; };
 		CAD28AF9219A09E9004C684A /* UIRotatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */; };
@@ -47,6 +48,7 @@
 		CA814BCF217F71DD0009D072 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreatedVC.swift; sourceTree = "<group>"; };
+		CAC9504D21B64B00002262BA /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		CACA1F3B21A379B600DED049 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		CACA1F3D21ADDA1200DED049 /* mainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
 		CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRotatedImageView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			children = (
 				CA3528F1218226A5005C489B /* K.swift */,
 				CACA1F3B21A379B600DED049 /* Device.swift */,
+				CAC9504D21B64B00002262BA /* Chat.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				CACA1F3E21ADDA1200DED049 /* mainVC.swift in Sources */,
 				CAC1513E2188F2B400FA96CA /* GameCreatedVC.swift in Sources */,
 				CAD84F1821879AE400E6C6E0 /* ChooseRole3dVC.swift in Sources */,
+				CAC9504E21B64B00002262BA /* Chat.swift in Sources */,
 				CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */,
 				CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */,
 				CA814BD0217F71DD0009D072 /* MyButton.swift in Sources */,
