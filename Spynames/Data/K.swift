@@ -1,8 +1,7 @@
 import UIKit
 
-
-
 struct K {
+    static let chatWidthDefault: CGFloat = 350
     static let allDeviceRoles = [DeviceRoles.redSpymaster,
                                  DeviceRoles.blueSpymaster,
                                  DeviceRoles.redOperatives,

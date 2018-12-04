@@ -1,9 +1,16 @@
-//
-//  chat.swift
-//  Spynames
-//
-//  Created by Dmitry Dementyev on 04/12/2018.
-//  Copyright © 2018 Dmitry Dementyev. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class Chat {
+    var messages: [Message] = []
+    var width = K.chatWidthDefault
+    var view : UIView
+    
+    init(view: UIView) {
+        self.view = view
+        //self.view.setConstraint(identifier: "chatViewWidth", size: width)
+    }
+    func add(message: Message) {
+        messages.append(message)
+        
+    }
+}
