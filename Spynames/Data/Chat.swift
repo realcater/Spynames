@@ -7,7 +7,7 @@ class Chat {
     
     init(view: UIView) {
         self.view = view
-        //self.view.setConstraint(identifier: "chatViewWidth", size: width)
+        self.view.setConstraint(identifier: "chatViewWidth", size: width)
     }
     func add(message: Message) {
         messages.append(message)

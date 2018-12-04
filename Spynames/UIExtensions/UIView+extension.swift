@@ -21,7 +21,6 @@ extension UIView {
     }
     func setConstraint(identifier: String, size: CGFloat) {
         for constraint in self.constraints {
-            print(constraint.identifier)
             if constraint.identifier == identifier {
                 constraint.constant = size
             }
