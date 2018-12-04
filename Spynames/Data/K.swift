@@ -1,7 +1,7 @@
 import UIKit
 
 struct K {
-    static let chatWidthDefault: CGFloat = 150
+    
     static let allDeviceRoles = [DeviceRoles.redSpymaster,
                                  DeviceRoles.blueSpymaster,
                                  DeviceRoles.redOperatives,
@@ -12,8 +12,20 @@ struct K {
                                                   DeviceConnectStatus.waited: "wait-S80px"]
     
     static let useSmallerFonts = (UIScreen.main.currentMode!.size.width >= 750) ? false : true
-    static let cornerRadius : CGFloat = 32
     
+    
+    struct Sizes {
+        static let cornerRadius : CGFloat = 32
+        struct Chat {
+            static let width: CGFloat = 250
+            static let vertSpace: CGFloat = 8
+            static let border = CGSize(width: 20, height: 10)
+            static let inset = CGSize(width: 21, height: 17)
+            static let widthUsePerc: CGFloat = 0.66
+            static let margin: CGFloat = 8
+            
+        }
+    }
     struct Sounds {
         static let click = initSound(filename: "click.wav", volume: 0.2)
         //static let correct = initSound(filename: "true.wav", volume: 0.2)
@@ -66,6 +78,7 @@ struct K {
             static let chooseModeVC =  UIFont(name: "Top Secret Stamp", size: 32)
             static let chooseRole =  UIFont(name: "Top Secret Stamp", size: 28)
         }
+        static let chat = UIFont.systemFont(ofSize: 18)
     }
     struct Alpha {
         struct Background {
@@ -75,6 +88,8 @@ struct K {
     struct FileNames {
         static let background = "textBackground"
         static let joined = "joined-icon-80px"
+        static let bubbleSent = "bubble_sent"
+        static let bubbleReceived = "bubble_received"
     }
     struct Durations {
         static let clockTurnAround = 4.0

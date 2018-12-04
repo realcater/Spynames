@@ -3,7 +3,7 @@ enum Team {
     case blue
 }
 
-enum Player {
+enum PlayerType {
     case spymaster
     case operatives
 }
@@ -11,12 +11,12 @@ enum Player {
 class Message {
     var text: String
     var team: Team
-    var player: Player
+    var playerType: PlayerType
     var wordsQty: Int?
     
-    init(text: String, team: Team, player: Player) {
+    init(text: String, team: Team, player: PlayerType) {
         self.text = text
         self.team = team
-        self.player = player
+        self.playerType = player
     }
 }
