@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vVa-Qu-fNx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X4e-oy-7to">
     <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -47,6 +47,7 @@
                                 <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="32"/>
                                 <state key="normal" title="New game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="16j-nc-9fW" kind="show" id="iSS-Qg-0l8"/>
@@ -601,7 +602,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyU-2P-00d">
-                                <rect key="frame" x="160" y="120.66666666666669" width="110.33333333333331" height="30"/>
+                                <rect key="frame" x="160" y="120.66666666666669" width="110.66666666666669" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hga-hI-ST0"/>
                                 </constraints>
@@ -619,7 +620,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2113" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpW-Hr-uXw">
-                                <rect key="frame" x="282.33333333333331" y="150.66666666666666" width="98" height="30"/>
+                                <rect key="frame" x="282.66666666666669" y="150.66666666666666" width="98" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="Pls-Vo-uBE"/>
                                     <constraint firstAttribute="height" constant="30" id="bXc-K0-CP8"/>
@@ -629,7 +630,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="app-1726" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZd-n8-4Ui">
-                                <rect key="frame" x="282.33333333333331" y="120.66666666666669" width="98" height="30"/>
+                                <rect key="frame" x="282.66666666666669" y="120.66666666666669" width="98" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="Dc3-Br-tdl"/>
                                     <constraint firstAttribute="height" constant="30" id="LL9-Ps-jCh"/>
@@ -1108,12 +1109,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3a-Ad-6g9" userLabel="rightView">
                                 <rect key="frame" x="662" y="0.0" width="150" height="375"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper_750x400px" translatesAutoresizingMaskIntoConstraints="NO" id="x1S-K7-JhL">
+                                        <rect key="frame" x="-8" y="0.0" width="208" height="375"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="208" id="tW5-m7-Wax"/>
+                                        </constraints>
+                                    </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YuA-Tf-gkW" userLabel="chatView" customClass="ChatView" customModule="Spynames" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="319"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="329"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctC-9E-Ved" customClass="MyButton" customModule="Spynames" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="324" width="110" height="30"/>
+                                        <rect key="frame" x="20" y="334" width="110" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3I9-tp-5wg"/>
@@ -1128,12 +1135,15 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="YuA-Tf-gkW" secondAttribute="trailing" id="5N0-FJ-g2g"/>
                                     <constraint firstAttribute="trailing" secondItem="ctC-9E-Ved" secondAttribute="trailing" constant="20" id="AZ6-50-mKh"/>
-                                    <constraint firstAttribute="bottom" secondItem="ctC-9E-Ved" secondAttribute="bottom" constant="21" id="DUv-DB-7oD"/>
+                                    <constraint firstAttribute="bottom" secondItem="ctC-9E-Ved" secondAttribute="bottom" constant="11" id="DUv-DB-7oD"/>
+                                    <constraint firstItem="x1S-K7-JhL" firstAttribute="leading" secondItem="j3a-Ad-6g9" secondAttribute="leading" constant="-8" id="FJd-2e-H3j"/>
+                                    <constraint firstItem="x1S-K7-JhL" firstAttribute="top" secondItem="j3a-Ad-6g9" secondAttribute="top" id="HXg-Is-ZZh"/>
                                     <constraint firstAttribute="width" constant="150" identifier="chatViewWidth" id="Lzt-oO-QhG"/>
                                     <constraint firstItem="ctC-9E-Ved" firstAttribute="leading" secondItem="j3a-Ad-6g9" secondAttribute="leading" constant="20" id="Ty8-cf-0xz"/>
                                     <constraint firstItem="YuA-Tf-gkW" firstAttribute="top" secondItem="j3a-Ad-6g9" secondAttribute="top" id="V3z-gh-DXM"/>
                                     <constraint firstItem="ctC-9E-Ved" firstAttribute="top" secondItem="YuA-Tf-gkW" secondAttribute="bottom" constant="5" id="l0E-mW-eX0"/>
                                     <constraint firstItem="YuA-Tf-gkW" firstAttribute="leading" secondItem="j3a-Ad-6g9" secondAttribute="leading" id="x2U-7r-3Di"/>
+                                    <constraint firstAttribute="bottom" secondItem="x1S-K7-JhL" secondAttribute="bottom" id="yRV-1I-dn5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1158,7 +1168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Sf-8e-lv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29.23538230884558" y="3269.5999999999999"/>
+            <point key="canvasLocation" x="28.817733990147783" y="3269.5999999999999"/>
         </scene>
     </scenes>
     <resources>
@@ -1168,6 +1178,7 @@
         <image name="Pawn2-80px" width="40" height="40"/>
         <image name="clock-80px" width="40" height="40"/>
         <image name="notes" width="289" height="212"/>
+        <image name="paper_750x400px" width="200" height="375"/>
         <image name="spy_female-v2-3" width="100" height="417"/>
         <image name="spy_male-v2-2" width="100" height="417"/>
         <image name="you-icon-80px" width="40" height="40"/>

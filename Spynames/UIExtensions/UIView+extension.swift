@@ -26,12 +26,15 @@ extension UIView {
             }
         }
     }
-    func setBackgroundImage(named: String, alpha: CGFloat) {
+    func setBackgroundImage(named: String, alpha: CGFloat, tintColor: UIColor? = nil) {
         if let image = UIImage(named: named) {
             let backgroundImageView = UIImageView(frame: self.bounds)
             backgroundImageView.image = image
             backgroundImageView.contentMode = .scaleAspectFill
             backgroundImageView.alpha = alpha
+            if let tintColor = tintColor {
+                backgroundImageView.tintColor = tintColor
+            }
             insertSubview(backgroundImageView, at: 0)
         }
     }

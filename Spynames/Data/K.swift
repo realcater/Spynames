@@ -17,7 +17,7 @@ struct K {
     struct Sizes {
         static let cornerRadius : CGFloat = 32
         struct Chat {
-            static let width: CGFloat = 250
+            static let width: CGFloat = 200
             static let vertSpace: CGFloat = 8
             static let border = CGSize(width: 20, height: 10)
             static let inset = CGSize(width: 21, height: 17)
@@ -38,6 +38,8 @@ struct K {
         static let redDarker = UIColor(red: 148/256, green: 17/256, blue: 0, alpha: 1)
         static let green = UIColor(red: 0, green: 110/256, blue: 0, alpha: 1)
         static let gray = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+        static let Brown = UIColor(red: 190/256, green: 180/256, blue: 150/256, alpha: 1)
+        static let lightBrown = UIColor(red: 240/256, green: 230/256, blue: 200/256, alpha: 1)
         
         static let foreground = blueDarker
         static let buttonsText = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -82,11 +84,11 @@ struct K {
     }
     struct Alpha {
         struct Background {
-            static let main : CGFloat = 0.1
+            static let main : CGFloat = 0.2
         }
     }
     struct FileNames {
-        static let background = "textBackground"
+        static let background = "spy_back_small_1624x750bw"//"textBackground"
         static let joined = "joined-icon-80px"
         static let bubbleSent = "bubble_sent"
         static let bubbleReceived = "bubble_received"
