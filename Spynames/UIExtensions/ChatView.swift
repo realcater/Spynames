@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 class ChatView: UIScrollView {
     var messages: [Message] = []
@@ -56,5 +57,9 @@ class ChatView: UIScrollView {
         self.addSubview(messageView)
         label.center = messageView.center
         self.addSubview(label)
+        
+        self.scrollToBottomIfNeeded()
+        //AudioServicesPlaySystemSound(K.Sounds.messageSoundID)
+        K.Sounds.click?.play()
     }
 }

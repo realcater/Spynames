@@ -33,7 +33,7 @@ class MyButton: UIButton {
             self.removeTarget(nil, action: nil, for: .touchDown)
         }
     }
-    func makeDoubleColor(topColor: UIColor, bottomColor: UIColor) {
+    func makeButtonDoubleColor(topColor: UIColor, bottomColor: UIColor) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
         gradientLayer.locations = [0, 0.5, 0.5, 1.0]

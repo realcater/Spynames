@@ -11,8 +11,8 @@ class StartVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main, tintColor: K.Colors.Brown)
-        view.backgroundColor = K.Colors.lightBrown
+        view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main, tintColor: K.Colors.blueDarker)
+        //view.backgroundColor = K.Colors.lightBrown
         prepareTitle()
         prepareButtons()
         prepareNavigationBar()

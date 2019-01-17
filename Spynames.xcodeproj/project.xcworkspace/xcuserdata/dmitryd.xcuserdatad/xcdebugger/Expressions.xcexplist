@@ -11,6 +11,33 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "UIView.makeAllButtonsRound(cornerRadius:color:font:sound:):UIView+extension.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cornerRadius">
+            </PersistentString>
+            <PersistentString
+               value = "self.subviews">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyButton.makeButtonDoubleColor(topColor:bottomColor:):MyButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.imageView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyButton.makeDoubleColor(topColor:bottomColor:):MyButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.imageView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MyButton.doubleColor(color1:color2:):MyButton.swift">
          <PersistentStrings>
             <PersistentString

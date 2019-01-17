@@ -56,4 +56,26 @@ extension UIView {
             layer.removeAnimation(forKey: UIView.kRotationAnimationKey)
         }
     }
+    func makeDoubleColor(topColor: UIColor, bottomColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.locations = [0, 0.5, 0.5, 1.0]
+        gradientLayer.colors = [topColor.cgColor, topColor.cgColor,
+                                bottomColor.cgColor, bottomColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        layer.masksToBounds = true
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+    func makeDoubleColor(leftColor: UIColor, rightColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.locations = [0, 0.5, 0.5, 1.0]
+        gradientLayer.colors = [leftColor.cgColor, leftColor.cgColor,
+                                rightColor.cgColor, rightColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        layer.masksToBounds = true
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

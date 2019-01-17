@@ -6,7 +6,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "spy_back_small_1624x750.png",
+      "filename" : "paper_600x450px-2.png",
       "scale" : "2x"
     },
     {
@@ -17,8 +17,5 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

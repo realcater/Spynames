@@ -17,6 +17,8 @@ class GameCreatedVC: UIViewController {
     
     var devices: [Device]!
     var gameIsReady = false
+    //paper_600x450px
+    //paper_600x450px-2
     
     @IBAction func waitOrStartGameBtnPressed(_ sender: Any) {
         

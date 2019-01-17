@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 struct K {
     
@@ -16,8 +17,9 @@ struct K {
     
     struct Sizes {
         static let cornerRadius : CGFloat = 32
+        static let cardsCornerRadius : CGFloat = 12
         struct Chat {
-            static let width: CGFloat = 200
+            static let width: CGFloat = 170
             static let vertSpace: CGFloat = 8
             static let border = CGSize(width: 20, height: 10)
             static let inset = CGSize(width: 21, height: 17)
@@ -30,6 +32,7 @@ struct K {
         static let click = initSound(filename: "click.wav", volume: 0.2)
         //static let correct = initSound(filename: "true.wav", volume: 0.2)
         //static let error = initSound(filename: "false.wav", volume: 0.5)
+        static let messageSoundID: SystemSoundID = 1016
     }
     struct Colors {
         static let blueLighter = UIColor(red: 0, green: 165/256, blue: 1, alpha: 1)
@@ -39,7 +42,7 @@ struct K {
         static let green = UIColor(red: 0, green: 110/256, blue: 0, alpha: 1)
         static let gray = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
         static let Brown = UIColor(red: 190/256, green: 180/256, blue: 150/256, alpha: 1)
-        static let lightBrown = UIColor(red: 240/256, green: 230/256, blue: 200/256, alpha: 1)
+        static let lightBrown = UIColor(red: 250/256, green: 240/256, blue: 220/256, alpha: 1)
         
         static let foreground = blueDarker
         static let buttonsText = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -84,14 +87,17 @@ struct K {
     }
     struct Alpha {
         struct Background {
-            static let main : CGFloat = 0.2
+            static let main : CGFloat = 0.1
         }
     }
     struct FileNames {
-        static let background = "spy_back_small_1624x750bw"//"textBackground"
+        static let background = "wood_1624x750"
+        static let mainBackground = "poker-background-1624x750px"
         static let joined = "joined-icon-80px"
         static let bubbleSent = "bubble_sent"
         static let bubbleReceived = "bubble_received"
+        static let leftViewBackground = "paper_750x400px-left"
+        static let rightViewBackground = "paper_750x400px-right"
     }
     struct Durations {
         static let clockTurnAround = 4.0

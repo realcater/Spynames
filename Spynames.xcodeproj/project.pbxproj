@@ -18,6 +18,7 @@
 		CA814BC2217F62820009D072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BC0217F62820009D072 /* LaunchScreen.storyboard */; };
 		CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */; };
 		CA814BD0217F71DD0009D072 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCF217F71DD0009D072 /* MyButton.swift */; };
+		CA88963021CC1CEC00DB26EB /* UIScrollView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */; };
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
 		CAC1513E2188F2B400FA96CA /* GameCreatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */; };
 		CAC9505221B66F2F002262BA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9505121B66F2F002262BA /* Message.swift */; };
@@ -47,6 +48,7 @@
 		CA814BC3217F62820009D072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeVC.swift; sourceTree = "<group>"; };
 		CA814BCF217F71DD0009D072 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+extension.swift"; sourceTree = "<group>"; };
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreatedVC.swift; sourceTree = "<group>"; };
 		CAC9505121B66F2F002262BA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */,
 				CAB9E818217F9C4E002148CD /* UIView+extension.swift */,
+				CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */,
 				CAD84F132187602B00E6C6E0 /* AVAudioPlayer+extension.swift */,
 				CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */,
 				CA814BCF217F71DD0009D072 /* MyButton.swift */,
@@ -246,6 +249,7 @@
 				CAD84F0921875A7F00E6C6E0 /* UINavigationController+extension.swift in Sources */,
 				CA814BBA217F62810009D072 /* StartVC.swift in Sources */,
 				CACA1F3E21ADDA1200DED049 /* MainVC.swift in Sources */,
+				CA88963021CC1CEC00DB26EB /* UIScrollView+extension.swift in Sources */,
 				CAC1513E2188F2B400FA96CA /* GameCreatedVC.swift in Sources */,
 				CAD84F1821879AE400E6C6E0 /* ChooseRole3dVC.swift in Sources */,
 				CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */,
