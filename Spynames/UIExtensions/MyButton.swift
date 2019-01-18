@@ -7,7 +7,7 @@ class MyButton: UIButton {
     @objc func playClickSound(_ sender: MyButton) {
         sound?.play()
     }
-    func makeButtonRounded(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, textColor: UIColor? = nil, tintColor: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
+    func makeRounded(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, textColor: UIColor? = nil, tintColor: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
         if let cornerRadius = cornerRadius {
             layer.cornerRadius = cornerRadius
         } else {
@@ -33,7 +33,7 @@ class MyButton: UIButton {
             self.removeTarget(nil, action: nil, for: .touchDown)
         }
     }
-    func makeButtonDoubleColor(topColor: UIColor, bottomColor: UIColor) {
+    override func makeDoubleColor(topColor: UIColor, bottomColor: UIColor) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
         gradientLayer.locations = [0, 0.5, 0.5, 1.0]

@@ -35,7 +35,7 @@ class MainVC: UIViewController {
 
         prepareChat()
         prepareViews()
-        answerButton.makeButtonRounded(sound: K.Sounds.click)
+        answerButton.makeRounded(sound: K.Sounds.click)
     }
     private func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.blueDarker, rightColor: K.Colors.redDarker)

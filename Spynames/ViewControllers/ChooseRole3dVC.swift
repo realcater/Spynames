@@ -14,10 +14,10 @@ class ChooseRole3dVC: UIViewController {
         prepareTitle()
     }
     private func prepareBtns() {
-        redSpymasterBtn.makeButtonRounded(color: K.Colors.redDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
-        blueSpymasterBtn.makeButtonRounded(color: K.Colors.blueDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
-        operBtn.makeButtonRounded(tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
-        operBtn.makeButtonDoubleColor(topColor: K.Colors.redDarker, bottomColor: K.Colors.blueDarker)
+        redSpymasterBtn.makeRounded(color: K.Colors.redDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
+        blueSpymasterBtn.makeRounded(color: K.Colors.blueDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
+        operBtn.makeRounded(tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
+        operBtn.makeDoubleColor(topColor: K.Colors.redDarker, bottomColor: K.Colors.blueDarker)
         
         redSpymasterBtn.setTitle(K.Labels.Buttons.redSpymaster, for: .normal)
         blueSpymasterBtn.setTitle(K.Labels.Buttons.blueSpymaster, for: .normal)

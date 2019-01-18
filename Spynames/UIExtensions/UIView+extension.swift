@@ -4,7 +4,7 @@ import AVFoundation
 extension UIView {
     func makeAllButtonsRound(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
         for case let button as MyButton in self.subviews {
-            button.makeButtonRounded(cornerRadius: cornerRadius, color: color, font: font, sound: sound)
+            button.makeRounded(cornerRadius: cornerRadius, color: color, font: font, sound: sound)
         }
     }
     func setForAllImages(tintColor: UIColor) {
@@ -56,7 +56,7 @@ extension UIView {
             layer.removeAnimation(forKey: UIView.kRotationAnimationKey)
         }
     }
-    func makeDoubleColor(topColor: UIColor, bottomColor: UIColor) {
+    @objc func makeDoubleColor(topColor: UIColor, bottomColor: UIColor) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
         gradientLayer.locations = [0, 0.5, 0.5, 1.0]
