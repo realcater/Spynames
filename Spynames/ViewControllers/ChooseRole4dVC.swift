@@ -15,10 +15,10 @@ class ChooseRole4dVC: UIViewController {
         prepareTitle()
     }
     private func prepareBtns() {
-        redSpymasterBtn.makeRounded(color: K.Colors.redDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
-        blueSpymasterBtn.makeRounded(color: K.Colors.blueDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
-        redOperBtn.makeRounded(color: K.Colors.redDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
-        blueOperBtn.makeRounded(color: K.Colors.blueDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
+        redSpymasterBtn.makeButtonRounded(color: K.Colors.redDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
+        blueSpymasterBtn.makeButtonRounded(color: K.Colors.blueDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
+        redOperBtn.makeButtonRounded(color: K.Colors.redDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
+        blueOperBtn.makeButtonRounded(color: K.Colors.blueDarker, tintColor: K.Colors.buttonsText, font: K.Fonts.Buttons.chooseRole, sound: K.Sounds.click)
         redSpymasterBtn.setTitle(K.Labels.Buttons.redSpymaster, for: .normal)
         blueSpymasterBtn.setTitle(K.Labels.Buttons.blueSpymaster, for: .normal)
         redOperBtn.setTitle(K.Labels.Buttons.redOperatives, for: .normal)

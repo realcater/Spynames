@@ -7,7 +7,7 @@ class MyButton: UIButton {
     @objc func playClickSound(_ sender: MyButton) {
         sound?.play()
     }
-    func makeRounded(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, textColor: UIColor? = nil, tintColor: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
+    func makeButtonRounded(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, textColor: UIColor? = nil, tintColor: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
         if let cornerRadius = cornerRadius {
             layer.cornerRadius = cornerRadius
         } else {

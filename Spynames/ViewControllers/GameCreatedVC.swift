@@ -43,7 +43,7 @@ class GameCreatedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
-        waitOrStartGameBtn.makeRounded()
+        waitOrStartGameBtn.makeButtonRounded()
         setUpDevices()
     }
     override func viewDidAppear(_ animated: Bool) {

@@ -19,8 +19,11 @@ class MainVC: UIViewController {
     @IBOutlet weak var answerButton: MyButton!
     
     @IBOutlet weak var guessedScoreView: UIView!
-    @IBOutlet weak var guessedScoreLabel: UILabel!
-    @IBOutlet weak var leftScoreLabel: UILabel!
+    @IBOutlet weak var leftScoreView: UIView!
+    
+    @IBOutlet weak var bottomLeftView: UIView!
+    @IBOutlet weak var bottomRightView: UIView!
+    @IBOutlet weak var statusBar: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -31,14 +34,17 @@ class MainVC: UIViewController {
         view.setBackgroundImage(named: K.FileNames.mainBackground, alpha: 1)
 
         prepareChat()
-        prepareLeftView()
-        answerButton.makeRounded(sound: K.Sounds.click)
+        prepareViews()
+        answerButton.makeButtonRounded(sound: K.Sounds.click)
     }
-    private func prepareLeftView() {
+    private func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.blueDarker, rightColor: K.Colors.redDarker)
-        leftScoreLabel.makeDoubleColor(leftColor: K.Colors.blueDarker, rightColor: K.Colors.redDarker)
+        guessedScoreView.makeRounded(cornerRadius: CGFloat(10))
+        leftScoreView.makeDoubleColor(leftColor: K.Colors.blueDarker, rightColor: K.Colors.redDarker)
+        leftScoreView.makeRounded(cornerRadius: CGFloat(10))
         leftViewBackground.image = UIImage(named: K.FileNames.leftViewBackground)
         rightViewBackground.image = UIImage(named: K.FileNames.rightViewBackground)
+        
     }
     private func prepareChat() {
         rightView.setConstraint(identifier: "chatViewWidth", size: K.Sizes.Chat.width)
