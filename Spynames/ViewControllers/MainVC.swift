@@ -21,10 +21,21 @@ class MainVC: UIViewController {
     @IBOutlet weak var guessedScoreView: UIView!
     @IBOutlet weak var leftScoreView: UIView!
     
-    @IBOutlet weak var bottomLeftView: UIView!
-    @IBOutlet weak var bottomRightView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var statusBar: UILabel!
     
+    @IBOutlet weak var statusView: UIView!
+    
+    @IBOutlet weak var redCrownImage: UIImageView!
+    @IBOutlet weak var redOperativesImage: UIImageView!
+    @IBOutlet weak var blueCrownImage: UIImageView!
+    @IBOutlet weak var blueOperativesImage: UIImageView!
+    
+    @IBOutlet weak var redCrownBox: UIView!
+    @IBOutlet weak var redOperativesBox: UIView!
+    @IBOutlet weak var blueOperativesBox: UIView!
+    @IBOutlet weak var blueCrownBox: UIView!
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -39,15 +50,26 @@ class MainVC: UIViewController {
     }
     private func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.blueDarker, rightColor: K.Colors.redDarker)
-        guessedScoreView.makeRounded(cornerRadius: CGFloat(10))
+        guessedScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
         leftScoreView.makeDoubleColor(leftColor: K.Colors.blueDarker, rightColor: K.Colors.redDarker)
-        leftScoreView.makeRounded(cornerRadius: CGFloat(10))
+        leftScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
         leftViewBackground.image = UIImage(named: K.FileNames.leftViewBackground)
         rightViewBackground.image = UIImage(named: K.FileNames.rightViewBackground)
         
+        redCrownBox.isHidden = false
+        redOperativesBox.isHidden = true
+        blueCrownBox.isHidden = true
+        blueOperativesBox.isHidden = true
+        
+        //redCrownImage.tintColor = K.Colors.redDarker
+        redOperativesImage.tintColor = K.Colors.redDarker
+        blueCrownImage.tintColor = K.Colors.blueDarker
+        blueOperativesImage.tintColor = K.Colors.gray
+
+        statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)
     }
     private func prepareChat() {
-        rightView.setConstraint(identifier: "chatViewWidth", size: K.Sizes.Chat.width)
+        //rightView.setConstraint(identifier: "chatViewWidth", size: K.Sizes.Chat.width)
         view.layoutIfNeeded()
         let m1 = Message(text: "Hi! Red spymaster is here!", team: .red, player: .spymaster)
         let m2 = Message(text: "Hi! Blue spymaster is here!", team: .blue, player: .spymaster)

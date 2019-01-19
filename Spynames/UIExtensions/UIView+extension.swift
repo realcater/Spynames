@@ -7,6 +7,11 @@ extension UIView {
             button.makeRounded(cornerRadius: cornerRadius, color: color, font: font, sound: sound)
         }
     }
+    func makeAllSubviewsRound(cornerRadius:  CGFloat? = nil) {
+        for subview in self.subviews {
+            subview.makeRounded(cornerRadius: cornerRadius)
+        }
+    }
     func setForAllImages(tintColor: UIColor) {
         for case let imageView as UIImageView in self.subviews {
             imageView.tintColor = tintColor

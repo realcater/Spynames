@@ -16,8 +16,9 @@ struct K {
     
     
     struct Sizes {
-        static let cornerRadius : CGFloat = 32
+        static let buttonCornerRadius : CGFloat = 32
         static let cardsCornerRadius : CGFloat = 12
+        static let smallCornerRadius : CGFloat = 6
         struct Chat {
             static let width: CGFloat = 170
             static let vertSpace: CGFloat = 8

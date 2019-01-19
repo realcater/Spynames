@@ -15,7 +15,7 @@ class ChooseModeVC: UIViewController {
     private func prepareButtons() {
         threeDevicesBtn.setTitle(K.Labels.Buttons.threeDevices, for: .normal)
         fourDevicesBtn.setTitle(K.Labels.Buttons.fourDevices, for: .normal)
-        view.makeAllButtonsRound(cornerRadius: K.Sizes.cornerRadius, color: K.Colors.foreground,  font: K.Fonts.Buttons.chooseModeVC, sound: K.Sounds.click)
+        view.makeAllButtonsRound(cornerRadius: K.Sizes.buttonCornerRadius, color: K.Colors.foreground,  font: K.Fonts.Buttons.chooseModeVC, sound: K.Sounds.click)
     }
     private func prepareTitle() {
         titleLabel.textColor = K.Colors.foreground
