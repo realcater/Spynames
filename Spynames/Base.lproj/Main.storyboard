@@ -1150,15 +1150,39 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0a-Bz-U3y" userLabel="statusView">
                                                 <rect key="frame" x="160" y="0.0" width="120" height="34"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBB-x3-uD6" userLabel="Crown1-box">
-                                                        <rect key="frame" x="1" y="3" width="28" height="28"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBB-x3-uD6" userLabel="bar0">
+                                                        <rect key="frame" x="0.0" y="3" width="30" height="28"/>
                                                         <color key="backgroundColor" red="0.67843137249999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="28" id="4hH-xo-4HL"/>
-                                                            <constraint firstAttribute="width" constant="28" id="TFD-Dz-qkg"/>
+                                                            <constraint firstAttribute="width" constant="30" id="TFD-Dz-qkg"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Crown1-80px" translatesAutoresizingMaskIntoConstraints="NO" id="w7h-7k-3Lz" userLabel="Crown1">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeE-hN-CNq" userLabel="bar1">
+                                                        <rect key="frame" x="30" y="3" width="30" height="28"/>
+                                                        <color key="backgroundColor" red="0.67843137249999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="6YU-Fw-9dS"/>
+                                                            <constraint firstAttribute="height" constant="28" id="oSB-b1-Pol"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NE9-XM-vqX" userLabel="bar2">
+                                                        <rect key="frame" x="60" y="3" width="30" height="28"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="usi-HV-FVK"/>
+                                                            <constraint firstAttribute="height" constant="28" id="zgc-ln-PNU"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geM-bg-7dM" userLabel="bar3">
+                                                        <rect key="frame" x="90" y="3" width="30" height="28"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="28" id="qou-kd-wyv"/>
+                                                            <constraint firstAttribute="width" constant="30" id="yUq-5G-UzM"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Crown1-80px" translatesAutoresizingMaskIntoConstraints="NO" id="w7h-7k-3Lz" userLabel="image0">
                                                         <rect key="frame" x="0.0" y="2" width="30" height="30"/>
                                                         <color key="tintColor" red="0.7843137255" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -1166,45 +1190,21 @@
                                                             <constraint firstAttribute="width" constant="30" id="B1g-QL-JW1"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeE-hN-CNq" userLabel="Pawn1-box">
-                                                        <rect key="frame" x="31" y="3" width="28" height="28"/>
-                                                        <color key="backgroundColor" red="0.67843137249999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="28" id="6YU-Fw-9dS"/>
-                                                            <constraint firstAttribute="height" constant="28" id="oSB-b1-Pol"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pawn2-80px" translatesAutoresizingMaskIntoConstraints="NO" id="1Ck-T0-cvy" userLabel="Pawn1">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pawn2-80px" translatesAutoresizingMaskIntoConstraints="NO" id="1Ck-T0-cvy" userLabel="image1">
                                                         <rect key="frame" x="30" y="2" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Lpm-Kw-Ajx"/>
                                                             <constraint firstAttribute="width" constant="30" id="hYV-gt-zXk"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NE9-XM-vqX" userLabel="Crown2-box">
-                                                        <rect key="frame" x="61" y="3" width="28" height="28"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="28" id="usi-HV-FVK"/>
-                                                            <constraint firstAttribute="height" constant="28" id="zgc-ln-PNU"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Crown1-80px" translatesAutoresizingMaskIntoConstraints="NO" id="fo0-uG-NtN" userLabel="Crown2">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Crown1-80px" translatesAutoresizingMaskIntoConstraints="NO" id="fo0-uG-NtN" userLabel="image2">
                                                         <rect key="frame" x="60" y="2" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="YuB-L5-Tw7"/>
                                                             <constraint firstAttribute="height" constant="30" id="z5o-gV-xBw"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geM-bg-7dM" userLabel="Pawn2-box">
-                                                        <rect key="frame" x="91" y="3" width="28" height="28"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="28" id="qou-kd-wyv"/>
-                                                            <constraint firstAttribute="width" constant="28" id="yUq-5G-UzM"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pawn2-80px" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-LL-pqM" userLabel="Pawn2">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pawn2-80px" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-LL-pqM" userLabel="image3">
                                                         <rect key="frame" x="90" y="2" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="di8-gd-3z5"/>
@@ -1431,10 +1431,6 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="D9a-Dv-AJ7"/>
                     <connections>
                         <outlet property="answerButton" destination="ctC-9E-Ved" id="d9f-tI-AWZ"/>
-                        <outlet property="blueCrownBox" destination="NE9-XM-vqX" id="vW6-6Z-sNH"/>
-                        <outlet property="blueCrownImage" destination="fo0-uG-NtN" id="QeK-S1-dGV"/>
-                        <outlet property="blueOperativesBox" destination="geM-bg-7dM" id="Ogd-hr-uKf"/>
-                        <outlet property="blueOperativesImage" destination="6NW-LL-pqM" id="tiF-EN-vuO"/>
                         <outlet property="bottomView" destination="xce-Iu-y4J" id="5fS-Af-KxU"/>
                         <outlet property="chatView" destination="YuA-Tf-gkW" id="fNt-WY-HJd"/>
                         <outlet property="guessedScoreView" destination="Fw1-Ze-Cre" id="MCH-f7-lxV"/>
@@ -1442,14 +1438,18 @@
                         <outlet property="leftView" destination="aAE-ay-zrL" id="lxo-3f-6aG"/>
                         <outlet property="leftViewBackground" destination="ORS-ZI-juZ" id="LMl-ta-S0T"/>
                         <outlet property="mainView" destination="rCp-w6-fuZ" id="p1E-JV-4JD"/>
-                        <outlet property="redCrownBox" destination="HBB-x3-uD6" id="5UU-BK-xUw"/>
-                        <outlet property="redCrownImage" destination="w7h-7k-3Lz" id="WDQ-hJ-lAQ"/>
-                        <outlet property="redOperativesBox" destination="jeE-hN-CNq" id="Gmx-jA-7tl"/>
-                        <outlet property="redOperativesImage" destination="1Ck-T0-cvy" id="GGa-zi-43U"/>
                         <outlet property="rightView" destination="j3a-Ad-6g9" id="6Kt-oo-Yr0"/>
                         <outlet property="rightViewBackground" destination="x1S-K7-JhL" id="XFp-oE-0Zj"/>
                         <outlet property="statusBar" destination="jz1-j9-2rZ" id="QkB-GT-26d"/>
                         <outlet property="statusView" destination="M0a-Bz-U3y" id="FZ4-Ma-AQQ"/>
+                        <outletCollection property="statusIconBars" destination="HBB-x3-uD6" collectionClass="NSMutableArray" id="A6s-ln-nEG"/>
+                        <outletCollection property="statusIconBars" destination="jeE-hN-CNq" collectionClass="NSMutableArray" id="oZF-tU-t6Y"/>
+                        <outletCollection property="statusIconBars" destination="NE9-XM-vqX" collectionClass="NSMutableArray" id="cPF-WY-5YI"/>
+                        <outletCollection property="statusIconBars" destination="geM-bg-7dM" collectionClass="NSMutableArray" id="JFZ-k3-W3y"/>
+                        <outletCollection property="statusIconImages" destination="w7h-7k-3Lz" collectionClass="NSMutableArray" id="cMT-qQ-7ch"/>
+                        <outletCollection property="statusIconImages" destination="1Ck-T0-cvy" collectionClass="NSMutableArray" id="rMw-KI-V8G"/>
+                        <outletCollection property="statusIconImages" destination="fo0-uG-NtN" collectionClass="NSMutableArray" id="Q2R-4t-4n0"/>
+                        <outletCollection property="statusIconImages" destination="6NW-LL-pqM" collectionClass="NSMutableArray" id="a8R-Ha-k0A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Sf-8e-lv0" userLabel="First Responder" sceneMemberID="firstResponder"/>

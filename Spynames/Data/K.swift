@@ -52,6 +52,7 @@ struct K {
                                   DeviceRoles.redOperatives: redDarker,
                                   DeviceRoles.blueOperatives: blueDarker
                                   ]
+        static let team = [Team.red: K.Colors.redDarker, Team.blue: K.Colors.blueDarker]
     }
     struct Labels {
         struct Buttons {
@@ -99,6 +100,8 @@ struct K {
         static let bubbleReceived = "bubble_received"
         static let leftViewBackground = "paper_750x400px-left"
         static let rightViewBackground = "paper_750x400px-right"
+        static let icon = [PlayerType.spymaster: "Crown1-80px", PlayerType.operatives: "Pawn2-80px"]
+        
     }
     struct Durations {
         static let clockTurnAround = 4.0
