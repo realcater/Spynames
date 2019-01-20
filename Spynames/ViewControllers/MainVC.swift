@@ -26,13 +26,17 @@ class MainVC: UIViewController {
     @IBOutlet var statusIconImages: [UIImageView]!
     
     var statusIcons : [PlayerStatusIcon] = []
+    var game: Game!
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func loadView() {
+        super.loadView()
+        game = Game()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         mainView.makeAllButtonsRound(cornerRadius: K.Sizes.cardsCornerRadius)
         view.setBackgroundImage(named: K.FileNames.mainBackground, alpha: 1)
 
@@ -103,4 +107,11 @@ class MainVC: UIViewController {
         })
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "wordsTVCSegue" {
+            let wordsTVC = segue.destination as! WordsTVC
+            wordsTVC.words = game.words
+        }
+    }
 }
