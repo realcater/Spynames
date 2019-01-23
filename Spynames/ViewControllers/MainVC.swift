@@ -15,7 +15,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var leftViewBackground: UIImageView!
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var rightViewBackground: UIImageView!
-    @IBOutlet weak var chatView: ChatView!
+    @IBOutlet weak var chatView: PlayersChatView!
     @IBOutlet weak var answerButton: RoundedButton!
     @IBOutlet weak var guessedScoreView: UIView!
     @IBOutlet weak var leftScoreView: UIView!
@@ -73,7 +73,7 @@ class MainVC: UIViewController {
         
     }
     private func prepareChat() {
-        //rightView.setConstraint(identifier: "chatViewWidth", size: K.Sizes.Chat.width)
+        //chatView.setup()
         view.layoutIfNeeded()
         let m1 = Message(text: "Hi! Red spymaster is here!", team: .red, player: .spymaster)
         let m2 = Message(text: "Hi! Blue spymaster is here!", team: .blue, player: .spymaster)

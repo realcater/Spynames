@@ -21,7 +21,7 @@ struct K {
         static let cardsCornerRadius : CGFloat = 12
         static let smallCornerRadius : CGFloat = 6
         struct Chat {
-            static let width: CGFloat = 170
+            //static let width: CGFloat = 170
             static let vertSpace: CGFloat = 8
             static let border = CGSize(width: 20, height: 10)
             static let inset = CGSize(width: 21, height: 17)
@@ -100,8 +100,8 @@ struct K {
         static let background = "wood_1624x750"
         static let mainBackground = "poker-background-1624x750px"
         static let joined = "joined-icon-80px"
-        static let bubbleSent = "bubble_sent"
-        static let bubbleReceived = "bubble_received"
+        static let bubbleSent = "bubbleSent"
+        static let bubbleReceived = "bubbleReceived"
         static let leftViewBackground = "paper_750x400px-left"
         static let rightViewBackground = "paper_750x400px-right"
         static let icon = [PlayerType.spymaster: "Crown1-80px", PlayerType.operatives: "Pawn2-80px"]

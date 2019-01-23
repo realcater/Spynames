@@ -11,6 +11,7 @@
 		CA2EFEB521F6662300DF2ACF /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */; };
 		CA2EFEB921F8847D00DF2ACF /* PermaColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB821F8847D00DF2ACF /* PermaColorView.swift */; };
 		CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */; };
+		CA2EFEBD21F8B5B700DF2ACF /* PlayersChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEBC21F8B5B700DF2ACF /* PlayersChatView.swift */; };
 		CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */; };
 		CA3528F2218226A5005C489B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528F1218226A5005C489B /* K.swift */; };
 		CA3528F72182319B005C489B /* Google-spies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3528F62182319B005C489B /* Google-spies.ttf */; };
@@ -47,6 +48,7 @@
 		CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		CA2EFEB821F8847D00DF2ACF /* PermaColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermaColorView.swift; sourceTree = "<group>"; };
 		CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		CA2EFEBC21F8B5B700DF2ACF /* PlayersChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersChatView.swift; sourceTree = "<group>"; };
 		CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRole4dVC.swift; sourceTree = "<group>"; };
 		CA3528F1218226A5005C489B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CA3528F62182319B005C489B /* Google-spies.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Google-spies.ttf"; sourceTree = "<group>"; };
@@ -135,7 +137,7 @@
 				CA814BBB217F62810009D072 /* Main.storyboard */,
 				CA814BC9217F62A40009D072 /* ViewControllers */,
 				CAC5BA4721F48F62001763C5 /* Visual objects */,
-				CA814BCE217F71BD0009D072 /* UIExtensions */,
+				CA814BCE217F71BD0009D072 /* UIExtensions+Classes */,
 				CA3528F02182267F005C489B /* Data */,
 				CA814BB5217F62810009D072 /* Products */,
 				CA3528F321822F03005C489B /* Fonts */,
@@ -161,7 +163,7 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		CA814BCE217F71BD0009D072 /* UIExtensions */ = {
+		CA814BCE217F71BD0009D072 /* UIExtensions+Classes */ = {
 			isa = PBXGroup;
 			children = (
 				CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */,
@@ -175,7 +177,7 @@
 				CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */,
 				CA2EFEB821F8847D00DF2ACF /* PermaColorView.swift */,
 			);
-			path = UIExtensions;
+			path = "UIExtensions+Classes";
 			sourceTree = "<group>";
 		};
 		CAC5BA4721F48F62001763C5 /* Visual objects */ = {
@@ -183,6 +185,7 @@
 			children = (
 				CAC5BA4821F48FB4001763C5 /* PlayerStatusIcon.swift */,
 				CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */,
+				CA2EFEBC21F8B5B700DF2ACF /* PlayersChatView.swift */,
 			);
 			path = "Visual objects";
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */,
 				CA2EFEB521F6662300DF2ACF /* PaddingLabel.swift in Sources */,
 				CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */,
+				CA2EFEBD21F8B5B700DF2ACF /* PlayersChatView.swift in Sources */,
 				CAC9505221B66F2F002262BA /* Message.swift in Sources */,
 				CA2EFEB321F65B6400DF2ACF /* UITableVC+extensions.swift in Sources */,
 				CAC5BA4B21F49360001763C5 /* Common.swift in Sources */,
