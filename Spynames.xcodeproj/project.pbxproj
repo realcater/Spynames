@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA2EFEB321F65B6400DF2ACF /* UITableVC+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB221F65B6400DF2ACF /* UITableVC+extensions.swift */; };
+		CA2EFEB521F6662300DF2ACF /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */; };
+		CA2EFEB921F8847D00DF2ACF /* PermaColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB821F8847D00DF2ACF /* PermaColorView.swift */; };
+		CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */; };
 		CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */; };
 		CA3528F2218226A5005C489B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528F1218226A5005C489B /* K.swift */; };
 		CA3528F72182319B005C489B /* Google-spies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3528F62182319B005C489B /* Google-spies.ttf */; };
@@ -39,6 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA2EFEB221F65B6400DF2ACF /* UITableVC+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableVC+extensions.swift"; sourceTree = "<group>"; };
+		CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		CA2EFEB821F8847D00DF2ACF /* PermaColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermaColorView.swift; sourceTree = "<group>"; };
+		CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRole4dVC.swift; sourceTree = "<group>"; };
 		CA3528F1218226A5005C489B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CA3528F62182319B005C489B /* Google-spies.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Google-spies.ttf"; sourceTree = "<group>"; };
@@ -163,6 +171,9 @@
 				CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */,
 				CA814BCF217F71DD0009D072 /* MyButton.swift */,
 				CAC9505321B6EB9D002262BA /* ChatView.swift */,
+				CA2EFEB221F65B6400DF2ACF /* UITableVC+extensions.swift */,
+				CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */,
+				CA2EFEB821F8847D00DF2ACF /* PermaColorView.swift */,
 			);
 			path = UIExtensions;
 			sourceTree = "<group>";
@@ -171,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				CAC5BA4821F48FB4001763C5 /* PlayerStatusIcon.swift */,
+				CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */,
 			);
 			path = "Visual objects";
 			sourceTree = "<group>";
@@ -275,9 +287,13 @@
 				CAD84F1821879AE400E6C6E0 /* ChooseRole3dVC.swift in Sources */,
 				CAC5BA4D21F4D3E7001763C5 /* Game.swift in Sources */,
 				CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */,
+				CA2EFEB921F8847D00DF2ACF /* PermaColorView.swift in Sources */,
 				CAC9505421B6EB9D002262BA /* ChatView.swift in Sources */,
 				CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */,
+				CA2EFEB521F6662300DF2ACF /* PaddingLabel.swift in Sources */,
+				CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */,
 				CAC9505221B66F2F002262BA /* Message.swift in Sources */,
+				CA2EFEB321F65B6400DF2ACF /* UITableVC+extensions.swift in Sources */,
 				CAC5BA4B21F49360001763C5 /* Common.swift in Sources */,
 				CAC5BA4921F48FB4001763C5 /* PlayerStatusIcon.swift in Sources */,
 				CA814BD0217F71DD0009D072 /* MyButton.swift in Sources */,

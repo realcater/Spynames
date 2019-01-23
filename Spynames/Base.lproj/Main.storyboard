@@ -1184,7 +1184,7 @@
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Crown1-80px" translatesAutoresizingMaskIntoConstraints="NO" id="w7h-7k-3Lz" userLabel="image0">
                                                         <rect key="frame" x="0.0" y="2" width="30" height="30"/>
-                                                        <color key="tintColor" red="0.7843137255" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="7ra-qO-va6"/>
                                                             <constraint firstAttribute="width" constant="30" id="B1g-QL-JW1"/>
@@ -1403,23 +1403,23 @@
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="375"/>
                                     </imageView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLe-rz-vJl">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="375"/>
+                                        <rect key="frame" x="10" y="5" width="135" height="365"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="b2u-Mf-csd" kind="embed" identifier="wordsTVCSegue" id="tzL-bX-L6C"/>
+                                            <segue destination="b2u-Mf-csd" kind="embed" identifier="wordsTVCSegue" id="wxU-8X-ggK"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="vLe-rz-vJl" firstAttribute="top" secondItem="aAE-ay-zrL" secondAttribute="top" id="0fN-4w-KwP"/>
+                                    <constraint firstItem="vLe-rz-vJl" firstAttribute="top" secondItem="aAE-ay-zrL" secondAttribute="top" constant="5" id="0fN-4w-KwP"/>
                                     <constraint firstAttribute="width" constant="150" id="BXI-W8-Wq6"/>
                                     <constraint firstItem="ORS-ZI-juZ" firstAttribute="top" secondItem="aAE-ay-zrL" secondAttribute="top" id="LeQ-fz-kNs"/>
                                     <constraint firstItem="ORS-ZI-juZ" firstAttribute="leading" secondItem="aAE-ay-zrL" secondAttribute="leading" id="Ntk-7p-8dS"/>
-                                    <constraint firstItem="vLe-rz-vJl" firstAttribute="leading" secondItem="aAE-ay-zrL" secondAttribute="leading" id="OPw-UU-Ign"/>
+                                    <constraint firstItem="vLe-rz-vJl" firstAttribute="leading" secondItem="aAE-ay-zrL" secondAttribute="leading" constant="10" id="OPw-UU-Ign"/>
                                     <constraint firstAttribute="bottom" secondItem="ORS-ZI-juZ" secondAttribute="bottom" id="XUD-ve-s2b"/>
-                                    <constraint firstAttribute="trailing" secondItem="vLe-rz-vJl" secondAttribute="trailing" id="jHE-jp-zpO"/>
-                                    <constraint firstAttribute="bottom" secondItem="vLe-rz-vJl" secondAttribute="bottom" id="qa2-06-AfE"/>
+                                    <constraint firstAttribute="trailing" secondItem="vLe-rz-vJl" secondAttribute="trailing" constant="5" id="jHE-jp-zpO"/>
+                                    <constraint firstAttribute="bottom" secondItem="vLe-rz-vJl" secondAttribute="bottom" constant="5" id="qa2-06-AfE"/>
                                     <constraint firstAttribute="trailing" secondItem="ORS-ZI-juZ" secondAttribute="trailing" id="wLb-tk-LkY"/>
                                 </constraints>
                             </view>
@@ -1471,36 +1471,45 @@
         <scene sceneID="h8B-w5-cNT">
             <objects>
                 <tableViewController id="b2u-Mf-csd" customClass="WordsTVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iLw-1n-0hg">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="375"/>
+                    <tableView key="view" autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="36" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" id="iLw-1n-0hg">
+                        <rect key="frame" x="0.0" y="0.0" width="135" height="365"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordsListItem" id="lNL-z1-Kya">
-                                <rect key="frame" x="0.0" y="28" width="150" height="44"/>
+                            <tableViewCell opaque="NO" clipsSubviews="YES" tag="1001" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" showsReorderControl="YES" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="WordsListItem" rowHeight="30" id="lNL-z1-Kya" customClass="MyTableViewCell" customModule="Spynames" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lNL-z1-Kya" id="Nnv-RU-GSA">
-                                    <rect key="frame" x="44" y="0.0" width="62" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lNL-z1-Kya" id="Nnv-RU-GSA">
+                                    <rect key="frame" x="44" y="0.0" width="47" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Гриф" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbn-qz-L8I">
-                                            <rect key="frame" x="0.0" y="0.0" width="62" height="43.666666666666664"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Гриф" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbn-qz-L8I" customClass="PaddingLabel" customModule="Spynames" customModuleProvider="target">
+                                            <rect key="frame" x="-30" y="4.6666666666666661" width="107" height="20.333333333333336"/>
+                                            <color key="backgroundColor" red="0.67843137249999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
+                                                    <real key="value" value="38"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="gbn-qz-L8I" firstAttribute="leading" secondItem="Nnv-RU-GSA" secondAttribute="leading" id="AEj-jD-NoG"/>
-                                        <constraint firstAttribute="bottom" secondItem="gbn-qz-L8I" secondAttribute="bottom" id="BFl-9P-dAA"/>
-                                        <constraint firstAttribute="trailing" secondItem="gbn-qz-L8I" secondAttribute="trailing" id="RNu-GG-Wln"/>
-                                        <constraint firstItem="gbn-qz-L8I" firstAttribute="top" secondItem="Nnv-RU-GSA" secondAttribute="top" id="pUU-IM-fTB"/>
+                                        <constraint firstItem="gbn-qz-L8I" firstAttribute="leading" secondItem="Nnv-RU-GSA" secondAttribute="leading" constant="-30" id="GtR-Ph-nPw"/>
+                                        <constraint firstItem="gbn-qz-L8I" firstAttribute="centerY" secondItem="Nnv-RU-GSA" secondAttribute="centerY" id="aGE-d2-IUa"/>
+                                        <constraint firstAttribute="trailing" secondItem="gbn-qz-L8I" secondAttribute="trailing" constant="-30" id="aKg-3o-4sR"/>
                                     </constraints>
+                                    <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -1512,7 +1521,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kuu-0H-Zsk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-205" y="4103"/>
+            <point key="canvasLocation" x="-63.177339901477836" y="4101.6000000000004"/>
         </scene>
     </scenes>
     <resources>

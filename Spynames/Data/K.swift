@@ -3,6 +3,7 @@ import AVFoundation
 
 struct K {
     
+    static var i = 0
     static let allDeviceRoles = [DeviceRoles.redSpymaster,
                                  DeviceRoles.blueSpymaster,
                                  DeviceRoles.redOperatives,
@@ -26,7 +27,10 @@ struct K {
             static let inset = CGSize(width: 21, height: 17)
             static let widthUsePerc: CGFloat = 0.66
             static let margin: CGFloat = 8
-            
+        }
+        struct WordTable {
+            static let cellHeight: CGFloat = 36
+            static let labelHeight: CGFloat = 30
         }
     }
     struct Sounds {

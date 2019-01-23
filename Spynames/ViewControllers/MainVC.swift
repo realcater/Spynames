@@ -108,7 +108,6 @@ class MainVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
         if segue.identifier == "wordsTVCSegue" {
             let wordsTVC = segue.destination as! WordsTVC
             wordsTVC.words = game.words
