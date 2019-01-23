@@ -2,10 +2,10 @@ import UIKit
 
 class ChooseRole4dVC: UIViewController {
 
-    @IBOutlet weak var redSpymasterBtn: MyButton!
-    @IBOutlet weak var blueSpymasterBtn: MyButton!
-    @IBOutlet weak var redOperBtn: MyButton!
-    @IBOutlet weak var blueOperBtn: MyButton!
+    @IBOutlet weak var redSpymasterBtn: RoundedButton!
+    @IBOutlet weak var blueSpymasterBtn: RoundedButton!
+    @IBOutlet weak var redOperBtn: RoundedButton!
+    @IBOutlet weak var blueOperBtn: RoundedButton!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {

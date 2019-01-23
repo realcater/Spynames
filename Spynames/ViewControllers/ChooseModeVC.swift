@@ -2,8 +2,8 @@ import UIKit
 
 class ChooseModeVC: UIViewController {
 
-    @IBOutlet weak var threeDevicesBtn: MyButton!
-    @IBOutlet weak var fourDevicesBtn: MyButton!
+    @IBOutlet weak var threeDevicesBtn: RoundedButton!
+    @IBOutlet weak var fourDevicesBtn: RoundedButton!
     @IBOutlet weak var titleLabel: UILabel!
 
     override func viewDidLoad() {

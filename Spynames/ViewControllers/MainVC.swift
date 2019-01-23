@@ -16,7 +16,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var rightViewBackground: UIImageView!
     @IBOutlet weak var chatView: ChatView!
-    @IBOutlet weak var answerButton: MyButton!
+    @IBOutlet weak var answerButton: RoundedButton!
     @IBOutlet weak var guessedScoreView: UIView!
     @IBOutlet weak var leftScoreView: UIView!
     @IBOutlet weak var bottomView: UIView!

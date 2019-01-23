@@ -21,7 +21,7 @@
 		CA814BBF217F62820009D072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA814BBE217F62820009D072 /* Assets.xcassets */; };
 		CA814BC2217F62820009D072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BC0217F62820009D072 /* LaunchScreen.storyboard */; };
 		CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */; };
-		CA814BD0217F71DD0009D072 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCF217F71DD0009D072 /* MyButton.swift */; };
+		CA814BD0217F71DD0009D072 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCF217F71DD0009D072 /* RoundedButton.swift */; };
 		CA88963021CC1CEC00DB26EB /* UIScrollView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */; };
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
 		CAC1513E2188F2B400FA96CA /* GameCreatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */; };
@@ -59,7 +59,7 @@
 		CA814BC1217F62820009D072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA814BC3217F62820009D072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeVC.swift; sourceTree = "<group>"; };
-		CA814BCF217F71DD0009D072 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		CA814BCF217F71DD0009D072 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+extension.swift"; sourceTree = "<group>"; };
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreatedVC.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 				CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */,
 				CAD84F132187602B00E6C6E0 /* AVAudioPlayer+extension.swift */,
 				CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */,
-				CA814BCF217F71DD0009D072 /* MyButton.swift */,
+				CA814BCF217F71DD0009D072 /* RoundedButton.swift */,
 				CAC9505321B6EB9D002262BA /* ChatView.swift */,
 				CA2EFEB221F65B6400DF2ACF /* UITableVC+extensions.swift */,
 				CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */,
@@ -296,7 +296,7 @@
 				CA2EFEB321F65B6400DF2ACF /* UITableVC+extensions.swift in Sources */,
 				CAC5BA4B21F49360001763C5 /* Common.swift in Sources */,
 				CAC5BA4921F48FB4001763C5 /* PlayerStatusIcon.swift in Sources */,
-				CA814BD0217F71DD0009D072 /* MyButton.swift in Sources */,
+				CA814BD0217F71DD0009D072 /* RoundedButton.swift in Sources */,
 				CAD84F142187602B00E6C6E0 /* AVAudioPlayer+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

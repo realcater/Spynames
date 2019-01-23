@@ -10,7 +10,7 @@ import UIKit
 
 class GameCreatedVC: UIViewController {
 
-    @IBOutlet weak var waitOrStartGameBtn: MyButton!
+    @IBOutlet weak var waitOrStartGameBtn: RoundedButton!
     @IBOutlet var labels: [UILabel]?
     @IBOutlet var images: [UIImageView]?
     @IBOutlet var statusImages: [UIImageView]?
