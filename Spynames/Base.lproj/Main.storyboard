@@ -1365,26 +1365,22 @@
                                             <constraint firstAttribute="width" constant="208" id="tW5-m7-Wax"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctC-9E-Ved" customClass="RoundedButton" customModule="Spynames" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="334" width="110" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="3I9-tp-5wg"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="24"/>
-                                        <state key="normal" title="Confirm">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLe-rz-vJl">
+                                        <rect key="frame" x="3" y="0.0" width="148" height="375"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="b2u-Mf-csd" kind="embed" identifier="wordsTVCSegue" id="wxU-8X-ggK"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ctC-9E-Ved" secondAttribute="trailing" constant="20" id="AZ6-50-mKh"/>
-                                    <constraint firstAttribute="bottom" secondItem="ctC-9E-Ved" secondAttribute="bottom" constant="11" id="DUv-DB-7oD"/>
                                     <constraint firstItem="x1S-K7-JhL" firstAttribute="leading" secondItem="j3a-Ad-6g9" secondAttribute="leading" constant="-8" id="FJd-2e-H3j"/>
                                     <constraint firstItem="x1S-K7-JhL" firstAttribute="top" secondItem="j3a-Ad-6g9" secondAttribute="top" id="HXg-Is-ZZh"/>
                                     <constraint firstAttribute="width" constant="150" identifier="chatViewWidth" id="Lzt-oO-QhG"/>
-                                    <constraint firstItem="ctC-9E-Ved" firstAttribute="leading" secondItem="j3a-Ad-6g9" secondAttribute="leading" constant="20" id="Ty8-cf-0xz"/>
+                                    <constraint firstItem="vLe-rz-vJl" firstAttribute="leading" secondItem="j3a-Ad-6g9" secondAttribute="leading" constant="3" id="V4O-6l-Wmy"/>
+                                    <constraint firstItem="vLe-rz-vJl" firstAttribute="top" secondItem="j3a-Ad-6g9" secondAttribute="top" id="awp-hN-9xr"/>
+                                    <constraint firstAttribute="bottom" secondItem="vLe-rz-vJl" secondAttribute="bottom" id="nA2-VS-pdd"/>
                                     <constraint firstAttribute="bottom" secondItem="x1S-K7-JhL" secondAttribute="bottom" id="yRV-1I-dn5"/>
                                 </constraints>
                             </view>
@@ -1394,8 +1390,20 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ORS-ZI-juZ" userLabel="leftViewImage">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="375"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctC-9E-Ved" customClass="RoundedButton" customModule="Spynames" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="335" width="120" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="3I9-tp-5wg"/>
+                                            <constraint firstAttribute="width" constant="120" id="UUb-Ft-XCo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="22"/>
+                                        <state key="normal" title="Give a hint">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YuA-Tf-gkW" userLabel="chatView" customClass="PlayersChatView" customModule="Spynames" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="145" height="375"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="145" height="330"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </scrollView>
                                 </subviews>
@@ -1403,37 +1411,29 @@
                                 <constraints>
                                     <constraint firstItem="YuA-Tf-gkW" firstAttribute="top" secondItem="aAE-ay-zrL" secondAttribute="top" id="2gr-iD-8jK"/>
                                     <constraint firstAttribute="width" constant="150" id="BXI-W8-Wq6"/>
+                                    <constraint firstItem="ctC-9E-Ved" firstAttribute="top" secondItem="YuA-Tf-gkW" secondAttribute="bottom" constant="5" id="C9w-a3-Pfs"/>
                                     <constraint firstItem="ORS-ZI-juZ" firstAttribute="top" secondItem="aAE-ay-zrL" secondAttribute="top" id="LeQ-fz-kNs"/>
                                     <constraint firstItem="ORS-ZI-juZ" firstAttribute="leading" secondItem="aAE-ay-zrL" secondAttribute="leading" id="Ntk-7p-8dS"/>
                                     <constraint firstAttribute="trailing" secondItem="YuA-Tf-gkW" secondAttribute="trailing" constant="5" id="Vhh-p5-x1A"/>
                                     <constraint firstAttribute="bottom" secondItem="ORS-ZI-juZ" secondAttribute="bottom" id="XUD-ve-s2b"/>
+                                    <constraint firstItem="ctC-9E-Ved" firstAttribute="centerX" secondItem="aAE-ay-zrL" secondAttribute="centerX" id="XeT-Ku-4fg"/>
+                                    <constraint firstAttribute="bottom" secondItem="ctC-9E-Ved" secondAttribute="bottom" constant="10" id="cdp-cn-6Qu"/>
                                     <constraint firstItem="YuA-Tf-gkW" firstAttribute="leading" secondItem="aAE-ay-zrL" secondAttribute="leading" id="hGw-YC-fvW"/>
-                                    <constraint firstAttribute="bottom" secondItem="YuA-Tf-gkW" secondAttribute="bottom" id="t8o-7f-EAS"/>
                                     <constraint firstAttribute="trailing" secondItem="ORS-ZI-juZ" secondAttribute="trailing" id="wLb-tk-LkY"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLe-rz-vJl">
-                                <rect key="frame" x="660" y="0.0" width="174" height="375"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <segue destination="b2u-Mf-csd" kind="embed" identifier="wordsTVCSegue" id="wxU-8X-ggK"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rCp-w6-fuZ" firstAttribute="top" secondItem="FtM-05-Sjr" secondAttribute="top" id="9xa-Uo-L7f"/>
-                            <constraint firstItem="vLe-rz-vJl" firstAttribute="leading" secondItem="sxC-dc-gwm" secondAttribute="leading" constant="616" id="IWg-aQ-zf2"/>
                             <constraint firstItem="j3a-Ad-6g9" firstAttribute="bottom" secondItem="FtM-05-Sjr" secondAttribute="bottom" id="LDp-KU-ksS"/>
                             <constraint firstItem="j3a-Ad-6g9" firstAttribute="top" secondItem="FtM-05-Sjr" secondAttribute="top" id="T4M-KQ-saT"/>
+                            <constraint firstItem="vLe-rz-vJl" firstAttribute="trailing" secondItem="j3a-Ad-6g9" secondAttribute="trailing" constant="1" id="TUh-AL-45Q"/>
                             <constraint firstItem="j3a-Ad-6g9" firstAttribute="leading" secondItem="rCp-w6-fuZ" secondAttribute="trailing" id="X7j-Lg-3MM"/>
                             <constraint firstItem="rCp-w6-fuZ" firstAttribute="leading" secondItem="aAE-ay-zrL" secondAttribute="trailing" id="Xrf-wi-cOd"/>
-                            <constraint firstItem="vLe-rz-vJl" firstAttribute="top" secondItem="sxC-dc-gwm" secondAttribute="top" id="abn-4G-ndL"/>
                             <constraint firstItem="sxC-dc-gwm" firstAttribute="bottom" secondItem="rCp-w6-fuZ" secondAttribute="bottom" id="dUQ-Ai-p9F"/>
                             <constraint firstAttribute="bottom" secondItem="aAE-ay-zrL" secondAttribute="bottom" id="dX2-mf-a02"/>
-                            <constraint firstAttribute="trailing" secondItem="vLe-rz-vJl" secondAttribute="trailing" constant="-22" id="hZt-Rg-Na8"/>
                             <constraint firstItem="aAE-ay-zrL" firstAttribute="leading" secondItem="FtM-05-Sjr" secondAttribute="leading" id="syB-mU-fg3"/>
-                            <constraint firstAttribute="bottom" secondItem="vLe-rz-vJl" secondAttribute="bottom" id="u1i-Jp-pJH"/>
                             <constraint firstItem="aAE-ay-zrL" firstAttribute="top" secondItem="FtM-05-Sjr" secondAttribute="top" id="vkT-8I-LFF"/>
                             <constraint firstAttribute="trailing" secondItem="j3a-Ad-6g9" secondAttribute="trailing" id="vy5-xj-yXt"/>
                         </constraints>
@@ -1472,16 +1472,16 @@
             <objects>
                 <tableViewController id="b2u-Mf-csd" customClass="WordsTVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="36" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" springLoaded="YES" id="iLw-1n-0hg">
-                        <rect key="frame" x="0.0" y="0.0" width="174" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="148" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell opaque="NO" clipsSubviews="YES" tag="1001" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" showsReorderControl="YES" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="WordsListItem" rowHeight="30" id="lNL-z1-Kya" customClass="MyTableViewCell" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="1" width="174" height="30"/>
+                                <rect key="frame" x="0.0" y="1" width="148" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lNL-z1-Kya" id="Nnv-RU-GSA">
-                                    <rect key="frame" x="44" y="0.0" width="86" height="30"/>
+                                    <rect key="frame" x="44" y="0.0" width="60" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Гриф" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbn-qz-L8I" customClass="PaddingLabel" customModule="Spynames" customModuleProvider="target">

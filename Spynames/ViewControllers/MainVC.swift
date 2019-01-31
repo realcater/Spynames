@@ -73,7 +73,7 @@ class MainVC: UIViewController {
         
     }
     private func prepareChat() {
-        //chatView.setup()
+        chatView.setup()
         view.layoutIfNeeded()
         let m1 = Message(text: "Hi! Red spymaster is here!", team: .red, player: .spymaster)
         let m2 = Message(text: "Hi! Blue spymaster is here!", team: .blue, player: .spymaster)
