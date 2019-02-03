@@ -12,11 +12,42 @@ class WordsTVC: UITableViewController {
     
     var words: [Word]!
     
+    @objc private func doubleTap(recognizer: UITapGestureRecognizer) {
+        if (recognizer.state == UIGestureRecognizer.State.ended) {
+            let location = recognizer.location(in: self.view)
+            let tappedRow = self.tableView.indexPathForRow(at: location)!.row
+            if words[tappedRow].text == "" {
+                deleteRow(at: tappedRow)
+            } else {
+                insertClearRow(at: tappedRow)
+            }
+        }
+    }
+    func deleteRow(at row: Int) {
+        let indexPath = IndexPath(row: row, section: 0)
+
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        words.remove(at: row)
+        print(words)
+        tableView.endUpdates()
+    }
+    func insertClearRow(at row: Int) {
+        let indexPath = IndexPath(row: row, section: 0)
+        let clearWord = Word(text: "", color: .neutral)
+        
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        words.insert(clearWord, at: indexPath.row)
+        print(words)
+        tableView.endUpdates()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         isEditing = true
         tableView.backgroundColor = .clear
         tableView.separatorColor = .clear
+        addTaps(doubleTapAction: #selector(doubleTap))
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,7 +57,9 @@ class WordsTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordsListItem", for: indexPath)
         let label = cell.viewWithTag(1000) as! PaddingLabel
-        label.text = words[indexPath.row].text
+        let word = words[indexPath.row]
+        label.text = word.text
+        label.backgroundColor = (word.text == "") ? K.Colors.clear : K.Colors.word[word.color]
         return cell
     }
     

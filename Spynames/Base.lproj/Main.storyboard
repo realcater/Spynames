@@ -1059,7 +1059,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e4-kJ-pIV" userLabel="guessedRedLabel">
-                                                        <rect key="frame" x="20" y="0.33333333333331439" width="20" height="23.333333333333332"/>
+                                                        <rect key="frame" x="20" y="1.6666666666666856" width="20" height="21"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="HyD-G6-ugy"/>
@@ -1069,7 +1069,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnk-yq-hqp" userLabel="guessedDotsLabel">
-                                                        <rect key="frame" x="16" y="0.33333333333331439" width="10" height="23.333333333333332"/>
+                                                        <rect key="frame" x="16" y="1.6666666666666856" width="10" height="21"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="10" id="Tqb-3Q-0ha"/>
@@ -1102,10 +1102,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj8-Wb-ltd" userLabel="leftScoreView">
-                                                <rect key="frame" x="380" y="3.3333333333333126" width="40" height="27.333333333333329"/>
+                                                <rect key="frame" x="380" y="4.6666666666666856" width="40" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CX7-aZ-xmL" userLabel="leftBlueLabel">
-                                                        <rect key="frame" x="0.0" y="2" width="20" height="23.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="2" width="20" height="21"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="Xti-7Z-IUr"/>
@@ -1115,7 +1115,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftC-dJ-MUh" userLabel="leftRedLabel">
-                                                        <rect key="frame" x="20" y="2" width="20" height="23.333333333333332"/>
+                                                        <rect key="frame" x="20" y="2" width="20" height="21"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="9lP-Il-XSu"/>
@@ -1125,7 +1125,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5p-KI-PUI" userLabel="leftDotsLabel">
-                                                        <rect key="frame" x="16" y="2" width="10" height="23.333333333333332"/>
+                                                        <rect key="frame" x="16" y="2" width="10" height="21"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="10" id="gQp-oa-S8f"/>
@@ -1366,7 +1366,7 @@
                                         </constraints>
                                     </imageView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLe-rz-vJl">
-                                        <rect key="frame" x="3" y="0.0" width="148" height="375"/>
+                                        <rect key="frame" x="3" y="10" width="148" height="355"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="b2u-Mf-csd" kind="embed" identifier="wordsTVCSegue" id="wxU-8X-ggK"/>
@@ -1379,8 +1379,8 @@
                                     <constraint firstItem="x1S-K7-JhL" firstAttribute="top" secondItem="j3a-Ad-6g9" secondAttribute="top" id="HXg-Is-ZZh"/>
                                     <constraint firstAttribute="width" constant="150" identifier="chatViewWidth" id="Lzt-oO-QhG"/>
                                     <constraint firstItem="vLe-rz-vJl" firstAttribute="leading" secondItem="j3a-Ad-6g9" secondAttribute="leading" constant="3" id="V4O-6l-Wmy"/>
-                                    <constraint firstItem="vLe-rz-vJl" firstAttribute="top" secondItem="j3a-Ad-6g9" secondAttribute="top" id="awp-hN-9xr"/>
-                                    <constraint firstAttribute="bottom" secondItem="vLe-rz-vJl" secondAttribute="bottom" id="nA2-VS-pdd"/>
+                                    <constraint firstItem="vLe-rz-vJl" firstAttribute="top" secondItem="j3a-Ad-6g9" secondAttribute="top" constant="10" id="awp-hN-9xr"/>
+                                    <constraint firstAttribute="bottom" secondItem="vLe-rz-vJl" secondAttribute="bottom" constant="10" id="nA2-VS-pdd"/>
                                     <constraint firstAttribute="bottom" secondItem="x1S-K7-JhL" secondAttribute="bottom" id="yRV-1I-dn5"/>
                                 </constraints>
                             </view>
@@ -1392,7 +1392,7 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctC-9E-Ved" customClass="RoundedButton" customModule="Spynames" customModuleProvider="target">
                                         <rect key="frame" x="15" y="335" width="120" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.29411764705882354" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="3I9-tp-5wg"/>
                                             <constraint firstAttribute="width" constant="120" id="UUb-Ft-XCo"/>
@@ -1475,7 +1475,7 @@
             <objects>
                 <tableViewController id="b2u-Mf-csd" customClass="WordsTVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="36" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" springLoaded="YES" id="iLw-1n-0hg">
-                        <rect key="frame" x="0.0" y="0.0" width="148" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="148" height="355"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1488,7 +1488,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Гриф" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbn-qz-L8I" customClass="PaddingLabel" customModule="Spynames" customModuleProvider="target">
-                                            <rect key="frame" x="5" y="-0.33333333333333393" width="112" height="30.333333333333336"/>
+                                            <rect key="frame" x="5" y="-0.33333333333333393" width="86" height="30.333333333333336"/>
                                             <color key="backgroundColor" red="0.67843137249999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Vfe-II-b9P"/>
@@ -1557,7 +1557,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTl-4B-wPD" customClass="RoundedButton" customModule="Spynames" customModuleProvider="target">
                                         <rect key="frame" x="374" y="45" width="120" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.29411764705882354" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="9eg-4w-jg8"/>
                                             <constraint firstAttribute="width" constant="120" id="vTm-al-bgG"/>

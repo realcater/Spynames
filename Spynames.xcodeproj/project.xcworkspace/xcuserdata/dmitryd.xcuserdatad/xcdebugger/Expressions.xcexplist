@@ -3,6 +3,22 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "MyButton.makeDoubleColor(topColor:bottomColor:):MyButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.imageView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EnterHintVC.currentHint.getter:EnterHintVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "GradientButton.setGradient(topGradientColor:bottomGradientColor:):GradientButton.swift">
          <PersistentStrings>
             <PersistentString
@@ -22,23 +38,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "WordsTVC.doubleTap(recognizer:):WordsTVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath!.Storage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MyButton.makeButtonDoubleColor(topColor:bottomColor:):MyButton.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.imageView">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EnterHintVC.currentHint.getter:EnterHintVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MyButton.makeDoubleColor(topColor:bottomColor:):MyButton.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.imageView">

@@ -68,6 +68,7 @@ class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         pickerView.dataSource = self
 
         textField.becomeFirstResponder()
+        textField.autocapitalizationType = .sentences
         addTaps(singleTapAction: #selector(singleTap))
 
         mainView.setBackgroundImage(named: "paper_600x450px", alpha: 1, contentMode: .scaleToFill)

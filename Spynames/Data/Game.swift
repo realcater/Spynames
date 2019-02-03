@@ -1,6 +1,6 @@
-enum Team : Int {
-    case red = 1
-    case blue = 2
+enum Team {
+    case red
+    case blue
 }
 
 enum WordColor {
@@ -25,19 +25,12 @@ struct Word {
     var color: WordColor
 }
 
+func toWordColor(_ team: Team) -> WordColor {
+    return (team == .red) ? .red : .blue
+}
+
 class Game {
-    let words: [Word] = [
-        Word(text: "Гриф", color: .red),
-        Word(text: "Дракон-и-дракон", color: .red),
-        Word(text: "Образование", color: .red),
-        Word(text: "Учитель", color: .red),
-        Word(text: "Подъём", color: .red),
-        Word(text: "Метрика", color: .red),
-        Word(text: "Америка", color: .red),
-        Word(text: "Горн", color: .red),
-        Word(text: "Вспышка", color: .red),
-        Word(text: "Бублик", color: .black),
-    ]
+    var words: [Word]
     var currentTeam: Team
     var hints = [Team: [Hint]]()
     var leftWords = [Team: Int]()
@@ -46,5 +39,17 @@ class Game {
         hints = [.red: [], .blue: []]
         currentTeam = .red
         leftWords = [.red: 9, .blue: 8]
+        words = [
+            Word(text: "Гриф", color: toWordColor(currentTeam)),
+            Word(text: "Дракон-и-дракон", color: toWordColor(currentTeam)),
+            Word(text: "Образование", color: toWordColor(currentTeam)),
+            Word(text: "Учитель", color: toWordColor(currentTeam)),
+            Word(text: "Подъём", color: toWordColor(currentTeam)),
+            Word(text: "Метрика", color: toWordColor(currentTeam)),
+            Word(text: "Америка", color: toWordColor(currentTeam)),
+            Word(text: "Горн", color: toWordColor(currentTeam)),
+            Word(text: "Вспышка", color: toWordColor(currentTeam)),
+            Word(text: "Бублик", color: .black)
+            ]
     }
 }

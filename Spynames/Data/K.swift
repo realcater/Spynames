@@ -47,6 +47,7 @@ struct K {
         static let gray = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
         static let Brown = UIColor(red: 190/256, green: 180/256, blue: 150/256, alpha: 1)
         static let lightBrown = UIColor(red: 250/256, green: 240/256, blue: 220/256, alpha: 1)
+        static let clear = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
         
         static let foreground = blueDarker
         static let buttonsText = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -56,6 +57,12 @@ struct K {
                                   DeviceRoles.blueOperatives: blueDarker
                                   ]
         static let team = [Team.red: K.Colors.redDarker, Team.blue: K.Colors.blueDarker]
+        static let word = [
+            WordColor.red: K.Colors.redDarker,
+            WordColor.blue: K.Colors.blueDarker,
+            WordColor.neutral: K.Colors.lightBrown,
+            WordColor.black: UIColor.black
+        ]
     }
     struct Labels {
         struct Buttons {
