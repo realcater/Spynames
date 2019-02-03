@@ -3,7 +3,6 @@ import AVFoundation
 
 struct K {
     
-    static var i = 0
     static let allDeviceRoles = [DeviceRoles.redSpymaster,
                                  DeviceRoles.blueSpymaster,
                                  DeviceRoles.redOperatives,

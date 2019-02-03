@@ -31,11 +31,11 @@ extension UIView {
             }
         }
     }
-    func setBackgroundImage(named: String, alpha: CGFloat, tintColor: UIColor? = nil) {
+    func setBackgroundImage(named: String, alpha: CGFloat, tintColor: UIColor? = nil, contentMode: UIView.ContentMode = .scaleAspectFill) {
         if let image = UIImage(named: named) {
             let backgroundImageView = UIImageView(frame: self.bounds)
             backgroundImageView.image = image
-            backgroundImageView.contentMode = .scaleAspectFill
+            backgroundImageView.contentMode = contentMode
             backgroundImageView.alpha = alpha
             if let tintColor = tintColor {
                 backgroundImageView.tintColor = tintColor

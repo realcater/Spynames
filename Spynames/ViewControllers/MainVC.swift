@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, ReturnHintDelegate {
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var leftView: UIView!
@@ -16,7 +16,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var rightViewBackground: UIImageView!
     @IBOutlet weak var chatView: PlayersChatView!
-    @IBOutlet weak var answerButton: RoundedButton!
+    @IBOutlet weak var makeahintButton: RoundedButton!
     @IBOutlet weak var guessedScoreView: UIView!
     @IBOutlet weak var leftScoreView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -27,6 +27,7 @@ class MainVC: UIViewController {
     
     var statusIcons : [PlayerStatusIcon] = []
     var game: Game!
+    var notConfirmedHint: Hint?
 
     override func loadView() {
         super.loadView()
@@ -42,7 +43,7 @@ class MainVC: UIViewController {
 
         prepareViews()
         preparePlayerStatusBar()
-        answerButton.makeRounded(sound: K.Sounds.click)
+        makeahintButton.makeRounded()
         prepareChat()
     }
     private func prepareViews() {
@@ -69,8 +70,6 @@ class MainVC: UIViewController {
             PlayerStatusIcon(playerType: .operatives, team: .blue, bar: statusIconBars[3], image: statusIconImages[3])
         )
         statusIcons[0].active = true
-        
-        
     }
     private func prepareChat() {
         chatView.setup()
@@ -93,24 +92,27 @@ class MainVC: UIViewController {
             self.chatView.add(m4)
             self.statusIcons[3].online = true
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
-            self.chatView.add(m1)
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
-            self.chatView.add(m2)
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0, execute: {
-            self.chatView.add(m3)
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0, execute: {
-            self.chatView.add(m4)
-        })
+    }
+    
+    func addHint(hint: Hint) {
+        game.hints[game.currentTeam]!.append(hint)
+        let message = Message(text: hint.text+": "+StrInf(hint.qty), team: game.currentTeam, player: .spymaster)
+        chatView.add(message)
+    }
+    func addNotConfirmedHint(hint: Hint?) {
+        notConfirmedHint = hint
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
             let wordsTVC = segue.destination as! WordsTVC
             wordsTVC.words = game.words
+        } else if segue.identifier == "toEnterHintVC" {
+            let enterHintVC = segue.destination as! EnterHintVC
+            enterHintVC.delegate = self
+            if let hint = notConfirmedHint { enterHintVC.startHint = hint }
+            enterHintVC.maxQty = game.leftWords[game.currentTeam]
         }
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class WordsTVC: UITableViewController {
     
-    var words: [String]!
+    var words: [Word]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class WordsTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordsListItem", for: indexPath)
         let label = cell.viewWithTag(1000) as! PaddingLabel
-        label.text = words[indexPath.row]
+        label.text = words[indexPath.row].text
         return cell
     }
     

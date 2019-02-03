@@ -14,10 +14,10 @@
          contextName = "UIView.makeAllButtonsRound(cornerRadius:color:font:sound:):UIView+extension.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cornerRadius">
+               value = "self.subviews">
             </PersistentString>
             <PersistentString
-               value = "self.subviews">
+               value = "cornerRadius">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -26,6 +26,14 @@
          <PersistentStrings>
             <PersistentString
                value = "self.imageView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EnterHintVC.currentHint.getter:EnterHintVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

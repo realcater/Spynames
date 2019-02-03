@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension UITableViewController {
-    /*@objc override func addTaps(for tappedView: UIView? = nil, singleTapAction: Selector? = nil, doubleTapAction: Selector? = nil, anySwipeAction: Selector? = nil) {
+extension UIViewController {
+    func addTaps(for tappedView: UIView? = nil, singleTapAction: Selector? = nil, doubleTapAction: Selector? = nil, anySwipeAction: Selector? = nil) {
         let tappedView: UIView = tappedView ?? self.view //if ==nil than we use default view of VC
         var singleTap: UITapGestureRecognizer!
         var doubleTap: UITapGestureRecognizer!
@@ -25,8 +25,9 @@ extension UITableViewController {
         }
         if let anySwipeAction = anySwipeAction {
             anySwipe = UISwipeGestureRecognizer(target: self, action: anySwipeAction)
+            print("===", anySwipe.direction)
         }
-        
+
         if let singleTap = singleTap, let doubleTap = doubleTap  {
             singleTap.require(toFail: doubleTap)
         }
@@ -36,5 +37,5 @@ extension UITableViewController {
         if let anySwipe = anySwipe { tappedView.addGestureRecognizer(anySwipe) }
         
         tappedView.isUserInteractionEnabled = true
-    }*/
+    }
 }

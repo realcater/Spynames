@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA2EFEB321F65B6400DF2ACF /* UITableVC+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB221F65B6400DF2ACF /* UITableVC+extensions.swift */; };
 		CA2EFEB521F6662300DF2ACF /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */; };
 		CA2EFEB921F8847D00DF2ACF /* PermaColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB821F8847D00DF2ACF /* PermaColorView.swift */; };
 		CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */; };
@@ -27,7 +26,6 @@
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
 		CAC1513E2188F2B400FA96CA /* GameCreatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */; };
 		CAC5BA4921F48FB4001763C5 /* PlayerStatusIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5BA4821F48FB4001763C5 /* PlayerStatusIcon.swift */; };
-		CAC5BA4B21F49360001763C5 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5BA4A21F49360001763C5 /* Common.swift */; };
 		CAC5BA4D21F4D3E7001763C5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5BA4C21F4D3E7001763C5 /* Game.swift */; };
 		CAC5BA4F21F4EBFC001763C5 /* WordsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5BA4E21F4EBFC001763C5 /* WordsTVC.swift */; };
 		CAC9505221B66F2F002262BA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9505121B66F2F002262BA /* Message.swift */; };
@@ -41,10 +39,12 @@
 		CAD84F1021875FD200E6C6E0 /* false.wav in Resources */ = {isa = PBXBuildFile; fileRef = CAD84F0D21875FD200E6C6E0 /* false.wav */; };
 		CAD84F142187602B00E6C6E0 /* AVAudioPlayer+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD84F132187602B00E6C6E0 /* AVAudioPlayer+extension.swift */; };
 		CAD84F1821879AE400E6C6E0 /* ChooseRole3dVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD84F1721879AE400E6C6E0 /* ChooseRole3dVC.swift */; };
+		CAE1A12B2207152D00B4E687 /* EnterHintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */; };
+		CAE1A12F220751DE00B4E687 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A12E220751DE00B4E687 /* UIViewController+extension.swift */; };
+		CAE1A1312207696100B4E687 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A1302207696100B4E687 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA2EFEB221F65B6400DF2ACF /* UITableVC+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableVC+extensions.swift"; sourceTree = "<group>"; };
 		CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		CA2EFEB821F8847D00DF2ACF /* PermaColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermaColorView.swift; sourceTree = "<group>"; };
 		CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
@@ -66,7 +66,6 @@
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreatedVC.swift; sourceTree = "<group>"; };
 		CAC5BA4821F48FB4001763C5 /* PlayerStatusIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusIcon.swift; sourceTree = "<group>"; };
-		CAC5BA4A21F49360001763C5 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		CAC5BA4C21F4D3E7001763C5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		CAC5BA4E21F4EBFC001763C5 /* WordsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsTVC.swift; sourceTree = "<group>"; };
 		CAC9505121B66F2F002262BA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -80,6 +79,9 @@
 		CAD84F0D21875FD200E6C6E0 /* false.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = false.wav; sourceTree = "<group>"; };
 		CAD84F132187602B00E6C6E0 /* AVAudioPlayer+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioPlayer+extension.swift"; sourceTree = "<group>"; };
 		CAD84F1721879AE400E6C6E0 /* ChooseRole3dVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRole3dVC.swift; sourceTree = "<group>"; };
+		CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterHintVC.swift; sourceTree = "<group>"; };
+		CAE1A12E220751DE00B4E687 /* UIViewController+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
+		CAE1A1302207696100B4E687 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +98,8 @@
 		CA3528F02182267F005C489B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				CAE1A1302207696100B4E687 /* Common.swift */,
 				CAC5BA4C21F4D3E7001763C5 /* Game.swift */,
-				CAC5BA4A21F49360001763C5 /* Common.swift */,
 				CA3528F1218226A5005C489B /* K.swift */,
 				CACA1F3B21A379B600DED049 /* Device.swift */,
 				CAC9505121B66F2F002262BA /* Message.swift */,
@@ -159,6 +161,7 @@
 				CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */,
 				CACA1F3D21ADDA1200DED049 /* MainVC.swift */,
 				CAC5BA4E21F4EBFC001763C5 /* WordsTVC.swift */,
+				CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -166,14 +169,14 @@
 		CA814BCE217F71BD0009D072 /* UIExtensions+Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */,
+				CAE1A12E220751DE00B4E687 /* UIViewController+extension.swift */,
 				CAB9E818217F9C4E002148CD /* UIView+extension.swift */,
+				CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */,
 				CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */,
 				CAD84F132187602B00E6C6E0 /* AVAudioPlayer+extension.swift */,
 				CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */,
 				CA814BCF217F71DD0009D072 /* RoundedButton.swift */,
 				CAC9505321B6EB9D002262BA /* ChatView.swift */,
-				CA2EFEB221F65B6400DF2ACF /* UITableVC+extensions.swift */,
 				CA2EFEB421F6662300DF2ACF /* PaddingLabel.swift */,
 				CA2EFEB821F8847D00DF2ACF /* PermaColorView.swift */,
 			);
@@ -278,6 +281,7 @@
 			files = (
 				CACA1F3C21A379B600DED049 /* Device.swift in Sources */,
 				CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */,
+				CAE1A12F220751DE00B4E687 /* UIViewController+extension.swift in Sources */,
 				CA3528F2218226A5005C489B /* K.swift in Sources */,
 				CAD28AF9219A09E9004C684A /* UIRotatedImageView.swift in Sources */,
 				CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */,
@@ -292,16 +296,16 @@
 				CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */,
 				CA2EFEB921F8847D00DF2ACF /* PermaColorView.swift in Sources */,
 				CAC9505421B6EB9D002262BA /* ChatView.swift in Sources */,
+				CAE1A12B2207152D00B4E687 /* EnterHintVC.swift in Sources */,
 				CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */,
 				CA2EFEB521F6662300DF2ACF /* PaddingLabel.swift in Sources */,
 				CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */,
 				CA2EFEBD21F8B5B700DF2ACF /* PlayersChatView.swift in Sources */,
 				CAC9505221B66F2F002262BA /* Message.swift in Sources */,
-				CA2EFEB321F65B6400DF2ACF /* UITableVC+extensions.swift in Sources */,
-				CAC5BA4B21F49360001763C5 /* Common.swift in Sources */,
 				CAC5BA4921F48FB4001763C5 /* PlayerStatusIcon.swift in Sources */,
 				CA814BD0217F71DD0009D072 /* RoundedButton.swift in Sources */,
 				CAD84F142187602B00E6C6E0 /* AVAudioPlayer+extension.swift in Sources */,
+				CAE1A1312207696100B4E687 /* Common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
