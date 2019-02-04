@@ -28,12 +28,12 @@ class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     var hintInPicker: Hint {
         get {
             hint.text = textField.text!
-            hint.qty = IntInf(pickerData[pickerView.selectedRow(inComponent: 0)])
+            hint.qty = Helper.IntInf(pickerData[pickerView.selectedRow(inComponent: 0)])
             return hint
         }
         set {
             textField.text = newValue.text
-            if let row = pickerData.index(where: {IntInf($0) == newValue.qty}) {
+            if let row = pickerData.index(where: {Helper.IntInf($0) == newValue.qty}) {
                 pickerView.selectRow(row, inComponent: 0, animated: false)
             }
         }
@@ -96,7 +96,7 @@ class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     
     private func generateData() {
         for i in Array(1...maxQty)+[Int.max,0] {
-            pickerData.append(StrInf(i))
+            pickerData.append(Helper.StrInf(i))
         }
         hintInPicker = hint
     }

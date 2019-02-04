@@ -96,7 +96,7 @@ class MainVC: UIViewController, ReturnHintDelegate {
     
     func addHint(hint: Hint) {
         game.hints[game.currentTeam]!.append(hint)
-        let message = Message(text: hint.text+": "+StrInf(hint.qty), team: game.currentTeam, player: .spymaster)
+        let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentTeam, player: .spymaster)
         chatView.add(message)
     }
     
