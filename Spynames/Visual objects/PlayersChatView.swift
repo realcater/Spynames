@@ -12,7 +12,7 @@ class PlayersChatView: ChatView {
      
      let messageOnTheLeft = (message.playerType == .operatives)
      let text = message.text
-     let color = (message.team == .red) ? K.Colors.redDarker : K.Colors.blueNormal
+     let color = (message.team == .red) ? K.Colors.teamChat[.red]! : K.Colors.teamChat[.blue]!
      showMessage(messageOnTheLeft: messageOnTheLeft, text: text, color: color)
      }
 }

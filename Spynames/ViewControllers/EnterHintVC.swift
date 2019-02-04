@@ -10,7 +10,7 @@ import UIKit
 
 protocol ReturnHintDelegate: class {
     func addHint(hint: Hint)
-    func addNotConfirmedHint(hint: Hint?)
+    //func addNotConfirmedHint(hint: Hint?)
 }
 
 class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -20,23 +20,16 @@ class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var confirmButton: RoundedButton!
     
-    @IBAction func pressConfirmButton(_ sender: Any) {
-        if currentHint.text != "" {
-            delegate?.addHint(hint: currentHint)
-            delegate?.addNotConfirmedHint(hint: nil)
-            dismiss(animated: false, completion: nil)
-        }
-    }
     var pickerData: [String] = []
     var maxQty: Int!
     weak var delegate: ReturnHintDelegate? = nil
-    var startHint: Hint?
-    
-    var currentHint: Hint {
+
+    var hint: Hint!
+    var hintInPicker: Hint {
         get {
-            let word = textField.text
-            let qty = IntInf(pickerData[pickerView.selectedRow(inComponent: 0)])
-            return Hint(text: word!, qty: qty)
+            hint.text = textField.text!
+            hint.qty = IntInf(pickerData[pickerView.selectedRow(inComponent: 0)])
+            return hint
         }
         set {
             textField.text = newValue.text
@@ -46,12 +39,21 @@ class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         }
     }
     
+    @IBAction func pressConfirmButton(_ sender: Any) {
+        if hintInPicker.text != "" {
+            delegate?.addHint(hint: hintInPicker)
+            hint.text = ""
+            hint.qty = 1
+            dismiss(animated: false, completion: nil)
+        }
+    }
+    
     @objc private func singleTap(recognizer: UITapGestureRecognizer) {
         if (recognizer.state == UIGestureRecognizer.State.ended) {
             if textField.isFirstResponder {
                 self.view.endEditing(true)
             } else {
-                delegate?.addNotConfirmedHint(hint: currentHint)
+                hint = hintInPicker
                 dismiss(animated: true, completion: nil)
             }
         }
@@ -72,7 +74,7 @@ class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         addTaps(singleTapAction: #selector(singleTap))
 
         mainView.setBackgroundImage(named: "paper_600x450px", alpha: 1, contentMode: .scaleToFill)
-        confirmButton.makeRounded(sound: K.Sounds.click)
+        confirmButton.makeRounded(color: K.Colors.mainVCbuttons, sound: K.Sounds.click)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -96,6 +98,6 @@ class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         for i in Array(1...maxQty)+[Int.max,0] {
             pickerData.append(StrInf(i))
         }
-        currentHint = startHint ?? Hint(text:"", qty: 1)
+        hintInPicker = hint
     }
 }

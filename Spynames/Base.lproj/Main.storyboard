@@ -1446,12 +1446,12 @@
                     <connections>
                         <outlet property="bottomView" destination="xce-Iu-y4J" id="5fS-Af-KxU"/>
                         <outlet property="chatView" destination="YuA-Tf-gkW" id="fNt-WY-HJd"/>
+                        <outlet property="giveahintButton" destination="ctC-9E-Ved" id="d9f-tI-AWZ"/>
                         <outlet property="guessedScoreView" destination="Fw1-Ze-Cre" id="MCH-f7-lxV"/>
                         <outlet property="leftScoreView" destination="Yj8-Wb-ltd" id="P1v-EV-DfA"/>
                         <outlet property="leftView" destination="aAE-ay-zrL" id="lxo-3f-6aG"/>
                         <outlet property="leftViewBackground" destination="ORS-ZI-juZ" id="LMl-ta-S0T"/>
                         <outlet property="mainView" destination="rCp-w6-fuZ" id="p1E-JV-4JD"/>
-                        <outlet property="makeahintButton" destination="ctC-9E-Ved" id="d9f-tI-AWZ"/>
                         <outlet property="rightView" destination="j3a-Ad-6g9" id="6Kt-oo-Yr0"/>
                         <outlet property="rightViewBackground" destination="x1S-K7-JhL" id="XFp-oE-0Zj"/>
                         <outlet property="statusBar" destination="jz1-j9-2rZ" id="QkB-GT-26d"/>

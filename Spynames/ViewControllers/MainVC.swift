@@ -16,7 +16,7 @@ class MainVC: UIViewController, ReturnHintDelegate {
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var rightViewBackground: UIImageView!
     @IBOutlet weak var chatView: PlayersChatView!
-    @IBOutlet weak var makeahintButton: RoundedButton!
+    @IBOutlet weak var giveahintButton: RoundedButton!
     @IBOutlet weak var guessedScoreView: UIView!
     @IBOutlet weak var leftScoreView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -27,7 +27,7 @@ class MainVC: UIViewController, ReturnHintDelegate {
     
     var statusIcons : [PlayerStatusIcon] = []
     var game: Game!
-    var notConfirmedHint: Hint?
+    var notConfirmedHint = Hint()
 
     override func loadView() {
         super.loadView()
@@ -43,13 +43,13 @@ class MainVC: UIViewController, ReturnHintDelegate {
 
         prepareViews()
         preparePlayerStatusBar()
-        makeahintButton.makeRounded()
+        giveahintButton.makeRounded(color: K.Colors.mainVCbuttons)
         prepareChat()
     }
     private func prepareViews() {
-        guessedScoreView.makeDoubleColor(leftColor: K.Colors.blueDarker, rightColor: K.Colors.redDarker)
+        guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
         guessedScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
-        leftScoreView.makeDoubleColor(leftColor: K.Colors.blueDarker, rightColor: K.Colors.redDarker)
+        leftScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
         leftScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
         leftViewBackground.image = UIImage(named: K.FileNames.leftViewBackground)
         rightViewBackground.image = UIImage(named: K.FileNames.rightViewBackground)
@@ -99,10 +99,6 @@ class MainVC: UIViewController, ReturnHintDelegate {
         let message = Message(text: hint.text+": "+StrInf(hint.qty), team: game.currentTeam, player: .spymaster)
         chatView.add(message)
     }
-    func addNotConfirmedHint(hint: Hint?) {
-        notConfirmedHint = hint
-        
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
@@ -111,7 +107,7 @@ class MainVC: UIViewController, ReturnHintDelegate {
         } else if segue.identifier == "toEnterHintVC" {
             let enterHintVC = segue.destination as! EnterHintVC
             enterHintVC.delegate = self
-            if let hint = notConfirmedHint { enterHintVC.startHint = hint }
+            enterHintVC.hint = notConfirmedHint
             enterHintVC.maxQty = game.leftWords[game.currentTeam]
         }
     }

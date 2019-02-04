@@ -15,9 +15,9 @@ enum PlayerType {
     case operatives
 }
 
-struct Hint {
-    var text: String
-    var qty: Int
+class Hint {
+    var text: String = ""
+    var qty: Int = 1
 }
 
 struct Word {

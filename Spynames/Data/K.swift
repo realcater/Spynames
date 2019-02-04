@@ -16,7 +16,7 @@ struct K {
     
     
     struct Sizes {
-        static let buttonCornerRadius : CGFloat = 32
+        static let bigButtonCornerRadius : CGFloat = 32
         static let cardsCornerRadius : CGFloat = 12
         static let smallCornerRadius : CGFloat = 6
         struct Chat {
@@ -44,6 +44,7 @@ struct K {
         static let blueDarker = UIColor(red: 0, green: 73/256, blue: 121/256, alpha: 1)
         static let redDarker = UIColor(red: 148/256, green: 17/256, blue: 0, alpha: 1)
         static let green = UIColor(red: 0, green: 110/256, blue: 0, alpha: 1)
+        static let greenDarker = UIColor(red: 0, green: 75/256, blue: 0, alpha: 1)
         static let gray = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
         static let Brown = UIColor(red: 190/256, green: 180/256, blue: 150/256, alpha: 1)
         static let lightBrown = UIColor(red: 250/256, green: 240/256, blue: 220/256, alpha: 1)
@@ -57,12 +58,14 @@ struct K {
                                   DeviceRoles.blueOperatives: blueDarker
                                   ]
         static let team = [Team.red: K.Colors.redDarker, Team.blue: K.Colors.blueDarker]
+        static let teamChat = [Team.red: K.Colors.redDarker, Team.blue: K.Colors.blueNormal]
         static let word = [
             WordColor.red: K.Colors.redDarker,
             WordColor.blue: K.Colors.blueDarker,
             WordColor.neutral: K.Colors.lightBrown,
             WordColor.black: UIColor.black
         ]
+        static let mainVCbuttons = greenDarker
     }
     struct Labels {
         struct Buttons {
