@@ -42,6 +42,7 @@
 		CAE1A12B2207152D00B4E687 /* EnterHintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */; };
 		CAE1A12F220751DE00B4E687 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A12E220751DE00B4E687 /* UIViewController+extension.swift */; };
 		CAE1A1312207696100B4E687 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A1302207696100B4E687 /* Helper.swift */; };
+		CAE1A1332208D21200B4E687 /* WordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A1322208D21200B4E687 /* WordCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterHintVC.swift; sourceTree = "<group>"; };
 		CAE1A12E220751DE00B4E687 /* UIViewController+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		CAE1A1302207696100B4E687 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		CAE1A1322208D21200B4E687 /* WordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,12 @@
 		CA3528F02182267F005C489B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				CAE1A1302207696100B4E687 /* Helper.swift */,
 				CAC5BA4C21F4D3E7001763C5 /* Game.swift */,
-				CA3528F1218226A5005C489B /* K.swift */,
 				CACA1F3B21A379B600DED049 /* Device.swift */,
 				CAC9505121B66F2F002262BA /* Message.swift */,
+				CA3528F1218226A5005C489B /* K.swift */,
+				CAE1A1302207696100B4E687 /* Helper.swift */,
+				CAE1A1322208D21200B4E687 /* WordCard.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */,
 				CA2EFEBD21F8B5B700DF2ACF /* PlayersChatView.swift in Sources */,
 				CAC9505221B66F2F002262BA /* Message.swift in Sources */,
+				CAE1A1332208D21200B4E687 /* WordCard.swift in Sources */,
 				CAC5BA4921F48FB4001763C5 /* PlayerStatusIcon.swift in Sources */,
 				CA814BD0217F71DD0009D072 /* RoundedButton.swift in Sources */,
 				CAD84F142187602B00E6C6E0 /* AVAudioPlayer+extension.swift in Sources */,
