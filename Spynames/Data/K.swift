@@ -2,6 +2,17 @@ import UIKit
 import AVFoundation
 
 struct K {
+    struct Game {
+        static let sizeX = 5
+        static let sizeY = 5
+        static let ttlCardsQty = 25
+        static let cardsQty = [
+            CardColor.red: [Team.red: 9, Team.blue: 8],
+            CardColor.blue: [Team.red: 8, Team.blue: 9],
+            CardColor.neutral: [Team.red: 7, Team.blue: 7],
+            CardColor.black: [Team.red: 1, Team.blue: 1]
+        ]
+    }
     
     static let allDeviceRoles = [DeviceRoles.redSpymaster,
                                  DeviceRoles.blueSpymaster,
@@ -60,10 +71,10 @@ struct K {
         static let team = [Team.red: K.Colors.redDarker, Team.blue: K.Colors.blueDarker]
         static let teamChat = [Team.red: K.Colors.redDarker, Team.blue: K.Colors.blueNormal]
         static let word = [
-            WordColor.red: K.Colors.redDarker,
-            WordColor.blue: K.Colors.blueDarker,
-            WordColor.neutral: K.Colors.lightBrown,
-            WordColor.black: UIColor.black
+            CardColor.red: K.Colors.redDarker,
+            CardColor.blue: K.Colors.blueDarker,
+            CardColor.neutral: K.Colors.lightBrown,
+            CardColor.black: UIColor.black
         ]
         static let mainVCbuttons = greenDarker
     }

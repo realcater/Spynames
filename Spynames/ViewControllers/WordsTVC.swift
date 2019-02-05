@@ -10,13 +10,13 @@ import UIKit
 
 class WordsTVC: UITableViewController {
     
-    var words: [Word]!
+    var words: [Card]!
     
     @objc private func doubleTap(recognizer: UITapGestureRecognizer) {
         if (recognizer.state == UIGestureRecognizer.State.ended) {
             let location = recognizer.location(in: self.view)
             let tappedRow = self.tableView.indexPathForRow(at: location)!.row
-            if words[tappedRow].text == "" {
+            if words[tappedRow].word == "" {
                 deleteRow(at: tappedRow)
             } else {
                 insertClearRow(at: tappedRow)
@@ -34,7 +34,7 @@ class WordsTVC: UITableViewController {
     }
     func insertClearRow(at row: Int) {
         let indexPath = IndexPath(row: row, section: 0)
-        let clearWord = Word(text: "", color: .neutral)
+        let clearWord = Card(text: "", color: .neutral)
         
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .automatic)
@@ -58,8 +58,8 @@ class WordsTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordsListItem", for: indexPath)
         let label = cell.viewWithTag(1000) as! PaddingLabel
         let word = words[indexPath.row]
-        label.text = word.text
-        label.backgroundColor = (word.text == "") ? K.Colors.clear : K.Colors.word[word.color]
+        label.text = word.word
+        label.backgroundColor = (word.word == "") ? K.Colors.clear : K.Colors.word[word.color]
         return cell
     }
     

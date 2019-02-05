@@ -103,7 +103,7 @@ class MainVC: UIViewController, ReturnHintDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
             let wordsTVC = segue.destination as! WordsTVC
-            wordsTVC.words = game.words
+            wordsTVC.words = game.cards
         } else if segue.identifier == "toEnterHintVC" {
             let enterHintVC = segue.destination as! EnterHintVC
             enterHintVC.delegate = self

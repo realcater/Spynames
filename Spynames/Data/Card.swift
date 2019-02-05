@@ -8,12 +8,12 @@
 
 import Foundation
 
-class WordCard {
-    var text: String
-    var color: WordColor
+class Card {
+    var word: String
+    var color: CardColor
     var guessed: Bool
-    init(text: String, color: WordColor) {
-        self.text = text
+    init(text: String, color: CardColor) {
+        self.word = text
         self.color = color
         self.guessed = false
     }

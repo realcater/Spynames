@@ -1,16 +1,16 @@
-enum Team {
+enum Team: CaseIterable {
     case red
     case blue
 }
 
-enum WordColor {
+enum CardColor: CaseIterable {
     case red
     case blue
     case neutral
     case black
 }
 
-enum PlayerType {
+enum PlayerType: CaseIterable {
     case spymaster
     case operatives
 }
@@ -20,36 +20,47 @@ class Hint {
     var qty: Int = 1
 }
 
-struct Word {
-    var text: String
-    var color: WordColor
-}
-
-func toWordColor(_ team: Team) -> WordColor {
+func toCardColor(_ team: Team) -> CardColor {
     return (team == .red) ? .red : .blue
 }
 
 class Game {
-    var words: [Word]
+    var cards = [Card]()
+    var cardsOf: [CardColor: [Card]] = [.red: [], .blue: [], .neutral: [], .black: []]
+    var startTeam: Team
     var currentTeam: Team
-    var hints = [Team: [Hint]]()
+    var hints: [Team: [Hint]] = [.red: [], .blue: []]
     var leftWords = [Team: Int]()
     
     init() {
-        hints = [.red: [], .blue: []]
+        startTeam = .red
         currentTeam = .red
-        leftWords = [.red: 9, .blue: 8]
-        words = [
-            Word(text: "Гриф", color: toWordColor(currentTeam)),
-            Word(text: "Дракон-и-дракон", color: toWordColor(currentTeam)),
-            Word(text: "Образование", color: toWordColor(currentTeam)),
-            Word(text: "Учитель", color: toWordColor(currentTeam)),
-            Word(text: "Подъём", color: toWordColor(currentTeam)),
-            Word(text: "Метрика", color: toWordColor(currentTeam)),
-            Word(text: "Америка", color: toWordColor(currentTeam)),
-            Word(text: "Горн", color: toWordColor(currentTeam)),
-            Word(text: "Вспышка", color: toWordColor(currentTeam)),
-            Word(text: "Бублик", color: .black)
-            ]
+        
+        leftWords = [.red: K.Game.cardsQty[.red]![startTeam]!,
+                     .blue: K.Game.cardsQty[.blue]![startTeam]!]
+        
+        generateCards()
+    }
+    
+    private func generateCards() {
+        let cardsColors = getRandomCardsColors()
+        let cardsTexts = Helper.getRandomUnique(from: Ru.words, qty: K.Game.ttlCardsQty) as! [String]
+        
+        for (cardText, cardColor) in zip(cardsTexts, cardsColors) {
+            let card = Card(text: cardText, color: cardColor)
+            cards.append(card)
+            cardsOf[cardColor]!.append(card)
+            }
+    }
+    
+    private func getRandomCardsColors() -> [CardColor] {
+        var cardsColors = [CardColor]()
+        for cardColorType in CardColor.allCases {
+            for _ in 0..<K.Game.cardsQty[cardColorType]![startTeam]! {
+                cardsColors.append(cardColorType)
+            }
+        }
+        return cardsColors.shuffled()
     }
 }
+
