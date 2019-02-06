@@ -3,7 +3,7 @@ import AVFoundation
 
 extension UIView {
     func makeAllButtonsRound(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
-        for case let button as RoundedButton in self.subviews {
+        for case let button as UIRoundedButton in self.subviews {
             button.makeRounded(cornerRadius: cornerRadius, color: color, font: font, sound: sound)
         }
     }

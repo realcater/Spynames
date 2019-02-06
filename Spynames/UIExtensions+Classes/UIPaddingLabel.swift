@@ -2,7 +2,7 @@ import UIKit
 
 // Label+insets+keep its color (not clear) while reordering in a table
 
-class PaddingLabel: UILabel {
+class UIPaddingLabel: UILabel {
     
     @IBInspectable var topInset: CGFloat = 5.0
     @IBInspectable var bottomInset: CGFloat = 5.0

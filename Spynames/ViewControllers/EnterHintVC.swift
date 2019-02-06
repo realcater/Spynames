@@ -18,7 +18,7 @@ class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var confirmButton: RoundedButton!
+    @IBOutlet weak var confirmButton: UIRoundedButton!
     
     var pickerData: [String] = []
     var maxQty: Int!

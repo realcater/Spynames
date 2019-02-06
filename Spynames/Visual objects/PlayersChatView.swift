@@ -1,7 +1,7 @@
 import UIKit
 import AVFoundation
 
-class PlayersChatView: ChatView {
+class PlayersChatView: UIChatView {
     var messages: [Message] = []
     
     func setup() {

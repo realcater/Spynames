@@ -12,7 +12,7 @@ class MyTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        let label = viewWithTag(1000) as! PaddingLabel
+        let label = viewWithTag(1000) as! UIPaddingLabel
         label.layer.masksToBounds = true
         label.makeRounded(cornerRadius: K.Sizes.cardsCornerRadius)
     }

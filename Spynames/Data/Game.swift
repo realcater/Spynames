@@ -19,14 +19,14 @@ class Hint {
     var text: String = ""
     var qty: Int = 1
 }
-
+/*
 func toCardColor(_ team: Team) -> CardColor {
     return (team == .red) ? .red : .blue
 }
-
+*/
 class Game {
     var cards = [Card]()
-    var cardsOf: [CardColor: [Card]] = [.red: [], .blue: [], .neutral: [], .black: []]
+    var cardsOf = [CardColor: [Card]]()
     var startTeam: Team
     var currentTeam: Team
     var hints: [Team: [Hint]] = [.red: [], .blue: []]
@@ -35,7 +35,8 @@ class Game {
     init() {
         startTeam = .red
         currentTeam = .red
-        
+
+        for color in CardColor.allCases { cardsOf[color] = [] }
         leftWords = [.red: K.Game.cardsQty[.red]![startTeam]!,
                      .blue: K.Game.cardsQty[.blue]![startTeam]!]
         
@@ -55,9 +56,9 @@ class Game {
     
     private func getRandomCardsColors() -> [CardColor] {
         var cardsColors = [CardColor]()
-        for cardColorType in CardColor.allCases {
-            for _ in 0..<K.Game.cardsQty[cardColorType]![startTeam]! {
-                cardsColors.append(cardColorType)
+        for color in CardColor.allCases {
+            for _ in 0..<K.Game.cardsQty[color]![startTeam]! {
+                cardsColors.append(color)
             }
         }
         return cardsColors.shuffled()

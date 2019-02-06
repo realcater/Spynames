@@ -1,10 +1,10 @@
 import UIKit
 import AVFoundation
 
-class RoundedButton: UIButton {
+class UIRoundedButton: UIButton {
     var sound: AVAudioPlayer? = nil
 
-    @objc func playClickSound(_ sender: RoundedButton) {
+    @objc func playClickSound(_ sender: UIRoundedButton) {
         sound?.play()
     }
     func makeRounded(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, textColor: UIColor? = nil, tintColor: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {

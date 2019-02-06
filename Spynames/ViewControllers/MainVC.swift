@@ -16,7 +16,7 @@ class MainVC: UIViewController, ReturnHintDelegate {
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var rightViewBackground: UIImageView!
     @IBOutlet weak var chatView: PlayersChatView!
-    @IBOutlet weak var giveahintButton: RoundedButton!
+    @IBOutlet weak var giveahintButton: UIRoundedButton!
     @IBOutlet weak var guessedScoreView: UIView!
     @IBOutlet weak var leftScoreView: UIView!
     @IBOutlet weak var bottomView: UIView!

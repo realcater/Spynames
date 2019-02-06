@@ -1,6 +1,6 @@
 import UIKit
-
-class PermaColorView: UIView {
+/*
+class UIPermaColorView: UIView {
     var color: UIColor = .clear {
         didSet {
             backgroundColor = color
@@ -18,3 +18,4 @@ class PermaColorView: UIView {
         }
     }
 }
+*/

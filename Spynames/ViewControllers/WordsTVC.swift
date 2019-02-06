@@ -56,7 +56,7 @@ class WordsTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordsListItem", for: indexPath)
-        let label = cell.viewWithTag(1000) as! PaddingLabel
+        let label = cell.viewWithTag(1000) as! UIPaddingLabel
         let word = words[indexPath.row]
         label.text = word.word
         label.backgroundColor = (word.word == "") ? K.Colors.clear : K.Colors.word[word.color]

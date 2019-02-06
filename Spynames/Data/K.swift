@@ -1,6 +1,8 @@
 import UIKit
 import AVFoundation
 
+typealias CGMult = CGPoint //multiplicator for (x,y)
+
 struct K {
     struct Game {
         static let sizeX = 5
@@ -41,6 +43,10 @@ struct K {
         struct WordTable {
             static let cellHeight: CGFloat = 36
             static let labelHeight: CGFloat = 30
+        }
+        struct Cards {
+            static let margin = CGMult(x: 0.1, y: 0.1)
+            static let dist = CGMult(x: 0.1, y: 0.1)
         }
     }
     struct Sounds {

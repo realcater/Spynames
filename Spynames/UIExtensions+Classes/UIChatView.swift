@@ -1,7 +1,7 @@
 import UIKit
 import AVFoundation
 
-class ChatView: UIScrollView {
+class UIChatView: UIScrollView {
     private var offsetY : CGFloat = 0
     
     //parameters set in setup() with default values
