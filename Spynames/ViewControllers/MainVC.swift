@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MainVC: UIViewController, ReturnHintDelegate {
+class MainVC: UIViewController {
     
-    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var zoomedView: UIView!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var leftViewBackground: UIImageView!
     @IBOutlet weak var rightView: UIView!
@@ -25,6 +25,7 @@ class MainVC: UIViewController, ReturnHintDelegate {
     @IBOutlet var statusIconBars: [UIView]!
     @IBOutlet var statusIconImages: [UIImageView]!
     
+    @IBOutlet weak var mainView: UIScrollView!
     var statusIcons : [PlayerStatusIcon] = []
     var game: Game!
     var notConfirmedHint = Hint()
@@ -36,9 +37,10 @@ class MainVC: UIViewController, ReturnHintDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainView.minimumZoomScale = 1.0
+        mainView.maximumZoomScale = 5.0
+        mainView.delegate = self
         
-        
-        mainView.makeAllButtonsRound(cornerRadius: K.Sizes.cardsCornerRadius)
         view.setBackgroundImage(named: K.FileNames.mainBackground, alpha: 1)
 
         prepareViews()
@@ -46,6 +48,7 @@ class MainVC: UIViewController, ReturnHintDelegate {
         giveahintButton.makeRounded(color: K.Colors.mainVCbuttons)
         prepareChat()
     }
+    
     private func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
         guessedScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
@@ -93,13 +96,6 @@ class MainVC: UIViewController, ReturnHintDelegate {
             self.statusIcons[3].online = true
         })
     }
-    
-    func addHint(hint: Hint) {
-        game.hints[game.currentTeam]!.append(hint)
-        let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentTeam, player: .spymaster)
-        chatView.add(message)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
             let wordsTVC = segue.destination as! WordsTVC
@@ -110,5 +106,19 @@ class MainVC: UIViewController, ReturnHintDelegate {
             enterHintVC.hint = notConfirmedHint
             enterHintVC.maxQty = game.leftWords[game.currentTeam]
         }
+    }
+}
+
+extension MainVC: ReturnHintDelegate {
+    func addHint(hint: Hint) {
+        game.hints[game.currentTeam]!.append(hint)
+        let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentTeam, player: .spymaster)
+        chatView.add(message)
+    }
+}
+
+extension MainVC: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return zoomedView
     }
 }

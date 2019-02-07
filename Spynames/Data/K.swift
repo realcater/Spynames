@@ -45,8 +45,10 @@ struct K {
             static let labelHeight: CGFloat = 30
         }
         struct Cards {
-            static let margin = CGMult(x: 0.1, y: 0.1)
-            static let dist = CGMult(x: 0.1, y: 0.1)
+            static let marginX = 0.1
+            static let marginY = 0.1
+            static let distX = 0.1
+            static let distY = 0.1
         }
     }
     struct Sounds {

@@ -9,7 +9,7 @@ class UICard {
     var place: Place
     var card: Card
     var showColor: Bool
-    var button: UIButton!
+    var button: UIRoundedButton!
     
     init(place: Place, card: Card) {
         self.place = place
@@ -18,21 +18,21 @@ class UICard {
         
     }
     func add(to view: UIView) {
-        viewSize = view.frame.size
-        let frame = rectCalculate(viewSize: viewSize)
-        button = MyButton(frame: frame)
+        let frame = frameCalculate(viewSize: view.frame.size)
+        button = UIRoundedButton(frame: frame)
         view.addSubview(button)
     }
     
-    private func rectCalculate(viewSize: CGSize) -> CGRect {
-        let width = viewSize.width / CGFloat(K.Sizes.Cards.margin.x*2 + K.Game.sizeX + (K.Game.sizeX-1)*K.Sizes.Cards.dist.x)
-        let height = viewSize.height / CGFloat(K.Sizes.Cards.margin.y*2 + K.Game.sizeY + (K.Game.sizeY-1)*K.Sizes.Cards.dist.y) * K.Sizes.Cards.margin.y
-        let marginX = K.Sizes.Cards.margin.x * width
-        let marginY = K.Sizes.Cards.margin.y * height
-        rect = CGRect(x: marginX + width * place.x,
-                      y: marginY + height * place.y,
+    private func frameCalculate(viewSize: CGSize) -> CGRect {
+        let width = viewSize.width / CGFloat(K.Sizes.Cards.marginX*2 + Double(K.Game.sizeX) + Double(K.Game.sizeX-1)*K.Sizes.Cards.distX)
+        let height = viewSize.height / CGFloat(K.Sizes.Cards.marginY*2 + Double(K.Game.sizeY) + Double(K.Game.sizeY-1)*K.Sizes.Cards.distY)
+        let marginX = CGFloat(K.Sizes.Cards.marginX) * width
+        let marginY = CGFloat(K.Sizes.Cards.marginY) * height
+        let frame = CGRect(x: marginX + width * CGFloat(place.x),
+                      y: marginY + height * CGFloat(place.y),
                       width: width,
                       height: height)
+        return frame
     }
     
 }
