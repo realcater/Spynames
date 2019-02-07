@@ -10,7 +10,7 @@ import UIKit
 
 class WordsTVC: UITableViewController {
     
-    var words: [Card]!
+    var words = [Card]()
     
     @objc private func doubleTap(recognizer: UITapGestureRecognizer) {
         if (recognizer.state == UIGestureRecognizer.State.ended) {

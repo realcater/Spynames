@@ -25,10 +25,13 @@ class MainVC: UIViewController {
     @IBOutlet var statusIconBars: [UIView]!
     @IBOutlet var statusIconImages: [UIImageView]!
     
+    @IBOutlet weak var bottomViewImage: UIImageView!
+    @IBOutlet weak var topViewImage: UIImageView!
     @IBOutlet weak var mainView: UIScrollView!
     var statusIcons : [PlayerStatusIcon] = []
     var game: Game!
     var notConfirmedHint = Hint()
+    var uicards = [UICard]()
 
     override func loadView() {
         super.loadView()
@@ -38,17 +41,29 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.minimumZoomScale = 1.0
-        mainView.maximumZoomScale = 5.0
+        mainView.maximumZoomScale = 2.0
         mainView.delegate = self
         
         view.setBackgroundImage(named: K.FileNames.mainBackground, alpha: 1)
 
         prepareViews()
         preparePlayerStatusBar()
+        placeCards()
         giveahintButton.makeRounded(color: K.Colors.mainVCbuttons)
         prepareChat()
     }
     
+    private func placeCards() {
+        for x in 0..<K.Game.sizeX {
+            for y in 0..<K.Game.sizeY {
+                let num = y*K.Game.sizeY+x
+                let place = Place(x: x, y: y)
+                let uicard = UICard(place: place, card: game.cards[num])
+                uicard.add(to: zoomedView)
+                uicards.append(uicard)
+            }
+        }
+    }
     private func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
         guessedScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
@@ -56,6 +71,9 @@ class MainVC: UIViewController {
         leftScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
         leftViewBackground.image = UIImage(named: K.FileNames.leftViewBackground)
         rightViewBackground.image = UIImage(named: K.FileNames.rightViewBackground)
+        topViewImage.addShadow()
+        bottomViewImage.addShadow()
+        leftViewBackground.addShadow()
     }
     private func preparePlayerStatusBar() {
         statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)
@@ -99,7 +117,7 @@ class MainVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
             let wordsTVC = segue.destination as! WordsTVC
-            wordsTVC.words = game.cards
+            wordsTVC.words = game.cardsOf[game.currentTeam.toCardColor()]! + game.cardsOf[.black]!
         } else if segue.identifier == "toEnterHintVC" {
             let enterHintVC = segue.destination as! EnterHintVC
             enterHintVC.delegate = self

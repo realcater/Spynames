@@ -15,6 +15,7 @@
 		CA3528F2218226A5005C489B /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528F1218226A5005C489B /* K.swift */; };
 		CA3528F72182319B005C489B /* Google-spies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA3528F62182319B005C489B /* Google-spies.ttf */; };
 		CA35290121874162005C489B /* Top Secret Stamp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA35290021874162005C489B /* Top Secret Stamp.ttf */; };
+		CA398030220CA6B80050FB54 /* UIString+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39802F220CA6B80050FB54 /* UIString+extension.swift */; };
 		CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB7217F62810009D072 /* AppDelegate.swift */; };
 		CA814BBA217F62810009D072 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB9217F62810009D072 /* StartVC.swift */; };
 		CA814BBD217F62810009D072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BBB217F62810009D072 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		CA3528F1218226A5005C489B /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		CA3528F62182319B005C489B /* Google-spies.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Google-spies.ttf"; sourceTree = "<group>"; };
 		CA35290021874162005C489B /* Top Secret Stamp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Top Secret Stamp.ttf"; sourceTree = "<group>"; };
+		CA39802F220CA6B80050FB54 /* UIString+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+extension.swift"; sourceTree = "<group>"; };
 		CA814BB4217F62810009D072 /* Spynames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spynames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA814BB7217F62810009D072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA814BB9217F62810009D072 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				CAC9505321B6EB9D002262BA /* UIChatView.swift */,
 				CA2EFEB421F6662300DF2ACF /* UIPaddingLabel.swift */,
 				CA2EFEB821F8847D00DF2ACF /* UIPermaColorView.swift */,
+				CA39802F220CA6B80050FB54 /* UIString+extension.swift */,
 			);
 			path = "UIExtensions+Classes";
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */,
 				CAE1A12F220751DE00B4E687 /* UIViewController+extension.swift in Sources */,
 				CA3528F2218226A5005C489B /* K.swift in Sources */,
+				CA398030220CA6B80050FB54 /* UIString+extension.swift in Sources */,
 				CAD28AF9219A09E9004C684A /* UIRotatedImageView.swift in Sources */,
 				CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */,
 				CAD84F0921875A7F00E6C6E0 /* UINavigationController+extension.swift in Sources */,

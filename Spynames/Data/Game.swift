@@ -1,6 +1,10 @@
 enum Team: CaseIterable {
     case red
     case blue
+    
+    func toCardColor() -> CardColor {
+        return (self == .red) ? CardColor.red : CardColor.blue
+    }
 }
 
 enum CardColor: CaseIterable {
@@ -19,11 +23,9 @@ class Hint {
     var text: String = ""
     var qty: Int = 1
 }
-/*
-func toCardColor(_ team: Team) -> CardColor {
-    return (team == .red) ? .red : .blue
-}
-*/
+
+
+
 class Game {
     var cards = [Card]()
     var cardsOf = [CardColor: [Card]]()
@@ -48,7 +50,7 @@ class Game {
         let cardsTexts = Helper.getRandomUnique(from: Ru.words, qty: K.Game.ttlCardsQty) as! [String]
         
         for (cardText, cardColor) in zip(cardsTexts, cardsColors) {
-            let card = Card(text: cardText, color: cardColor)
+            let card = Card(text: cardText.capitalizingFirstLetter(), color: cardColor)
             cards.append(card)
             cardsOf[cardColor]!.append(card)
             }

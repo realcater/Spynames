@@ -45,10 +45,13 @@ struct K {
             static let labelHeight: CGFloat = 30
         }
         struct Cards {
-            static let marginX = 0.1
-            static let marginY = 0.1
+            static let inset: CGFloat = 4
+            //in percentage of card size
+            static let marginX = 0.4
+            static let marginTop = 1.1
+            static let marginBottom = 1.6
             static let distX = 0.1
-            static let distY = 0.1
+            static let distY = 0.2
         }
     }
     struct Sounds {
@@ -62,12 +65,16 @@ struct K {
         static let blueNormal = UIColor(red: 0, green: 110/256, blue: 182/256, alpha: 1)
         static let blueDarker = UIColor(red: 0, green: 73/256, blue: 121/256, alpha: 1)
         static let redDarker = UIColor(red: 148/256, green: 17/256, blue: 0, alpha: 1)
+        static let redNormal = UIColor(red: 192/256, green: 23/256, blue: 0/256, alpha: 1)
+        static let redLighter = UIColor(red: 222/256, green: 26/256, blue: 0/256, alpha: 1)
+        
         static let green = UIColor(red: 0, green: 110/256, blue: 0, alpha: 1)
         static let greenDarker = UIColor(red: 0, green: 75/256, blue: 0, alpha: 1)
         static let gray = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
         static let Brown = UIColor(red: 190/256, green: 180/256, blue: 150/256, alpha: 1)
         static let lightBrown = UIColor(red: 250/256, green: 240/256, blue: 220/256, alpha: 1)
         static let clear = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        static let almostBlack = UIColor(red: 20/256, green: 20/256, blue: 20/256, alpha: 1)
         
         static let foreground = blueDarker
         static let buttonsText = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -76,13 +83,31 @@ struct K {
                                   DeviceRoles.redOperatives: redDarker,
                                   DeviceRoles.blueOperatives: blueDarker
                                   ]
-        static let team = [Team.red: K.Colors.redDarker, Team.blue: K.Colors.blueDarker]
-        static let teamChat = [Team.red: K.Colors.redDarker, Team.blue: K.Colors.blueNormal]
+        static let team = [
+            Team.red: K.Colors.redDarker,
+            Team.blue: K.Colors.blueDarker
+        ]
+        static let teamChat = [
+            Team.red: K.Colors.redDarker,
+            Team.blue: K.Colors.blueDarker
+        ]
         static let word = [
-            CardColor.red: K.Colors.redDarker,
-            CardColor.blue: K.Colors.blueDarker,
-            CardColor.neutral: K.Colors.lightBrown,
-            CardColor.black: UIColor.black
+            CardColor.red: redDarker,
+            CardColor.blue: blueDarker,
+            CardColor.neutral: lightBrown,
+            CardColor.black: almostBlack
+        ]
+        static let cardBackground = [
+            CardColor.red: redNormal,
+            CardColor.blue: blueNormal,
+            CardColor.neutral: lightBrown,
+            CardColor.black: almostBlack
+        ]
+        static let cardText = [
+            CardColor.red: UIColor.white,
+            CardColor.blue: UIColor.white,
+            CardColor.neutral: UIColor.darkGray,
+            CardColor.black: UIColor.white
         ]
         static let mainVCbuttons = greenDarker
     }
@@ -118,6 +143,7 @@ struct K {
             static let chooseRole =  UIFont(name: "Top Secret Stamp", size: 28)
         }
         static let chat = UIFont.systemFont(ofSize: 18)
+        static let cardText = UIFont.systemFont(ofSize: 18)
     }
     struct Alpha {
         struct Background {
