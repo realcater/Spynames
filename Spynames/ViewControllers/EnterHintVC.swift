@@ -10,7 +10,6 @@ import UIKit
 
 protocol ReturnHintDelegate: class {
     func addHint(hint: Hint)
-    //func addNotConfirmedHint(hint: Hint?)
 }
 
 class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -22,7 +21,7 @@ class EnterHintVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     
     var pickerData: [String] = []
     var maxQty: Int!
-    weak var delegate: ReturnHintDelegate? = nil
+    weak var delegate: ReturnHintDelegate?
 
     var hint: Hint!
     var hintInPicker: Hint {

@@ -42,7 +42,7 @@ class PlayerStatusIcon {
         self.team = team
         self.bar = bar
         self.image = image
-        self.image.image = UIImage(named: K.FileNames.icon[playerType]!)
+        self.image.image = UIImage(named: K.FileNames.playerTypeIcon[playerType]!)
         active = _active
         online = _online
     }

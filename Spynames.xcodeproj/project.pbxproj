@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CA2EFEB521F6662300DF2ACF /* UIPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB421F6662300DF2ACF /* UIPaddingLabel.swift */; };
-		CA2EFEB921F8847D00DF2ACF /* UIPermaColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEB821F8847D00DF2ACF /* UIPermaColorView.swift */; };
 		CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */; };
 		CA2EFEBD21F8B5B700DF2ACF /* PlayersChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2EFEBC21F8B5B700DF2ACF /* PlayersChatView.swift */; };
 		CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */; };
@@ -50,7 +49,6 @@
 
 /* Begin PBXFileReference section */
 		CA2EFEB421F6662300DF2ACF /* UIPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddingLabel.swift; sourceTree = "<group>"; };
-		CA2EFEB821F8847D00DF2ACF /* UIPermaColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPermaColorView.swift; sourceTree = "<group>"; };
 		CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		CA2EFEBC21F8B5B700DF2ACF /* PlayersChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersChatView.swift; sourceTree = "<group>"; };
 		CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRole4dVC.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				CA814BCF217F71DD0009D072 /* UIRoundedButton.swift */,
 				CAC9505321B6EB9D002262BA /* UIChatView.swift */,
 				CA2EFEB421F6662300DF2ACF /* UIPaddingLabel.swift */,
-				CA2EFEB821F8847D00DF2ACF /* UIPermaColorView.swift */,
 				CA39802F220CA6B80050FB54 /* UIString+extension.swift */,
 			);
 			path = "UIExtensions+Classes";
@@ -307,7 +304,6 @@
 				CAD84F1821879AE400E6C6E0 /* ChooseRole3dVC.swift in Sources */,
 				CAC5BA4D21F4D3E7001763C5 /* Game.swift in Sources */,
 				CA3528EF2180BD1D005C489B /* ChooseRole4dVC.swift in Sources */,
-				CA2EFEB921F8847D00DF2ACF /* UIPermaColorView.swift in Sources */,
 				CAC9505421B6EB9D002262BA /* UIChatView.swift in Sources */,
 				CAE1A12B2207152D00B4E687 /* EnterHintVC.swift in Sources */,
 				CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */,

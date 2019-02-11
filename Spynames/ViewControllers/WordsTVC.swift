@@ -29,7 +29,6 @@ class WordsTVC: UITableViewController {
         tableView.beginUpdates()
         tableView.deleteRows(at: [indexPath], with: .automatic)
         words.remove(at: row)
-        print(words)
         tableView.endUpdates()
     }
     func insertClearRow(at row: Int) {
@@ -39,7 +38,6 @@ class WordsTVC: UITableViewController {
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .automatic)
         words.insert(clearWord, at: indexPath.row)
-        print(words)
         tableView.endUpdates()
     }
     override func viewDidLoad() {
@@ -59,7 +57,7 @@ class WordsTVC: UITableViewController {
         let label = cell.viewWithTag(1000) as! UIPaddingLabel
         let word = words[indexPath.row]
         label.text = word.word
-        label.backgroundColor = (word.word == "") ? K.Colors.clear : K.Colors.word[word.color]
+        label.backgroundColor = (word.word == "") ? K.Colors.clear : K.Colors.personalWordList[word.color]
         return cell
     }
     

@@ -47,3 +47,30 @@ class UIRoundedButton: UIButton {
     }
     
 }
+
+extension UIRoundedButton {
+    func addTaps(singleTapAction: Selector? = nil, doubleTapAction: Selector? = nil) {
+
+        var singleTap: UITapGestureRecognizer!
+        var doubleTap: UITapGestureRecognizer!
+        
+        if let singleTapAction = singleTapAction {
+            singleTap = UITapGestureRecognizer(target: self, action: singleTapAction)
+            singleTap.numberOfTapsRequired = 1
+        }
+        if let doubleTapAction = doubleTapAction {
+            doubleTap = UITapGestureRecognizer(target: self, action: doubleTapAction)
+            doubleTap.numberOfTapsRequired = 2
+        }
+        
+        if let singleTap = singleTap, let doubleTap = doubleTap  {
+            singleTap.require(toFail: doubleTap)
+        }
+        
+        if let singleTap = singleTap { addGestureRecognizer(singleTap) }
+        if let doubleTap = doubleTap { addGestureRecognizer(doubleTap) }
+        
+        isUserInteractionEnabled = true
+    }
+}
+

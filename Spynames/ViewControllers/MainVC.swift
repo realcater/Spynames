@@ -44,22 +44,21 @@ class MainVC: UIViewController {
         mainView.maximumZoomScale = 2.0
         mainView.delegate = self
         
+        
         view.setBackgroundImage(named: K.FileNames.mainBackground, alpha: 1)
 
         prepareViews()
         preparePlayerStatusBar()
         placeCards()
-        giveahintButton.makeRounded(color: K.Colors.mainVCbuttons)
         prepareChat()
     }
-    
     private func placeCards() {
         for x in 0..<K.Game.sizeX {
             for y in 0..<K.Game.sizeY {
                 let num = y*K.Game.sizeY+x
                 let place = Place(x: x, y: y)
-                let uicard = UICard(place: place, card: game.cards[num])
-                uicard.add(to: zoomedView)
+                let uicard = UICard(place: place, card: game.cards[num], in: zoomedView)
+                uicard.delegate = self
                 uicards.append(uicard)
             }
         }
@@ -93,6 +92,7 @@ class MainVC: UIViewController {
         statusIcons[0].active = true
     }
     private func prepareChat() {
+        giveahintButton.makeRounded(color: K.Colors.mainVCbuttons)
         chatView.setup()
         view.layoutIfNeeded()
         let m1 = Message(text: "Hi! Red spymaster is here!", team: .red, player: .spymaster)
@@ -138,5 +138,13 @@ extension MainVC: ReturnHintDelegate {
 extension MainVC: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return zoomedView
+    }
+}
+
+extension MainVC: AllCardsActionsDelegate {
+    func changeCardsColorVisibility() {
+        for uicard in uicards {
+            uicard.showColor = !uicard.showColor
+        }
     }
 }

@@ -71,8 +71,9 @@ struct K {
         static let green = UIColor(red: 0, green: 110/256, blue: 0, alpha: 1)
         static let greenDarker = UIColor(red: 0, green: 75/256, blue: 0, alpha: 1)
         static let gray = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
-        static let Brown = UIColor(red: 190/256, green: 180/256, blue: 150/256, alpha: 1)
-        static let lightBrown = UIColor(red: 250/256, green: 240/256, blue: 220/256, alpha: 1)
+        //static let brown = UIColor(red: 215/256, green: 180/256, blue: 135/256, alpha: 1)
+        static let brown = UIColor(red: 235/256, green: 200/256, blue: 155/256, alpha: 1)
+        static let brownLighter = UIColor(red: 250/256, green: 240/256, blue: 220/256, alpha: 1)
         static let clear = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
         static let almostBlack = UIColor(red: 20/256, green: 20/256, blue: 20/256, alpha: 1)
         
@@ -91,23 +92,29 @@ struct K {
             Team.red: K.Colors.redDarker,
             Team.blue: K.Colors.blueDarker
         ]
-        static let word = [
+        static let personalWordList = [
             CardColor.red: redDarker,
             CardColor.blue: blueDarker,
-            CardColor.neutral: lightBrown,
+            CardColor.neutral: brownLighter,
             CardColor.black: almostBlack
         ]
         static let cardBackground = [
-            CardColor.red: redNormal,
-            CardColor.blue: blueNormal,
-            CardColor.neutral: lightBrown,
-            CardColor.black: almostBlack
+            CardColor.red: [false: redLighter, true: redDarker],
+            CardColor.blue: [false: blueLighter, true: blueDarker],
+            CardColor.neutral: [false: brownLighter, true: brown],
+            CardColor.black: [false: almostBlack, true: almostBlack]
         ]
         static let cardText = [
             CardColor.red: UIColor.white,
             CardColor.blue: UIColor.white,
             CardColor.neutral: UIColor.darkGray,
             CardColor.black: UIColor.white
+        ]
+        static let imageColor = [
+            CardColor.red: brownLighter,
+            CardColor.blue: brownLighter,
+            CardColor.neutral: almostBlack,
+            CardColor.black: brownLighter
         ]
         static let mainVCbuttons = greenDarker
     }
@@ -158,7 +165,13 @@ struct K {
         static let bubbleReceived = "bubbleReceived"
         static let leftViewBackground = "paper_750x400px-left"
         static let rightViewBackground = "paper_750x400px-right"
-        static let icon = [PlayerType.spymaster: "Crown1-80px", PlayerType.operatives: "Pawn2-80px"]
+        static let playerTypeIcon = [PlayerType.spymaster: "Crown1-80px", PlayerType.operatives: "Pawn2-80px"]
+        static let cardBackgroundImage = [
+            CardColor.red: "spy-badge-256px",
+            CardColor.blue: "spy-badge-256px",
+            CardColor.neutral: "peacemaker-256px",
+            CardColor.black: "bomb-200px"
+        ]
         
     }
     struct Durations {

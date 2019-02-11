@@ -25,7 +25,6 @@ extension UIViewController {
         }
         if let anySwipeAction = anySwipeAction {
             anySwipe = UISwipeGestureRecognizer(target: self, action: anySwipeAction)
-            print("===", anySwipe.direction)
         }
 
         if let singleTap = singleTap, let doubleTap = doubleTap  {
