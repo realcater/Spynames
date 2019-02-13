@@ -45,32 +45,23 @@ class UIRoundedButton: UIButton {
         layer.insertSublayer(gradientLayer, at: 0)
         if let imageView = imageView { bringSubviewToFront(imageView) }
     }
-    
-}
-
-extension UIRoundedButton {
-    func addTaps(singleTapAction: Selector? = nil, doubleTapAction: Selector? = nil) {
-
-        var singleTap: UITapGestureRecognizer!
-        var doubleTap: UITapGestureRecognizer!
+    func animate(move: CGPoint, withDuration duration: Double? = nil, withDelay delay: Double? = nil, forTurns turnsQty: Double? = nil) {
+        let duration = duration ?? 0.0
+        let delay = delay ?? 0.0
+        UIView.animate(withDuration: duration, delay: delay, animations: {
+                            self.frame.origin = move
+                        }, completion: nil)
         
-        if let singleTapAction = singleTapAction {
-            singleTap = UITapGestureRecognizer(target: self, action: singleTapAction)
-            singleTap.numberOfTapsRequired = 1
+        if let turnsQty = turnsQty, turnsQty > 0 {
+            let sectorsQty = 24.0 //smoothness coefficients
+            let overlapDurationK = 2.0 //smoothness coefficients, >=1.0
+            
+            for i in 0..<Int(sectorsQty*turnsQty) {
+                let angle = CGFloat(i % Int(sectorsQty)+1)*CGFloat.pi*2.0/CGFloat(sectorsQty)
+                UIView.animate(withDuration: duration/sectorsQty/turnsQty*overlapDurationK, delay: delay+Double(i)*duration/sectorsQty/turnsQty, animations: {
+                    self.transform = CGAffineTransform(rotationAngle: angle)
+                }, completion: nil)
+            }
         }
-        if let doubleTapAction = doubleTapAction {
-            doubleTap = UITapGestureRecognizer(target: self, action: doubleTapAction)
-            doubleTap.numberOfTapsRequired = 2
-        }
-        
-        if let singleTap = singleTap, let doubleTap = doubleTap  {
-            singleTap.require(toFail: doubleTap)
-        }
-        
-        if let singleTap = singleTap { addGestureRecognizer(singleTap) }
-        if let doubleTap = doubleTap { addGestureRecognizer(doubleTap) }
-        
-        isUserInteractionEnabled = true
     }
 }
-

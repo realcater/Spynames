@@ -5,7 +5,7 @@
 //  Created by Dmitry Dementyev on 27/11/2018.
 //  Copyright © 2018 Dmitry Dementyev. All rights reserved.
 //
-
+import AVFoundation
 import UIKit
 
 class MainVC: UIViewController {
@@ -53,15 +53,23 @@ class MainVC: UIViewController {
         prepareChat()
     }
     private func placeCards() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeSoundDealCards, execute: {
+            K.Sounds.cards?.play()
+        })
         for x in 0..<K.Game.sizeX {
             for y in 0..<K.Game.sizeY {
                 let num = y*K.Game.sizeY+x
                 let place = Place(x: x, y: y)
-                let uicard = UICard(place: place, card: game.cards[num], in: zoomedView)
+                let uicard = UICard(place: place, card: game.cards[num], showDelay: K.Durations.betweenCardsAppear * Double(num), in: zoomedView)
                 uicard.delegate = self
                 uicards.append(uicard)
             }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeFadeCardsColors, execute: {
+            self.changeCardsColorVisibility(fade: true)
+        })
+        
+        
     }
     private func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
@@ -99,17 +107,19 @@ class MainVC: UIViewController {
         let m2 = Message(text: "Hi! Blue spymaster is here!", team: .blue, player: .spymaster)
         let m3 = Message(text: "Hi! Red operatives are here!", team: .red, player: .operatives)
         let m4 = Message(text: "Hi! Blue operatives are here!", team: .blue, player: .operatives)
-        chatView.add(m1)
-        self.statusIcons[0].online = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+            self.chatView.add(m1)
+            self.statusIcons[0].online = true
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
             self.chatView.add(m2)
             self.statusIcons[2].online = true
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
             self.chatView.add(m3)
             self.statusIcons[1].online = true
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0, execute: {
             self.chatView.add(m4)
             self.statusIcons[3].online = true
         })
@@ -142,9 +152,9 @@ extension MainVC: UIScrollViewDelegate {
 }
 
 extension MainVC: AllCardsActionsDelegate {
-    func changeCardsColorVisibility() {
+    func changeCardsColorVisibility(fade: Bool) {
         for uicard in uicards {
-            uicard.showColor = !uicard.showColor
+            uicard.changeShowColor(fade: fade)
         }
     }
 }

@@ -6,7 +6,7 @@ struct Place {
 }
 
 protocol AllCardsActionsDelegate: class {
-    func changeCardsColorVisibility()
+    func changeCardsColorVisibility(fade: Bool)
 }
 
 class UICard {
@@ -16,23 +16,20 @@ class UICard {
     var guessed: Bool
     var button: UIRoundedButton!
     var view: UIView
+    var showDelay: Double
     weak var delegate: AllCardsActionsDelegate?
     
-    var showColor: Bool {
-        get {
-            return _showColor
-        }
-        set {
-            _showColor = newValue
-            redraw()
-        }
+    func changeShowColor(fade: Bool) {
+            _showColor = !_showColor
+        redraw(fade: fade)
     }
     
-    init(place: Place, card: Card, in view: UIView) {
+    init(place: Place, card: Card, showDelay: Double? = nil, in view: UIView) {
         self.place = place
         self.card = card
         self.view = view
-        _showColor = true
+        self.showDelay = showDelay ?? 0.0
+        _showColor = false
         guessed = false
         
         addButton()
@@ -41,7 +38,7 @@ class UICard {
     }
     @objc func singleTap(recognizer: UITapGestureRecognizer) {
         if(recognizer.state == UIGestureRecognizer.State.ended) {
-            delegate?.changeCardsColorVisibility()
+            delegate?.changeCardsColorVisibility(fade: false)
         }
     }
     @objc func longPress(recognizer: UITapGestureRecognizer) {
@@ -55,8 +52,8 @@ class UICard {
     }
     
     private func addButton() {
-        let frame = frameCalculate(viewSize: view.frame.size)
-        button = UIRoundedButton(frame: frame)
+        let (frameStart, pointFinish) = frameCalculate(viewSize: view.frame.size)
+        button = UIRoundedButton(frame: frameStart)
         button.makeRounded(cornerRadius: K.Sizes.cardsCornerRadius)
         button.addShadow()
         button.titleLabel?.font = K.Fonts.cardText
@@ -64,18 +61,25 @@ class UICard {
         button.titleLabel?.baselineAdjustment = .alignCenters
         button.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: K.Sizes.Cards.inset, bottom: 0, right: K.Sizes.Cards.inset)
         view.addSubview(button)
+        button.animate(move: pointFinish, withDuration: 0.5, withDelay: showDelay, forTurns: 2)
     }
-    private func redraw() {
+    private func redraw(fade: Bool = false) {
         let cardColor = (!_showColor && !guessed) ? CardColor.neutral : card.color
-        button.backgroundColor = K.Colors.cardBackground[cardColor]![guessed]
-        button.setTitleColor(K.Colors.cardText[cardColor], for: .normal)
-        button.tintColor = K.Colors.imageColor[cardColor]
         let title = guessed ? "" : card.word
         let image = guessed ? UIImage(named: K.FileNames.cardBackgroundImage[cardColor]!) : nil
-        button.setImage(image, for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        button.setTitle(title, for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+        let duration = fade ? K.Durations.fadeTimeAppearCard : 0.0
+        
+        UIView.animate(withDuration: duration, animations: {
+            self.button.backgroundColor = K.Colors.cardBackground[cardColor]![self.guessed]
+            self.button.setTitleColor(K.Colors.cardText[cardColor], for: .normal)
+            self.button.tintColor = K.Colors.imageColor[cardColor]
+            
+            self.button.setImage(image, for: .normal)
+            self.button.imageView?.contentMode = .scaleAspectFit
+            self.button.setTitle(title, for: .normal)
+            self.button.imageEdgeInsets = UIEdgeInsets(top: K.Sizes.Cards.inset, left: 0, bottom: K.Sizes.Cards.inset, right: 0)
+        })
+        
     }
     private func addRecognizers() {
         let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(singleTap))
@@ -84,17 +88,21 @@ class UICard {
         button.addGestureRecognizer(singleTapRecognizer)
         button.addGestureRecognizer(longPressRecognizer)
     }
-    private func frameCalculate(viewSize: CGSize) -> CGRect {
+    private func frameCalculate(viewSize: CGSize) -> (CGRect, CGPoint) {
         let ttlRelativeWidth = K.Sizes.Cards.marginX * 2 + Double(K.Game.sizeX) + Double(K.Game.sizeX-1)*K.Sizes.Cards.distX
         let width = viewSize.width / CGFloat(ttlRelativeWidth)
         let ttlRelativeHeight = K.Sizes.Cards.marginTop + K.Sizes.Cards.marginBottom + Double(K.Game.sizeY) + Double(K.Game.sizeY-1)*K.Sizes.Cards.distY
         let height = viewSize.height / CGFloat(ttlRelativeHeight)
         let marginX = CGFloat(K.Sizes.Cards.marginX) * width
         let marginTop = CGFloat(K.Sizes.Cards.marginTop) * height
-        let frame = CGRect(x: marginX + width * CGFloat(1+K.Sizes.Cards.distX)*CGFloat(place.x),
-                      y: marginTop + height * CGFloat(1+K.Sizes.Cards.distY)*CGFloat(place.y),
-                      width: width,
-                      height: height)
-        return frame
+        let frameStart = CGRect(x: K.Sizes.Cards.startPoint.x,
+                                y: K.Sizes.Cards.startPoint.y,
+                                width: width,
+                                height: height)
+        let pointFinish = CGPoint(
+            x: marginX + width * CGFloat(1+K.Sizes.Cards.distX)*CGFloat(place.x),
+            y: marginTop + height * CGFloat(1+K.Sizes.Cards.distY)*CGFloat(place.y)
+        )
+        return (frameStart, pointFinish)
     }
 }

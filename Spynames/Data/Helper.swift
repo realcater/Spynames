@@ -29,5 +29,4 @@ class Helper {
         }
         return Array(array.shuffled()[0..<qty])
     }
-    
 }

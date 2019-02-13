@@ -46,6 +46,7 @@ struct K {
         }
         struct Cards {
             static let inset: CGFloat = 4
+            static let startPoint = CGPoint(x: 0, y: -100)
             //in percentage of card size
             static let marginX = 0.4
             static let marginTop = 1.1
@@ -56,6 +57,7 @@ struct K {
     }
     struct Sounds {
         static let click = initSound(filename: "click.wav", volume: 0.2)
+        static let cards = initSound(filename: "cards.wav", volume: 0.5)
         //static let correct = initSound(filename: "true.wav", volume: 0.2)
         //static let error = initSound(filename: "false.wav", volume: 0.5)
         static let messageSoundID: SystemSoundID = 1016
@@ -172,9 +174,12 @@ struct K {
             CardColor.neutral: "peacemaker-256px",
             CardColor.black: "bomb-200px"
         ]
-        
     }
     struct Durations {
         static let clockTurnAround = 4.0
+        static let fadeTimeAppearCard = 1.0
+        static let betweenCardsAppear = 0.03
+        static let beforeFadeCardsColors = 1.5
+        static let beforeSoundDealCards = 0.3
     }
 }

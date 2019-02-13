@@ -18,7 +18,7 @@ func initSound(filename: String, volume: Float? = nil) -> AVAudioPlayer? {
 }
 
 extension AVAudioPlayer {
-    func resetAndPlay(startVolume: Float? = nil, fadeDuration: TimeInterval? = nil) {
+    func play(startVolume: Float? = nil, fadeDuration: TimeInterval? = nil) {
         self.currentTime = 0
         if let startVolume = startVolume { self.volume = startVolume }
         self.play()
