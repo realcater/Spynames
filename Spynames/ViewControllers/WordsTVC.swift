@@ -10,6 +10,7 @@ import UIKit
 
 class WordsTVC: UITableViewController {
     
+    let clearCard = Card(text: "", color: .neutral)
     var words = [Card]()
     
     @objc private func doubleTap(recognizer: UITapGestureRecognizer) {
@@ -19,25 +20,22 @@ class WordsTVC: UITableViewController {
             if words[tappedRow].word == "" {
                 deleteRow(at: tappedRow)
             } else {
-                insertClearRow(at: tappedRow)
+                insertRow(card: clearCard, at: tappedRow)
             }
         }
     }
     func deleteRow(at row: Int) {
         let indexPath = IndexPath(row: row, section: 0)
-
         tableView.beginUpdates()
         tableView.deleteRows(at: [indexPath], with: .automatic)
         words.remove(at: row)
         tableView.endUpdates()
     }
-    func insertClearRow(at row: Int) {
+    func insertRow(card: Card, at row: Int) {
         let indexPath = IndexPath(row: row, section: 0)
-        let clearWord = Card(text: "", color: .neutral)
-        
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .automatic)
-        words.insert(clearWord, at: indexPath.row)
+        words.insert(card, at: indexPath.row)
         tableView.endUpdates()
     }
     override func viewDidLoad() {

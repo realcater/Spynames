@@ -3,20 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "MyButton.makeDoubleColor(topColor:bottomColor:):MyButton.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.imageView">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EnterHintVC.currentHint.getter:EnterHintVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "MainVC.revealCardsColors(wordsTVC:):MainVC.swift">
       </ContextState>
       <ContextState
          contextName = "GradientButton.setGradient(topGradientColor:bottomGradientColor:):GradientButton.swift">
@@ -27,13 +14,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UIView.makeAllButtonsRound(cornerRadius:color:font:sound:):UIView+extension.swift">
+         contextName = "MyButton.makeDoubleColor(topColor:bottomColor:):MyButton.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cornerRadius">
-            </PersistentString>
-            <PersistentString
-               value = "self.subviews">
+               value = "self.imageView">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -46,10 +30,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MyButton.makeButtonDoubleColor(topColor:bottomColor:):MyButton.swift">
+         contextName = "MainVC.placeCards():MainVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.imageView">
+               value = "game.cards">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -62,10 +46,68 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "WordsTVC.insertRow(card:at:):WordsTVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "words">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UIView.makeAllButtonsRound(cornerRadius:color:font:sound:):UIView+extension.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.subviews">
+            </PersistentString>
+            <PersistentString
+               value = "cornerRadius">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyButton.makeButtonDoubleColor(topColor:bottomColor:):MyButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.imageView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Game.generateCards():Game.swift">
          <PersistentStrings>
             <PersistentString
+               value = "K.cardsQty">
+            </PersistentString>
+            <PersistentString
+               value = "K.">
+            </PersistentString>
+            <PersistentString
                value = "cardsOf[.red]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Game.getRandomCardsColors():Game.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "K.Game.cardsQty[.red]![startTeam]!">
+            </PersistentString>
+            <PersistentString
+               value = "K.Game.cardsQty[.blue]![startTeam]!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainVC.addWords(to:):MainVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EnterHintVC.currentHint.getter:EnterHintVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

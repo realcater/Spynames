@@ -34,6 +34,11 @@ class Game {
     var hints: [Team: [Hint]] = [.red: [], .blue: []]
     var leftWords = [Team: Int]()
     
+    var cardsOfCurrentTeam: [Card] {
+        get {
+            return cardsOf[currentTeam.toCardColor()]!
+        }
+    }
     init() {
         startTeam = .red
         currentTeam = .red

@@ -1,21 +1,28 @@
 import UIKit
 import AVFoundation
 
-typealias CGMult = CGPoint //multiplicator for (x,y)
-
 struct K {
     struct Game {
         static let sizeX = 5
         static let sizeY = 5
-        static let ttlCardsQty = 25
+        static let ttlCardsQty = sizeX * sizeY
+        static let startTeamCardsQty = Int(round(Double(ttlCardsQty)/3))+1
+        static let secondTeamCardsQty = Int(round(Double(ttlCardsQty)/3))
+        static let neutralCardsQty = ttlCardsQty-startTeamCardsQty-secondTeamCardsQty-1
         static let cardsQty = [
-            CardColor.red: [Team.red: 9, Team.blue: 8],
-            CardColor.blue: [Team.red: 8, Team.blue: 9],
-            CardColor.neutral: [Team.red: 7, Team.blue: 7],
+            CardColor.red: [Team.red: startTeamCardsQty, Team.blue: secondTeamCardsQty],
+            CardColor.blue: [Team.red: secondTeamCardsQty, Team.blue: startTeamCardsQty],
+            CardColor.neutral: [Team.red: neutralCardsQty, Team.blue: neutralCardsQty],
             CardColor.black: [Team.red: 1, Team.blue: 1]
         ]
     }
-    
+    struct CardsAnimation {
+        static let show = true
+        static let turns = 1.0
+        static let duration = 0.4
+        static let delaySound = 0.4
+        static let betweenCardsAppear = 0.72/Double(Game.ttlCardsQty)
+    }
     static let allDeviceRoles = [DeviceRoles.redSpymaster,
                                  DeviceRoles.blueSpymaster,
                                  DeviceRoles.redOperatives,
@@ -177,9 +184,9 @@ struct K {
     }
     struct Durations {
         static let clockTurnAround = 4.0
-        static let fadeTimeAppearCard = 1.0
-        static let betweenCardsAppear = 0.03
+        static let fadeTimeAppearCard = 2.0
         static let beforeFadeCardsColors = 1.5
-        static let beforeSoundDealCards = 0.3
+        static let beforeFirstWordToTable = 1.0
+        static let betweenWordsToTable = 0.5
     }
 }

@@ -36,6 +36,7 @@ class MainVC: UIViewController {
     override func loadView() {
         super.loadView()
         game = Game()
+        placeCards()
     }
     
     override func viewDidLoad() {
@@ -43,33 +44,27 @@ class MainVC: UIViewController {
         mainView.minimumZoomScale = 1.0
         mainView.maximumZoomScale = 2.0
         mainView.delegate = self
-        
-        
         view.setBackgroundImage(named: K.FileNames.mainBackground, alpha: 1)
-
         prepareViews()
         preparePlayerStatusBar()
-        placeCards()
         prepareChat()
     }
     private func placeCards() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeSoundDealCards, execute: {
-            K.Sounds.cards?.play()
-        })
-        for x in 0..<K.Game.sizeX {
-            for y in 0..<K.Game.sizeY {
-                let num = y*K.Game.sizeY+x
+        if K.CardsAnimation.show {
+            DispatchQueue.main.asyncAfter(deadline: .now() + K.CardsAnimation.delaySound, execute: {
+                K.Sounds.cards?.play()
+            })
+        }
+        for y in 0..<K.Game.sizeY {
+            for x in 0..<K.Game.sizeX {
+                let num = y*K.Game.sizeX+x
                 let place = Place(x: x, y: y)
-                let uicard = UICard(place: place, card: game.cards[num], showDelay: K.Durations.betweenCardsAppear * Double(num), in: zoomedView)
+                let delay = K.CardsAnimation.show ? K.CardsAnimation.betweenCardsAppear * Double(num) : 0
+                let uicard = UICard(place: place, card: game.cards[num], showDelay: delay, in: zoomedView)
                 uicard.delegate = self
                 uicards.append(uicard)
             }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeFadeCardsColors, execute: {
-            self.changeCardsColorVisibility(fade: true)
-        })
-        
-        
     }
     private func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
@@ -127,12 +122,27 @@ class MainVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
             let wordsTVC = segue.destination as! WordsTVC
-            wordsTVC.words = game.cardsOf[game.currentTeam.toCardColor()]! + game.cardsOf[.black]!
+            DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeFadeCardsColors, execute: {
+                self.revealCardsColors(wordsTVC: wordsTVC)
+            })
+            
         } else if segue.identifier == "toEnterHintVC" {
             let enterHintVC = segue.destination as! EnterHintVC
-            enterHintVC.delegate = self
-            enterHintVC.hint = notConfirmedHint
-            enterHintVC.maxQty = game.leftWords[game.currentTeam]
+            prepareEnterHintVC(enterHintVC: enterHintVC)
+        }
+    }
+    
+    private func prepareEnterHintVC(enterHintVC: EnterHintVC) {
+        enterHintVC.delegate = self
+        enterHintVC.hint = notConfirmedHint
+        enterHintVC.maxQty = game.leftWords[game.currentTeam]
+    }
+    private func revealCardsColors(wordsTVC: WordsTVC) {
+        changeCardsColorVisibility(fade: true)
+        for (i, card) in game.cardsOfCurrentTeam.enumerated() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)*K.Durations.betweenWordsToTable+K.Durations.beforeFirstWordToTable, execute: {
+                wordsTVC.insertRow(card: card, at: i)
+            })
         }
     }
 }
