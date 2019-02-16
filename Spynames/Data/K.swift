@@ -17,7 +17,7 @@ struct K {
         ]
     }
     struct CardsAnimation {
-        static let show = true
+        static let show = false
         static let turns = 1.0
         static let duration = 0.4
         static let delaySound = 0.4
@@ -34,7 +34,12 @@ struct K {
     
     static let useSmallerFonts = (UIScreen.main.currentMode!.size.width >= 750) ? false : true
     
-    
+    struct SideView {
+        struct Hidden {
+            static let width: CGFloat = 20
+            static let animationLength = 0.5
+        }
+    }
     struct Sizes {
         static let bigButtonCornerRadius : CGFloat = 32
         static let cardsCornerRadius : CGFloat = 12
@@ -184,9 +189,9 @@ struct K {
     }
     struct Durations {
         static let clockTurnAround = 4.0
-        static let fadeTimeAppearCard = 2.0
-        static let beforeFadeCardsColors = 1.5
-        static let beforeFirstWordToTable = 1.0
+        static let fadeTimeAppearCard = 1.5
+        static let beforeFadeCardsColors = 1.0
+        static let beforeFirstWordToTable = 0.5
         static let betweenWordsToTable = 0.5
     }
 }

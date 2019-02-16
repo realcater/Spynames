@@ -45,23 +45,5 @@ class UIRoundedButton: UIButton {
         layer.insertSublayer(gradientLayer, at: 0)
         if let imageView = imageView { bringSubviewToFront(imageView) }
     }
-    func animate(move: CGPoint, withDuration duration: Double? = nil, withDelay delay: Double? = nil, forTurns turnsQty: Double? = nil) {
-        let duration = duration ?? 0.0
-        let delay = delay ?? 0.0
-        UIView.animate(withDuration: duration, delay: delay, animations: {
-                            self.frame.origin = move
-                        }, completion: nil)
-        
-        if let turnsQty = turnsQty, turnsQty > 0 {
-            let sectorsQty = 24.0 //smoothness coefficients
-            let overlapDurationK = 2.0 //smoothness coefficients, >=1.0
-            
-            for i in 0..<Int(sectorsQty*turnsQty) {
-                let angle = CGFloat(i % Int(sectorsQty)+1)*CGFloat.pi*2.0/CGFloat(sectorsQty)
-                UIView.animate(withDuration: duration/sectorsQty/turnsQty*overlapDurationK, delay: delay+Double(i)*duration/sectorsQty/turnsQty, animations: {
-                    self.transform = CGAffineTransform(rotationAngle: angle)
-                }, completion: nil)
-            }
-        }
-    }
+    
 }

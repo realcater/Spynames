@@ -5,7 +5,7 @@ struct Place {
     var y: Int
 }
 
-protocol AllCardsActionsDelegate: class {
+protocol MainVCDelegate: class {
     func changeCardsColorVisibility(fade: Bool)
 }
 
@@ -17,7 +17,7 @@ class UICard {
     var button: UIRoundedButton!
     var view: UIView
     var showDelay: Double
-    weak var delegate: AllCardsActionsDelegate?
+    weak var mainVCDelegate: MainVCDelegate?
     
     func changeShowColor(fade: Bool) {
         showColor = !showColor
@@ -33,12 +33,12 @@ class UICard {
         guessed = false
         
         addButton()
-        redraw()
+        //redraw()
         addRecognizers()
     }
     @objc func singleTap(recognizer: UITapGestureRecognizer) {
         if(recognizer.state == UIGestureRecognizer.State.ended) {
-            delegate?.changeCardsColorVisibility(fade: false)
+            mainVCDelegate?.changeCardsColorVisibility(fade: false)
         }
     }
     @objc func longPress(recognizer: UITapGestureRecognizer) {
@@ -62,16 +62,20 @@ class UICard {
         button.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: K.Sizes.Cards.inset, bottom: 0, right: K.Sizes.Cards.inset)
         view.addSubview(button)
         if K.CardsAnimation.show {
-            button.animate(move: pointFinish, withDuration: K.CardsAnimation.duration, withDelay: showDelay, forTurns: K.CardsAnimation.turns)
+            button.animate(moveTo: pointFinish, withDuration: K.CardsAnimation.duration, withDelay: showDelay, forTurns: K.CardsAnimation.turns)
         }
     }
-    private func redraw(fade: Bool = false) {
+    
+    func redraw(inFrame: frame, fade: Bool = false) {
+        print("redraw: \(view.frame.size)")
+        let (frameStart, _) = frameCalculate(viewSize: view.frame.size)
         let cardColor = (!showColor && !guessed) ? CardColor.neutral : card.color
         let title = guessed ? "" : card.word
         let image = guessed ? UIImage(named: K.FileNames.cardBackgroundImage[cardColor]!) : nil
-        let duration = fade ? K.Durations.fadeTimeAppearCard : 0.0
+        let duration = K.SideView.Hidden.animationLength//fade ? K.Durations.fadeTimeAppearCard : 0.0
         
         UIView.animate(withDuration: duration, animations: {
+            self.button.frame = frameStart
             self.button.backgroundColor = K.Colors.cardBackground[cardColor]![self.guessed]
             self.button.setTitleColor(K.Colors.cardText[cardColor], for: .normal)
             self.button.tintColor = K.Colors.imageColor[cardColor]

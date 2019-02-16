@@ -12,6 +12,7 @@ class WordsTVC: UITableViewController {
     
     let clearCard = Card(text: "", color: .neutral)
     var words = [Card]()
+    var hidden = false
     
     @objc private func doubleTap(recognizer: UITapGestureRecognizer) {
         if (recognizer.state == UIGestureRecognizer.State.ended) {
@@ -44,6 +45,7 @@ class WordsTVC: UITableViewController {
         tableView.backgroundColor = .clear
         tableView.separatorColor = .clear
         addTaps(doubleTapAction: #selector(doubleTap))
+        tableView.isHidden = true
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,5 +81,8 @@ class WordsTVC: UITableViewController {
         let itemToMove = words[sourceIndexPath.row]
         words.remove(at: sourceIndexPath.row)
         words.insert(itemToMove, at: destinationIndexPath.row)
+    }
+    func changeVisibility() {
+        tableView.isHidden = !tableView.isHidden
     }
 }

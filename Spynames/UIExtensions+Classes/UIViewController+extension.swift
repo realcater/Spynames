@@ -9,11 +9,12 @@
 import UIKit
 
 extension UIViewController {
-    func addTaps(for tappedView: UIView? = nil, singleTapAction: Selector? = nil, doubleTapAction: Selector? = nil, anySwipeAction: Selector? = nil) {
+    func addTaps(for tappedView: UIView? = nil, singleTapAction: Selector? = nil, doubleTapAction: Selector? = nil, leftSwipeAction: Selector? = nil, rightSwipeAction: Selector? = nil) {
         let tappedView: UIView = tappedView ?? self.view //if ==nil than we use default view of VC
         var singleTap: UITapGestureRecognizer!
         var doubleTap: UITapGestureRecognizer!
-        var anySwipe: UISwipeGestureRecognizer!
+        var leftSwipe: UISwipeGestureRecognizer!
+        var rightSwipe: UISwipeGestureRecognizer!
         
         if let singleTapAction = singleTapAction {
             singleTap = UITapGestureRecognizer(target: self, action: singleTapAction)
@@ -23,17 +24,22 @@ extension UIViewController {
             doubleTap = UITapGestureRecognizer(target: self, action: doubleTapAction)
             doubleTap.numberOfTapsRequired = 2
         }
-        if let anySwipeAction = anySwipeAction {
-            anySwipe = UISwipeGestureRecognizer(target: self, action: anySwipeAction)
+        if let leftSwipeAction = leftSwipeAction {
+            leftSwipe = UISwipeGestureRecognizer(target: self, action: leftSwipeAction)
+            leftSwipe.direction = .left
         }
-
+        if let rightSwipeAction = rightSwipeAction {
+            rightSwipe = UISwipeGestureRecognizer(target: self, action: rightSwipeAction)
+            rightSwipe.direction = .right
+        }
         if let singleTap = singleTap, let doubleTap = doubleTap  {
             singleTap.require(toFail: doubleTap)
         }
         
         if let singleTap = singleTap { tappedView.addGestureRecognizer(singleTap) }
         if let doubleTap = doubleTap { tappedView.addGestureRecognizer(doubleTap) }
-        if let anySwipe = anySwipe { tappedView.addGestureRecognizer(anySwipe) }
+        if let leftSwipe = leftSwipe { tappedView.addGestureRecognizer(leftSwipe) }
+        if let rightSwipe = rightSwipe { tappedView.addGestureRecognizer(rightSwipe) }
         
         tappedView.isUserInteractionEnabled = true
     }

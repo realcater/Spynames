@@ -32,7 +32,52 @@ class MainVC: UIViewController {
     var game: Game!
     var notConfirmedHint = Hint()
     var uicards = [UICard]()
+    var wordsTVC: WordsTVC!
 
+    @objc func rightViewSwipedRight(recognizer: UITapGestureRecognizer) {
+        if (recognizer.state == UIGestureRecognizer.State.ended) {
+            if !wordsTVC.hidden {
+                let move = CGPoint(x: rightView.frame.width-K.SideView.Hidden.width, y: 0)
+                rightView.animate(move: move, withDuration: K.SideView.Hidden.animationLength)
+                
+                print(zoomedView.frame)
+                mainView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
+                zoomedView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
+                //mainView.frame.size.width = 658
+                //zoomedView.frame.size.width = 658
+                //zoomedView.layoutIfNeeded()
+                print(zoomedView.frame)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.0, execute: {
+                    for uicard in self.uicards {
+                        uicard.redraw()
+                    }
+                })
+                wordsTVC.hidden = true
+            }
+        }
+    }
+    @objc func rightViewSingleTap(recognizer: UITapGestureRecognizer) {
+        if (recognizer.state == UIGestureRecognizer.State.ended) {
+            if wordsTVC.hidden {
+                let move = CGPoint(x: -rightView.frame.width+K.SideView.Hidden.width, y: 0)
+                rightView.animate(move: move, withDuration: K.SideView.Hidden.animationLength)
+                print(zoomedView.frame)
+                mainView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
+                zoomedView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
+                mainView.frame.size.width = 528
+                zoomedView.frame.size.width = 528
+                //zoomedView.layoutIfNeeded()
+                print(zoomedView.frame)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.0, execute: {
+                    for uicard in self.uicards {
+                        uicard.redraw()
+                    }
+                })
+                wordsTVC.hidden = false
+            }
+        }
+    }
+    
     override func loadView() {
         super.loadView()
         game = Game()
@@ -48,6 +93,8 @@ class MainVC: UIViewController {
         prepareViews()
         preparePlayerStatusBar()
         prepareChat()
+        addTaps(for: rightView, singleTapAction: #selector(rightViewSingleTap),
+                rightSwipeAction: #selector(rightViewSwipedRight))
     }
     private func placeCards() {
         if K.CardsAnimation.show {
@@ -61,7 +108,7 @@ class MainVC: UIViewController {
                 let place = Place(x: x, y: y)
                 let delay = K.CardsAnimation.show ? K.CardsAnimation.betweenCardsAppear * Double(num) : 0
                 let uicard = UICard(place: place, card: game.cards[num], showDelay: delay, in: zoomedView)
-                uicard.delegate = self
+                uicard.mainVCDelegate = self
                 uicards.append(uicard)
             }
         }
@@ -121,9 +168,9 @@ class MainVC: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
-            let wordsTVC = segue.destination as! WordsTVC
+            wordsTVC = segue.destination as? WordsTVC
             DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeFadeCardsColors, execute: {
-                self.revealCardsColors(wordsTVC: wordsTVC)
+                self.revealCardsColors()
             })
             
         } else if segue.identifier == "toEnterHintVC" {
@@ -137,11 +184,11 @@ class MainVC: UIViewController {
         enterHintVC.hint = notConfirmedHint
         enterHintVC.maxQty = game.leftWords[game.currentTeam]
     }
-    private func revealCardsColors(wordsTVC: WordsTVC) {
+    private func revealCardsColors() {
         changeCardsColorVisibility(fade: true)
-        for (i, card) in game.cardsOfCurrentTeam.enumerated() {
+        for (i, card) in (game.cardsOfCurrentTeam+game.cardsOf[CardColor.black]!).enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)*K.Durations.betweenWordsToTable+K.Durations.beforeFirstWordToTable, execute: {
-                wordsTVC.insertRow(card: card, at: i)
+                self.wordsTVC.insertRow(card: card, at: i)
             })
         }
     }
@@ -161,10 +208,11 @@ extension MainVC: UIScrollViewDelegate {
     }
 }
 
-extension MainVC: AllCardsActionsDelegate {
+extension MainVC: MainVCDelegate {
     func changeCardsColorVisibility(fade: Bool) {
         for uicard in uicards {
             uicard.changeShowColor(fade: fade)
         }
+        wordsTVC.changeVisibility()
     }
 }

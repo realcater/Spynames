@@ -111,5 +111,21 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "closure #1 in MainVC.rightViewSwipedRight(recognizer:):MainVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "zoomedView.frame.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainVC.rightViewSwipedRight(recognizer:):MainVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "zoomedView.frame.size.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

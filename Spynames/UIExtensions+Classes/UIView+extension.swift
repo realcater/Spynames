@@ -96,4 +96,36 @@ extension UIView {
         layer.shadowRadius = 3
         layer.shadowOpacity = 0.5
     }
+    func animate(moveTo: CGPoint? = nil, move: CGPoint = CGPoint(x: 0, y: 0),
+                 extend: CGSize? = nil,
+                 withDuration duration: Double? = nil, withDelay delay: Double? = nil, forTurns turnsQty: Double? = nil) {
+        let duration = duration ?? 0.0
+        let delay = delay ?? 0.0
+        var newOrigin: CGPoint
+        if let moveTo = moveTo {
+            newOrigin = moveTo
+        } else {
+            newOrigin = CGPoint(x: frame.origin.x + move.x,
+                                    y: frame.origin.y + move.y)
+        }
+        UIView.animate(withDuration: duration, delay: delay, animations: {
+            self.frame.origin = newOrigin
+            if let extend = extend {
+                self.frame.size.width += extend.width
+                self.frame.size.height += extend.height
+            }
+        }, completion: nil)
+        
+        if let turnsQty = turnsQty, turnsQty > 0 {
+            let sectorsQty = 24.0 //smoothness coefficients
+            let overlapDurationK = 2.0 //smoothness coefficients, >=1.0
+            
+            for i in 0..<Int(sectorsQty*turnsQty) {
+                let angle = CGFloat(i % Int(sectorsQty)+1)*CGFloat.pi*2.0/CGFloat(sectorsQty)
+                UIView.animate(withDuration: duration/sectorsQty/turnsQty*overlapDurationK, delay: delay+Double(i)*duration/sectorsQty/turnsQty, animations: {
+                    self.transform = CGAffineTransform(rotationAngle: angle)
+                }, completion: nil)
+            }
+        }
+    }
 }

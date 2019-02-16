@@ -744,10 +744,11 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCp-w6-fuZ" userLabel="zoomedView">
                                         <rect key="frame" x="0.0" y="0.0" width="528" height="375"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="1" green="0.25178365255641155" blue="0.0076534692003796811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.67843137249999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="rCp-w6-fuZ" firstAttribute="top" secondItem="Vo3-3G-Sm9" secondAttribute="top" id="9Ft-rM-UYi"/>
                                     <constraint firstAttribute="trailing" secondItem="rCp-w6-fuZ" secondAttribute="trailing" id="acj-yL-VXN"/>
