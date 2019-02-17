@@ -33,6 +33,8 @@ class MainVC: UIViewController {
     var notConfirmedHint = Hint()
     var uicards = [UICard]()
     var wordsTVC: WordsTVC!
+    var rightViewShown = true
+    var leftViewShown = true
 }
 //MARK: - public functions
 extension MainVC {
@@ -51,12 +53,9 @@ extension MainVC {
         prepareViews()
         preparePlayerStatusBar()
         prepareChat()
-        addTaps(for: rightView,
-                singleTapAction: #selector(rightViewSingleTap),
-                leftSwipeAction: #selector(rightViewSwipedLeft),
-                rightSwipeAction: #selector(rightViewSwipedRight))
+        addTapsForLeftView()
+        addTapsForRightView()
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
@@ -70,24 +69,7 @@ extension MainVC {
         }
     }
 }
-//MARK: - gesturesReconginizers
-extension MainVC {
-    @objc func rightViewSwipedRight(recognizer: UITapGestureRecognizer) {
-        if (recognizer.state == UIGestureRecognizer.State.ended) {
-            collapseRightView()
-        }
-    }
-    @objc func rightViewSingleTap(recognizer: UITapGestureRecognizer) {
-        if (recognizer.state == UIGestureRecognizer.State.ended) {
-            restoreRightView()
-        }
-    }
-    @objc func rightViewSwipedLeft(recognizer: UITapGestureRecognizer) {
-        if (recognizer.state == UIGestureRecognizer.State.ended) {
-            restoreRightView()
-        }
-    }
-}
+
 //MARK: - startUp private functions
 private extension MainVC {
     func placeCards() {
@@ -118,6 +100,7 @@ private extension MainVC {
         bottomViewImage.addShadow()
         leftViewBackground.addShadow()
         rightView.widthConstraint?.constant = K.SideView.width
+        leftView.widthConstraint?.constant = K.SideView.width
     }
     func preparePlayerStatusBar() {
         statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)
@@ -177,31 +160,6 @@ private extension MainVC {
         enterHintVC.hint = notConfirmedHint
         enterHintVC.maxQty = game.leftWords[game.currentTeam]
     }
-    func collapseRightView() {
-        if !wordsTVC.hidden {
-            view.getConstraint(named: "rightViewShift")?.constant = K.SideView.shiftWhenHidden
-            UIView.animate(withDuration: K.SideView.animationLength, delay: 0, animations: {
-                self.view.layoutIfNeeded()
-            })
-            for uicard in self.uicards {
-                uicard.redraw(withDuration: K.SideView.animationLength)
-            }
-            wordsTVC.hidden = true
-        }
-    }
-    func restoreRightView() {
-        if wordsTVC.hidden {
-            view.getConstraint(named: "rightViewShift")?.constant = 0
-            UIView.animate(withDuration: K.SideView.animationLength, delay: 0, animations: {
-                self.view.layoutIfNeeded()
-            })
-            for uicard in self.uicards {
-                uicard.redraw(withDuration: K.SideView.animationLength)
-            }
-            wordsTVC.hidden = false
-        }
-    }
-    
 }
 //MARK: - delegates
 extension MainVC: ReturnHintDelegate {
