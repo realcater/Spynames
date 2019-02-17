@@ -33,7 +33,7 @@ class UICard {
     
     func changeShowColor(fade: Bool) {
         showColor = !showColor
-        redraw(fade: fade)
+        redraw(withDuration: K.Durations.fadeTimeAppearCard)
     }
     func flip() {
         guessed = !guessed
@@ -43,12 +43,14 @@ class UICard {
     func drawStartDeal() {
         redraw(inFrame: frameForStartDeal, forDuration: 0)
     }
-    func redraw(fade: Bool = false) {
-        let duration = fade ? K.Durations.fadeTimeAppearCard : 0
+
+    func redraw(withDuration duration: Double = 0) {
         redraw(inFrame: frameForPlace, forDuration: duration)
     }
-    
-    private func addButton() {
+}
+
+private extension UICard {
+    func addButton() {
         button = UIRoundedButton(frame: frameForPlace)
         button.makeRounded(cornerRadius: K.Sizes.cardsCornerRadius)
         button.addShadow()
@@ -63,12 +65,8 @@ class UICard {
         } else {
             redraw()
         }
-        changeShowColor(fade: true)
     }
-}
-
-extension UICard {
-    private func redraw(inFrame frame: CGRect, forDuration duration: Double) {
+    func redraw(inFrame frame: CGRect, forDuration duration: Double) {
         let cardColor = (!showColor && !guessed) ? CardColor.neutral : card.color
         let title = guessed ? "" : card.word
         let image = guessed ? UIImage(named: K.FileNames.cardBackgroundImage[cardColor]!) : nil
@@ -85,7 +83,7 @@ extension UICard {
         }
         )
     }
-    private var frameSize: CGSize {
+    var frameSize: CGSize {
         get {
             let ttlRelativeWidth = K.Sizes.Cards.marginX * 2 + Double(K.Game.sizeX) + Double(K.Game.sizeX-1)*K.Sizes.Cards.distX
             let width = view.frame.width / CGFloat(ttlRelativeWidth)
@@ -94,18 +92,18 @@ extension UICard {
             return CGSize(width: width, height: height)
         }
     }
-    private var startFrame: CGRect {
+    var startFrame: CGRect {
         get {
             let frame = K.CardsAnimation.show ? frameForStartDeal : frameForPlace
             return frame
         }
     }
-    private var frameForStartDeal: CGRect {
+    var frameForStartDeal: CGRect {
         get {
             return CGRect(x: K.Sizes.Cards.startPoint.x, y: K.Sizes.Cards.startPoint.y, width: frameSize.width, height: frameSize.height)
         }
     }
-    private var frameForPlace: CGRect {
+    var frameForPlace: CGRect {
         let marginX = CGFloat(K.Sizes.Cards.marginX) * frameSize.width
         let marginTop = CGFloat(K.Sizes.Cards.marginTop) * frameSize.height
         let origin = CGPoint(
@@ -118,7 +116,7 @@ extension UICard {
         return CGPoint(x: frameForPlace.origin.x, y: frameForPlace.origin.y)
     }
 }
-
+//MARK: - gesturesReconginizers
 extension UICard {
     private func addRecognizers() {
         let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(singleTap))

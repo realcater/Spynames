@@ -7,9 +7,8 @@
 //
 import AVFoundation
 import UIKit
-
+//MARK: - state
 class MainVC: UIViewController {
-    
     @IBOutlet weak var zoomedView: UIView!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var leftViewBackground: UIImageView!
@@ -33,51 +32,9 @@ class MainVC: UIViewController {
     var notConfirmedHint = Hint()
     var uicards = [UICard]()
     var wordsTVC: WordsTVC!
-
-    @objc func rightViewSwipedRight(recognizer: UITapGestureRecognizer) {
-        if (recognizer.state == UIGestureRecognizer.State.ended) {
-            if !wordsTVC.hidden {
-                let move = CGPoint(x: rightView.frame.width-K.SideView.Hidden.width, y: 0)
-                rightView.animate(move: move, withDuration: K.SideView.Hidden.animationLength)
-                
-                print(zoomedView.frame)
-                mainView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
-                zoomedView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
-                //mainView.frame.size.width = 658
-                //zoomedView.frame.size.width = 658
-                //zoomedView.layoutIfNeeded()
-                print(zoomedView.frame)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.0, execute: {
-                    for uicard in self.uicards {
-                        uicard.redraw()
-                    }
-                })
-                wordsTVC.hidden = true
-            }
-        }
-    }
-    @objc func rightViewSingleTap(recognizer: UITapGestureRecognizer) {
-        if (recognizer.state == UIGestureRecognizer.State.ended) {
-            if wordsTVC.hidden {
-                let move = CGPoint(x: -rightView.frame.width+K.SideView.Hidden.width, y: 0)
-                rightView.animate(move: move, withDuration: K.SideView.Hidden.animationLength)
-                print(zoomedView.frame)
-                mainView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
-                zoomedView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
-                mainView.frame.size.width = 528
-                zoomedView.frame.size.width = 528
-                //zoomedView.layoutIfNeeded()
-                print(zoomedView.frame)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.0, execute: {
-                    for uicard in self.uicards {
-                        uicard.redraw()
-                    }
-                })
-                wordsTVC.hidden = false
-            }
-        }
-    }
-    
+}
+//MARK: - public functions
+extension MainVC {
     override func loadView() {
         super.loadView()
         game = Game()
@@ -93,10 +50,46 @@ class MainVC: UIViewController {
         prepareViews()
         preparePlayerStatusBar()
         prepareChat()
-        addTaps(for: rightView, singleTapAction: #selector(rightViewSingleTap),
+        addTaps(for: rightView,
+                singleTapAction: #selector(rightViewSingleTap),
+                leftSwipeAction: #selector(rightViewSwipedLeft),
                 rightSwipeAction: #selector(rightViewSwipedRight))
     }
-    private func placeCards() {
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "wordsTVCSegue" {
+            wordsTVC = segue.destination as? WordsTVC
+            DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeFadeCardsColors, execute: {
+                self.revealCardsColors()
+            })
+        } else if segue.identifier == "toEnterHintVC" {
+            let enterHintVC = segue.destination as! EnterHintVC
+            sendToEnterHintVC(enterHintVC: enterHintVC)
+        }
+    }
+}
+//MARK: - gesturesReconginizers
+extension MainVC {
+    @objc func rightViewSwipedRight(recognizer: UITapGestureRecognizer) {
+        if (recognizer.state == UIGestureRecognizer.State.ended) {
+            collapseRightView()
+        }
+    }
+    @objc func rightViewSingleTap(recognizer: UITapGestureRecognizer) {
+        if (recognizer.state == UIGestureRecognizer.State.ended) {
+            restoreRightView()
+        }
+    }
+    @objc func rightViewSwipedLeft(recognizer: UITapGestureRecognizer) {
+        if (recognizer.state == UIGestureRecognizer.State.ended) {
+            restoreRightView()
+        }
+    }
+}
+//MARK: - startUp private functions
+private extension MainVC {
+    func placeCards() {
         if K.CardsAnimation.show {
             DispatchQueue.main.asyncAfter(deadline: .now() + K.CardsAnimation.delaySound, execute: {
                 K.Sounds.cards?.play()
@@ -113,7 +106,7 @@ class MainVC: UIViewController {
             }
         }
     }
-    private func prepareViews() {
+    func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
         guessedScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
         leftScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
@@ -124,7 +117,7 @@ class MainVC: UIViewController {
         bottomViewImage.addShadow()
         leftViewBackground.addShadow()
     }
-    private func preparePlayerStatusBar() {
+    func preparePlayerStatusBar() {
         statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)
         
         statusIcons.append(
@@ -141,7 +134,7 @@ class MainVC: UIViewController {
         )
         statusIcons[0].active = true
     }
-    private func prepareChat() {
+    func prepareChat() {
         giveahintButton.makeRounded(color: K.Colors.mainVCbuttons)
         chatView.setup()
         view.layoutIfNeeded()
@@ -166,25 +159,7 @@ class MainVC: UIViewController {
             self.statusIcons[3].online = true
         })
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "wordsTVCSegue" {
-            wordsTVC = segue.destination as? WordsTVC
-            DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeFadeCardsColors, execute: {
-                self.revealCardsColors()
-            })
-            
-        } else if segue.identifier == "toEnterHintVC" {
-            let enterHintVC = segue.destination as! EnterHintVC
-            prepareEnterHintVC(enterHintVC: enterHintVC)
-        }
-    }
-    
-    private func prepareEnterHintVC(enterHintVC: EnterHintVC) {
-        enterHintVC.delegate = self
-        enterHintVC.hint = notConfirmedHint
-        enterHintVC.maxQty = game.leftWords[game.currentTeam]
-    }
-    private func revealCardsColors() {
+    func revealCardsColors() {
         changeCardsColorVisibility(fade: true)
         for (i, card) in (game.cardsOfCurrentTeam+game.cardsOf[CardColor.black]!).enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)*K.Durations.betweenWordsToTable+K.Durations.beforeFirstWordToTable, execute: {
@@ -193,7 +168,41 @@ class MainVC: UIViewController {
         }
     }
 }
-
+//MARK: - Ongoing use private functions
+private extension MainVC {
+    func sendToEnterHintVC(enterHintVC: EnterHintVC) {
+        enterHintVC.delegate = self
+        enterHintVC.hint = notConfirmedHint
+        enterHintVC.maxQty = game.leftWords[game.currentTeam]
+    }
+    func restoreRightView() {
+        if wordsTVC.hidden {
+            let move = CGPoint(x: -rightView.frame.width+K.SideView.Hidden.width, y: 0)
+            rightView.animate(move: move, withDuration: K.SideView.Hidden.animationLength)
+            mainView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
+            zoomedView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
+            mainView.frame.size.width = 528
+            zoomedView.frame.size.width = 528
+            for uicard in self.uicards {
+                uicard.redraw(withDuration: K.SideView.Hidden.animationLength)
+            }
+            wordsTVC.hidden = false
+        }
+    }
+    func collapseRightView() {
+        if !wordsTVC.hidden {
+            let move = CGPoint(x: rightView.frame.width-K.SideView.Hidden.width, y: 0)
+            rightView.animate(move: move, withDuration: K.SideView.Hidden.animationLength)
+            mainView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
+            zoomedView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
+            for uicard in self.uicards {
+                uicard.redraw(withDuration: K.SideView.Hidden.animationLength)
+            }
+            wordsTVC.hidden = true
+        }
+    }
+}
+//MARK: - delegates
 extension MainVC: ReturnHintDelegate {
     func addHint(hint: Hint) {
         game.hints[game.currentTeam]!.append(hint)
