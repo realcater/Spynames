@@ -14,31 +14,7 @@ class WordsTVC: UITableViewController {
     var words = [Card]()
     var hidden = false
     
-    @objc private func doubleTap(recognizer: UITapGestureRecognizer) {
-        if (recognizer.state == UIGestureRecognizer.State.ended) {
-            let location = recognizer.location(in: self.view)
-            let tappedRow = self.tableView.indexPathForRow(at: location)!.row
-            if words[tappedRow].word == "" {
-                deleteRow(at: tappedRow)
-            } else {
-                insertRow(card: clearCard, at: tappedRow)
-            }
-        }
-    }
-    func deleteRow(at row: Int) {
-        let indexPath = IndexPath(row: row, section: 0)
-        tableView.beginUpdates()
-        tableView.deleteRows(at: [indexPath], with: .automatic)
-        words.remove(at: row)
-        tableView.endUpdates()
-    }
-    func insertRow(card: Card, at row: Int) {
-        let indexPath = IndexPath(row: row, section: 0)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [indexPath], with: .automatic)
-        words.insert(card, at: indexPath.row)
-        tableView.endUpdates()
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         isEditing = true
@@ -82,7 +58,41 @@ class WordsTVC: UITableViewController {
         words.remove(at: sourceIndexPath.row)
         words.insert(itemToMove, at: destinationIndexPath.row)
     }
+    
+}
+//MARK: - Public functions
+extension WordsTVC {
+    func deleteRow(at row: Int) {
+        let indexPath = IndexPath(row: row, section: 0)
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        words.remove(at: row)
+        tableView.endUpdates()
+    }
+    func insertRow(card: Card, at row: Int) {
+        let indexPath = IndexPath(row: row, section: 0)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        words.insert(card, at: indexPath.row)
+        tableView.endUpdates()
+    }
     func changeVisibility() {
         tableView.isHidden = !tableView.isHidden
     }
 }
+
+//MARK: - GestureRecognizer
+extension WordsTVC {
+    @objc private func doubleTap(recognizer: UITapGestureRecognizer) {
+        if (recognizer.state == UIGestureRecognizer.State.ended) {
+            let location = recognizer.location(in: self.view)
+            let tappedRow = self.tableView.indexPathForRow(at: location)!.row
+            if words[tappedRow].word == "" {
+                deleteRow(at: tappedRow)
+            } else {
+                insertRow(card: clearCard, at: tappedRow)
+            }
+        }
+    }
+}
+

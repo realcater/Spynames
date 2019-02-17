@@ -90,13 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spynames/ViewControllers/MainVC.swift"
-            timestampString = "572133471.4556201"
+            timestampString = "572135728.412727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "MainVC"
-            landmarkType = "21">
+            landmarkName = "loadView()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,12 +170,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spynames/ViewControllers/WordsTVC.swift"
-            timestampString = "572133471.4559129"
+            timestampString = "572135728.413061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "tableView(_:moveRowAt:to:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -217,78 +217,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Spynames/ViewControllers/EnterHintVC.swift"
-            timestampString = "571924028.149825"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "singleTap(recognizer:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Spynames/ViewControllers/EnterHintVC.swift"
-            timestampString = "571924028.149883"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "hintInPicker"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Spynames.EnterHintVC.currentHint.setter : Spynames.Hint"
-                  moduleName = "Spynames"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitryd/Documents/Spynames/Spynames/ViewControllers/EnterHintVC.swift"
-                  timestampString = "570909514.773602"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "344">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Bool in Spynames.EnterHintVC.currentHint.setter : Spynames.Hint"
-                  moduleName = "Spynames"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitryd/Documents/Spynames/Spynames/ViewControllers/EnterHintVC.swift"
-                  timestampString = "570909514.7790231"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Spynames/Data/Game.swift"
-            timestampString = "572133471.456116"
+            timestampString = "572135728.4132071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "generateCards()"
-            landmarkType = "7">
+            endingLineNumber = "61">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -298,13 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spynames/Data/Game.swift"
-            timestampString = "572133471.456181"
+            timestampString = "572135728.413273"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "generateCards()"
-            landmarkType = "7">
+            endingLineNumber = "62">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -329,46 +261,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Spynames/ViewControllers/WordsTVC.swift"
-            timestampString = "572133471.4562761"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "insertRow(card:at:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Spynames/ViewControllers/WordsTVC.swift"
-            timestampString = "572133471.456344"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "insertRow(card:at:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Spynames/Data/Game.swift"
-            timestampString = "572133471.4564101"
+            timestampString = "572135728.413372"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "generateCards()"
-            landmarkType = "7">
+            endingLineNumber = "54">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -378,13 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spynames/Data/Game.swift"
-            timestampString = "572133471.45647"
+            timestampString = "572135728.413432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "generateCards()"
-            landmarkType = "7">
+            endingLineNumber = "55">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

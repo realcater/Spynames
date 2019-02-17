@@ -1,6 +1,24 @@
 import UIKit
 import AVFoundation
 
+//MARK:- Self-shape
+extension UIView {
+    func makeRounded(cornerRadius:  CGFloat? = nil) {
+        if let cornerRadius = cornerRadius {
+            layer.cornerRadius = cornerRadius
+        } else {
+            layer.cornerRadius = 0.5 * self.bounds.size.height
+        }
+    }
+    func addShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 4, height: 4)
+        layer.shadowRadius = 3
+        layer.shadowOpacity = 0.5
+    }
+}
+
+//MARK:- All subviews changging
 extension UIView {
     func makeAllButtonsRound(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
         for case let button as UIRoundedButton in self.subviews {
@@ -24,13 +42,6 @@ extension UIView {
             }
         }
     }
-    func setConstraint(identifier: String, size: CGFloat) {
-        for constraint in self.constraints {
-            if constraint.identifier == identifier {
-                constraint.constant = size
-            }
-        }
-    }
     func setBackgroundImage(named: String, alpha: CGFloat, tintColor: UIColor? = nil, contentMode: UIView.ContentMode = .scaleAspectFill) {
         if let image = UIImage(named: named) {
             let backgroundImageView = UIImageView(frame: self.bounds)
@@ -43,6 +54,10 @@ extension UIView {
             insertSubview(backgroundImageView, at: 0)
         }
     }
+}
+
+//MARK:- Rotating & Animations
+extension UIView {
     private static let kRotationAnimationKey = "rotationanimationkey"
     func rotate(duration: Double = 1) {
         if layer.animation(forKey: UIView.kRotationAnimationKey) == nil {
@@ -61,41 +76,6 @@ extension UIView {
             layer.removeAnimation(forKey: UIView.kRotationAnimationKey)
         }
     }
-    @objc func makeDoubleColor(topColor: UIColor, bottomColor: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
-        gradientLayer.locations = [0, 0.5, 0.5, 1.0]
-        gradientLayer.colors = [topColor.cgColor, topColor.cgColor,
-                                bottomColor.cgColor, bottomColor.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        layer.masksToBounds = true
-        layer.insertSublayer(gradientLayer, at: 0)
-    }
-    func makeDoubleColor(leftColor: UIColor, rightColor: UIColor) {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
-        gradientLayer.locations = [0, 0.5, 0.5, 1.0]
-        gradientLayer.colors = [leftColor.cgColor, leftColor.cgColor,
-                                rightColor.cgColor, rightColor.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        layer.masksToBounds = true
-        layer.insertSublayer(gradientLayer, at: 0)
-    }
-    func makeRounded(cornerRadius:  CGFloat? = nil) {
-        if let cornerRadius = cornerRadius {
-            layer.cornerRadius = cornerRadius
-        } else {
-            layer.cornerRadius = 0.5 * self.bounds.size.height
-        }
-    }
-    func addShadow() {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 4, height: 4)
-        layer.shadowRadius = 3
-        layer.shadowOpacity = 0.5
-    }
     func animate(moveTo: CGPoint? = nil, move: CGPoint = CGPoint(x: 0, y: 0),
                  extend: CGSize? = nil,
                  withDuration duration: Double? = nil, withDelay delay: Double? = nil, forTurns turnsQty: Double? = nil) {
@@ -106,7 +86,7 @@ extension UIView {
             newOrigin = moveTo
         } else {
             newOrigin = CGPoint(x: frame.origin.x + move.x,
-                                    y: frame.origin.y + move.y)
+                                y: frame.origin.y + move.y)
         }
         UIView.animate(withDuration: duration, delay: delay, animations: {
             self.frame.origin = newOrigin
@@ -129,9 +109,43 @@ extension UIView {
         }
     }
 }
+//MARK:- Double Color
+extension UIView {
+    @objc func makeDoubleColor(topColor: UIColor, bottomColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.locations = [0, 0.5, 0.5, 1.0]
+        gradientLayer.colors = [topColor.cgColor, topColor.cgColor,
+                                bottomColor.cgColor, bottomColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        layer.masksToBounds = true
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+    func makeDoubleColor(leftColor: UIColor, rightColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.locations = [0, 0.5, 0.5, 1.0]
+        gradientLayer.colors = [leftColor.cgColor, leftColor.cgColor,
+                                rightColor.cgColor, rightColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        layer.masksToBounds = true
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+}
+
+//MARK:- Constraints
 extension UIView {
     func getConstraint(named: String) -> NSLayoutConstraint? {
         return constraints.first { $0.identifier == named }
+    }
+    func setConstraint(identifier: String, size: CGFloat) {
+        for constraint in self.constraints {
+            if constraint.identifier == identifier {
+                constraint.constant = size
+            }
+        }
     }
     var heightConstraint: NSLayoutConstraint? {
         get {

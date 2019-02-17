@@ -11,7 +11,7 @@ import UIKit
 typealias noArgsFunc = () -> Void
 
 class UIRotatedImageView: UIImageView {
-    func startRotation() {
+    /*func startRotation() {
         let sectorsQty = 12.0
         let duration = 0.2
         //let rollsQty = Int(circlesQty*sectorsQty)
@@ -21,5 +21,5 @@ class UIRotatedImageView: UIImageView {
                 self.transform = CGAffineTransform(rotationAngle: angle)
             }, completion: nil)
         }
-    }
+    }*/
 }

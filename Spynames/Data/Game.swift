@@ -1,31 +1,3 @@
-enum Team: CaseIterable {
-    case red
-    case blue
-    
-    func toCardColor() -> CardColor {
-        return (self == .red) ? CardColor.red : CardColor.blue
-    }
-}
-
-enum CardColor: CaseIterable {
-    case red
-    case blue
-    case neutral
-    case black
-}
-
-enum PlayerType: CaseIterable {
-    case spymaster
-    case operatives
-}
-
-class Hint {
-    var text: String = ""
-    var qty: Int = 1
-}
-
-
-
 class Game {
     var cards = [Card]()
     var cardsOf = [CardColor: [Card]]()

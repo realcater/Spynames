@@ -17,11 +17,8 @@ class GameCreatedVC: UIViewController {
     
     var devices: [Device]!
     var gameIsReady = false
-    //paper_600x450px
-    //paper_600x450px-2
     
     @IBAction func waitOrStartGameBtnPressed(_ sender: Any) {
-        
         if gameIsReady {
             performSegue(withIdentifier: "startGame", sender: sender)
         } else {
@@ -46,9 +43,7 @@ class GameCreatedVC: UIViewController {
         waitOrStartGameBtn.makeRounded()
         setUpDevices()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+    
     private func setUpDevices() {
         devices = [
             Device(role: .redSpymaster, label: (labels?[0])!,

@@ -19,6 +19,7 @@
 		CA6425C72219E1CF00CAEA0F /* CGPoint+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425C62219E1CF00CAEA0F /* CGPoint+extension.swift */; };
 		CA6425C9221A0BA100CAEA0F /* MainVC+rightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */; };
 		CA6425CB221A0DAA00CAEA0F /* MainVC+leftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */; };
+		CA6425CD221A1B0E00CAEA0F /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */; };
 		CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB7217F62810009D072 /* AppDelegate.swift */; };
 		CA814BBA217F62810009D072 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB9217F62810009D072 /* StartVC.swift */; };
 		CA814BBD217F62810009D072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BBB217F62810009D072 /* Main.storyboard */; };
@@ -37,7 +38,6 @@
 		CAC9505421B6EB9D002262BA /* UIChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9505321B6EB9D002262BA /* UIChatView.swift */; };
 		CACA1F3C21A379B600DED049 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1F3B21A379B600DED049 /* Device.swift */; };
 		CACA1F3E21ADDA1200DED049 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1F3D21ADDA1200DED049 /* MainVC.swift */; };
-		CAD28AF9219A09E9004C684A /* UIRotatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */; };
 		CAD84F0921875A7F00E6C6E0 /* UINavigationController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */; };
 		CAD84F0E21875FD200E6C6E0 /* true.wav in Resources */ = {isa = PBXBuildFile; fileRef = CAD84F0B21875FD100E6C6E0 /* true.wav */; };
 		CAD84F0F21875FD200E6C6E0 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = CAD84F0C21875FD200E6C6E0 /* click.wav */; };
@@ -47,7 +47,6 @@
 		CAE1A12B2207152D00B4E687 /* EnterHintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */; };
 		CAE1A12F220751DE00B4E687 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A12E220751DE00B4E687 /* UIViewController+extension.swift */; };
 		CAE1A1312207696100B4E687 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A1302207696100B4E687 /* Helper.swift */; };
-		CAE1A1332208D21200B4E687 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A1322208D21200B4E687 /* Card.swift */; };
 		CAE1A1352208D57B00B4E687 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1A1342208D57B00B4E687 /* Dictionary.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +63,7 @@
 		CA6425C62219E1CF00CAEA0F /* CGPoint+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+extension.swift"; sourceTree = "<group>"; };
 		CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+rightView.swift"; sourceTree = "<group>"; };
 		CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+leftView.swift"; sourceTree = "<group>"; };
+		CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
 		CA814BB4217F62810009D072 /* Spynames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spynames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA814BB7217F62810009D072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA814BB9217F62810009D072 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
@@ -84,7 +84,6 @@
 		CAC9505321B6EB9D002262BA /* UIChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIChatView.swift; sourceTree = "<group>"; };
 		CACA1F3B21A379B600DED049 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		CACA1F3D21ADDA1200DED049 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRotatedImageView.swift; sourceTree = "<group>"; };
 		CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+extension.swift"; sourceTree = "<group>"; };
 		CAD84F0B21875FD100E6C6E0 /* true.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = true.wav; sourceTree = "<group>"; };
 		CAD84F0C21875FD200E6C6E0 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
@@ -94,7 +93,6 @@
 		CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterHintVC.swift; sourceTree = "<group>"; };
 		CAE1A12E220751DE00B4E687 /* UIViewController+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		CAE1A1302207696100B4E687 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		CAE1A1322208D21200B4E687 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		CAE1A1342208D57B00B4E687 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,11 +111,11 @@
 			isa = PBXGroup;
 			children = (
 				CAC5BA4C21F4D3E7001763C5 /* Game.swift */,
+				CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */,
 				CACA1F3B21A379B600DED049 /* Device.swift */,
 				CAC9505121B66F2F002262BA /* Message.swift */,
 				CA3528F1218226A5005C489B /* K.swift */,
 				CAE1A1302207696100B4E687 /* Helper.swift */,
-				CAE1A1322208D21200B4E687 /* Card.swift */,
 				CAE1A1342208D57B00B4E687 /* Dictionary.swift */,
 			);
 			path = Data;
@@ -189,7 +187,6 @@
 			children = (
 				CAE1A12E220751DE00B4E687 /* UIViewController+extension.swift */,
 				CAB9E818217F9C4E002148CD /* UIView+extension.swift */,
-				CAD28AF8219A09E9004C684A /* UIRotatedImageView.swift */,
 				CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */,
 				CAD84F132187602B00E6C6E0 /* AVAudioPlayer+extension.swift */,
 				CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */,
@@ -307,7 +304,6 @@
 				CAE1A12F220751DE00B4E687 /* UIViewController+extension.swift in Sources */,
 				CA3528F2218226A5005C489B /* K.swift in Sources */,
 				CA398030220CA6B80050FB54 /* UIString+extension.swift in Sources */,
-				CAD28AF9219A09E9004C684A /* UIRotatedImageView.swift in Sources */,
 				CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */,
 				CAD84F0921875A7F00E6C6E0 /* UINavigationController+extension.swift in Sources */,
 				CA814BBA217F62810009D072 /* StartVC.swift in Sources */,
@@ -327,9 +323,9 @@
 				CAE1A1352208D57B00B4E687 /* Dictionary.swift in Sources */,
 				CA8C4F19220B09520045FCC2 /* UICard.swift in Sources */,
 				CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */,
+				CA6425CD221A1B0E00CAEA0F /* GameTypes.swift in Sources */,
 				CA2EFEBD21F8B5B700DF2ACF /* PlayersChatView.swift in Sources */,
 				CAC9505221B66F2F002262BA /* Message.swift in Sources */,
-				CAE1A1332208D21200B4E687 /* Card.swift in Sources */,
 				CAC5BA4921F48FB4001763C5 /* PlayerStatusIcon.swift in Sources */,
 				CA814BD0217F71DD0009D072 /* UIRoundedButton.swift in Sources */,
 				CAD84F142187602B00E6C6E0 /* AVAudioPlayer+extension.swift in Sources */,
