@@ -33,7 +33,8 @@ class UICard {
     
     func changeShowColor(fade: Bool) {
         showColor = !showColor
-        redraw(withDuration: K.Durations.fadeTimeAppearCard)
+        let duration = fade ? K.Durations.fadeTimeAppearCard : 0.0
+        redraw(withDuration: duration)
     }
     func flip() {
         guessed = !guessed

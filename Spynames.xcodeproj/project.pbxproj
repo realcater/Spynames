@@ -16,6 +16,7 @@
 		CA35290121874162005C489B /* Top Secret Stamp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA35290021874162005C489B /* Top Secret Stamp.ttf */; };
 		CA398030220CA6B80050FB54 /* UIString+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39802F220CA6B80050FB54 /* UIString+extension.swift */; };
 		CA39803A221450660050FB54 /* cards.wav in Resources */ = {isa = PBXBuildFile; fileRef = CA398039221450660050FB54 /* cards.wav */; };
+		CA6425C72219E1CF00CAEA0F /* CGPoint+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425C62219E1CF00CAEA0F /* CGPoint+extension.swift */; };
 		CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB7217F62810009D072 /* AppDelegate.swift */; };
 		CA814BBA217F62810009D072 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB9217F62810009D072 /* StartVC.swift */; };
 		CA814BBD217F62810009D072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BBB217F62810009D072 /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		CA35290021874162005C489B /* Top Secret Stamp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Top Secret Stamp.ttf"; sourceTree = "<group>"; };
 		CA39802F220CA6B80050FB54 /* UIString+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+extension.swift"; sourceTree = "<group>"; };
 		CA398039221450660050FB54 /* cards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cards.wav; sourceTree = "<group>"; };
+		CA6425C62219E1CF00CAEA0F /* CGPoint+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+extension.swift"; sourceTree = "<group>"; };
 		CA814BB4217F62810009D072 /* Spynames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spynames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA814BB7217F62810009D072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA814BB9217F62810009D072 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				CAC9505321B6EB9D002262BA /* UIChatView.swift */,
 				CA2EFEB421F6662300DF2ACF /* UIPaddingLabel.swift */,
 				CA39802F220CA6B80050FB54 /* UIString+extension.swift */,
+				CA6425C62219E1CF00CAEA0F /* CGPoint+extension.swift */,
 			);
 			path = "UIExtensions+Classes";
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CACA1F3C21A379B600DED049 /* Device.swift in Sources */,
+				CA6425C72219E1CF00CAEA0F /* CGPoint+extension.swift in Sources */,
 				CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */,
 				CAE1A12F220751DE00B4E687 /* UIViewController+extension.swift in Sources */,
 				CA3528F2218226A5005C489B /* K.swift in Sources */,

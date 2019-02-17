@@ -2,6 +2,7 @@ import UIKit
 import AVFoundation
 
 struct K {
+    static var i = 0
     struct Game {
         static let sizeX = 5
         static let sizeY = 5
@@ -17,7 +18,7 @@ struct K {
         ]
     }
     struct CardsAnimation {
-        static let show = false
+        static let show = true
         static let turns = 1.0
         static let duration = 0.4
         static let delaySound = 0.4
@@ -35,10 +36,10 @@ struct K {
     static let useSmallerFonts = (UIScreen.main.currentMode!.size.width >= 750) ? false : true
     
     struct SideView {
-        struct Hidden {
-            static let width: CGFloat = 20
-            static let animationLength = 0.5
-        }
+        static let hiddenWidth: CGFloat = 30
+        static let width: CGFloat = 150
+        static let shiftWhenHidden: CGFloat = hiddenWidth-width
+        static let animationLength = 0.5
     }
     struct Sizes {
         static let bigButtonCornerRadius : CGFloat = 32
@@ -192,6 +193,6 @@ struct K {
         static let fadeTimeAppearCard = 1.5
         static let beforeFadeCardsColors = 1.0
         static let beforeFirstWordToTable = 0.5
-        static let betweenWordsToTable = 0.5
+        static let betweenWordsToTable = 0.2
     }
 }

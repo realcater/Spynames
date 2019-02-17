@@ -18,15 +18,16 @@ class MainVC: UIViewController {
     @IBOutlet weak var giveahintButton: UIRoundedButton!
     @IBOutlet weak var guessedScoreView: UIView!
     @IBOutlet weak var leftScoreView: UIView!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var statusBar: UILabel!
     @IBOutlet weak var statusView: UIView!
     @IBOutlet var statusIconBars: [UIView]!
     @IBOutlet var statusIconImages: [UIImageView]!
-    
     @IBOutlet weak var bottomViewImage: UIImageView!
     @IBOutlet weak var topViewImage: UIImageView!
     @IBOutlet weak var mainView: UIScrollView!
+
     var statusIcons : [PlayerStatusIcon] = []
     var game: Game!
     var notConfirmedHint = Hint()
@@ -116,6 +117,7 @@ private extension MainVC {
         topViewImage.addShadow()
         bottomViewImage.addShadow()
         leftViewBackground.addShadow()
+        rightView.widthConstraint?.constant = K.SideView.width
     }
     func preparePlayerStatusBar() {
         statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)
@@ -175,32 +177,31 @@ private extension MainVC {
         enterHintVC.hint = notConfirmedHint
         enterHintVC.maxQty = game.leftWords[game.currentTeam]
     }
-    func restoreRightView() {
-        if wordsTVC.hidden {
-            let move = CGPoint(x: -rightView.frame.width+K.SideView.Hidden.width, y: 0)
-            rightView.animate(move: move, withDuration: K.SideView.Hidden.animationLength)
-            mainView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
-            zoomedView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
-            mainView.frame.size.width = 528
-            zoomedView.frame.size.width = 528
-            for uicard in self.uicards {
-                uicard.redraw(withDuration: K.SideView.Hidden.animationLength)
-            }
-            wordsTVC.hidden = false
-        }
-    }
     func collapseRightView() {
         if !wordsTVC.hidden {
-            let move = CGPoint(x: rightView.frame.width-K.SideView.Hidden.width, y: 0)
-            rightView.animate(move: move, withDuration: K.SideView.Hidden.animationLength)
-            mainView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
-            zoomedView.animate(extend: CGSize(width: move.x, height: 0), withDuration: K.SideView.Hidden.animationLength)
+            view.getConstraint(named: "rightViewShift")?.constant = K.SideView.shiftWhenHidden
+            UIView.animate(withDuration: K.SideView.animationLength, delay: 0, animations: {
+                self.view.layoutIfNeeded()
+            })
             for uicard in self.uicards {
-                uicard.redraw(withDuration: K.SideView.Hidden.animationLength)
+                uicard.redraw(withDuration: K.SideView.animationLength)
             }
             wordsTVC.hidden = true
         }
     }
+    func restoreRightView() {
+        if wordsTVC.hidden {
+            view.getConstraint(named: "rightViewShift")?.constant = 0
+            UIView.animate(withDuration: K.SideView.animationLength, delay: 0, animations: {
+                self.view.layoutIfNeeded()
+            })
+            for uicard in self.uicards {
+                uicard.redraw(withDuration: K.SideView.animationLength)
+            }
+            wordsTVC.hidden = false
+        }
+    }
+    
 }
 //MARK: - delegates
 extension MainVC: ReturnHintDelegate {

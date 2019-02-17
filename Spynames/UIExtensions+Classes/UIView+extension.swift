@@ -129,3 +129,28 @@ extension UIView {
         }
     }
 }
+extension UIView {
+    func getConstraint(named: String) -> NSLayoutConstraint? {
+        return constraints.first { $0.identifier == named }
+    }
+    var heightConstraint: NSLayoutConstraint? {
+        get {
+            return constraints.filter {
+                if $0.firstAttribute == .height, $0.relation == .equal {
+                    return true
+                }
+                return false
+                }.first
+        }
+        set { setNeedsLayout() }
+    }
+    var widthConstraint: NSLayoutConstraint? {
+        get {
+            let constraint = constraints.first { $0.firstAttribute == .width }
+            return constraint
+        }
+        set {
+            setNeedsLayout()
+        }
+    }
+}
