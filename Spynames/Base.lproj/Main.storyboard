@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1X6-Gr-ShN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vVa-Qu-fNx">
     <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -1110,7 +1110,11 @@
                         <outlet property="bottomViewImage" destination="8EW-b3-r1P" id="znN-UV-Y6P"/>
                         <outlet property="chatView" destination="YuA-Tf-gkW" id="fNt-WY-HJd"/>
                         <outlet property="giveahintButton" destination="ctC-9E-Ved" id="d9f-tI-AWZ"/>
+                        <outlet property="guessedBlueLabel" destination="ijR-LF-0eQ" id="WDf-Or-TMs"/>
+                        <outlet property="guessedRedLabel" destination="9e4-kJ-pIV" id="qqJ-48-VAf"/>
                         <outlet property="guessedScoreView" destination="Fw1-Ze-Cre" id="MCH-f7-lxV"/>
+                        <outlet property="leftBlueLabel" destination="CX7-aZ-xmL" id="QSJ-dO-vdS"/>
+                        <outlet property="leftRedLabel" destination="ftC-dJ-MUh" id="UaU-mB-Aqo"/>
                         <outlet property="leftScoreView" destination="Yj8-Wb-ltd" id="P1v-EV-DfA"/>
                         <outlet property="leftView" destination="aAE-ay-zrL" id="lxo-3f-6aG"/>
                         <outlet property="leftViewBackground" destination="ORS-ZI-juZ" id="LMl-ta-S0T"/>

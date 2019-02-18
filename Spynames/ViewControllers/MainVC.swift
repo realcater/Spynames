@@ -27,7 +27,11 @@ class MainVC: UIViewController {
     @IBOutlet weak var bottomViewImage: UIImageView!
     @IBOutlet weak var topViewImage: UIImageView!
     @IBOutlet weak var mainView: UIScrollView!
-
+    @IBOutlet weak var guessedBlueLabel: UILabel!
+    @IBOutlet weak var guessedRedLabel: UILabel!
+    @IBOutlet weak var leftBlueLabel: UILabel!
+    @IBOutlet weak var leftRedLabel: UILabel!
+    
     var statusIcons : [PlayerStatusIcon] = []
     var game: Game!
     var notConfirmedHint = Hint()
@@ -41,6 +45,7 @@ extension MainVC {
     override func loadView() {
         super.loadView()
         game = Game()
+        game.delegate = self
         placeCards()
     }
     
@@ -90,9 +95,9 @@ private extension MainVC {
         }
     }
     func prepareViews() {
-        guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
+        guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blueTeam]!, rightColor: K.Colors.team[.redTeam]!)
         guessedScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
-        leftScoreView.makeDoubleColor(leftColor: K.Colors.team[.blue]!, rightColor: K.Colors.team[.red]!)
+        leftScoreView.makeDoubleColor(leftColor: K.Colors.team[.blueTeam]!, rightColor: K.Colors.team[.redTeam]!)
         leftScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
         leftViewBackground.image = UIImage(named: K.FileNames.leftViewBackground)
         rightViewBackground.image = UIImage(named: K.FileNames.rightViewBackground)
@@ -101,21 +106,23 @@ private extension MainVC {
         leftViewBackground.addShadow()
         rightView.widthConstraint?.constant = K.SideView.width
         leftView.widthConstraint?.constant = K.SideView.width
+        updateScoreLabels()
+        updateLeftWordsQtyLabels()
     }
     func preparePlayerStatusBar() {
         statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)
         
         statusIcons.append(
-            PlayerStatusIcon(playerType: .spymaster, team: .red, bar: statusIconBars[0], image: statusIconImages[0])
+            PlayerStatusIcon(playerType: .spymaster, team: .redTeam, bar: statusIconBars[0], image: statusIconImages[0])
         )
         statusIcons.append(
-            PlayerStatusIcon(playerType: .operatives, team: .red, bar: statusIconBars[1], image: statusIconImages[1])
+            PlayerStatusIcon(playerType: .operatives, team: .redTeam, bar: statusIconBars[1], image: statusIconImages[1])
         )
         statusIcons.append(
-            PlayerStatusIcon(playerType: .spymaster, team: .blue, bar: statusIconBars[2], image: statusIconImages[2])
+            PlayerStatusIcon(playerType: .spymaster, team: .blueTeam, bar: statusIconBars[2], image: statusIconImages[2])
         )
         statusIcons.append(
-            PlayerStatusIcon(playerType: .operatives, team: .blue, bar: statusIconBars[3], image: statusIconImages[3])
+            PlayerStatusIcon(playerType: .operatives, team: .blueTeam, bar: statusIconBars[3], image: statusIconImages[3])
         )
         statusIcons[0].active = true
     }
@@ -123,10 +130,10 @@ private extension MainVC {
         giveahintButton.makeRounded(color: K.Colors.mainVCbuttons)
         chatView.setup()
         view.layoutIfNeeded()
-        let m1 = Message(text: "Hi! Red spymaster is here!", team: .red, player: .spymaster)
-        let m2 = Message(text: "Hi! Blue spymaster is here!", team: .blue, player: .spymaster)
-        let m3 = Message(text: "Hi! Red operatives are here!", team: .red, player: .operatives)
-        let m4 = Message(text: "Hi! Blue operatives are here!", team: .blue, player: .operatives)
+        let m1 = Message(text: "Hi! Red spymaster is here!", team: .redTeam, player: .spymaster)
+        let m2 = Message(text: "Hi! Blue spymaster is here!", team: .blueTeam, player: .spymaster)
+        let m3 = Message(text: "Hi! Red operatives are here!", team: .redTeam, player: .operatives)
+        let m4 = Message(text: "Hi! Blue operatives are here!", team: .blueTeam, player: .operatives)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             self.chatView.add(m1)
             self.statusIcons[0].online = true
@@ -146,7 +153,7 @@ private extension MainVC {
     }
     func revealCardsColors() {
         changeCardsColorVisibility(fade: true)
-        for (i, card) in (game.cardsOfCurrentTeam+game.cardsOf[CardColor.black]!).enumerated() {
+        for (i, card) in (game.cardsOfCurrentTeam+game.leftCardsOf[CardColor.black]!).enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)*K.Durations.betweenWordsToTable+K.Durations.beforeFirstWordToTable, execute: {
                 self.wordsTVC.insertRow(card: card, at: i)
             })
@@ -158,7 +165,7 @@ private extension MainVC {
     func sendToEnterHintVC(enterHintVC: EnterHintVC) {
         enterHintVC.delegate = self
         enterHintVC.hint = notConfirmedHint
-        enterHintVC.maxQty = game.leftWords[game.currentTeam]
+        enterHintVC.maxQty = game.leftWordsQty[game.currentTeam]
     }
 }
 //MARK: - delegates
@@ -182,5 +189,19 @@ extension MainVC: MainVCDelegate {
             uicard.changeShowColor(fade: fade)
         }
         wordsTVC.changeVisibility()
+    }
+    func deleteCard(at index: Int) {
+        wordsTVC.deleteRow(at: index)
+    }
+}
+
+extension MainVC {
+    func updateScoreLabels() {
+        guessedRedLabel.text = String(game.score[.redTeam]!)
+        guessedBlueLabel.text = String(game.score[.blueTeam]!)
+    }
+    func updateLeftWordsQtyLabels() {
+        leftRedLabel.text = String(game.leftWordsQty[.redTeam]!)
+        leftBlueLabel.text = String(game.leftWordsQty[.blueTeam]!)
     }
 }

@@ -11,7 +11,7 @@ class PlayersChatView: UIChatView {
         messages.append(message)
         let messageOnTheLeft = (message.playerType == .operatives)
         let text = message.text
-        let color = (message.team == .red) ? K.Colors.teamChat[.red]! : K.Colors.teamChat[.blue]!
+        let color = (message.team == .redTeam) ? K.Colors.teamChat[.redTeam]! : K.Colors.teamChat[.blueTeam]!
         showMessage(messageOnTheLeft: messageOnTheLeft, text: text, color: color)
      }
 }

@@ -5,15 +5,11 @@ struct Place {
     var y: Int
 }
 
-protocol MainVCDelegate: class {
-    func changeCardsColorVisibility(fade: Bool)
-}
-
 class UICard {
     var place: Place
     var card: Card
     private var showColor: Bool
-    var guessed: Bool
+    //var guessed: Bool
     var button: UIRoundedButton!
     var view: UIView
     var showDelay: Double
@@ -25,7 +21,6 @@ class UICard {
         self.view = view
         self.showDelay = showDelay ?? 0.0
         showColor = false
-        guessed = false
         
         addButton()
         addRecognizers()
@@ -37,7 +32,7 @@ class UICard {
         redraw(withDuration: duration)
     }
     func flip() {
-        guessed = !guessed
+        card.guessed = !card.guessed
         redraw()
     }
     
@@ -68,12 +63,12 @@ private extension UICard {
         }
     }
     func redraw(inFrame frame: CGRect, forDuration duration: Double) {
-        let cardColor = (!showColor && !guessed) ? CardColor.neutral : card.color
-        let title = guessed ? "" : card.word
-        let image = guessed ? UIImage(named: K.FileNames.cardBackgroundImage[cardColor]!) : nil
+        let cardColor = (!showColor && !card.guessed) ? CardColor.neutral : card.color
+        let title = card.guessed ? "" : card.word
+        let image = card.guessed ? UIImage(named: K.FileNames.cardBackgroundImage[cardColor]!) : nil
         UIView.animate(withDuration: duration, animations: {
             self.button.frame = frame
-            self.button.backgroundColor = K.Colors.cardBackground[cardColor]![self.guessed]
+            self.button.backgroundColor = K.Colors.cardBackground[cardColor]![self.card.guessed]
             self.button.setTitleColor(K.Colors.cardText[cardColor], for: .normal)
             self.button.tintColor = K.Colors.imageColor[cardColor]
             

@@ -1,24 +1,35 @@
 class Game {
     var cards = [Card]()
-    var cardsOf = [CardColor: [Card]]()
+    var leftCardsOf = [CardColor: [Card]]()
     var startTeam: Team
     var currentTeam: Team
-    var hints: [Team: [Hint]] = [.red: [], .blue: []]
-    var leftWords = [Team: Int]()
+    var hints: [Team: [Hint]] = [.redTeam: [], .blueTeam: []]
+    weak var delegate: MainVCDelegate?
     
     var cardsOfCurrentTeam: [Card] {
         get {
-            return cardsOf[currentTeam.toCardColor()]!
+            return leftCardsOf[currentTeam.toCardColor()]!
+        }
+    }
+    var leftWordsQty: [Team: Int] {
+        get {
+            let redQty = leftCardsOf[.red]!.count
+            let blueQty = leftCardsOf[.blue]!.count
+            return [.redTeam: redQty, .blueTeam: blueQty]
+        }
+    }
+    var score: [Team: Int] {
+        get {
+            let redScore = K.Game.cardsQty[CardColor.red]![startTeam]! - leftCardsOf[.red]!.count
+            let blueScore = K.Game.cardsQty[CardColor.blue]![startTeam]! - leftCardsOf[.blue]!.count
+            return [.redTeam: redScore, .blueTeam: blueScore]
         }
     }
     init() {
-        startTeam = .red
-        currentTeam = .red
+        startTeam = .redTeam
+        currentTeam = .redTeam
 
-        for color in CardColor.allCases { cardsOf[color] = [] }
-        leftWords = [.red: K.Game.cardsQty[.red]![startTeam]!,
-                     .blue: K.Game.cardsQty[.blue]![startTeam]!]
-        
+        for color in CardColor.allCases { leftCardsOf[color] = [] }
         generateCards()
     }
     
@@ -28,8 +39,9 @@ class Game {
         
         for (cardText, cardColor) in zip(cardsTexts, cardsColors) {
             let card = Card(text: cardText.capitalizingFirstLetter(), color: cardColor)
+            card.delegate = self
             cards.append(card)
-            cardsOf[cardColor]!.append(card)
+            leftCardsOf[cardColor]!.append(card)
             }
     }
     
@@ -41,6 +53,19 @@ class Game {
             }
         }
         return cardsColors.shuffled()
+    }
+}
+
+extension Game: CardGuessedDelegate {
+    func setCardGuessed(card: Card) {
+        print("checking card:\(card.word)")
+        if let index = leftCardsOf[card.color]!.index(where: {$0 === card}) {
+            leftCardsOf[card.color]!.remove(at: index)
+            delegate?.deleteCard(at: index)
+            print("index=\(index)")
+        }
+        //leftCardsOf[card.color]!.removeAll{ $0 === card }
+        //delegate?.deleteCard(card: card)
     }
 }
 

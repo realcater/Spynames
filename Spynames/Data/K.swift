@@ -11,10 +11,10 @@ struct K {
         static let secondTeamCardsQty = Int(round(Double(ttlCardsQty)/3))
         static let neutralCardsQty = ttlCardsQty-startTeamCardsQty-secondTeamCardsQty-1
         static let cardsQty = [
-            CardColor.red: [Team.red: startTeamCardsQty, Team.blue: secondTeamCardsQty],
-            CardColor.blue: [Team.red: secondTeamCardsQty, Team.blue: startTeamCardsQty],
-            CardColor.neutral: [Team.red: neutralCardsQty, Team.blue: neutralCardsQty],
-            CardColor.black: [Team.red: 1, Team.blue: 1]
+            CardColor.red: [Team.redTeam: startTeamCardsQty, Team.blueTeam: secondTeamCardsQty],
+            CardColor.blue: [Team.redTeam: secondTeamCardsQty, Team.blueTeam: startTeamCardsQty],
+            CardColor.neutral: [Team.redTeam: neutralCardsQty, Team.blueTeam: neutralCardsQty],
+            CardColor.black: [Team.redTeam: 1, Team.blueTeam: 1]
         ]
     }
     struct CardsAnimation {
@@ -100,12 +100,12 @@ struct K {
                                   DeviceRoles.blueOperatives: blueDarker
                                   ]
         static let team = [
-            Team.red: K.Colors.redDarker,
-            Team.blue: K.Colors.blueDarker
+            Team.redTeam: K.Colors.redDarker,
+            Team.blueTeam: K.Colors.blueDarker
         ]
         static let teamChat = [
-            Team.red: K.Colors.redDarker,
-            Team.blue: K.Colors.blueDarker
+            Team.redTeam: K.Colors.redDarker,
+            Team.blueTeam: K.Colors.blueDarker
         ]
         static let personalWordList = [
             CardColor.red: redDarker,

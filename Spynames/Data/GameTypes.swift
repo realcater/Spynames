@@ -1,9 +1,9 @@
 enum Team: CaseIterable {
-    case red
-    case blue
+    case redTeam
+    case blueTeam
     
     func toCardColor() -> CardColor {
-        return (self == .red) ? CardColor.red : CardColor.blue
+        return (self == .redTeam) ? CardColor.red : CardColor.blue
     }
 }
 
@@ -24,13 +24,30 @@ class Hint {
     var qty: Int = 1
 }
 
+protocol CardGuessedDelegate: class {
+    func setCardGuessed(card: Card)
+}
+
 class Card {
     var word: String
     var color: CardColor
-    var guessed: Bool
+    private var _guessed: Bool
+    weak var delegate: CardGuessedDelegate?
+    var guessed: Bool {
+        set {
+            _guessed = newValue
+            if _guessed {
+                delegate?.setCardGuessed(card: self)
+            }
+        }
+        get {
+            return _guessed
+        }
+    }
     init(text: String, color: CardColor) {
         self.word = text
         self.color = color
-        self.guessed = false
+        self._guessed = false
     }
+    
 }
