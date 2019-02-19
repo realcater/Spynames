@@ -11,9 +11,8 @@ import UIKit
 class WordsTVC: UITableViewController {
     
     let clearCard = Card(text: "", color: .neutral)
-    var words = [Card]()
+    var cards = [Card]()
     var hidden = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +24,15 @@ class WordsTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
+        return cards.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordsListItem", for: indexPath)
         let label = cell.viewWithTag(1000) as! UIPaddingLabel
-        let word = words[indexPath.row]
-        label.text = word.word
-        label.backgroundColor = (word.word == "") ? K.Colors.clear : K.Colors.personalWordList[word.color]
+        let card = cards[indexPath.row]
+        label.text = card.word
+        label.backgroundColor = (card.word == "") ? K.Colors.clear : K.Colors.personalWordList[card.color]
         return cell
     }
     
@@ -54,11 +53,11 @@ class WordsTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let itemToMove = words[sourceIndexPath.row]
-        words.remove(at: sourceIndexPath.row)
-        words.insert(itemToMove, at: destinationIndexPath.row)
+        let itemToMove = cards[sourceIndexPath.row]
+        cards.remove(at: sourceIndexPath.row)
+        cards.insert(itemToMove, at: destinationIndexPath.row)
+        //deleteUnnecessaryClearCards()
     }
-    
 }
 //MARK: - Public functions
 extension WordsTVC {
@@ -66,15 +65,19 @@ extension WordsTVC {
         let indexPath = IndexPath(row: row, section: 0)
         tableView.beginUpdates()
         tableView.deleteRows(at: [indexPath], with: .automatic)
-        words.remove(at: row)
+        cards.remove(at: row)
         tableView.endUpdates()
     }
     func insertRow(card: Card, at row: Int) {
         let indexPath = IndexPath(row: row, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .automatic)
-        words.insert(card, at: indexPath.row)
+        cards.insert(card, at: indexPath.row)
         tableView.endUpdates()
+    }
+    func deleteCard(card: Card) {
+        let row = cards.index{$0 === card}
+        if let row = row { deleteRow(at: row) }
     }
     func changeVisibility() {
         tableView.isHidden = !tableView.isHidden
@@ -87,7 +90,7 @@ extension WordsTVC {
         if (recognizer.state == UIGestureRecognizer.State.ended) {
             let location = recognizer.location(in: self.view)
             let tappedRow = self.tableView.indexPathForRow(at: location)!.row
-            if words[tappedRow].word == "" {
+            if cards[tappedRow].word == "" {
                 deleteRow(at: tappedRow)
             } else {
                 insertRow(card: clearCard, at: tappedRow)

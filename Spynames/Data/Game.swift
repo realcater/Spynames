@@ -56,13 +56,15 @@ class Game {
     }
 }
 
-extension Game: CardGuessedDelegate {
+extension Game: GameDelegate {
     func setCardGuessed(card: Card) {
         print("checking card:\(card.word)")
         if let index = leftCardsOf[card.color]!.index(where: {$0 === card}) {
             leftCardsOf[card.color]!.remove(at: index)
-            delegate?.deleteCard(at: index)
-            print("index=\(index)")
+            if card.color == currentTeam.toCardColor() {
+                delegate?.deleteFromWordsTable(card: card)
+                print("index=\(index)")
+            }
         }
         //leftCardsOf[card.color]!.removeAll{ $0 === card }
         //delegate?.deleteCard(card: card)

@@ -190,8 +190,8 @@ extension MainVC: MainVCDelegate {
         }
         wordsTVC.changeVisibility()
     }
-    func deleteCard(at index: Int) {
-        wordsTVC.deleteRow(at: index)
+    func deleteFromWordsTable(card: Card) {
+        wordsTVC.deleteCard(card: card)
     }
 }
 

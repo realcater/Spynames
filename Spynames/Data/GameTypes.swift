@@ -24,7 +24,7 @@ class Hint {
     var qty: Int = 1
 }
 
-protocol CardGuessedDelegate: class {
+protocol GameDelegate: class {
     func setCardGuessed(card: Card)
 }
 
@@ -32,11 +32,11 @@ class Card {
     var word: String
     var color: CardColor
     private var _guessed: Bool
-    weak var delegate: CardGuessedDelegate?
+    weak var delegate: GameDelegate?
     var guessed: Bool {
         set {
-            _guessed = newValue
-            if _guessed {
+            if newValue && !_guessed {
+                _guessed = newValue
                 delegate?.setCardGuessed(card: self)
             }
         }
