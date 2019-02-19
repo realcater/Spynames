@@ -89,11 +89,13 @@ extension WordsTVC {
     @objc private func doubleTap(recognizer: UITapGestureRecognizer) {
         if (recognizer.state == UIGestureRecognizer.State.ended) {
             let location = recognizer.location(in: self.view)
-            let tappedRow = self.tableView.indexPathForRow(at: location)!.row
-            if cards[tappedRow].word == "" {
-                deleteRow(at: tappedRow)
-            } else {
-                insertRow(card: clearCard, at: tappedRow)
+            let tappedRow = self.tableView.indexPathForRow(at: location)?.row
+            if let tappedRow = tappedRow {
+                if cards[tappedRow].word == "" {
+                    deleteRow(at: tappedRow)
+                } else {
+                    insertRow(card: clearCard, at: tappedRow)
+                }
             }
         }
     }

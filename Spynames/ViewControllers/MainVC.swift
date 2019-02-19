@@ -89,7 +89,7 @@ private extension MainVC {
                 let place = Place(x: x, y: y)
                 let delay = K.CardsAnimation.show ? K.CardsAnimation.betweenCardsAppear * Double(num) : 0
                 let uicard = UICard(place: place, card: game.cards[num], showDelay: delay, in: zoomedView)
-                uicard.mainVCDelegate = self
+                uicard.delegate = self
                 uicards.append(uicard)
             }
         }
@@ -193,9 +193,6 @@ extension MainVC: MainVCDelegate {
     func deleteFromWordsTable(card: Card) {
         wordsTVC.deleteCard(card: card)
     }
-}
-
-extension MainVC {
     func updateScoreLabels() {
         guessedRedLabel.text = String(game.score[.redTeam]!)
         guessedBlueLabel.text = String(game.score[.blueTeam]!)

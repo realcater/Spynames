@@ -13,7 +13,7 @@ class UICard {
     var button: UIRoundedButton!
     var view: UIView
     var showDelay: Double
-    weak var mainVCDelegate: MainVCDelegate?
+    weak var delegate: MainVCDelegate?
     
     init(place: Place, card: Card, showDelay: Double? = nil, in view: UIView) {
         self.place = place
@@ -34,6 +34,8 @@ class UICard {
     func flip() {
         card.guessed = !card.guessed
         redraw()
+        delegate?.updateScoreLabels()
+        delegate?.updateLeftWordsQtyLabels()
     }
     
     func drawStartDeal() {
@@ -123,7 +125,7 @@ extension UICard {
     }
     @objc func singleTap(recognizer: UITapGestureRecognizer) {
         if(recognizer.state == UIGestureRecognizer.State.ended) {
-            mainVCDelegate?.changeCardsColorVisibility(fade: false)
+            delegate?.changeCardsColorVisibility(fade: false)
         }
     }
     @objc func longPress(recognizer: UITapGestureRecognizer) {
