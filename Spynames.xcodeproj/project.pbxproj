@@ -21,6 +21,7 @@
 		CA6425CB221A0DAA00CAEA0F /* MainVC+leftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */; };
 		CA6425CD221A1B0E00CAEA0F /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */; };
 		CA6425CF221B498200CAEA0F /* MainVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CE221B498200CAEA0F /* MainVCDelegate.swift */; };
+		CA6425D1221D40DE00CAEA0F /* DeviceRoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425D0221D40DE00CAEA0F /* DeviceRoles.swift */; };
 		CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB7217F62810009D072 /* AppDelegate.swift */; };
 		CA814BBA217F62810009D072 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB9217F62810009D072 /* StartVC.swift */; };
 		CA814BBD217F62810009D072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BBB217F62810009D072 /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+leftView.swift"; sourceTree = "<group>"; };
 		CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
 		CA6425CE221B498200CAEA0F /* MainVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCDelegate.swift; sourceTree = "<group>"; };
+		CA6425D0221D40DE00CAEA0F /* DeviceRoles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRoles.swift; sourceTree = "<group>"; };
 		CA814BB4217F62810009D072 /* Spynames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spynames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA814BB7217F62810009D072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA814BB9217F62810009D072 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				CAC5BA4C21F4D3E7001763C5 /* Game.swift */,
 				CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */,
 				CACA1F3B21A379B600DED049 /* Device.swift */,
+				CA6425D0221D40DE00CAEA0F /* DeviceRoles.swift */,
 				CAC9505121B66F2F002262BA /* Message.swift */,
 				CA3528F1218226A5005C489B /* K.swift */,
 				CAE1A1302207696100B4E687 /* Helper.swift */,
@@ -324,6 +327,7 @@
 				CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */,
 				CA2EFEB521F6662300DF2ACF /* UIPaddingLabel.swift in Sources */,
 				CAE1A1352208D57B00B4E687 /* Dictionary.swift in Sources */,
+				CA6425D1221D40DE00CAEA0F /* DeviceRoles.swift in Sources */,
 				CA8C4F19220B09520045FCC2 /* UICard.swift in Sources */,
 				CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */,
 				CA6425CF221B498200CAEA0F /* MainVCDelegate.swift in Sources */,

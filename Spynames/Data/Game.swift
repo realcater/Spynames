@@ -2,13 +2,15 @@ class Game {
     var cards = [Card]()
     var leftCardsOf = [CardColor: [Card]]()
     var startTeam: Team
-    var currentTeam: Team
+    var currentPlayer: Player
     var hints: [Team: [Hint]] = [.redTeam: [], .blueTeam: []]
     weak var delegate: MainVCDelegate?
+    var devicesQty: Int
+    var activeDeviceIndex: Int
     
     var cardsOfCurrentTeam: [Card] {
         get {
-            return leftCardsOf[currentTeam.toCardColor()]!
+            return leftCardsOf[currentPlayer.team.toCardColor()]!
         }
     }
     var leftWordsQty: [Team: Int] {
@@ -27,13 +29,21 @@ class Game {
     }
     init() {
         startTeam = .redTeam
-        currentTeam = .redTeam
+        currentPlayer = Player(team: .redTeam, type: .spymaster)
+        devicesQty = 1
+        activeDeviceIndex = 0
 
         for color in CardColor.allCases { leftCardsOf[color] = [] }
         generateCards()
     }
-    
-    private func generateCards() {
+    func nextTurn() {
+        currentPlayer = currentPlayer.next()
+    }
+}
+
+
+private extension Game {
+    func generateCards() {
         let cardsColors = getRandomCardsColors()
         let cardsTexts = Helper.getRandomUnique(from: Ru.words, qty: K.Game.ttlCardsQty) as! [String]
         
@@ -45,7 +55,7 @@ class Game {
             }
     }
     
-    private func getRandomCardsColors() -> [CardColor] {
+    func getRandomCardsColors() -> [CardColor] {
         var cardsColors = [CardColor]()
         for color in CardColor.allCases {
             for _ in 0..<K.Game.cardsQty[color]![startTeam]! {
@@ -60,7 +70,7 @@ extension Game: GameDelegate {
     func setCardGuessed(card: Card) {
         if let index = leftCardsOf[card.color]!.index(where: {$0 === card}) {
             leftCardsOf[card.color]!.remove(at: index)
-            if card.color == currentTeam.toCardColor() {
+            if card.color == currentPlayer.team.toCardColor() {
                 delegate?.deleteFromWordsTable(card: card)
             }
         }

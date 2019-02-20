@@ -5,6 +5,9 @@ enum Team: CaseIterable {
     func toCardColor() -> CardColor {
         return (self == .redTeam) ? CardColor.red : CardColor.blue
     }
+    func next() -> Team {
+        return self == .redTeam ? .blueTeam : .redTeam
+    }
 }
 
 enum CardColor: CaseIterable {
@@ -17,8 +20,26 @@ enum CardColor: CaseIterable {
 enum PlayerType: CaseIterable {
     case spymaster
     case operatives
+    func next() -> PlayerType {
+        return self == .spymaster ? .operatives : .spymaster
+    }
 }
 
+struct Player: Hashable {
+    var team: Team
+    var type: PlayerType
+    /*init(team: Team, type: PlayerType) {
+        self.team = team
+        self.type = type
+    }*/
+    func next() -> Player {
+        switch type {
+        case .spymaster: return Player(team: team, type: type.next())
+        case .operatives: return Player(team: team.next(), type: type.next())
+        }
+        
+    }
+}
 class Hint {
     var text: String = ""
     var qty: Int = 1

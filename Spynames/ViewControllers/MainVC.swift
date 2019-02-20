@@ -32,7 +32,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var leftBlueLabel: UILabel!
     @IBOutlet weak var leftRedLabel: UILabel!
     
-    var statusIcons : [PlayerStatusIcon] = []
+    var statusIcons: [Player: PlayerStatusIcon]!
     var game: Game!
     var notConfirmedHint = Hint()
     var uicards = [UICard]()
@@ -112,19 +112,21 @@ private extension MainVC {
     func preparePlayerStatusBar() {
         statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)
         
-        statusIcons.append(
-            PlayerStatusIcon(playerType: .spymaster, team: .redTeam, bar: statusIconBars[0], image: statusIconImages[0])
-        )
-        statusIcons.append(
-            PlayerStatusIcon(playerType: .operatives, team: .redTeam, bar: statusIconBars[1], image: statusIconImages[1])
-        )
-        statusIcons.append(
-            PlayerStatusIcon(playerType: .spymaster, team: .blueTeam, bar: statusIconBars[2], image: statusIconImages[2])
-        )
-        statusIcons.append(
-            PlayerStatusIcon(playerType: .operatives, team: .blueTeam, bar: statusIconBars[3], image: statusIconImages[3])
-        )
-        statusIcons[0].active = true
+        statusIcons = [
+            Player(team: .redTeam, type: .spymaster):
+                PlayerStatusIcon(playerType: .spymaster, team: .redTeam, bar: statusIconBars[0], image: statusIconImages[0]),
+
+            Player(team: .redTeam, type: .operatives):
+                PlayerStatusIcon(playerType: .operatives, team: .redTeam, bar: statusIconBars[1], image: statusIconImages[1]),
+        
+            Player(team: .blueTeam, type: .spymaster):
+                PlayerStatusIcon(playerType: .spymaster, team: .blueTeam, bar: statusIconBars[2], image: statusIconImages[2]),
+        
+            Player(team: .blueTeam, type: .operatives):
+                PlayerStatusIcon(playerType: .operatives, team: .blueTeam, bar: statusIconBars[3], image: statusIconImages[3])
+        ]
+        statusIcons[Player(team: .redTeam, type: .spymaster)]!.active = true
+        
     }
     func prepareChat() {
         giveahintButton.makeRounded(color: K.Colors.mainVCbuttons)
@@ -136,19 +138,19 @@ private extension MainVC {
         let m4 = Message(text: "Hi! Blue operatives are here!", team: .blueTeam, player: .operatives)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             self.chatView.add(m1)
-            self.statusIcons[0].online = true
+            self.statusIcons[Player(team: .redTeam, type: .spymaster)]!.online = true
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
             self.chatView.add(m2)
-            self.statusIcons[2].online = true
+            self.statusIcons[Player(team: .blueTeam, type: .spymaster)]!.online = true
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
             self.chatView.add(m3)
-            self.statusIcons[1].online = true
+            self.statusIcons[Player(team: .redTeam, type: .operatives)]!.online = true
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 6.0, execute: {
             self.chatView.add(m4)
-            self.statusIcons[3].online = true
+            self.statusIcons[Player(team: .blueTeam, type: .operatives)]!.online = true
         })
     }
     func revealCardsColors() {
@@ -165,14 +167,19 @@ private extension MainVC {
     func sendToEnterHintVC(enterHintVC: EnterHintVC) {
         enterHintVC.delegate = self
         enterHintVC.hint = notConfirmedHint
-        enterHintVC.maxQty = game.leftWordsQty[game.currentTeam]
+        enterHintVC.maxQty = game.leftWordsQty[game.currentPlayer.team]
     }
+    func nextTurn() {
+        game.nextTurn()
+        // Делаем переактивацию иконки через делагата в гейме или сразу здесь
+    }
+    
 }
 //MARK: - delegates
 extension MainVC: ReturnHintDelegate {
     func addHint(hint: Hint) {
-        game.hints[game.currentTeam]!.append(hint)
-        let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentTeam, player: .spymaster)
+        game.hints[game.currentPlayer.team]!.append(hint)
+        let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentPlayer.team, player: .spymaster)
         chatView.add(message)
     }
 }

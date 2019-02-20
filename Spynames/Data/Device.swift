@@ -1,10 +1,13 @@
 import UIKit
 
-enum DeviceRoles {
-    case redSpymaster
-    case blueSpymaster
-    case redOperatives
-    case blueOperatives
+
+
+func getType(_ i: Int) -> Any {
+    if i==1 {
+        return DeviceRoles.self
+    } else {
+        return String.self
+    }
 }
 
 enum DeviceConnectStatus {
