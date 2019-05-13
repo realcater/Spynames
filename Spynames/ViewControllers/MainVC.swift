@@ -125,7 +125,8 @@ private extension MainVC {
             Player(team: .blueTeam, type: .operatives):
                 PlayerStatusIcon(playerType: .operatives, team: .blueTeam, bar: statusIconBars[3], image: statusIconImages[3])
         ]
-        statusIcons[Player(team: .redTeam, type: .spymaster)]!.active = true
+        updateStatusIcons()
+        
         
     }
     func prepareChat() {
@@ -169,9 +170,18 @@ private extension MainVC {
         enterHintVC.hint = notConfirmedHint
         enterHintVC.maxQty = game.leftWordsQty[game.currentPlayer.team]
     }
+    func updateStatusIcons() {
+        for (team, type) in zip(Team.allCases, PlayerType.allCases) {
+            if (game.currentPlayer.team == team) && (game.currentPlayer.type == type) {
+                statusIcons[Player(team: .redTeam, type: .spymaster)]!.active = true
+            } else {
+                statusIcons[Player(team: .redTeam, type: .spymaster)]!.active = false
+            }
+        }
+    }
     func nextTurn() {
         game.nextTurn()
-        // Делаем переактивацию иконки через делагата в гейме или сразу здесь
+        updateStatusIcons()
     }
     
 }
@@ -181,6 +191,7 @@ extension MainVC: ReturnHintDelegate {
         game.hints[game.currentPlayer.team]!.append(hint)
         let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentPlayer.team, player: .spymaster)
         chatView.add(message)
+        nextTurn()
     }
 }
 
@@ -207,5 +218,14 @@ extension MainVC: MainVCDelegate {
     func updateLeftWordsQtyLabels() {
         leftRedLabel.text = String(game.leftWordsQty[.redTeam]!)
         leftBlueLabel.text = String(game.leftWordsQty[.blueTeam]!)
+    }
+    func pressed(card: UICard) {
+        switch game.currentPlayer.type {
+        case .operatives:
+            card.flip()
+            nextTurn()
+        case .spymaster:
+            changeCardsColorVisibility(fade: true)
+        }
     }
 }

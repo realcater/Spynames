@@ -124,13 +124,12 @@ extension UICard {
         button.addGestureRecognizer(longPressRecognizer)
     }
     @objc func singleTap(recognizer: UITapGestureRecognizer) {
-        if(recognizer.state == UIGestureRecognizer.State.ended) {
-            delegate?.changeCardsColorVisibility(fade: false)
+        if (recognizer.state == UIGestureRecognizer.State.ended) {
+            delegate?.pressed(card: self)
         }
     }
     @objc func longPress(recognizer: UITapGestureRecognizer) {
         if(recognizer.state == UIGestureRecognizer.State.ended) {
-            flip()
         }
     }
 }
