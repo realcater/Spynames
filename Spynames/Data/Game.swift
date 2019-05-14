@@ -7,6 +7,7 @@ class Game {
     weak var delegate: MainVCDelegate?
     var devicesQty: Int
     var activeDeviceIndex: Int
+    var personalList: [Team: [Card]] = [.redTeam: [], .blueTeam: []]
     
     var cardsOfCurrentTeam: [Card] {
         get {
@@ -35,6 +36,7 @@ class Game {
 
         for color in CardColor.allCases { leftCardsOf[color] = [] }
         generateCards()
+        generatePersonalLists()
     }
     func nextTurn() {
         currentPlayer = currentPlayer.next()
@@ -54,7 +56,14 @@ private extension Game {
             leftCardsOf[cardColor]!.append(card)
             }
     }
-    
+    func generatePersonalLists() {
+        for card in (leftCardsOf[CardColor.red]!+leftCardsOf[CardColor.black]!) {
+            personalList[.redTeam]!.append(card)
+        }
+        for card in (leftCardsOf[CardColor.blue]!+leftCardsOf[CardColor.black]!) {
+            personalList[.blueTeam]!.append(card)
+        }
+    }
     func getRandomCardsColors() -> [CardColor] {
         var cardsColors = [CardColor]()
         for color in CardColor.allCases {

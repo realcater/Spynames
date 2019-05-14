@@ -60,18 +60,10 @@
          contextName = "UIView.makeAllButtonsRound(cornerRadius:color:font:sound:):UIView+extension.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.subviews">
-            </PersistentString>
-            <PersistentString
                value = "cornerRadius">
             </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MyButton.makeButtonDoubleColor(topColor:bottomColor:):MyButton.swift">
-         <PersistentStrings>
             <PersistentString
-               value = "self.imageView">
+               value = "self.subviews">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -90,6 +82,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MyButton.makeButtonDoubleColor(topColor:bottomColor:):MyButton.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.imageView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Game.getRandomCardsColors():Game.swift">
          <PersistentStrings>
             <PersistentString
@@ -97,6 +97,14 @@
             </PersistentString>
             <PersistentString
                value = "K.Game.cardsQty[.blue]![startTeam]!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainVC.updateStatusIcons():MainVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.game.currentPlayer">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

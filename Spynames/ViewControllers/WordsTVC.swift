@@ -13,6 +13,7 @@ class WordsTVC: UITableViewController {
     let clearCard = Card(text: "", color: .neutral)
     var cards = [Card]()
     var hidden = false
+    weak var delegate: GameDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +69,10 @@ extension WordsTVC {
         cards.remove(at: row)
         tableView.endUpdates()
     }
+    func deleteAll() {
+        cards.removeAll()
+        tableView.reloadData()
+    }
     func insertRow(card: Card, at row: Int) {
         let indexPath = IndexPath(row: row, section: 0)
         tableView.beginUpdates()
@@ -100,4 +105,3 @@ extension WordsTVC {
         }
     }
 }
-

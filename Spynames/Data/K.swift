@@ -134,6 +134,11 @@ struct K {
         static let mainVCbuttons = greenDarker
     }
     struct Labels {
+        static let redText = "Red"
+        static let blueText = "Blue"
+        static let spymasterText = "Spymaster"
+        static let operativesText = "Operatives"
+        
         struct Buttons {
             static let newGame = "New game"
             static let joinGame = "Join a game"

@@ -65,6 +65,7 @@ extension MainVC {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
             wordsTVC = segue.destination as? WordsTVC
+            wordsTVC.delegate = game
             DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeFadeCardsColors, execute: {
                 self.revealCardsColors()
             })
@@ -108,6 +109,7 @@ private extension MainVC {
         leftView.widthConstraint?.constant = K.SideView.width
         updateScoreLabels()
         updateLeftWordsQtyLabels()
+        
     }
     func preparePlayerStatusBar() {
         statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)
@@ -152,15 +154,15 @@ private extension MainVC {
         DispatchQueue.main.asyncAfter(deadline: .now() + 6.0, execute: {
             self.chatView.add(m4)
             self.statusIcons[Player(team: .blueTeam, type: .operatives)]!.online = true
+            self.statusIcons[Player(team: self.game.currentPlayer.team,
+                                    type: self.game.currentPlayer.type)]!.active = true
+            self.showActivePlayerInStatusBar()
+            
         })
     }
     func revealCardsColors() {
         changeCardsColorVisibility(fade: true)
-        for (i, card) in (game.cardsOfCurrentTeam+game.leftCardsOf[CardColor.black]!).enumerated() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)*K.Durations.betweenWordsToTable+K.Durations.beforeFirstWordToTable, execute: {
-                self.wordsTVC.insertRow(card: card, at: i)
-            })
-        }
+        updateTableFromPersonalList(withDelay: true)
     }
 }
 //MARK: - Ongoing use private functions
@@ -171,17 +173,45 @@ private extension MainVC {
         enterHintVC.maxQty = game.leftWordsQty[game.currentPlayer.team]
     }
     func updateStatusIcons() {
-        for (team, type) in zip(Team.allCases, PlayerType.allCases) {
-            if (game.currentPlayer.team == team) && (game.currentPlayer.type == type) {
-                statusIcons[Player(team: .redTeam, type: .spymaster)]!.active = true
-            } else {
-                statusIcons[Player(team: .redTeam, type: .spymaster)]!.active = false
+        for team in Team.allCases {
+            for playerType in PlayerType.allCases {
+                if (game.currentPlayer.team == team) && (game.currentPlayer.type == playerType) {
+                    statusIcons[Player(team: team, type: playerType)]!.active = true
+                } else {
+                    statusIcons[Player(team: team, type: playerType)]!.active = false
+                }
             }
         }
     }
+    func showActivePlayerInStatusBar() {
+        let title = game.currentPlayer.team.getDescription() + " " + game.currentPlayer.type.getDescription()
+        statusBar.text = title
+    }
+    func updateTableFromPersonalList(withDelay: Bool) {
+        wordsTVC.deleteAll()
+        let personalList = game.personalList[game.currentPlayer.team]!
+        for (i, card) in personalList.enumerated() {
+            let delay = withDelay ? Double(i)*K.Durations.betweenWordsToTable+K.Durations.beforeFirstWordToTable : 0
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
+                self.wordsTVC.insertRow(card: card, at: i)
+            })
+        }
+    }
+    func updatePersonalListFromTable() {
+        game.personalList[game.currentPlayer.team] = wordsTVC.cards
+    }
     func nextTurn() {
+        if game.currentPlayer.type == .spymaster {
+            updatePersonalListFromTable()
+        }
         game.nextTurn()
         updateStatusIcons()
+        changeCardsColorVisibility(fade: true)
+        showActivePlayerInStatusBar()
+        giveahintButton.isHidden = (game.currentPlayer.type == .operatives)
+        if game.currentPlayer.type == .spymaster {
+            updateTableFromPersonalList(withDelay: false)
+        }
     }
     
 }
@@ -225,7 +255,7 @@ extension MainVC: MainVCDelegate {
             card.flip()
             nextTurn()
         case .spymaster:
-            changeCardsColorVisibility(fade: true)
+            changeCardsColorVisibility(fade: false)
         }
     }
 }

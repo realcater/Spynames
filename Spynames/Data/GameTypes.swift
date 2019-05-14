@@ -8,6 +8,9 @@ enum Team: CaseIterable {
     func next() -> Team {
         return self == .redTeam ? .blueTeam : .redTeam
     }
+    func getDescription() -> String {
+        return (self == .redTeam) ? K.Labels.redText : K.Labels.blueText
+    }
 }
 
 enum CardColor: CaseIterable {
@@ -22,6 +25,9 @@ enum PlayerType: CaseIterable {
     case operatives
     func next() -> PlayerType {
         return self == .spymaster ? .operatives : .spymaster
+    }
+    func getDescription() -> String {
+        return (self == .spymaster) ? K.Labels.spymasterText : K.Labels.operativesText
     }
 }
 
