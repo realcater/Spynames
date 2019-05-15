@@ -41,6 +41,9 @@ class Game {
     func nextTurn() {
         currentPlayer = currentPlayer.next()
     }
+    func cardFlipped(number: Int) {
+        
+    }
 }
 
 

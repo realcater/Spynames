@@ -20,7 +20,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var leftScoreView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
-    @IBOutlet weak var statusBar: UILabel!
+    @IBOutlet weak var titleBar: UILabel!
     @IBOutlet weak var statusView: UIView!
     @IBOutlet var statusIconBars: [UIView]!
     @IBOutlet var statusIconImages: [UIImageView]!
@@ -66,7 +66,7 @@ extension MainVC {
         if segue.identifier == "wordsTVCSegue" {
             wordsTVC = segue.destination as? WordsTVC
             wordsTVC.delegate = game
-            DispatchQueue.main.asyncAfter(deadline: .now() + K.Durations.beforeFadeCardsColors, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.beforeFadeCardsColors, execute: {
                 self.revealCardsColors()
             })
         } else if segue.identifier == "toEnterHintVC" {
@@ -102,6 +102,7 @@ private extension MainVC {
         leftScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
         leftViewBackground.image = UIImage(named: K.FileNames.leftViewBackground)
         rightViewBackground.image = UIImage(named: K.FileNames.rightViewBackground)
+        topViewImage.image = UIImage(named: K.FileNames.titleBarImage)
         topViewImage.addShadow()
         bottomViewImage.addShadow()
         leftViewBackground.addShadow()
@@ -143,21 +144,20 @@ private extension MainVC {
             self.chatView.add(m1)
             self.statusIcons[Player(team: .redTeam, type: .spymaster)]!.online = true
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5, execute: {
             self.chatView.add(m2)
             self.statusIcons[Player(team: .blueTeam, type: .spymaster)]!.online = true
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
             self.chatView.add(m3)
             self.statusIcons[Player(team: .redTeam, type: .operatives)]!.online = true
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5, execute: {
             self.chatView.add(m4)
             self.statusIcons[Player(team: .blueTeam, type: .operatives)]!.online = true
             self.statusIcons[Player(team: self.game.currentPlayer.team,
                                     type: self.game.currentPlayer.type)]!.active = true
-            self.showActivePlayerInStatusBar()
-            
+            self.updateTitleBar()
         })
     }
     func revealCardsColors() {
@@ -183,37 +183,27 @@ private extension MainVC {
             }
         }
     }
-    func showActivePlayerInStatusBar() {
-        let title = game.currentPlayer.team.getDescription() + " " + game.currentPlayer.type.getDescription()
-        statusBar.text = title
+    func updateTitleBar() {
+        UIView.transition(with: self.titleBar, duration: K.Delays.titleBarText,
+                          options: [.transitionCrossDissolve],
+                          animations: {
+                            self.titleBar.text = K.Labels.titleBar.waiting[self.game.currentPlayer.type]!
+                        }, completion: nil)
     }
     func updateTableFromPersonalList(withDelay: Bool) {
         wordsTVC.deleteAll()
         let personalList = game.personalList[game.currentPlayer.team]!
         for (i, card) in personalList.enumerated() {
-            let delay = withDelay ? Double(i)*K.Durations.betweenWordsToTable+K.Durations.beforeFirstWordToTable : 0
+            let delay = withDelay ? Double(i)*K.Delays.betweenWordsToTable+K.Delays.beforeFirstWordToTable : 0
             DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
                 self.wordsTVC.insertRow(card: card, at: i)
             })
         }
     }
+    
     func updatePersonalListFromTable() {
         game.personalList[game.currentPlayer.team] = wordsTVC.cards
     }
-    func nextTurn() {
-        if game.currentPlayer.type == .spymaster {
-            updatePersonalListFromTable()
-        }
-        game.nextTurn()
-        updateStatusIcons()
-        changeCardsColorVisibility(fade: true)
-        showActivePlayerInStatusBar()
-        giveahintButton.isHidden = (game.currentPlayer.type == .operatives)
-        if game.currentPlayer.type == .spymaster {
-            updateTableFromPersonalList(withDelay: false)
-        }
-    }
-    
 }
 //MARK: - delegates
 extension MainVC: ReturnHintDelegate {
@@ -221,7 +211,27 @@ extension MainVC: ReturnHintDelegate {
         game.hints[game.currentPlayer.team]!.append(hint)
         let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentPlayer.team, player: .spymaster)
         chatView.add(message)
-        nextTurn()
+    }
+    func nextTurn() {
+        if game.currentPlayer.type == .spymaster { changeCardsColorVisibility(fade: true) }
+        DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.nextTurnAlert, execute: {
+            self.addAlertDialog(title: K.Labels.nextTurnAlert.title, message:
+                K.Labels.nextTurnAlert.message[self.game.currentPlayer.type]!,
+                           buttonText: K.Labels.nextTurnAlert.buttonText, pressedButtonAction: {
+                if self.game.currentPlayer.type == .spymaster {
+                    self.updatePersonalListFromTable()
+                } else {
+                    self.changeCardsColorVisibility(fade: true)
+                }
+                self.game.nextTurn()
+                self.updateStatusIcons()
+                self.updateTitleBar()
+                self.giveahintButton.isHidden = (self.game.currentPlayer.type == .operatives)
+                if self.game.currentPlayer.type == .spymaster {
+                    self.updateTableFromPersonalList(withDelay: false)
+                }
+            })
+        })
     }
 }
 
@@ -249,13 +259,14 @@ extension MainVC: MainVCDelegate {
         leftRedLabel.text = String(game.leftWordsQty[.redTeam]!)
         leftBlueLabel.text = String(game.leftWordsQty[.blueTeam]!)
     }
-    func pressed(card: UICard) {
+    func pressed(uicard: UICard) {
         switch game.currentPlayer.type {
         case .operatives:
-            card.flip()
-            nextTurn()
+            uicard.flip()
+            game.cardFlipped(number: uicard.number)
         case .spymaster:
             changeCardsColorVisibility(fade: false)
         }
     }
+    
 }

@@ -139,6 +139,20 @@ struct K {
         static let spymasterText = "Spymaster"
         static let operativesText = "Operatives"
         
+        struct nextTurnAlert {
+            static let title = "Next turn"
+            static let message = [
+                PlayerType.spymaster: "Excellent hint! Please, pass the gadget to your Operatives.",
+                PlayerType.operatives: "Good Choice! Please, pass the gadget to the opposite Spymaster."]
+            static let buttonText = "OK"
+        }
+        
+        struct titleBar {
+            static let waiting = [
+                PlayerType.spymaster: "Waiting for your hint, Master!",
+                PlayerType.operatives: "Please, choose your Cards!"
+            ]
+        }
         struct Buttons {
             static let newGame = "New game"
             static let joinGame = "Join a game"
@@ -186,6 +200,7 @@ struct K {
         static let leftViewBackground = "paper_750x400px-left"
         static let rightViewBackground = "paper_750x400px-right"
         static let playerTypeIcon = [PlayerType.spymaster: "Crown1-80px", PlayerType.operatives: "Pawn2-80px"]
+        static let titleBarImage = "paper_370x40px"
         static let cardBackgroundImage = [
             CardColor.red: "spy-badge-256px",
             CardColor.blue: "spy-badge-256px",
@@ -193,11 +208,13 @@ struct K {
             CardColor.black: "bomb-200px"
         ]
     }
-    struct Durations {
+    struct Delays {
         static let clockTurnAround = 4.0
         static let fadeTimeAppearCard = 1.5
         static let beforeFadeCardsColors = 1.0
         static let beforeFirstWordToTable = 0.5
         static let betweenWordsToTable = 0.2
+        static let nextTurnAlert = 1.5
+        static let titleBarText = 1.0
     }
 }

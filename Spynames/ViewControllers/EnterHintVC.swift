@@ -10,6 +10,7 @@ import UIKit
 
 protocol ReturnHintDelegate: class {
     func addHint(hint: Hint)
+    func nextTurn()
 }
 
 class EnterHintVC: UIViewController {
@@ -50,7 +51,9 @@ private extension EnterHintVC {
             delegate?.addHint(hint: hintInPicker)
             hint.text = ""
             hint.qty = 1
-            dismiss(animated: false, completion: nil)
+            dismiss(animated: false, completion: {
+                self.delegate?.nextTurn()
+            })
         }
     }
     

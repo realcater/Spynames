@@ -1,7 +1,5 @@
 import UIKit
 
-
-
 func getType(_ i: Int) -> Any {
     if i==1 {
         return DeviceRoles.self
@@ -25,7 +23,7 @@ class Device {
         didSet {
             self.statusImage.image = UIImage(named: K.imageForDeviceConnectStatus[status]!)
             if status == .waited {
-                statusImage.rotate(duration: K.Durations.clockTurnAround)
+                statusImage.rotate(duration: K.Delays.clockTurnAround)
             } else {
                 statusImage.stopRotating()
             }

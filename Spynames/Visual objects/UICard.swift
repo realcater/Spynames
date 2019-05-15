@@ -9,12 +9,16 @@ class UICard {
     var place: Place
     var card: Card
     private var showColor: Bool
-    //var guessed: Bool
     var button: UIRoundedButton!
     var view: UIView
     var showDelay: Double
     weak var delegate: MainVCDelegate?
     
+    var number: Int {
+        get {
+            return (place.y-1)*K.Game.sizeX + place.x
+        }
+    }
     init(place: Place, card: Card, showDelay: Double? = nil, in view: UIView) {
         self.place = place
         self.card = card
@@ -28,7 +32,7 @@ class UICard {
     
     func changeShowColor(fade: Bool) {
         showColor = !showColor
-        let duration = fade ? K.Durations.fadeTimeAppearCard : 0.0
+        let duration = fade ? K.Delays.fadeTimeAppearCard : 0.0
         redraw(withDuration: duration)
     }
     func flip() {
@@ -125,7 +129,7 @@ extension UICard {
     }
     @objc func singleTap(recognizer: UITapGestureRecognizer) {
         if (recognizer.state == UIGestureRecognizer.State.ended) {
-            delegate?.pressed(card: self)
+            delegate?.pressed(uicard: self)
         }
     }
     @objc func longPress(recognizer: UITapGestureRecognizer) {

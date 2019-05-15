@@ -991,7 +991,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper_370x40px" translatesAutoresizingMaskIntoConstraints="NO" id="Gnd-Im-DF3">
                                         <rect key="frame" x="0.0" y="0.0" width="440" height="30"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's start!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz1-j9-2rZ" userLabel="statusBar">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's start!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz1-j9-2rZ" userLabel="titleBar">
                                         <rect key="frame" x="0.0" y="0.0" width="440" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="24"/>
@@ -1121,8 +1121,8 @@
                         <outlet property="mainView" destination="Vo3-3G-Sm9" id="KN3-fV-EgQ"/>
                         <outlet property="rightView" destination="j3a-Ad-6g9" id="6Kt-oo-Yr0"/>
                         <outlet property="rightViewBackground" destination="x1S-K7-JhL" id="XFp-oE-0Zj"/>
-                        <outlet property="statusBar" destination="jz1-j9-2rZ" id="QkB-GT-26d"/>
                         <outlet property="statusView" destination="M0a-Bz-U3y" id="FZ4-Ma-AQQ"/>
+                        <outlet property="titleBar" destination="jz1-j9-2rZ" id="QkB-GT-26d"/>
                         <outlet property="topView" destination="rB3-7d-5h7" id="Zyg-CU-pMo"/>
                         <outlet property="topViewImage" destination="Gnd-Im-DF3" id="UqV-wp-QT1"/>
                         <outlet property="zoomedView" destination="rCp-w6-fuZ" id="p1E-JV-4JD"/>
@@ -1197,7 +1197,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kuu-0H-Zsk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="267" y="4105"/>
+            <point key="canvasLocation" x="423" y="3271"/>
         </scene>
         <!--EnterHintVC-->
         <scene sceneID="3Ko-5C-lOy">
@@ -1283,6 +1283,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uoa-NZ-iEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-261" y="4103"/>
+        </scene>
+        <!--EnterHintVC-->
+        <scene sceneID="SDn-mf-oJD">
+            <objects>
+                <viewController id="cKs-r1-cKU" userLabel="EnterHintVC" customClass="ConfirmNextTurnVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Gv-bU-J7a">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T03-Oa-DgG">
+                                <rect key="frame" x="246" y="137.66666666666666" width="320" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFZ-2s-sTU" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
+                                        <rect key="frame" x="100" y="55" width="120" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.43137254899999999" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lt5-51-Rot"/>
+                                            <constraint firstAttribute="width" constant="120" id="nsw-Fk-xBR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="22"/>
+                                        <state key="normal" title="Confirm">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressConfirmButton:" destination="cKs-r1-cKU" eventType="touchUpInside" id="1Le-Do-cxO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's Red Spymaster turn now!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAU-k1-olH" userLabel="statusBar">
+                                        <rect key="frame" x="10" y="19.333333333333343" width="300" height="21"/>
+                                        <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="0YE-pN-Dhh"/>
+                                    <constraint firstItem="kAU-k1-olH" firstAttribute="centerX" secondItem="T03-Oa-DgG" secondAttribute="centerX" id="KsN-j7-LRD"/>
+                                    <constraint firstItem="kAU-k1-olH" firstAttribute="centerY" secondItem="T03-Oa-DgG" secondAttribute="centerY" constant="-20" id="R0c-tH-ICA"/>
+                                    <constraint firstAttribute="trailing" secondItem="kAU-k1-olH" secondAttribute="trailing" constant="10" id="Ycg-5J-D07"/>
+                                    <constraint firstItem="QFZ-2s-sTU" firstAttribute="centerY" secondItem="T03-Oa-DgG" secondAttribute="centerY" constant="20" id="edf-CN-aGd"/>
+                                    <constraint firstItem="kAU-k1-olH" firstAttribute="leading" secondItem="T03-Oa-DgG" secondAttribute="leading" constant="10" id="mFV-Up-5IB"/>
+                                    <constraint firstAttribute="height" constant="100" id="n0z-f8-1Dy"/>
+                                    <constraint firstItem="QFZ-2s-sTU" firstAttribute="centerX" secondItem="T03-Oa-DgG" secondAttribute="centerX" id="n5u-sc-35G"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="T03-Oa-DgG" firstAttribute="centerX" secondItem="9Gv-bU-J7a" secondAttribute="centerX" id="0bo-1r-wOL"/>
+                            <constraint firstItem="T03-Oa-DgG" firstAttribute="centerY" secondItem="9Gv-bU-J7a" secondAttribute="centerY" id="Q6Y-2S-cPC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="que-cA-Eff"/>
+                    </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="QFZ-2s-sTU" id="QGG-WQ-CzZ"/>
+                        <outlet property="mainView" destination="T03-Oa-DgG" id="9bu-z6-Meq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hEw-9S-bpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="405.66502463054189" y="4101.6000000000004"/>
         </scene>
     </scenes>
     <resources>

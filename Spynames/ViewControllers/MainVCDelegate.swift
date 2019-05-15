@@ -3,5 +3,5 @@ protocol MainVCDelegate: class {
     func deleteFromWordsTable(card: Card)
     func updateScoreLabels()
     func updateLeftWordsQtyLabels()
-    func pressed(card: UICard)
+    func pressed(uicard: UICard)
 }

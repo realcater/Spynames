@@ -43,4 +43,10 @@ extension UIViewController {
         
         tappedView.isUserInteractionEnabled = true
     }
+    func addAlertDialog(title: String, message: String, buttonText: String, pressedButtonAction: @escaping () -> Void) {
+        let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let button = UIAlertAction(title: buttonText, style: .default, handler: { (action) -> Void in pressedButtonAction() })
+        dialogMessage.addAction(button)
+        present(dialogMessage, animated: true, completion: nil)
+    }
 }
