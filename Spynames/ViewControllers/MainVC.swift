@@ -214,7 +214,9 @@ private extension MainVC {
 extension MainVC {
     func nextTurn(withPause: Bool = true) {
         let delay = withPause ? K.Delays.nextTurnAlert : 0
-        if game.currentPlayer.type == .spymaster { changeCardsColorVisibility(fade: true) }
+        if game.currentPlayer.type == .spymaster {
+            changeCardsColorVisibility(fade: true, alwaysHide: true)
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
             self.addAlertDialog(title: K.Labels.nextTurnAlert.title, message:
                 K.Labels.nextTurnAlert.message[self.game.currentPlayer.type]!,
@@ -245,14 +247,6 @@ extension MainVC {
                           animations: {
                             self.titleBar.text = title
         }, completion: nil)
-    }
-    func showAllWords() {
-        for uicard in uicards {
-            uicard.showWordIfNeeded()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                uicard.hideWordIfNeeded()
-            })
-        }
     }
 }
 //MARK: - UIScrollViewDelegate

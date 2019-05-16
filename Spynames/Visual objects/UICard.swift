@@ -30,8 +30,8 @@ class UICard {
         addRecognizers()
     }
     
-    func changeShowColor(fade: Bool) {
-        showColor = !showColor
+    func changeShowColor(fade: Bool, alwaysHide: Bool = false) {
+        showColor = !showColor && !alwaysHide
         let duration = fade ? K.Delays.fadeTimeAppearCard : 0.0
         redraw(withDuration: duration)
     }
@@ -132,11 +132,22 @@ extension UICard {
     private func addRecognizers() {
         let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(singleTap))
         singleTapRecognizer.numberOfTapsRequired = 1
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         button.addGestureRecognizer(singleTapRecognizer)
+        button.addGestureRecognizer(longPressRecognizer)
     }
     @objc func singleTap(recognizer: UITapGestureRecognizer) {
         if (recognizer.state == UIGestureRecognizer.State.ended) {
             delegate?.pressed(uicard: self)
+        }
+    }
+    @objc func longPress(recognizer: UITapGestureRecognizer) {
+        if(recognizer.state == UIGestureRecognizer.State.ended) {
+            /*showWordIfNeeded()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.hideWordIfNeeded()
+            })*/
+            delegate?.showAllWords()
         }
     }
 }

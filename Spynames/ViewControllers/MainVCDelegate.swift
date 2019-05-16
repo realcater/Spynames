@@ -2,17 +2,18 @@ import AVFoundation
 import UIKit
 
 protocol MainVCDelegate: class {
-    func changeCardsColorVisibility(fade: Bool)
+    func changeCardsColorVisibility(fade: Bool, alwaysHide: Bool)
     func deleteFromWordsTable(card: Card)
     func updateScoreLabels()
     func updateLeftWordsQtyLabels()
     func pressed(uicard: UICard)
+    func showAllWords()
 }
 
 extension MainVC: MainVCDelegate {
-    func changeCardsColorVisibility(fade: Bool) {
+    func changeCardsColorVisibility(fade: Bool, alwaysHide: Bool = false) {
         for uicard in uicards {
-            uicard.changeShowColor(fade: fade)
+            uicard.changeShowColor(fade: fade, alwaysHide: alwaysHide)
         }
         wordsTVC.changeVisibility()
     }
@@ -31,7 +32,7 @@ extension MainVC: MainVCDelegate {
         switch game.currentPlayer.type {
         case .operatives:
             if uicard.card.guessed {
-                showAllWords()
+                //showAllWords()
             } else if game.canGuessMore {
                 uicard.flip()
                 let message = Message(text: uicard.card.word, team: game.currentPlayer.team, player: .operatives, cardColor: uicard.card.color)
@@ -44,6 +45,14 @@ extension MainVC: MainVCDelegate {
             }
         case .spymaster:
             changeCardsColorVisibility(fade: false)
+        }
+    }
+    func showAllWords() {
+        for uicard in uicards {
+            uicard.showWordIfNeeded()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                uicard.hideWordIfNeeded()
+            })
         }
     }
 }
