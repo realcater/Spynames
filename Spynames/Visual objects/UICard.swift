@@ -42,12 +42,20 @@ class UICard {
         delegate?.updateLeftWordsQtyLabels()
     }
     
+    func showWordIfNeeded() {
+        if !card.guessed { return }
+        redraw(withDuration: 0.5, showWordAnyway: true)
+    }
+    func hideWordIfNeeded() {
+        if !card.guessed { return }
+        redraw(withDuration: 0.5, showWordAnyway: false)
+    }
     func drawStartDeal() {
         redraw(inFrame: frameForStartDeal, forDuration: 0)
     }
 
-    func redraw(withDuration duration: Double = 0) {
-        redraw(inFrame: frameForPlace, forDuration: duration)
+    func redraw(withDuration duration: Double = 0, showWordAnyway: Bool = false) {
+        redraw(inFrame: frameForPlace, forDuration: duration, showWordAnyway: showWordAnyway)
     }
 }
 
@@ -68,13 +76,14 @@ private extension UICard {
             redraw()
         }
     }
-    func redraw(inFrame frame: CGRect, forDuration duration: Double) {
-        let cardColor = (!showColor && !card.guessed) ? CardColor.neutral : card.color
-        let title = card.guessed ? "" : card.word
-        let image = card.guessed ? UIImage(named: K.FileNames.cardBackgroundImage[cardColor]!) : nil
+    func redraw(inFrame frame: CGRect, forDuration duration: Double, showWordAnyway: Bool = false) {
+        let guessed = !showWordAnyway && card.guessed
+        let cardColor = (!showColor && !guessed) ? CardColor.neutral : card.color
+        let title = guessed ? "" : card.word
+        let image = guessed ? UIImage(named: K.FileNames.cardBackgroundImage[cardColor]!) : nil
         UIView.animate(withDuration: duration, animations: {
             self.button.frame = frame
-            self.button.backgroundColor = K.Colors.cardBackground[cardColor]![self.card.guessed]
+            self.button.backgroundColor = K.Colors.cardBackground[cardColor]![guessed]
             self.button.setTitleColor(K.Colors.cardText[cardColor], for: .normal)
             self.button.tintColor = K.Colors.imageColor[cardColor]
             
@@ -123,17 +132,11 @@ extension UICard {
     private func addRecognizers() {
         let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(singleTap))
         singleTapRecognizer.numberOfTapsRequired = 1
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         button.addGestureRecognizer(singleTapRecognizer)
-        button.addGestureRecognizer(longPressRecognizer)
     }
     @objc func singleTap(recognizer: UITapGestureRecognizer) {
         if (recognizer.state == UIGestureRecognizer.State.ended) {
             delegate?.pressed(uicard: self)
-        }
-    }
-    @objc func longPress(recognizer: UITapGestureRecognizer) {
-        if(recognizer.state == UIGestureRecognizer.State.ended) {
         }
     }
 }

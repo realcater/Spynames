@@ -40,7 +40,7 @@ class MainVC: UIViewController {
     var rightViewShown = true
     var leftViewShown = true
 }
-//MARK: - public functions
+//MARK: - override functions
 extension MainVC {
     override func loadView() {
         super.loadView()
@@ -189,19 +189,6 @@ private extension MainVC {
             }
         }
     }
-    
-    func updateTitleBar() {
-        var title = K.Labels.titleBar.waiting[game.currentPlayer.type]!
-        if game.currentPlayer.type == .operatives {
-            title = title.replacingOccurrences(of: "XXX", with: Helper.StrInf(game.leftToGuessThisTurn))
-        }
-        UIView.transition(with: self.titleBar, duration: K.Delays.titleBarText,
-                          options: [.transitionCrossDissolve],
-                          animations: {
-                            self.titleBar.text = title
-                        }, completion: nil)
-    }
-    
     func updateTableFromPersonalList(withDelay: Bool) {
         wordsTVC.deleteAll()
         let personalList = game.personalList[game.currentPlayer.team]!
@@ -221,78 +208,56 @@ private extension MainVC {
             K.Labels.Buttons.hintOrPassButton[self.game.currentPlayer.type], for: .normal)
         //hintOrPassButton.backgroundColor = K.Colors.hintOrPassButton[game.currentPlayer.type]
     }
+    
 }
-//MARK: - delegates
-extension MainVC: ReturnHintDelegate {
-    func addHint(hint: Hint) {
-        game.hints[game.currentPlayer.team]!.append(hint.copy() as! Hint)
-        let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentPlayer.team, player: .spymaster)
-        chatView.add(message)
-    }
+//MARK: - Ongoing use public functions
+extension MainVC {
     func nextTurn(withPause: Bool = true) {
         let delay = withPause ? K.Delays.nextTurnAlert : 0
         if game.currentPlayer.type == .spymaster { changeCardsColorVisibility(fade: true) }
         DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
             self.addAlertDialog(title: K.Labels.nextTurnAlert.title, message:
                 K.Labels.nextTurnAlert.message[self.game.currentPlayer.type]!,
-                           buttonText: K.Labels.nextTurnAlert.buttonText, pressedButtonAction: {
-                if self.game.currentPlayer.type == .spymaster {
-                    self.updatePersonalListFromTable()
-                } else {
-                    self.changeCardsColorVisibility(fade: true)
-                }
-                self.game.nextTurn()
-                self.updateStatusIcons()
-                self.updateTitleBar()
-                self.setupHintOrPassButton()
-                            
-                if self.game.currentPlayer.type == .spymaster {
-                    self.updateTableFromPersonalList(withDelay: false)
-                }
+                                buttonText: K.Labels.nextTurnAlert.buttonText, pressedButtonAction: {
+                                    if self.game.currentPlayer.type == .spymaster {
+                                        self.updatePersonalListFromTable()
+                                    } else {
+                                        self.changeCardsColorVisibility(fade: true)
+                                    }
+                                    self.game.nextTurn()
+                                    self.updateStatusIcons()
+                                    self.updateTitleBar()
+                                    self.setupHintOrPassButton()
+                                    
+                                    if self.game.currentPlayer.type == .spymaster {
+                                        self.updateTableFromPersonalList(withDelay: false)
+                                    }
             })
         })
     }
+    func updateTitleBar() {
+        var title = K.Labels.titleBar.waiting[game.currentPlayer.type]!
+        if game.currentPlayer.type == .operatives {
+            title = title.replacingOccurrences(of: "XXX", with: Helper.StrInf(game.leftToGuessThisTurn))
+        }
+        UIView.transition(with: self.titleBar, duration: K.Delays.titleBarText,
+                          options: [.transitionCrossDissolve],
+                          animations: {
+                            self.titleBar.text = title
+        }, completion: nil)
+    }
+    func showAllWords() {
+        for uicard in uicards {
+            uicard.showWordIfNeeded()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                uicard.hideWordIfNeeded()
+            })
+        }
+    }
 }
-
+//MARK: - UIScrollViewDelegate
 extension MainVC: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return zoomedView
-    }
-}
-
-extension MainVC: MainVCDelegate {
-    func changeCardsColorVisibility(fade: Bool) {
-        for uicard in uicards {
-            uicard.changeShowColor(fade: fade)
-        }
-        wordsTVC.changeVisibility()
-    }
-    func deleteFromWordsTable(card: Card) {
-        wordsTVC.deleteCard(card: card)
-    }
-    func updateScoreLabels() {
-        guessedRedLabel.text = String(game.score[.redTeam]!)
-        guessedBlueLabel.text = String(game.score[.blueTeam]!)
-    }
-    func updateLeftWordsQtyLabels() {
-        leftRedLabel.text = String(game.leftWordsQty[.redTeam]!)
-        leftBlueLabel.text = String(game.leftWordsQty[.blueTeam]!)
-    }
-    func pressed(uicard: UICard) {
-        switch game.currentPlayer.type {
-        case .operatives:
-            if game.canGuessMore {
-                uicard.flip()
-                let message = Message(text: uicard.card.word, team: game.currentPlayer.team, player: .operatives, cardColor: uicard.card.color)
-                chatView.add(message)
-                if !game.canGuessMore {
-                    nextTurn()
-                } else {
-                    updateTitleBar()
-                }
-            }
-        case .spymaster:
-            changeCardsColorVisibility(fade: false)
-        }
     }
 }

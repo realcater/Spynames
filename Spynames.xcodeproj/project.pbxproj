@@ -29,7 +29,7 @@
 		CA814BC2217F62820009D072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BC0217F62820009D072 /* LaunchScreen.storyboard */; };
 		CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */; };
 		CA814BD0217F71DD0009D072 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCF217F71DD0009D072 /* UIRoundedButton.swift */; };
-		CA88554E228B10C000A8574A /* ConfirmNextTurnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88554D228B10C000A8574A /* ConfirmNextTurnVC.swift */; };
+		CA885550228DE7AD00A8574A /* ReturnHintDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */; };
 		CA88963021CC1CEC00DB26EB /* UIScrollView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */; };
 		CA8C4F19220B09520045FCC2 /* UICard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8C4F18220B09520045FCC2 /* UICard.swift */; };
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
@@ -78,7 +78,7 @@
 		CA814BC3217F62820009D072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeVC.swift; sourceTree = "<group>"; };
 		CA814BCF217F71DD0009D072 /* UIRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
-		CA88554D228B10C000A8574A /* ConfirmNextTurnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNextTurnVC.swift; sourceTree = "<group>"; };
+		CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnHintDelegate.swift; sourceTree = "<group>"; };
 		CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+extension.swift"; sourceTree = "<group>"; };
 		CA8C4F18220B09520045FCC2 /* UICard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICard.swift; sourceTree = "<group>"; };
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
@@ -181,12 +181,12 @@
 				CAD84F1721879AE400E6C6E0 /* ChooseRole3dVC.swift */,
 				CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */,
 				CACA1F3D21ADDA1200DED049 /* MainVC.swift */,
+				CA6425CE221B498200CAEA0F /* MainVCDelegate.swift */,
+				CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */,
 				CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */,
 				CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */,
-				CA6425CE221B498200CAEA0F /* MainVCDelegate.swift */,
 				CAC5BA4E21F4EBFC001763C5 /* WordsTVC.swift */,
 				CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */,
-				CA88554D228B10C000A8574A /* ConfirmNextTurnVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -310,7 +310,6 @@
 				CACA1F3C21A379B600DED049 /* Device.swift in Sources */,
 				CA6425C72219E1CF00CAEA0F /* CGPoint+extension.swift in Sources */,
 				CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */,
-				CA88554E228B10C000A8574A /* ConfirmNextTurnVC.swift in Sources */,
 				CAE1A12F220751DE00B4E687 /* UIViewController+extension.swift in Sources */,
 				CA3528F2218226A5005C489B /* K.swift in Sources */,
 				CA398030220CA6B80050FB54 /* UIString+extension.swift in Sources */,
@@ -332,6 +331,7 @@
 				CA2EFEB521F6662300DF2ACF /* UIPaddingLabel.swift in Sources */,
 				CAE1A1352208D57B00B4E687 /* Dictionary.swift in Sources */,
 				CA6425D1221D40DE00CAEA0F /* DeviceRoles.swift in Sources */,
+				CA885550228DE7AD00A8574A /* ReturnHintDelegate.swift in Sources */,
 				CA8C4F19220B09520045FCC2 /* UICard.swift in Sources */,
 				CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */,
 				CA6425CF221B498200CAEA0F /* MainVCDelegate.swift in Sources */,
