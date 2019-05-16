@@ -36,10 +36,10 @@ enum PlayerType: CaseIterable {
 struct Player: Hashable {
     var team: Team
     var type: PlayerType
-    /*init(team: Team, type: PlayerType) {
+    init(team: Team, type: PlayerType) {
         self.team = team
         self.type = type
-    }*/
+    }
     func next() -> Player {
         switch type {
         case .spymaster: return Player(team: team, type: type.next())

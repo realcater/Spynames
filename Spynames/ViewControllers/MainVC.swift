@@ -15,7 +15,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var rightViewBackground: UIImageView!
     @IBOutlet weak var chatView: PlayersChatView!
-    @IBOutlet weak var giveahintButton: UIRoundedButton!
+    @IBOutlet weak var hintOrPassButton: UIRoundedButton!
     @IBOutlet weak var guessedScoreView: UIView!
     @IBOutlet weak var leftScoreView: UIView!
     @IBOutlet weak var topView: UIView!
@@ -133,7 +133,7 @@ private extension MainVC {
         
     }
     func prepareChat() {
-        giveahintButton.makeRounded(color: K.Colors.mainVCbuttons)
+        hintOrPassButton.makeRounded(color: K.Colors.hintOrPassButton[game.currentPlayer.type])
         chatView.setup()
         view.layoutIfNeeded()
         let m1 = Message(text: "Hi! Red spymaster is here!", team: .redTeam, player: .spymaster)
@@ -167,6 +167,12 @@ private extension MainVC {
 }
 //MARK: - Ongoing use private functions
 private extension MainVC {
+    @IBAction func pressHintOrPassButton(_ sender: Any) {
+        switch game.currentPlayer.type {
+            case .spymaster: performSegue(withIdentifier: "toEnterHintVC", sender: sender)
+            case .operatives: nextTurn(withPause: false)
+        }
+    }
     func sendToEnterHintVC(enterHintVC: EnterHintVC) {
         enterHintVC.delegate = self
         enterHintVC.hint = notConfirmedHint
@@ -210,6 +216,11 @@ private extension MainVC {
     func updatePersonalListFromTable() {
         game.personalList[game.currentPlayer.team] = wordsTVC.cards
     }
+    func setupHintOrPassButton() {
+        hintOrPassButton.setTitle(
+            K.Labels.Buttons.hintOrPassButton[self.game.currentPlayer.type], for: .normal)
+        //hintOrPassButton.backgroundColor = K.Colors.hintOrPassButton[game.currentPlayer.type]
+    }
 }
 //MARK: - delegates
 extension MainVC: ReturnHintDelegate {
@@ -218,9 +229,10 @@ extension MainVC: ReturnHintDelegate {
         let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentPlayer.team, player: .spymaster)
         chatView.add(message)
     }
-    func nextTurn() {
+    func nextTurn(withPause: Bool = true) {
+        let delay = withPause ? K.Delays.nextTurnAlert : 0
         if game.currentPlayer.type == .spymaster { changeCardsColorVisibility(fade: true) }
-        DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.nextTurnAlert, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
             self.addAlertDialog(title: K.Labels.nextTurnAlert.title, message:
                 K.Labels.nextTurnAlert.message[self.game.currentPlayer.type]!,
                            buttonText: K.Labels.nextTurnAlert.buttonText, pressedButtonAction: {
@@ -232,7 +244,8 @@ extension MainVC: ReturnHintDelegate {
                 self.game.nextTurn()
                 self.updateStatusIcons()
                 self.updateTitleBar()
-                self.giveahintButton.isHidden = (self.game.currentPlayer.type == .operatives)
+                self.setupHintOrPassButton()
+                            
                 if self.game.currentPlayer.type == .spymaster {
                     self.updateTableFromPersonalList(withDelay: false)
                 }

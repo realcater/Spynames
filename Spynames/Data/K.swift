@@ -139,6 +139,10 @@ struct K {
             CardColor.black: almostBlack,
             nil: almostBlack
         ]
+        static let hintOrPassButton = [
+            PlayerType.spymaster: greenDarker,
+            PlayerType.operatives: gray
+        ]
         static let mainVCbuttons = greenDarker
         static let messageShadowOpacity: Float = 0.8
     }
@@ -154,6 +158,12 @@ struct K {
                 PlayerType.spymaster: "Excellent hint! Please, pass the gadget to your Operatives.",
                 PlayerType.operatives: "Your watch is over! Please, pass the gadget to the opposite Spymaster."]
             static let buttonText = "OK"
+                /*[
+                Player(team: .redTeam, type: .spymaster): "I'm Red Spymaster",
+                Player(team: .blueTeam, type: .spymaster): "I'm Blue Spymaster",
+                Player(team: .redTeam, type: .operatives): "I'm Red Operative",
+                Player(team: .blueTeam, type: .operatives): "I'm Blue Operative"
+            ]*/
         }
         
         struct titleBar {
@@ -174,7 +184,10 @@ struct K {
             static let blueOperatives = "Blue Operatives"
             static let operatives = "Operatives"
             static let startGame = "Start a game!"
-            
+            static let hintOrPassButton = [
+                PlayerType.spymaster: "Give a hint",
+                PlayerType.operatives: "PASS"
+            ]
             }
         struct Titles {
             static let spyNames = "Spy Names"

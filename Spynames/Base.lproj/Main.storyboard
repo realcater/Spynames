@@ -1059,7 +1059,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ZD8-Z3-OiB" kind="presentation" identifier="toEnterHintVC" modalPresentationStyle="overCurrentContext" id="Z5s-Is-CoR"/>
+                                            <action selector="pressHintOrPassButton:" destination="vVa-Qu-fNx" eventType="touchUpInside" id="liW-7D-4ez"/>
                                         </connections>
                                     </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YuA-Tf-gkW" userLabel="chatView" customClass="PlayersChatView" customModule="Spynames" customModuleProvider="target">
@@ -1110,10 +1110,10 @@
                         <outlet property="bottomView" destination="xce-Iu-y4J" id="5fS-Af-KxU"/>
                         <outlet property="bottomViewImage" destination="8EW-b3-r1P" id="znN-UV-Y6P"/>
                         <outlet property="chatView" destination="YuA-Tf-gkW" id="fNt-WY-HJd"/>
-                        <outlet property="giveahintButton" destination="ctC-9E-Ved" id="d9f-tI-AWZ"/>
                         <outlet property="guessedBlueLabel" destination="ijR-LF-0eQ" id="WDf-Or-TMs"/>
                         <outlet property="guessedRedLabel" destination="9e4-kJ-pIV" id="qqJ-48-VAf"/>
                         <outlet property="guessedScoreView" destination="Fw1-Ze-Cre" id="MCH-f7-lxV"/>
+                        <outlet property="hintOrPassButton" destination="ctC-9E-Ved" id="d9f-tI-AWZ"/>
                         <outlet property="leftBlueLabel" destination="CX7-aZ-xmL" id="QSJ-dO-vdS"/>
                         <outlet property="leftRedLabel" destination="ftC-dJ-MUh" id="UaU-mB-Aqo"/>
                         <outlet property="leftScoreView" destination="Yj8-Wb-ltd" id="P1v-EV-DfA"/>
@@ -1135,6 +1135,7 @@
                         <outletCollection property="statusIconImages" destination="1Ck-T0-cvy" collectionClass="NSMutableArray" id="ZpX-j7-47c"/>
                         <outletCollection property="statusIconImages" destination="fo0-uG-NtN" collectionClass="NSMutableArray" id="dXW-mD-uKr"/>
                         <outletCollection property="statusIconImages" destination="6NW-LL-pqM" collectionClass="NSMutableArray" id="qLi-hG-mpM"/>
+                        <segue destination="ZD8-Z3-OiB" kind="presentation" identifier="toEnterHintVC" modalPresentationStyle="overCurrentContext" id="pg2-Ca-R78"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Sf-8e-lv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
