@@ -4,6 +4,8 @@ class Game {
     var startTeam: Team
     var currentPlayer: Player
     var hints: [Team: [Hint]] = [.redTeam: [], .blueTeam: []]
+    var guessedThisTurn : Int = 0
+    var canGuessMore = true
     weak var delegate: MainVCDelegate?
     var devicesQty: Int
     var activeDeviceIndex: Int
@@ -28,6 +30,18 @@ class Game {
             return [.redTeam: redScore, .blueTeam: blueScore]
         }
     }
+    var currentHint: Hint? {
+        get {
+            return hints[currentPlayer.team]?.last
+        }
+    }
+    var leftToGuessThisTurn: Int {
+        if currentHint?.qty == 0 || currentHint?.qty == Int.max {
+            return Int.max
+        } else {
+            return currentHint!.qty - guessedThisTurn+1
+        }
+    }
     init() {
         startTeam = .redTeam
         currentPlayer = Player(team: .redTeam, type: .spymaster)
@@ -40,12 +54,10 @@ class Game {
     }
     func nextTurn() {
         currentPlayer = currentPlayer.next()
-    }
-    func cardFlipped(number: Int) {
-        
+        canGuessMore = true
+        guessedThisTurn = 0
     }
 }
-
 
 private extension Game {
     func generateCards() {
@@ -84,6 +96,12 @@ extension Game: GameDelegate {
             leftCardsOf[card.color]!.remove(at: index)
             if card.color == currentPlayer.team.toCardColor() {
                 delegate?.deleteFromWordsTable(card: card)
+            }
+            if currentPlayer.team.toCardColor() == card.color {
+                guessedThisTurn+=1
+                if leftToGuessThisTurn <= 0 { canGuessMore = false }
+            } else {
+                canGuessMore = false
             }
         }
     }

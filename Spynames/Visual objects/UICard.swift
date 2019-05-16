@@ -16,7 +16,7 @@ class UICard {
     
     var number: Int {
         get {
-            return (place.y-1)*K.Game.sizeX + place.x
+            return place.y*K.Game.sizeX + place.x
         }
     }
     init(place: Place, card: Card, showDelay: Double? = nil, in view: UIView) {

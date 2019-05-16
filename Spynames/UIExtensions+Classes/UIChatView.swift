@@ -27,7 +27,7 @@ class UIChatView: UIScrollView {
         if let sound = sound { self.sound = sound }
     }
 
-    func showMessage(messageOnTheLeft: Bool, text: String, color: UIColor) {
+    func showMessage(messageOnTheLeft: Bool, text: String, color: UIColor, shadowColor: UIColor? = nil, shadowOpacity: Float = 0.5) {
         let label =  UILabel()
         label.numberOfLines = 0
         if let font = font { label.font = font }
@@ -67,6 +67,9 @@ class UIChatView: UIScrollView {
         messageView.image = bubbleImage
         messageView.tintColor = color
         
+        if let shadowColor = shadowColor {
+            messageView.addShadow(color: shadowColor, opacity: shadowOpacity)
+        }
         self.addSubview(messageView)
         label.center = messageView.center
         self.addSubview(label)

@@ -1,3 +1,5 @@
+import Foundation
+
 enum Team: CaseIterable {
     case redTeam
     case blueTeam
@@ -46,9 +48,16 @@ struct Player: Hashable {
         
     }
 }
-class Hint {
+class Hint: NSCopying {
     var text: String = ""
     var qty: Int = 1
+
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Hint()
+        copy.qty = qty
+        copy.text = text
+        return copy
+    }
 }
 
 protocol GameDelegate: class {

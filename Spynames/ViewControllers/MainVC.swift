@@ -183,13 +183,19 @@ private extension MainVC {
             }
         }
     }
+    
     func updateTitleBar() {
+        var title = K.Labels.titleBar.waiting[game.currentPlayer.type]!
+        if game.currentPlayer.type == .operatives {
+            title = title.replacingOccurrences(of: "XXX", with: Helper.StrInf(game.leftToGuessThisTurn))
+        }
         UIView.transition(with: self.titleBar, duration: K.Delays.titleBarText,
                           options: [.transitionCrossDissolve],
                           animations: {
-                            self.titleBar.text = K.Labels.titleBar.waiting[self.game.currentPlayer.type]!
+                            self.titleBar.text = title
                         }, completion: nil)
     }
+    
     func updateTableFromPersonalList(withDelay: Bool) {
         wordsTVC.deleteAll()
         let personalList = game.personalList[game.currentPlayer.team]!
@@ -208,7 +214,7 @@ private extension MainVC {
 //MARK: - delegates
 extension MainVC: ReturnHintDelegate {
     func addHint(hint: Hint) {
-        game.hints[game.currentPlayer.team]!.append(hint)
+        game.hints[game.currentPlayer.team]!.append(hint.copy() as! Hint)
         let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentPlayer.team, player: .spymaster)
         chatView.add(message)
     }
@@ -262,11 +268,18 @@ extension MainVC: MainVCDelegate {
     func pressed(uicard: UICard) {
         switch game.currentPlayer.type {
         case .operatives:
-            uicard.flip()
-            game.cardFlipped(number: uicard.number)
+            if game.canGuessMore {
+                uicard.flip()
+                let message = Message(text: uicard.card.word, team: game.currentPlayer.team, player: .operatives, cardColor: uicard.card.color)
+                chatView.add(message)
+                if !game.canGuessMore {
+                    nextTurn()
+                } else {
+                    updateTitleBar()
+                }
+            }
         case .spymaster:
             changeCardsColorVisibility(fade: false)
         }
     }
-    
 }

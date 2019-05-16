@@ -89,6 +89,7 @@ struct K {
         //static let brown = UIColor(red: 215/256, green: 180/256, blue: 135/256, alpha: 1)
         static let brown = UIColor(red: 235/256, green: 200/256, blue: 155/256, alpha: 1)
         static let brownLighter = UIColor(red: 250/256, green: 240/256, blue: 220/256, alpha: 1)
+        static let brownDarker = UIColor(red: 148/256, green: 82/256, blue: 0, alpha: 1)
         static let clear = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
         static let almostBlack = UIColor(red: 20/256, green: 20/256, blue: 20/256, alpha: 1)
         
@@ -131,7 +132,15 @@ struct K {
             CardColor.neutral: almostBlack,
             CardColor.black: brownLighter
         ]
+        static let shadowColor = [
+            CardColor.red: redDarker,
+            CardColor.blue: blueDarker,
+            CardColor.neutral: almostBlack,
+            CardColor.black: almostBlack,
+            nil: almostBlack
+        ]
         static let mainVCbuttons = greenDarker
+        static let messageShadowOpacity: Float = 0.8
     }
     struct Labels {
         static let redText = "Red"
@@ -143,14 +152,14 @@ struct K {
             static let title = "Next turn"
             static let message = [
                 PlayerType.spymaster: "Excellent hint! Please, pass the gadget to your Operatives.",
-                PlayerType.operatives: "Good Choice! Please, pass the gadget to the opposite Spymaster."]
+                PlayerType.operatives: "Your watch is over! Please, pass the gadget to the opposite Spymaster."]
             static let buttonText = "OK"
         }
         
         struct titleBar {
             static let waiting = [
                 PlayerType.spymaster: "Waiting for your hint, Master!",
-                PlayerType.operatives: "Please, choose your Cards!"
+                PlayerType.operatives: "Please, choose your Cards! (up to XXX)"
             ]
         }
         struct Buttons {
@@ -215,6 +224,6 @@ struct K {
         static let beforeFirstWordToTable = 0.5
         static let betweenWordsToTable = 0.2
         static let nextTurnAlert = 1.5
-        static let titleBarText = 1.0
+        static let titleBarText = 0.5
     }
 }

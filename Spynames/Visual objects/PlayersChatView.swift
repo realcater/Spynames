@@ -10,8 +10,7 @@ class PlayersChatView: UIChatView {
     func add(_ message: Message) {
         messages.append(message)
         let messageOnTheLeft = (message.playerType == .operatives)
-        let text = message.text
         let color = (message.team == .redTeam) ? K.Colors.teamChat[.redTeam]! : K.Colors.teamChat[.blueTeam]!
-        showMessage(messageOnTheLeft: messageOnTheLeft, text: text, color: color)
+        showMessage(messageOnTheLeft: messageOnTheLeft, text: message.text, color: color, shadowColor: K.Colors.shadowColor[message.cardColor]!, shadowOpacity: K.Colors.messageShadowOpacity)
      }
 }
