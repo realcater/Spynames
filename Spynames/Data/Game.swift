@@ -92,6 +92,10 @@ private extension Game {
 
 extension Game: GameDelegate {
     func setCardGuessed(card: Card) {
+        if card.color == .black {
+            delegate?.gameOver(withBomb: true)
+            return
+        }
         if let index = leftCardsOf[card.color]!.index(where: {$0 === card}) {
             leftCardsOf[card.color]!.remove(at: index)
             if card.color == currentPlayer.team.toCardColor() {

@@ -237,6 +237,11 @@ extension MainVC {
             })
         })
     }
+    
+    
+    func startNewGame() {
+        
+    }
     func updateTitleBar() {
         var title = K.Labels.titleBar.waiting[game.currentPlayer.type]!
         if game.currentPlayer.type == .operatives {

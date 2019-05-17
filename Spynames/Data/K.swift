@@ -158,14 +158,15 @@ struct K {
                 PlayerType.spymaster: "Excellent hint! Please, pass the gadget to your Operatives.",
                 PlayerType.operatives: "Your watch is over! Please, pass the gadget to the opposite Spymaster."]
             static let buttonText = "OK"
-                /*[
-                Player(team: .redTeam, type: .spymaster): "I'm Red Spymaster",
-                Player(team: .blueTeam, type: .spymaster): "I'm Blue Spymaster",
-                Player(team: .redTeam, type: .operatives): "I'm Red Operative",
-                Player(team: .blueTeam, type: .operatives): "I'm Blue Operative"
-            ]*/
         }
-        
+        struct gameOverAlert {
+            static let title = "XXX team wins!"
+            static let message = [
+                false: "Your party guessed all the words! Congratulations!",
+                true: "Your party detonated a Bomb! Sorry."
+            ]
+            static let buttonsText = ["Start a new game", "Let me see details"]
+        }
         struct titleBar {
             static let waiting = [
                 PlayerType.spymaster: "Waiting for your hint, Master!",
