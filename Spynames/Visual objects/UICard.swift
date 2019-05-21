@@ -1,5 +1,10 @@
 import UIKit
 
+enum RedrawMode {
+    case dissolve
+    case flip
+    case changeSize
+}
 struct Place {
     var x: Int
     var y: Int
@@ -44,18 +49,18 @@ class UICard {
     
     func showWordIfNeeded() {
         if !card.guessed { return }
-        redraw(withDuration: 0.5, showWordAnyway: true, flip: true)
+        redraw(withDuration: 0.5, showWordAnyway: true, redrawMode: .flip)
     }
     func hideWordIfNeeded() {
         if !card.guessed { return }
-        redraw(withDuration: 0.5, showWordAnyway: false, flip: true)
+        redraw(withDuration: 0.5, showWordAnyway: false, redrawMode: .flip)
     }
     func drawStartDeal() {
         redraw(inFrame: frameForStartDeal, forDuration: 0)
     }
 
-    func redraw(withDuration duration: Double = 0, showWordAnyway: Bool = false, flip: Bool = false) {
-        redraw(inFrame: frameForPlace, forDuration: duration, showWordAnyway: showWordAnyway, flip: flip)
+    func redraw(withDuration duration: Double = 0, showWordAnyway: Bool = false, redrawMode: RedrawMode = .dissolve) {
+        redraw(inFrame: frameForPlace, forDuration: duration, showWordAnyway: showWordAnyway, redrawMode: redrawMode)
     }
 }
 
@@ -76,23 +81,29 @@ private extension UICard {
             redraw()
         }
     }
-    func redraw(inFrame frame: CGRect, forDuration duration: Double, showWordAnyway: Bool = false, flip: Bool = false) {
+    func redraw(inFrame frame: CGRect, forDuration duration: Double, showWordAnyway: Bool = false, redrawMode: RedrawMode = .dissolve) {
         let guessed = !showWordAnyway && card.guessed
         let cardColor = (!showColor && !guessed) ? CardColor.neutral : card.color
         let title = guessed ? "" : card.word
+        let transitionOptions: UIView.AnimationOptions = {
+            switch redrawMode {
+            case .dissolve: return UIView.AnimationOptions.transitionCrossDissolve
+            case .flip: return UIView.AnimationOptions.transitionFlipFromTop
+            case .changeSize: return UIView.AnimationOptions.allowAnimatedContent
+            }
+        }()
         let image = guessed ? UIImage(named: K.FileNames.cardBackgroundImage[cardColor]!) : nil
-        let transitionOptions = flip ? UIView.AnimationOptions.transitionFlipFromTop : UIView.AnimationOptions.transitionCrossDissolve
         self.button.imageView?.contentMode = .scaleAspectFit
         self.button.imageEdgeInsets = UIEdgeInsets(top: K.Sizes.Cards.inset, left: 0, bottom: K.Sizes.Cards.inset, right: 0)
-        self.button.frame = frame
+        
         UIView.transition(with: self.button, duration: duration,
                           options: [transitionOptions], animations: {
+            self.button.frame = frame
             self.button.backgroundColor = K.Colors.cardBackground[cardColor]![guessed]
             self.button.setTitleColor(K.Colors.cardText[cardColor], for: .normal)
             self.button.tintColor = K.Colors.imageColor[cardColor]
             self.button.setImage(image, for: .normal)
             self.button.setTitle(title, for: .normal)
-            
         }, completion: nil)
     }
     var frameSize: CGSize {
@@ -144,7 +155,7 @@ extension UICard {
     }
     @objc func longPress(recognizer: UITapGestureRecognizer) {
         if(recognizer.state == UIGestureRecognizer.State.ended) {
-            delegate?.showAllWords()
+            
         }
     }
 }

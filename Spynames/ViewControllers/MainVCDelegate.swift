@@ -16,7 +16,7 @@ extension MainVC: MainVCDelegate {
         for uicard in uicards {
             uicard.changeShowColor(fade: fade, alwaysHide: alwaysHide)
         }
-        wordsTVC.changeVisibility()
+        wordsTVC.changeVisibility(alwaysHide: alwaysHide)
     }
     func deleteFromWordsTable(card: Card) {
         wordsTVC.deleteCard(card: card)
@@ -30,11 +30,11 @@ extension MainVC: MainVCDelegate {
         leftBlueLabel.text = String(game.leftWordsQty[.blueTeam]!)
     }
     func pressed(uicard: UICard) {
-        switch game.currentPlayer.type {
-        case .operatives:
-            if uicard.card.guessed {
-                showAllWords()
-            } else if game.canGuessMore {
+        switch (game.currentPlayer.type, uicard.card.guessed) {
+        case (_, true):
+            showAllWords()
+        case (.operatives, false):
+            if game.canGuessMore {
                 uicard.flip()
                 let message = Message(text: uicard.card.word, team: game.currentPlayer.team, player: .operatives, cardColor: uicard.card.color)
                 chatView.add(message)
@@ -44,7 +44,7 @@ extension MainVC: MainVCDelegate {
                     updateTitleBar()
                 }
             }
-        case .spymaster:
+        case (.spymaster, false):
             changeCardsColorVisibility(fade: false)
         }
     }

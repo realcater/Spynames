@@ -30,7 +30,7 @@ extension MainVC {
                 self.view.layoutIfNeeded()
             })
             for uicard in self.uicards {
-                uicard.redraw(withDuration: K.SideView.animationLength)
+                uicard.redraw(withDuration: K.SideView.animationLength, redrawMode: .changeSize)
             }
             leftViewShown = false
         }
@@ -43,7 +43,7 @@ extension MainVC {
                 self.view.layoutIfNeeded()
             })
             for uicard in self.uicards {
-                uicard.redraw(withDuration: K.SideView.animationLength)
+                uicard.redraw(withDuration: K.SideView.animationLength, redrawMode: .changeSize)
             }
             leftViewShown = true
         }

@@ -84,8 +84,8 @@ extension WordsTVC {
         let row = cards.index{$0 === card}
         if let row = row { deleteRow(at: row) }
     }
-    func changeVisibility() {
-        tableView.isHidden = !tableView.isHidden
+    func changeVisibility(alwaysHide: Bool = false) {
+        tableView.isHidden = alwaysHide ? true : !tableView.isHidden
     }
 }
 

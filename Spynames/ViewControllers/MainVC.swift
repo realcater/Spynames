@@ -51,6 +51,8 @@ extension MainVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //game = Game()
+        //game.delegate = self
         mainView.minimumZoomScale = 1.0
         mainView.maximumZoomScale = 2.0
         mainView.delegate = self
@@ -60,6 +62,7 @@ extension MainVC {
         prepareChat()
         addTapsForLeftView()
         addTapsForRightView()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,6 +81,7 @@ extension MainVC {
 
 //MARK: - startUp private functions
 private extension MainVC {
+    
     func placeCards() {
         if K.CardsAnimation.show {
             DispatchQueue.main.asyncAfter(deadline: .now() + K.CardsAnimation.delaySound, execute: {
@@ -212,6 +216,10 @@ private extension MainVC {
 }
 //MARK: - Ongoing use public functions
 extension MainVC {
+    func startNewGame() {
+        
+    }
+    
     func nextTurn(withPause: Bool = true) {
         let delay = withPause ? K.Delays.nextTurnAlert : 0
         if game.currentPlayer.type == .spymaster {
@@ -238,10 +246,6 @@ extension MainVC {
         })
     }
     
-    
-    func startNewGame() {
-        
-    }
     func updateTitleBar() {
         var title = K.Labels.titleBar.waiting[game.currentPlayer.type]!
         if game.currentPlayer.type == .operatives {
