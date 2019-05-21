@@ -129,30 +129,9 @@ private extension MainVC {
         hintOrPassButton.makeRounded(color: K.Colors.hintOrPassButton)
         chatView.setup()
         view.layoutIfNeeded()
-        let m1 = Message(text: "Hi! Red spymaster is here!", team: .redTeam, player: .spymaster)
-        let m2 = Message(text: "Hi! Blue spymaster is here!", team: .blueTeam, player: .spymaster)
-        let m3 = Message(text: "Hi! Red operatives are here!", team: .redTeam, player: .operatives)
-        let m4 = Message(text: "Hi! Blue operatives are here!", team: .blueTeam, player: .operatives)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-            self.chatView.add(m1)
-            self.statusIcons[Player(team: .redTeam, type: .spymaster)]!.online = true
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5, execute: {
-            self.chatView.add(m2)
-            self.statusIcons[Player(team: .blueTeam, type: .spymaster)]!.online = true
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
-            self.chatView.add(m3)
-            self.statusIcons[Player(team: .redTeam, type: .operatives)]!.online = true
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5, execute: {
-            self.chatView.add(m4)
-            self.statusIcons[Player(team: .blueTeam, type: .operatives)]!.online = true
-            self.statusIcons[Player(team: self.game.currentPlayer.team,
-                                    type: self.game.currentPlayer.type)]!.active = true
-            
-        })
+        
     }
+    
     func revealCardsColors() {
         showLegend(fade: true)
         updateTableFromPersonalList(withDelay: true)
@@ -200,10 +179,36 @@ private extension MainVC {
         hintOrPassButton.setTitle(
             K.Labels.Buttons.hintOrPass[self.game.currentPlayer.type], for: .normal)
     }
-    func updateWordTVC() {
+    func updateAndRevealWords() {
         wordsTVC.delegate = game
         DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.beforeFadeCardsColors, execute: {
             self.revealCardsColors()
+        })
+    }
+    func updateChat() {
+        chatView.clear()
+        let m1 = Message(text: "Hi! Red spymaster is here!", team: .redTeam, player: .spymaster)
+        let m2 = Message(text: "Hi! Blue spymaster is here!", team: .blueTeam, player: .spymaster)
+        let m3 = Message(text: "Hi! Red operatives are here!", team: .redTeam, player: .operatives)
+        let m4 = Message(text: "Hi! Blue operatives are here!", team: .blueTeam, player: .operatives)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+            self.chatView.add(m1)
+            self.statusIcons[Player(team: .redTeam, type: .spymaster)]!.online = true
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5, execute: {
+            self.chatView.add(m2)
+            self.statusIcons[Player(team: .blueTeam, type: .spymaster)]!.online = true
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+            self.chatView.add(m3)
+            self.statusIcons[Player(team: .redTeam, type: .operatives)]!.online = true
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5, execute: {
+            self.chatView.add(m4)
+            self.statusIcons[Player(team: .blueTeam, type: .operatives)]!.online = true
+            self.statusIcons[Player(team: self.game.currentPlayer.team,
+                                    type: self.game.currentPlayer.type)]!.active = true
+            
         })
     }
 }
@@ -218,9 +223,13 @@ extension MainVC {
         updateStatusIcons()
         updateTitleBar()
         updateHintOrPassButton()
-        updateWordTVC()
+        updateAndRevealWords()
+        updateChat()
         
         placeCards()
+    }
+    func LookAround() {
+        
     }
     
     func nextTurn(withPause: Bool = true) {
@@ -228,23 +237,25 @@ extension MainVC {
         if game.currentPlayer.type == .spymaster {
             hideLegend(fade: true)
         }
+        let alertButton = AlertButton(
+            text: K.Labels.nextTurnAlert.buttonText,
+            action: {
+                if self.game.currentPlayer.type == .spymaster {
+                    self.updatePersonalListFromTable()
+                } else {
+                    self.changeLegendVisibility(fade: true)                                     }
+                self.game.nextTurn()
+                self.updateStatusIcons()
+                self.updateTitleBar()
+                self.updateHintOrPassButton()
+                
+                if self.game.currentPlayer.type == .spymaster {
+                    self.updateTableFromPersonalList(withDelay: false)
+                }
+            })
         DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
             self.addAlertDialog(title: K.Labels.nextTurnAlert.title, message:
-                K.Labels.nextTurnAlert.message[self.game.currentPlayer.type]!,
-                                buttonText: K.Labels.nextTurnAlert.buttonText, pressedButtonAction: {
-                                    if self.game.currentPlayer.type == .spymaster {
-                                        self.updatePersonalListFromTable()
-                                    } else {
-                                        self.changeLegendVisibility(fade: true)                                     }
-                                    self.game.nextTurn()
-                                    self.updateStatusIcons()
-                                    self.updateTitleBar()
-                                    self.updateHintOrPassButton()
-                                    
-                                    if self.game.currentPlayer.type == .spymaster {
-                                        self.updateTableFromPersonalList(withDelay: false)
-                                    }
-            })
+                K.Labels.nextTurnAlert.message[self.game.currentPlayer.type]!, alertButtons: [alertButton])
         })
     }
     

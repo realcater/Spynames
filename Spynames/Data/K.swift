@@ -161,9 +161,9 @@ struct K {
             static let title = "XXX team wins!"
             static let message = [
                 false: "Your party guessed all the words! Congratulations!",
-                true: "Your party detonated a Bomb! Sorry."
+                true: "Your party detonated a Bomb! Sorry..."
             ]
-            static let buttonsText = ["Start a new game", "Let me see details"]
+            static let buttonsText = ["New game", "Let me see"]
         }
         struct titleBar {
             static let waiting = [

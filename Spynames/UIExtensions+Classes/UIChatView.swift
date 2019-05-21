@@ -47,7 +47,7 @@ class UIChatView: UIScrollView {
                                      height: label.frame.height + inset.height)
         
         let x: CGFloat = messageOnTheLeft ? indent : self.bounds.width - bubbleImageSize.width - indent
-        let messageView = UIImageView(frame:
+        let bubbleImageView = UIImageView(frame:
             CGRect(x: x,
                    y: offsetY,
                    width: bubbleImageSize.width,
@@ -56,6 +56,7 @@ class UIChatView: UIScrollView {
         offsetY += bubbleImageSize.height + vertSpace
         if offsetY > self.contentSize.height {
             self.contentSize.height = offsetY
+            
         }
         
         let imageName = messageOnTheLeft ? bubbleReceivedFileName : bubbleSentFileName
@@ -64,17 +65,24 @@ class UIChatView: UIScrollView {
                             resizingMode: .stretch)
             .withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         
-        messageView.image = bubbleImage
-        messageView.tintColor = color
+        bubbleImageView.image = bubbleImage
+        bubbleImageView.tintColor = color
         
         if let shadowColor = shadowColor {
-            messageView.addShadow(color: shadowColor, opacity: shadowOpacity)
+            bubbleImageView.addShadow(color: shadowColor, opacity: shadowOpacity)
         }
-        self.addSubview(messageView)
-        label.center = messageView.center
+        self.addSubview(bubbleImageView)
+        label.center = bubbleImageView.center
         self.addSubview(label)
-        
         self.scrollToBottomIfNeeded()
         sound?.play()
+    }
+    func clear() {
+        setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        for view in subviews {
+            view.removeFromSuperview()
+        }
+        offsetY = 0
+        contentSize.height = 0
     }
 }

@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct AlertButton {
+    var text: String
+    var action: () -> Void
+}
+
 extension UIViewController {
     func addTaps(for tappedView: UIView? = nil, singleTapAction: Selector? = nil, doubleTapAction: Selector? = nil, leftSwipeAction: Selector? = nil, rightSwipeAction: Selector? = nil) {
         let tappedView: UIView = tappedView ?? self.view //if ==nil than we use default view of VC
@@ -43,10 +48,13 @@ extension UIViewController {
         
         tappedView.isUserInteractionEnabled = true
     }
-    func addAlertDialog(title: String, message: String, buttonText: String, pressedButtonAction: @escaping () -> Void) {
+
+    func addAlertDialog(title: String, message: String, alertButtons: [AlertButton]) {
         let dialogMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let button = UIAlertAction(title: buttonText, style: .default, handler: { (action) -> Void in pressedButtonAction() })
-        dialogMessage.addAction(button)
+        for alertButton in alertButtons {
+            let button = UIAlertAction(title: alertButton.text, style: .default, handler: { (action) -> Void in alertButton.action() })
+            dialogMessage.addAction(button)
+        }
         present(dialogMessage, animated: true, completion: nil)
     }
 }

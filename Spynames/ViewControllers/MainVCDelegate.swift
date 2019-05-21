@@ -47,10 +47,14 @@ extension MainVC: MainVCDelegate {
         leftBlueLabel.text = String(game.leftWordsQty[.blueTeam]!)
     }
     func pressed(uicard: UICard) {
-        switch (game.currentPlayer.type, uicard.card.guessed) {
-        case (_, true):
+        switch (game.isOver, game.currentPlayer.type, uicard.card.guessed) {
+        case (true, _, true):
             showAllWords()
-        case (.operatives, false):
+        case (true, _, false):
+            break
+        case (false, _, true):
+            showAllWords()
+        case (false,.operatives, false):
             if game.canGuessMore {
                 uicard.flip()
                 let message = Message(text: uicard.card.word, team: game.currentPlayer.team, player: .operatives, cardColor: uicard.card.color)
@@ -61,7 +65,7 @@ extension MainVC: MainVCDelegate {
                     updateTitleBar()
                 }
             }
-        case (.spymaster, false):
+        case (false, .spymaster, false):
             changeLegendVisibility(fade: false)
         }
     }
@@ -74,16 +78,19 @@ extension MainVC: MainVCDelegate {
         }
     }
     func gameOver(withBomb: Bool = false) {
+        game.isOver = true
         showLegend(fade: true)
         
         let winner = withBomb ? game.currentPlayer.team.next().getDescription() : game.currentPlayer.team.getDescription()
         
         let title = K.Labels.gameOverAlert.title.replacingOccurrences(of: "XXX", with: winner)
         let message = K.Labels.gameOverAlert.message[withBomb]!
-        let buttonText = K.Labels.gameOverAlert.buttonsText[0]
-        
+        let alertButtons = [
+            AlertButton(text: K.Labels.gameOverAlert.buttonsText[0], action: self.startNewGame),
+            AlertButton(text: K.Labels.gameOverAlert.buttonsText[1], action: self.LookAround)
+        ]
         DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.nextTurnAlert, execute: {
-            self.addAlertDialog(title: title, message: message, buttonText: buttonText, pressedButtonAction: self.startNewGame)
+            self.addAlertDialog(title: title, message: message, alertButtons: alertButtons)
         })
     }
 }
