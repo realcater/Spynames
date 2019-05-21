@@ -2,7 +2,9 @@ import AVFoundation
 import UIKit
 
 protocol MainVCDelegate: class {
-    func changeCardsColorVisibility(fade: Bool, alwaysHide: Bool)
+    func showLegend(fade: Bool)
+    func hideLegend(fade: Bool)
+    func changeLegendVisibility(fade: Bool)
     func deleteFromWordsTable(card: Card)
     func updateScoreLabels()
     func updateLeftWordsQtyLabels()
@@ -12,11 +14,26 @@ protocol MainVCDelegate: class {
 }
 
 extension MainVC: MainVCDelegate {
-    func changeCardsColorVisibility(fade: Bool, alwaysHide: Bool = false) {
+    func showLegend(fade: Bool) {
         for uicard in uicards {
-            uicard.changeShowColor(fade: fade, alwaysHide: alwaysHide)
+            uicard.showColor(fade: fade)
         }
-        wordsTVC.changeVisibility(alwaysHide: alwaysHide)
+        wordsTVC.show()
+        game.showLegend = true
+    }
+    func hideLegend(fade: Bool) {
+        for uicard in uicards {
+            uicard.hideColor(fade: fade)
+        }
+        wordsTVC.hide()
+        game.showLegend = false
+    }
+    func changeLegendVisibility(fade: Bool) {
+        if game.showLegend {
+            hideLegend(fade: fade)
+        } else {
+            showLegend(fade: fade)
+        }
     }
     func deleteFromWordsTable(card: Card) {
         wordsTVC.deleteCard(card: card)
@@ -45,7 +62,7 @@ extension MainVC: MainVCDelegate {
                 }
             }
         case (.spymaster, false):
-            changeCardsColorVisibility(fade: false)
+            changeLegendVisibility(fade: false)
         }
     }
     func showAllWords() {
@@ -57,7 +74,7 @@ extension MainVC: MainVCDelegate {
         }
     }
     func gameOver(withBomb: Bool = false) {
-        changeCardsColorVisibility(fade: true)
+        showLegend(fade: true)
         
         let winner = withBomb ? game.currentPlayer.team.next().getDescription() : game.currentPlayer.team.getDescription()
         

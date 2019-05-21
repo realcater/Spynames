@@ -44,15 +44,11 @@ class MainVC: UIViewController {
 extension MainVC {
     override func loadView() {
         super.loadView()
-        game = Game()
-        game.delegate = self
-        placeCards()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //game = Game()
-        //game.delegate = self
+    
         mainView.minimumZoomScale = 1.0
         mainView.maximumZoomScale = 2.0
         mainView.delegate = self
@@ -62,16 +58,14 @@ extension MainVC {
         prepareChat()
         addTapsForLeftView()
         addTapsForRightView()
-        
+        startNewGame()
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
             wordsTVC = segue.destination as? WordsTVC
-            wordsTVC.delegate = game
-            DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.beforeFadeCardsColors, execute: {
-                self.revealCardsColors()
-            })
         } else if segue.identifier == "toEnterHintVC" {
             let enterHintVC = segue.destination as! EnterHintVC
             sendToEnterHintVC(enterHintVC: enterHintVC)
@@ -81,6 +75,7 @@ extension MainVC {
 
 //MARK: - startUp private functions
 private extension MainVC {
+    
     
     func placeCards() {
         if K.CardsAnimation.show {
@@ -112,9 +107,6 @@ private extension MainVC {
         leftViewBackground.addShadow()
         rightView.widthConstraint?.constant = K.SideView.width
         leftView.widthConstraint?.constant = K.SideView.width
-        updateScoreLabels()
-        updateLeftWordsQtyLabels()
-        
     }
     func preparePlayerStatusBar() {
         statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)
@@ -132,12 +124,9 @@ private extension MainVC {
             Player(team: .blueTeam, type: .operatives):
                 PlayerStatusIcon(playerType: .operatives, team: .blueTeam, bar: statusIconBars[3], image: statusIconImages[3])
         ]
-        updateStatusIcons()
-        
-        
     }
     func prepareChat() {
-        hintOrPassButton.makeRounded(color: K.Colors.hintOrPassButton[game.currentPlayer.type])
+        hintOrPassButton.makeRounded(color: K.Colors.hintOrPassButton)
         chatView.setup()
         view.layoutIfNeeded()
         let m1 = Message(text: "Hi! Red spymaster is here!", team: .redTeam, player: .spymaster)
@@ -161,11 +150,11 @@ private extension MainVC {
             self.statusIcons[Player(team: .blueTeam, type: .operatives)]!.online = true
             self.statusIcons[Player(team: self.game.currentPlayer.team,
                                     type: self.game.currentPlayer.type)]!.active = true
-            self.updateTitleBar()
+            
         })
     }
     func revealCardsColors() {
-        changeCardsColorVisibility(fade: true)
+        showLegend(fade: true)
         updateTableFromPersonalList(withDelay: true)
     }
 }
@@ -207,23 +196,37 @@ private extension MainVC {
     func updatePersonalListFromTable() {
         game.personalList[game.currentPlayer.team] = wordsTVC.cards
     }
-    func setupHintOrPassButton() {
+    func updateHintOrPassButton() {
         hintOrPassButton.setTitle(
-            K.Labels.Buttons.hintOrPassButton[self.game.currentPlayer.type], for: .normal)
-        //hintOrPassButton.backgroundColor = K.Colors.hintOrPassButton[game.currentPlayer.type]
+            K.Labels.Buttons.hintOrPass[self.game.currentPlayer.type], for: .normal)
     }
-    
+    func updateWordTVC() {
+        wordsTVC.delegate = game
+        DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.beforeFadeCardsColors, execute: {
+            self.revealCardsColors()
+        })
+    }
 }
 //MARK: - Ongoing use public functions
 extension MainVC {
     func startNewGame() {
+        game = Game()
+        game.delegate = self
         
+        updateScoreLabels()
+        updateLeftWordsQtyLabels()
+        updateStatusIcons()
+        updateTitleBar()
+        updateHintOrPassButton()
+        updateWordTVC()
+        
+        placeCards()
     }
     
     func nextTurn(withPause: Bool = true) {
         let delay = withPause ? K.Delays.nextTurnAlert : 0
         if game.currentPlayer.type == .spymaster {
-            changeCardsColorVisibility(fade: true, alwaysHide: true)
+            hideLegend(fade: true)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
             self.addAlertDialog(title: K.Labels.nextTurnAlert.title, message:
@@ -232,12 +235,11 @@ extension MainVC {
                                     if self.game.currentPlayer.type == .spymaster {
                                         self.updatePersonalListFromTable()
                                     } else {
-                                        self.changeCardsColorVisibility(fade: true)
-                                    }
+                                        self.changeLegendVisibility(fade: true)                                     }
                                     self.game.nextTurn()
                                     self.updateStatusIcons()
                                     self.updateTitleBar()
-                                    self.setupHintOrPassButton()
+                                    self.updateHintOrPassButton()
                                     
                                     if self.game.currentPlayer.type == .spymaster {
                                         self.updateTableFromPersonalList(withDelay: false)

@@ -10,6 +10,7 @@ class Game {
     var devicesQty: Int
     var activeDeviceIndex: Int
     var personalList: [Team: [Card]] = [.redTeam: [], .blueTeam: []]
+    var showLegend = true
     
     var cardsOfCurrentTeam: [Card] {
         get {

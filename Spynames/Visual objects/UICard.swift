@@ -13,7 +13,7 @@ struct Place {
 class UICard {
     var place: Place
     var card: Card
-    private var showColor: Bool
+    private var colorIsVisible: Bool
     var button: UIRoundedButton!
     var view: UIView
     var showDelay: Double
@@ -29,14 +29,21 @@ class UICard {
         self.card = card
         self.view = view
         self.showDelay = showDelay ?? 0.0
-        showColor = false
+        colorIsVisible = false
         
         addButton()
         addRecognizers()
     }
     
-    func changeShowColor(fade: Bool, alwaysHide: Bool = false) {
-        showColor = !showColor && !alwaysHide
+    func showColor(fade: Bool) {
+        if colorIsVisible { return }
+        colorIsVisible = true
+        let duration = fade ? K.Delays.fadeTimeAppearCard : 0.0
+        redraw(withDuration: duration)
+    }
+    func hideColor(fade: Bool) {
+        if !colorIsVisible { return }
+        colorIsVisible = false
         let duration = fade ? K.Delays.fadeTimeAppearCard : 0.0
         redraw(withDuration: duration)
     }
@@ -83,7 +90,7 @@ private extension UICard {
     }
     func redraw(inFrame frame: CGRect, forDuration duration: Double, showWordAnyway: Bool = false, redrawMode: RedrawMode = .dissolve) {
         let guessed = !showWordAnyway && card.guessed
-        let cardColor = (!showColor && !guessed) ? CardColor.neutral : card.color
+        let cardColor = (!colorIsVisible && !guessed) ? CardColor.neutral : card.color
         let title = guessed ? "" : card.word
         let transitionOptions: UIView.AnimationOptions = {
             switch redrawMode {

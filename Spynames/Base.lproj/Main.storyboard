@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vVa-Qu-fNx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1X6-Gr-ShN">
     <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -322,24 +322,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Lx-Ip-Zm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="346" y="1629"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="NI8-ND-Y9S">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X4e-oy-7to" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZNX-h8-lvI">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Gbx-Ct-fKg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fu8-yP-vac" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="31" y="-898"/>
         </scene>
         <!--chooseRole3dVC-->
         <scene sceneID="fBI-Dm-Oqo">
@@ -724,7 +706,7 @@
                         <outletCollection property="statusImages" destination="pqG-qt-fO0" collectionClass="NSMutableArray" id="x9o-CU-9g1"/>
                         <outletCollection property="statusImages" destination="cf4-UY-IDf" collectionClass="NSMutableArray" id="4pK-y3-Vbb"/>
                         <outletCollection property="statusImages" destination="Afz-fK-hJS" collectionClass="NSMutableArray" id="Tin-Kx-FB9"/>
-                        <segue destination="vVa-Qu-fNx" kind="show" identifier="startGame" id="rUF-9L-12K"/>
+                        <segue destination="vVa-Qu-fNx" kind="show" identifier="startGame" animates="NO" id="rUF-9L-12K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JfO-fE-5Xs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -986,7 +968,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rB3-7d-5h7" userLabel="topView">
-                                <rect key="frame" x="186" y="34" width="440" height="30"/>
+                                <rect key="frame" x="186" y="2" width="440" height="30"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper_370x40px" translatesAutoresizingMaskIntoConstraints="NO" id="Gnd-Im-DF3">
                                         <rect key="frame" x="0.0" y="0.0" width="440" height="30"/>

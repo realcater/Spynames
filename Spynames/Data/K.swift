@@ -139,10 +139,8 @@ struct K {
             CardColor.black: almostBlack,
             nil: almostBlack
         ]
-        static let hintOrPassButton = [
-            PlayerType.spymaster: greenDarker,
-            PlayerType.operatives: gray
-        ]
+        static let hintOrPassButton = greenDarker
+
         static let mainVCbuttons = greenDarker
         static let messageShadowOpacity: Float = 0.8
     }
@@ -185,7 +183,7 @@ struct K {
             static let blueOperatives = "Blue Operatives"
             static let operatives = "Operatives"
             static let startGame = "Start a game!"
-            static let hintOrPassButton = [
+            static let hintOrPass = [
                 PlayerType.spymaster: "Give a hint",
                 PlayerType.operatives: "PASS"
             ]
