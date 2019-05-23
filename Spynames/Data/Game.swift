@@ -110,6 +110,9 @@ extension Game: GameDelegate {
                 canGuessMore = false
             }
         }
+        if leftCardsOf[currentPlayer.team.toCardColor()]?.count == 0 {
+            delegate?.gameOver(withBomb: false)
+        }
     }
 }
 

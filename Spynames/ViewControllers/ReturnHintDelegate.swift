@@ -4,7 +4,6 @@ import UIKit
 protocol ReturnHintDelegate: class {
     func addHint(hint: Hint)
     func nextTurn()
-    
 }
 
 //MARK: - delegates

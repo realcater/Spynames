@@ -8,7 +8,6 @@
 import AVFoundation
 import UIKit
 
-
 //MARK: - state
 class MainVC: UIViewController {
     @IBOutlet weak var zoomedView: UIView!
@@ -48,10 +47,8 @@ extension MainVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        mainView.minimumZoomScale = 1.0
-        mainView.maximumZoomScale = 2.0
         mainView.delegate = self
+        
         view.setBackgroundImage(named: K.FileNames.mainBackground, alpha: 1)
         prepareViews()
         preparePlayerStatusBar()
@@ -168,6 +165,7 @@ extension MainVC {
         if game.currentPlayer.type == .spymaster {
             hideLegend(fade: true)
         }
+        updateTitleBar()
         let alertButton = AlertButton(
             text: K.Labels.nextTurnAlert.buttonText,
             action: {

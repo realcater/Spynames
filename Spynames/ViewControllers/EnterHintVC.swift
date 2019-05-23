@@ -79,7 +79,7 @@ private extension EnterHintVC {
         }
     }
     func generateData() {
-        for i in Array(1...maxQty)+[Int.max,0] {
+        for i in Array(1...maxQty)+[0,Int.max] {
             pickerData.append(Helper.StrInf(i))
         }
         hintInPicker = hint

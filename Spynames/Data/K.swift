@@ -244,5 +244,6 @@ struct K {
         static let betweenWordsToTable = 0.2
         static let nextTurnAlert = 1.0
         static let titleBarText = 0.5
+        static let showAllWords = 1.0
     }
 }

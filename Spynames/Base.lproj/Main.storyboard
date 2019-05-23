@@ -523,7 +523,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-80px" translatesAutoresizingMaskIntoConstraints="NO" id="pqG-qt-fO0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait-S80px" translatesAutoresizingMaskIntoConstraints="NO" id="pqG-qt-fO0">
                                 <rect key="frame" x="626" y="153" width="25" height="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -531,7 +531,7 @@
                                     <constraint firstAttribute="width" constant="25" id="qji-d0-xR0"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-80px" translatesAutoresizingMaskIntoConstraints="NO" id="cf4-UY-IDf" customClass="UIRotatedImageView" customModule="Spynames" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait-S80px" translatesAutoresizingMaskIntoConstraints="NO" id="cf4-UY-IDf">
                                 <rect key="frame" x="626" y="183" width="25" height="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -560,7 +560,7 @@
                                     <constraint firstAttribute="width" constant="30" id="TVG-Po-dcU"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock-80px" translatesAutoresizingMaskIntoConstraints="NO" id="Afz-fK-hJS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait-S80px" translatesAutoresizingMaskIntoConstraints="NO" id="Afz-fK-hJS">
                                 <rect key="frame" x="626" y="213" width="25" height="25"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1336,10 +1336,10 @@
         <image name="4devices" width="160" height="81"/>
         <image name="Crown1-80px" width="40" height="40"/>
         <image name="Pawn2-80px" width="40" height="40"/>
-        <image name="clock-80px" width="40" height="40"/>
         <image name="paper_370x40px" width="370" height="40"/>
         <image name="spy_female-v2-3" width="100" height="417"/>
         <image name="spy_male-v2-2" width="100" height="417"/>
+        <image name="wait-S80px" width="40" height="40"/>
         <image name="you-icon-80px" width="40" height="40"/>
     </resources>
 </document>

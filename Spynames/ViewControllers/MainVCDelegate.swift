@@ -56,7 +56,7 @@ extension MainVC: MainVCDelegate {
             showAllWords()
         case (false,.operatives, false):
             if game.canGuessMore {
-                uicard.flip()
+                uicard.cover()
                 let message = Message(text: uicard.card.word, team: game.currentPlayer.team, player: .operatives, cardColor: uicard.card.color)
                 chatView.add(message)
                 if !game.canGuessMore {
@@ -72,7 +72,7 @@ extension MainVC: MainVCDelegate {
     func showAllWords() {
         for uicard in uicards {
             uicard.showWordIfNeeded()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.showAllWords, execute: {
                 uicard.hideWordIfNeeded()
             })
         }
@@ -80,8 +80,7 @@ extension MainVC: MainVCDelegate {
     func gameOver(withBomb: Bool = false) {
         game.isOver = true
         showLegend(fade: true)
-        
-        
+
         let winner = withBomb ? game.currentPlayer.team.next().getDescription() : game.currentPlayer.team.getDescription()
         
         let title = K.Labels.gameOverAlert.title.replacingOccurrences(of: "XXX", with: winner)
