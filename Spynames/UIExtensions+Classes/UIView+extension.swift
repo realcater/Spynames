@@ -54,6 +54,11 @@ extension UIView {
             insertSubview(backgroundImageView, at: 0)
         }
     }
+    func clearSubviews() {
+        for view in subviews {
+            view.removeFromSuperview()
+        }
+    }
 }
 
 //MARK:- Rotating & Animations

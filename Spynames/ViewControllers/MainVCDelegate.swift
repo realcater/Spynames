@@ -81,6 +81,7 @@ extension MainVC: MainVCDelegate {
         game.isOver = true
         showLegend(fade: true)
         
+        
         let winner = withBomb ? game.currentPlayer.team.next().getDescription() : game.currentPlayer.team.getDescription()
         
         let title = K.Labels.gameOverAlert.title.replacingOccurrences(of: "XXX", with: winner)

@@ -1,6 +1,12 @@
 import UIKit
 import AVFoundation
 
+enum LeftButtonState {
+    case hint
+    case pass
+    case newGame
+}
+
 struct K {
     static var i = 0
     struct Game {
@@ -183,10 +189,11 @@ struct K {
             static let blueOperatives = "Blue Operatives"
             static let operatives = "Operatives"
             static let startGame = "Start a game!"
-            static let hintOrPass = [
-                PlayerType.spymaster: "Give a hint",
-                PlayerType.operatives: "PASS"
-            ]
+            static let left = [
+                LeftButtonState.hint: "Give a hint",
+                LeftButtonState.pass: "PASS",
+                LeftButtonState.newGame: "New game"
+                ]
             }
         struct Titles {
             static let spyNames = "Spy Names"

@@ -7,6 +7,8 @@
 //
 import AVFoundation
 import UIKit
+
+
 //MARK: - state
 class MainVC: UIViewController {
     @IBOutlet weak var zoomedView: UIView!
@@ -15,7 +17,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var rightViewBackground: UIImageView!
     @IBOutlet weak var chatView: PlayersChatView!
-    @IBOutlet weak var hintOrPassButton: UIRoundedButton!
+    @IBOutlet weak var leftButton: UIRoundedButton!
     @IBOutlet weak var guessedScoreView: UIView!
     @IBOutlet weak var leftScoreView: UIView!
     @IBOutlet weak var topView: UIView!
@@ -39,6 +41,7 @@ class MainVC: UIViewController {
     var wordsTVC: WordsTVC!
     var rightViewShown = true
     var leftViewShown = true
+    var leftButtonState = LeftButtonState.hint
 }
 //MARK: - override functions
 extension MainVC {
@@ -75,9 +78,8 @@ extension MainVC {
 
 //MARK: - startUp private functions
 private extension MainVC {
-    
-    
     func placeCards() {
+        zoomedView.clearSubviews()
         if K.CardsAnimation.show {
             DispatchQueue.main.asyncAfter(deadline: .now() + K.CardsAnimation.delaySound, execute: {
                 K.Sounds.cards?.play()
@@ -126,7 +128,7 @@ private extension MainVC {
         ]
     }
     func prepareChat() {
-        hintOrPassButton.makeRounded(color: K.Colors.hintOrPassButton)
+        leftButton.makeRounded(color: K.Colors.hintOrPassButton)
         chatView.setup()
         view.layoutIfNeeded()
         
@@ -139,10 +141,11 @@ private extension MainVC {
 }
 //MARK: - Ongoing use private functions
 private extension MainVC {
-    @IBAction func pressHintOrPassButton(_ sender: Any) {
-        switch game.currentPlayer.type {
-            case .spymaster: performSegue(withIdentifier: "toEnterHintVC", sender: sender)
-            case .operatives: nextTurn(withPause: false)
+    @IBAction func pressLeftButton(_ sender: Any) {
+        switch leftButtonState {
+            case .hint: performSegue(withIdentifier: "toEnterHintVC", sender: sender)
+            case .pass: nextTurn(withPause: false)
+            case .newGame: startNewGame()
         }
     }
     func sendToEnterHintVC(enterHintVC: EnterHintVC) {
@@ -175,9 +178,10 @@ private extension MainVC {
     func updatePersonalListFromTable() {
         game.personalList[game.currentPlayer.team] = wordsTVC.cards
     }
-    func updateHintOrPassButton() {
-        hintOrPassButton.setTitle(
-            K.Labels.Buttons.hintOrPass[self.game.currentPlayer.type], for: .normal)
+    func updateLeftButton() {
+        leftButtonState = (game.currentPlayer.type == .spymaster) ? .hint : .pass
+        leftButton.setTitle(
+            K.Labels.Buttons.left[leftButtonState], for: .normal)
     }
     func updateAndRevealWords() {
         wordsTVC.delegate = game
@@ -222,14 +226,16 @@ extension MainVC {
         updateLeftWordsQtyLabels()
         updateStatusIcons()
         updateTitleBar()
-        updateHintOrPassButton()
+        updateLeftButton()
         updateAndRevealWords()
         updateChat()
         
         placeCards()
     }
     func LookAround() {
-        
+        leftButtonState = .newGame
+        leftButton.setTitle(
+            K.Labels.Buttons.left[leftButtonState], for: .normal)
     }
     
     func nextTurn(withPause: Bool = true) {
@@ -247,7 +253,7 @@ extension MainVC {
                 self.game.nextTurn()
                 self.updateStatusIcons()
                 self.updateTitleBar()
-                self.updateHintOrPassButton()
+                self.updateLeftButton()
                 
                 if self.game.currentPlayer.type == .spymaster {
                     self.updateTableFromPersonalList(withDelay: false)

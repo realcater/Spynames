@@ -1041,7 +1041,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="pressHintOrPassButton:" destination="vVa-Qu-fNx" eventType="touchUpInside" id="liW-7D-4ez"/>
+                                            <action selector="pressLeftButton:" destination="vVa-Qu-fNx" eventType="touchUpInside" id="liW-7D-4ez"/>
                                         </connections>
                                     </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YuA-Tf-gkW" userLabel="chatView" customClass="PlayersChatView" customModule="Spynames" customModuleProvider="target">
@@ -1095,8 +1095,8 @@
                         <outlet property="guessedBlueLabel" destination="ijR-LF-0eQ" id="WDf-Or-TMs"/>
                         <outlet property="guessedRedLabel" destination="9e4-kJ-pIV" id="qqJ-48-VAf"/>
                         <outlet property="guessedScoreView" destination="Fw1-Ze-Cre" id="MCH-f7-lxV"/>
-                        <outlet property="hintOrPassButton" destination="ctC-9E-Ved" id="d9f-tI-AWZ"/>
                         <outlet property="leftBlueLabel" destination="CX7-aZ-xmL" id="QSJ-dO-vdS"/>
+                        <outlet property="leftButton" destination="ctC-9E-Ved" id="d9f-tI-AWZ"/>
                         <outlet property="leftRedLabel" destination="ftC-dJ-MUh" id="UaU-mB-Aqo"/>
                         <outlet property="leftScoreView" destination="Yj8-Wb-ltd" id="P1v-EV-DfA"/>
                         <outlet property="leftView" destination="aAE-ay-zrL" id="lxo-3f-6aG"/>
