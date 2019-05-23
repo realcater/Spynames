@@ -45,10 +45,7 @@ class MainVC: UIViewController {
 }
 //MARK: - override functions
 extension MainVC {
-    override func loadView() {
-        super.loadView()
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -61,10 +58,12 @@ extension MainVC {
         prepareChat()
         addTapsForLeftView()
         addTapsForRightView()
-        startNewGame()
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startNewGame()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsTVCSegue" {
@@ -78,24 +77,7 @@ extension MainVC {
 
 //MARK: - startUp private functions
 private extension MainVC {
-    func placeCards() {
-        zoomedView.clearSubviews()
-        if K.CardsAnimation.show {
-            DispatchQueue.main.asyncAfter(deadline: .now() + K.CardsAnimation.delaySound, execute: {
-                K.Sounds.cards?.play()
-            })
-        }
-        for y in 0..<K.Game.sizeY {
-            for x in 0..<K.Game.sizeX {
-                let num = y*K.Game.sizeX+x
-                let place = Place(x: x, y: y)
-                let delay = K.CardsAnimation.show ? K.CardsAnimation.betweenCardsAppear * Double(num) : 0
-                let uicard = UICard(place: place, card: game.cards[num], showDelay: delay, in: zoomedView)
-                uicard.delegate = self
-                uicards.append(uicard)
-            }
-        }
-    }
+    
     func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blueTeam]!, rightColor: K.Colors.team[.redTeam]!)
         guessedScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
@@ -137,6 +119,87 @@ private extension MainVC {
     func revealCardsColors() {
         showLegend(fade: true)
         updateTableFromPersonalList(withDelay: true)
+    }
+}
+//MARK: - Ongoing use public functions
+extension MainVC {
+    func startNewGame() {
+        game = Game()
+        game.delegate = self
+        
+        updateScoreLabels()
+        updateLeftWordsQtyLabels()
+        updateStatusIcons()
+        updateTitleBar()
+        updateLeftButton()
+        updateAndRevealWords()
+        updateChat()
+        
+        placeCards()
+    }
+    
+    func placeCards() {
+        zoomedView.clearSubviews()
+        if K.CardsAnimation.show {
+            DispatchQueue.main.asyncAfter(deadline: .now() + K.CardsAnimation.delaySound, execute: {
+                K.Sounds.cards?.play()
+            })
+        }
+        for y in 0..<K.Game.sizeY {
+            for x in 0..<K.Game.sizeX {
+                let num = y*K.Game.sizeX+x
+                let place = Place(x: x, y: y)
+                let delay = K.CardsAnimation.show ? K.CardsAnimation.betweenCardsAppear * Double(num) : 0
+                let uicard = UICard(place: place, card: game.cards[num], showDelay: delay, in: zoomedView)
+                uicard.delegate = self
+                uicards.append(uicard)
+            }
+        }
+    }
+    
+    func LookAround() {
+        leftButtonState = .newGame
+        leftButton.setTitle(
+            K.Labels.Buttons.left[leftButtonState], for: .normal)
+    }
+    
+    func nextTurn(withPause: Bool = true) {
+        let delay = withPause ? K.Delays.nextTurnAlert : 0
+        if game.currentPlayer.type == .spymaster {
+            hideLegend(fade: true)
+        }
+        let alertButton = AlertButton(
+            text: K.Labels.nextTurnAlert.buttonText,
+            action: {
+                if self.game.currentPlayer.type == .spymaster {
+                    self.updatePersonalListFromTable()
+                } else {
+                    self.changeLegendVisibility(fade: true)                                     }
+                self.game.nextTurn()
+                self.updateStatusIcons()
+                self.updateTitleBar()
+                self.updateLeftButton()
+                
+                if self.game.currentPlayer.type == .spymaster {
+                    self.updateTableFromPersonalList(withDelay: false)
+                }
+        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
+            self.addAlertDialog(title: K.Labels.nextTurnAlert.title, message:
+                K.Labels.nextTurnAlert.message[self.game.currentPlayer.type]!, alertButtons: [alertButton])
+        })
+    }
+    
+    func updateTitleBar() {
+        var title = K.Labels.titleBar.waiting[game.currentPlayer.type]!
+        if game.currentPlayer.type == .operatives {
+            title = title.replacingOccurrences(of: "XXX", with: Helper.StrInf(game.leftToGuessThisTurn))
+        }
+        UIView.transition(with: self.titleBar, duration: K.Delays.titleBarText,
+                          options: [.transitionCrossDissolve],
+                          animations: {
+                            self.titleBar.text = title
+        }, completion: nil)
     }
 }
 //MARK: - Ongoing use private functions
@@ -216,67 +279,7 @@ private extension MainVC {
         })
     }
 }
-//MARK: - Ongoing use public functions
-extension MainVC {
-    func startNewGame() {
-        game = Game()
-        game.delegate = self
-        
-        updateScoreLabels()
-        updateLeftWordsQtyLabels()
-        updateStatusIcons()
-        updateTitleBar()
-        updateLeftButton()
-        updateAndRevealWords()
-        updateChat()
-        
-        placeCards()
-    }
-    func LookAround() {
-        leftButtonState = .newGame
-        leftButton.setTitle(
-            K.Labels.Buttons.left[leftButtonState], for: .normal)
-    }
-    
-    func nextTurn(withPause: Bool = true) {
-        let delay = withPause ? K.Delays.nextTurnAlert : 0
-        if game.currentPlayer.type == .spymaster {
-            hideLegend(fade: true)
-        }
-        let alertButton = AlertButton(
-            text: K.Labels.nextTurnAlert.buttonText,
-            action: {
-                if self.game.currentPlayer.type == .spymaster {
-                    self.updatePersonalListFromTable()
-                } else {
-                    self.changeLegendVisibility(fade: true)                                     }
-                self.game.nextTurn()
-                self.updateStatusIcons()
-                self.updateTitleBar()
-                self.updateLeftButton()
-                
-                if self.game.currentPlayer.type == .spymaster {
-                    self.updateTableFromPersonalList(withDelay: false)
-                }
-            })
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
-            self.addAlertDialog(title: K.Labels.nextTurnAlert.title, message:
-                K.Labels.nextTurnAlert.message[self.game.currentPlayer.type]!, alertButtons: [alertButton])
-        })
-    }
-    
-    func updateTitleBar() {
-        var title = K.Labels.titleBar.waiting[game.currentPlayer.type]!
-        if game.currentPlayer.type == .operatives {
-            title = title.replacingOccurrences(of: "XXX", with: Helper.StrInf(game.leftToGuessThisTurn))
-        }
-        UIView.transition(with: self.titleBar, duration: K.Delays.titleBarText,
-                          options: [.transitionCrossDissolve],
-                          animations: {
-                            self.titleBar.text = title
-        }, completion: nil)
-    }
-}
+
 //MARK: - UIScrollViewDelegate
 extension MainVC: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

@@ -89,6 +89,8 @@ private extension UICard {
         }
     }
     func redraw(inFrame frame: CGRect, forDuration duration: Double, showWordAnyway: Bool = false, redrawMode: RedrawMode = .dissolve) {
+        //print(frame)
+        print(view.frame)
         let guessed = !showWordAnyway && card.guessed
         let cardColor = (!colorIsVisible && !guessed) ? CardColor.neutral : card.color
         let title = guessed ? "" : card.word
