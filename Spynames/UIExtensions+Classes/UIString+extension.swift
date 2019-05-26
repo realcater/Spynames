@@ -6,4 +6,7 @@ extension String {
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }
+    subscript (i: Int) -> Character {
+        return self[index(startIndex, offsetBy: i)]
+    }
 }

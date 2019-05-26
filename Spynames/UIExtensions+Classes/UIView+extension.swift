@@ -113,6 +113,18 @@ extension UIView {
             }
         }
     }
+    func startBlink(withDuration duration: Double) {
+        UIView.animate(withDuration: duration,
+                       delay:0.0,
+                       options:[.allowUserInteraction, .curveEaseInOut, .autoreverse, .repeat],
+                       animations: { self.alpha = 0 },
+                       completion: nil)
+    }
+    
+    func stopBlink() {
+        layer.removeAllAnimations()
+        alpha = 1
+    }
 }
 //MARK:- Double Color
 extension UIView {

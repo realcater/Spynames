@@ -30,6 +30,8 @@
 		CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */; };
 		CA814BD0217F71DD0009D072 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCF217F71DD0009D072 /* UIRoundedButton.swift */; };
 		CA885550228DE7AD00A8574A /* ReturnHintDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */; };
+		CA8855562296D65200A8574A /* MainVC+tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8855552296D65200A8574A /* MainVC+tutorial.swift */; };
+		CA88555A229AF56C00A8574A /* UITextField+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA885559229AF56C00A8574A /* UITextField+extension.swift */; };
 		CA88963021CC1CEC00DB26EB /* UIScrollView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */; };
 		CA8C4F19220B09520045FCC2 /* UICard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8C4F18220B09520045FCC2 /* UICard.swift */; };
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
@@ -79,6 +81,8 @@
 		CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeVC.swift; sourceTree = "<group>"; };
 		CA814BCF217F71DD0009D072 /* UIRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
 		CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnHintDelegate.swift; sourceTree = "<group>"; };
+		CA8855552296D65200A8574A /* MainVC+tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+tutorial.swift"; sourceTree = "<group>"; };
+		CA885559229AF56C00A8574A /* UITextField+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extension.swift"; sourceTree = "<group>"; };
 		CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+extension.swift"; sourceTree = "<group>"; };
 		CA8C4F18220B09520045FCC2 /* UICard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICard.swift; sourceTree = "<group>"; };
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
@@ -182,9 +186,10 @@
 				CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */,
 				CACA1F3D21ADDA1200DED049 /* MainVC.swift */,
 				CA6425CE221B498200CAEA0F /* MainVCDelegate.swift */,
-				CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */,
+				CA8855552296D65200A8574A /* MainVC+tutorial.swift */,
 				CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */,
 				CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */,
+				CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */,
 				CAC5BA4E21F4EBFC001763C5 /* WordsTVC.swift */,
 				CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */,
 			);
@@ -204,6 +209,7 @@
 				CA2EFEB421F6662300DF2ACF /* UIPaddingLabel.swift */,
 				CA39802F220CA6B80050FB54 /* UIString+extension.swift */,
 				CA6425C62219E1CF00CAEA0F /* CGPoint+extension.swift */,
+				CA885559229AF56C00A8574A /* UITextField+extension.swift */,
 			);
 			path = "UIExtensions+Classes";
 			sourceTree = "<group>";
@@ -326,12 +332,14 @@
 				CAC9505421B6EB9D002262BA /* UIChatView.swift in Sources */,
 				CA6425CB221A0DAA00CAEA0F /* MainVC+leftView.swift in Sources */,
 				CAE1A12B2207152D00B4E687 /* EnterHintVC.swift in Sources */,
+				CA88555A229AF56C00A8574A /* UITextField+extension.swift in Sources */,
 				CA6425C9221A0BA100CAEA0F /* MainVC+rightView.swift in Sources */,
 				CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */,
 				CA2EFEB521F6662300DF2ACF /* UIPaddingLabel.swift in Sources */,
 				CAE1A1352208D57B00B4E687 /* Dictionary.swift in Sources */,
 				CA6425D1221D40DE00CAEA0F /* DeviceRoles.swift in Sources */,
 				CA885550228DE7AD00A8574A /* ReturnHintDelegate.swift in Sources */,
+				CA8855562296D65200A8574A /* MainVC+tutorial.swift in Sources */,
 				CA8C4F19220B09520045FCC2 /* UICard.swift in Sources */,
 				CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */,
 				CA6425CF221B498200CAEA0F /* MainVCDelegate.swift in Sources */,

@@ -69,6 +69,22 @@ extension WordsTVC {
         cards.remove(at: row)
         tableView.endUpdates()
     }
+    func moveRow(at: Int, to: Int) {
+        let indexPathAt = IndexPath(row: at, section: 0)
+        let indexPathTo = IndexPath(row: to, section: 0)
+        //tableView.beginUpdates()
+        UIView.animate(withDuration: K.Delays.moveOneRow * Double(abs(at-to)), animations: {
+            self.tableView.moveRow(at: indexPathAt, to: indexPathTo)
+        })
+        for card in cards { print(card.word) }
+        print("===")
+        let itemToMove = cards[at]
+        cards.remove(at: at)
+        cards.insert(itemToMove, at: to)
+        for card in cards { print(card.word) }
+        print("=== ===")
+        //tableView.endUpdates()
+    }
     func deleteAll() {
         cards.removeAll()
         tableView.reloadData()

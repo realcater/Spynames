@@ -2,13 +2,14 @@ import UIKit
 import AVFoundation
 
 enum LeftButtonState {
+    case tutorial
     case hint
     case pass
     case newGame
 }
 
 struct K {
-    static var i = 0
+    //static var i = 0
     struct Game {
         static let sizeX = 5
         static let sizeY = 5
@@ -190,6 +191,7 @@ struct K {
             static let operatives = "Operatives"
             static let startGame = "Start a game!"
             static let left = [
+                LeftButtonState.tutorial: "Next",
                 LeftButtonState.hint: "Give a hint",
                 LeftButtonState.pass: "PASS",
                 LeftButtonState.newGame: "New game"
@@ -240,10 +242,12 @@ struct K {
         static let clockTurnAround = 4.0
         static let fadeTimeAppearCard = 1.5
         static let beforeFadeCardsColors = 1.0
-        static let beforeFirstWordToTable = 0.5
+        static let beforeFirstWordToTable = 0.0
         static let betweenWordsToTable = 0.2
         static let nextTurnAlert = 1.0
         static let titleBarText = 0.5
         static let showAllWords = 1.0
+        static let playerStatusIconsBlink = 0.6
+        static let moveOneRow = 0.25
     }
 }

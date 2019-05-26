@@ -2,8 +2,8 @@ import AVFoundation
 import UIKit
 
 protocol MainVCDelegate: class {
-    func showLegend(fade: Bool)
-    func hideLegend(fade: Bool)
+    func showLegend(fade: Bool, color: CardColor?)
+    func hideLegend(fade: Bool, color: CardColor?)
     func changeLegendVisibility(fade: Bool)
     func deleteFromWordsTable(card: Card)
     func updateScoreLabels()
@@ -14,19 +14,28 @@ protocol MainVCDelegate: class {
 }
 
 extension MainVC: MainVCDelegate {
-    func showLegend(fade: Bool) {
+    func showLegend(fade: Bool, color: CardColor? = nil) {
         for uicard in uicards {
-            uicard.showColor(fade: fade)
+            if color == nil || (uicard.card.color == color!) {
+                uicard.showColor(fade: fade)
+            }
         }
-        wordsTVC.show()
-        game.showLegend = true
+        if color == nil || color == .red || color == .blue {
+            wordsTVC.show()
+            game.showLegend = true
+        }
     }
-    func hideLegend(fade: Bool) {
+    
+    func hideLegend(fade: Bool, color: CardColor? = nil) {
         for uicard in uicards {
-            uicard.hideColor(fade: fade)
+            if color == nil || (uicard.card.color == color!) {
+                uicard.hideColor(fade: fade)
+            }
         }
-        wordsTVC.hide()
-        game.showLegend = false
+        if color == nil || color == .red || color == .blue  {
+            wordsTVC.hide()
+            game.showLegend = false
+        }
     }
     func changeLegendVisibility(fade: Bool) {
         if game.showLegend {

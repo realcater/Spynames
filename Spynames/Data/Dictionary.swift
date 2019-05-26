@@ -1,4 +1,39 @@
 struct Ru {
+    static let tutorialWords = [
+        "КЛАСС",
+        "СЛОН",
+        "ОРГАН",
+        "ЗЕМЛЯ",
+        "ОВСЯНКА",
+        "РУЛЕТКА",
+        "РУКАВ",
+        "ЛЕВ",
+        "БАССЕЙН",
+        "ФИНКА",
+        "МАТ",
+        "ПЕЧАТЬ",
+        "АЛЬБОМ",
+        "СНЕГОВИК",
+        "СОЛДАТ",
+        "ПЛАТЬЕ",
+        "ОЧКИ",
+        "ЛИНИЯ",
+        "КАМЕРА",
+        "ПАРА",
+        "ГРЕБЕНЬ",
+        "БАНК",
+        "КАБИНЕТ",
+        "ПУСТЫНЯ",
+        "ФАЛАНГА"
+        ]
+    static let tutorialColors: [CardColor] = [
+        .red, .red, .blue, .neutral, .neutral,
+        .blue, .red, .red, .neutral, .blue,
+        .black, .blue, .blue, .blue, .neutral,
+        .neutral, .red, .blue, .neutral, .red,
+        .blue, .red, .red, .red, .neutral
+    ]
+    static let tutorialHint = "Африка"
     static let words = [
         "АГЕНТ",
         "АКТ",

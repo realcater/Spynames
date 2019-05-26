@@ -19,6 +19,7 @@ class EnterHintVC: UIViewController {
     var maxQty: Int!
     weak var delegate: ReturnHintDelegate?
     var hint: Hint!
+    var isTutorial: Bool!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,6 +38,21 @@ class EnterHintVC: UIViewController {
 
         mainView.setBackgroundImage(named: "paper_600x450px", alpha: 1, contentMode: .scaleToFill)
         confirmButton.makeRounded(color: K.Colors.mainVCbuttons, sound: K.Sounds.click)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isTutorial {
+            textField.addLettersOneByOne(text: Ru.tutorialHint, inDuration: 1.5)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+                self.pickerView.selectRow(2, inComponent: 0, animated: true)
+            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+                self.hint = self.hintInPicker
+                print(self.hint.qty)
+                print(self.hint.text)
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
     }
 }
 //MARK: - GestureRecognizer

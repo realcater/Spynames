@@ -2,7 +2,8 @@ import UIKit
 
 class PlayerStatusIcon {
     private var _active: Bool = false
-    private var _online: Bool = false
+    private var _online: Bool = true
+    private var _blink: Bool = false
     var bar: UIView
     var image: UIImageView
     var playerType: PlayerType
@@ -34,6 +35,24 @@ class PlayerStatusIcon {
         }
         get {
             return _online
+        }
+    }
+    var blink: Bool {
+        set {
+            if newValue != _blink {
+                _blink = newValue
+                switch _blink {
+                    case true:
+                        bar.startBlink(withDuration: K.Delays.playerStatusIconsBlink)
+                        image.startBlink(withDuration: K.Delays.playerStatusIconsBlink)
+                    case false:
+                        bar.stopBlink()
+                        image.stopBlink()
+                }
+            }
+        }
+        get {
+            return _blink
         }
     }
     

@@ -40,7 +40,10 @@ class MainVC: UIViewController {
     var wordsTVC: WordsTVC!
     var rightViewShown = true
     var leftViewShown = true
-    var leftButtonState = LeftButtonState.hint
+    private var _leftButtonState: LeftButtonState = .hint
+    
+    
+    
 }
 //MARK: - override functions
 extension MainVC {
@@ -59,7 +62,8 @@ extension MainVC {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        startNewGame()
+        //startNewGame()
+        tutorial()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -105,6 +109,7 @@ private extension MainVC {
             Player(team: .blueTeam, type: .operatives):
                 PlayerStatusIcon(playerType: .operatives, team: .blueTeam, bar: statusIconBars[3], image: statusIconImages[3])
         ]
+        
     }
     func prepareChat() {
         leftButton.makeRounded(color: K.Colors.hintOrPassButton)
@@ -113,13 +118,29 @@ private extension MainVC {
         
     }
     
-    func revealCardsColors() {
-        showLegend(fade: true)
-        updateTableFromPersonalList(withDelay: true)
-    }
+    
 }
 //MARK: - Ongoing use public functions
 extension MainVC {
+    var leftButtonState: LeftButtonState {
+        get {
+            return _leftButtonState
+        }
+        set  {
+            _leftButtonState = newValue
+            leftButton.setTitle(
+                K.Labels.Buttons.left[_leftButtonState], for: .normal)
+        }
+    }
+    func revealCardsColors(color: CardColor? = nil) {
+        showLegend(fade: true, color: color)
+        switch color {
+        case .red?: updateTableFromPersonalList(withDelay: true, team: .redTeam)
+        case .blue?: updateTableFromPersonalList(withDelay: true, team: .blueTeam)
+        case nil: updateTableFromPersonalList(withDelay: true, team: game.currentPlayer.team)
+        default: break
+        }
+    }
     func startNewGame() {
         game = Game()
         game.delegate = self
@@ -132,10 +153,12 @@ extension MainVC {
         updateAndRevealWords()
         updateChat()
         
+        
         placeCards()
     }
     
     func placeCards() {
+        
         zoomedView.clearSubviews()
         if K.CardsAnimation.show {
             DispatchQueue.main.asyncAfter(deadline: .now() + K.CardsAnimation.delaySound, execute: {
@@ -156,8 +179,6 @@ extension MainVC {
     
     func LookAround() {
         leftButtonState = .newGame
-        leftButton.setTitle(
-            K.Labels.Buttons.left[leftButtonState], for: .normal)
     }
     
     func nextTurn(withPause: Bool = true) {
@@ -204,6 +225,7 @@ extension MainVC {
 private extension MainVC {
     @IBAction func pressLeftButton(_ sender: Any) {
         switch leftButtonState {
+            case .tutorial: showNextMessage()
             case .hint: performSegue(withIdentifier: "toEnterHintVC", sender: sender)
             case .pass: nextTurn(withPause: false)
             case .newGame: startNewGame()
@@ -213,10 +235,12 @@ private extension MainVC {
         enterHintVC.delegate = self
         enterHintVC.hint = notConfirmedHint
         enterHintVC.maxQty = game.leftWordsQty[game.currentPlayer.team]
+        enterHintVC.isTutorial = game.isTutorial
     }
     func updateStatusIcons() {
         for team in Team.allCases {
             for playerType in PlayerType.allCases {
+                statusIcons[Player(team: team, type: playerType)]!.online = true
                 if (game.currentPlayer.team == team) && (game.currentPlayer.type == playerType) {
                     statusIcons[Player(team: team, type: playerType)]!.active = true
                 } else {
@@ -225,14 +249,14 @@ private extension MainVC {
             }
         }
     }
-    func updateTableFromPersonalList(withDelay: Bool) {
+    func updateTableFromPersonalList(withDelay: Bool, team: Team? = nil) {
         wordsTVC.deleteAll()
-        let personalList = game.personalList[game.currentPlayer.team]!
-        for (i, card) in personalList.enumerated() {
-            let delay = withDelay ? Double(i)*K.Delays.betweenWordsToTable+K.Delays.beforeFirstWordToTable : 0
-            DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
-                self.wordsTVC.insertRow(card: card, at: i)
-            })
+        let personalList = (team == nil) ? self.game.personalList[game.currentPlayer.team]! : self.game.personalList[team!]!
+        var i=0
+        Timer.scheduledTimer(withTimeInterval: K.Delays.betweenWordsToTable, repeats: true) { timer in
+            self.wordsTVC.insertRow(card: personalList[i], at: i)
+            i+=1
+            if i==personalList.count { timer.invalidate() }
         }
     }
     
@@ -241,8 +265,6 @@ private extension MainVC {
     }
     func updateLeftButton() {
         leftButtonState = (game.currentPlayer.type == .spymaster) ? .hint : .pass
-        leftButton.setTitle(
-            K.Labels.Buttons.left[leftButtonState], for: .normal)
     }
     func updateAndRevealWords() {
         wordsTVC.delegate = game
@@ -252,29 +274,6 @@ private extension MainVC {
     }
     func updateChat() {
         chatView.clear()
-        let m1 = Message(text: "Hi! Red spymaster is here!", team: .redTeam, player: .spymaster)
-        let m2 = Message(text: "Hi! Blue spymaster is here!", team: .blueTeam, player: .spymaster)
-        let m3 = Message(text: "Hi! Red operatives are here!", team: .redTeam, player: .operatives)
-        let m4 = Message(text: "Hi! Blue operatives are here!", team: .blueTeam, player: .operatives)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
-            self.chatView.add(m1)
-            self.statusIcons[Player(team: .redTeam, type: .spymaster)]!.online = true
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5, execute: {
-            self.chatView.add(m2)
-            self.statusIcons[Player(team: .blueTeam, type: .spymaster)]!.online = true
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
-            self.chatView.add(m3)
-            self.statusIcons[Player(team: .redTeam, type: .operatives)]!.online = true
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5, execute: {
-            self.chatView.add(m4)
-            self.statusIcons[Player(team: .blueTeam, type: .operatives)]!.online = true
-            self.statusIcons[Player(team: self.game.currentPlayer.team,
-                                    type: self.game.currentPlayer.type)]!.active = true
-            
-        })
     }
 }
 

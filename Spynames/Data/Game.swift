@@ -12,6 +12,7 @@ class Game {
     var personalList: [Team: [Card]] = [.redTeam: [], .blueTeam: []]
     var showLegend = true
     var isOver = false
+    var isTutorial: Bool
     
     var cardsOfCurrentTeam: [Card] {
         get {
@@ -44,14 +45,15 @@ class Game {
             return currentHint!.qty - guessedThisTurn+1
         }
     }
-    init() {
+    init(isTutorial: Bool = false) {
         startTeam = .redTeam
         currentPlayer = Player(team: .redTeam, type: .spymaster)
         devicesQty = 1
         activeDeviceIndex = 0
+        self.isTutorial = isTutorial
 
         for color in CardColor.allCases { leftCardsOf[color] = [] }
-        generateCards()
+        generateCards(isTutorial: isTutorial)
         generatePersonalLists()
     }
     func nextTurn() {
@@ -62,9 +64,9 @@ class Game {
 }
 
 private extension Game {
-    func generateCards() {
-        let cardsColors = getRandomCardsColors()
-        let cardsTexts = Helper.getRandomUnique(from: Ru.words, qty: K.Game.ttlCardsQty) as! [String]
+    func generateCards(isTutorial: Bool) {
+        let cardsColors = isTutorial ? Ru.tutorialColors : getRandomCardsColors()
+        let cardsTexts = isTutorial ? Ru.tutorialWords : Helper.getRandomUnique(from: Ru.words, qty: K.Game.ttlCardsQty) as! [String]
         
         for (cardText, cardColor) in zip(cardsTexts, cardsColors) {
             let card = Card(text: cardText.capitalizingFirstLetter(), color: cardColor)
@@ -74,10 +76,10 @@ private extension Game {
             }
     }
     func generatePersonalLists() {
-        for card in (leftCardsOf[CardColor.red]!+leftCardsOf[CardColor.black]!) {
+        for card in leftCardsOf[CardColor.red]! {
             personalList[.redTeam]!.append(card)
         }
-        for card in (leftCardsOf[CardColor.blue]!+leftCardsOf[CardColor.black]!) {
+        for card in leftCardsOf[CardColor.blue]! {
             personalList[.blueTeam]!.append(card)
         }
     }
