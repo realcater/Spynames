@@ -67,7 +67,9 @@ extension MainVC: MainVCDelegate {
             if game.canGuessMore {
                 uicard.cover()
                 let message = Message(text: uicard.card.word, team: game.currentPlayer.team, player: .operatives, cardColor: uicard.card.color)
-                chatView.add(message)
+                if !game.isTutorial || game.currentPlayer.team == .redTeam {
+                    chatView.add(message)
+                }
                 if !game.canGuessMore {
                     nextTurn()
                 } else {
@@ -87,6 +89,7 @@ extension MainVC: MainVCDelegate {
         }
     }
     func gameOver(withBomb: Bool = false) {
+        var alert: UIAlertController!
         game.isOver = true
         showLegend(fade: true)
 
@@ -99,8 +102,13 @@ extension MainVC: MainVCDelegate {
             AlertButton(text: K.Labels.gameOverAlert.buttonsText[1], action: self.LookAround)
         ]
         DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.nextTurnAlert, execute: {
-            self.addAlertDialog(title: title, message: message, alertButtons: alertButtons)
+            alert = self.addAlertDialog(title: title, message: message, alertButtons: alertButtons)
         })
+        if game.isTutorial {
+            DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.nextTurnAlert + T.Delay.skipAlert, execute: {
+                alert.dismiss(animated: true, completion: alertButtons[1].action)
+            })
+        }
     }
 }
 

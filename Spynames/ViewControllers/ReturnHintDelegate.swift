@@ -4,6 +4,7 @@ import UIKit
 protocol ReturnHintDelegate: class {
     func addHint(hint: Hint)
     func nextTurn()
+    func currentTeam() -> Team
 }
 
 //MARK: - delegates
@@ -15,6 +16,9 @@ extension MainVC: ReturnHintDelegate {
     }
     func nextTurn() {
         nextTurn(withPause: true)
+    }
+    func currentTeam() -> Team {
+        return game.currentPlayer.team
     }
     
 }

@@ -42,15 +42,17 @@ class EnterHintVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isTutorial {
-            textField.addLettersOneByOne(text: Ru.tutorialHint, inDuration: 1.5)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-                self.pickerView.selectRow(2, inComponent: 0, animated: true)
+            let currentTeam = delegate?.currentTeam()
+            textField.addLettersOneByOne(text: Ru.tutorialHint[currentTeam!]!, inDuration: T.Delay.enterHintText)
+            DispatchQueue.main.asyncAfter(deadline: .now() + T.Delay.enterHintText, execute: {
+                self.pickerView.selectRow(T.picker[currentTeam!]!, inComponent: 0, animated: true)
             })
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + T.Delay.enterHintText + T.Delay.changePicker, execute: {
                 self.hint = self.hintInPicker
                 print(self.hint.qty)
                 print(self.hint.text)
-                self.dismiss(animated: true, completion: nil)
+                //self.dismiss(animated: true, completion: nil)
+                self.pressConfirmButton(self.confirmButton)
             })
         }
     }

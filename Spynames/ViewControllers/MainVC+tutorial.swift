@@ -30,7 +30,6 @@ struct T {
         Message(text: "First 3 words in our case", team: .redTeam, player: .spymaster, delay: 1.5),
         Message(text: "Than she tells her operatives this hint", team: .blueTeam, player: .spymaster, delay: 1.0),
         Message(text: "and a number showing how many words are combined", team: .blueTeam, player: .spymaster, delay: 1.5),
-        Message(text: Ru.tutorialHint+": 3", team: .redTeam, player: .spymaster, delay: 1.5),
         Message(text: "Operatives choose what words suit better", team: .redTeam, player: .operatives, delay: 1.5),
         Message(text: "They can guess no more than the number of words Spymaster combined", team: .blueTeam, player: .operatives, delay: 1.5),
         Message(text: "plus one", team: .blueTeam, player: .operatives, delay: 1.5),
@@ -44,20 +43,40 @@ struct T {
         Message(text: "Or", team: .blueTeam, player: .operatives, delay: 0.5),
         Message(text: "The game ends if one team", team: .blueTeam, player: .operatives, delay: 1.0),
         Message(text: "guess the bomb!", team: .blueTeam, player: .operatives, delay: 1.5),
-        Message(text: "This team is a looser", team: .blueTeam, player: .spymaster, delay: 1.5),
+        Message(text: "That team is a looser", team: .blueTeam, player: .spymaster, delay: 1.5),
         Message(text: "Good luck!", team: .redTeam, player: .spymaster)
     ]
-    static let totalDelayBefore: [Double] = {
-        var result: [Double] = [0]
-        var sum: Double = 0
-        for m in messages.dropLast() {
-            sum+=m.delay
-            result.append(sum)
-        }
-        return result
-    }()
-    static let totalDelay = totalDelayBefore.last! + messages.last!.delay
+    static let tutorialColors: [CardColor] = [
+        .red, .red, .blue, .neutral, .neutral,
+        .blue, .red, .red, .neutral, .blue,
+        .black, .blue, .blue, .blue, .neutral,
+        .neutral, .red, .blue, .neutral, .red,
+        .blue, .red, .red, .red, .neutral
+    ]
+    static let lastSixRedCardsNums = [12,5,2,20,9,11,17,13]
+    
+    struct Delay {
+        static let totalBefore: [Double] = {
+            var result: [Double] = [0]
+            var sum: Double = 0
+            for m in messages.dropLast() {
+                sum+=m.delay
+                result.append(sum)
+            }
+            return result
+        }()
+        static let total = T.Delay.totalBefore.last! + messages.last!.delay
+        static let betweenCards = 0.5
+        static let enterHintText = 0.8
+        static let changePicker = 0.5
+        static let skipAlert = 1.5
+    }
+    static let picker = [
+        Team.redTeam: 2,
+        Team.blueTeam: 7
+    ]
 }
+
 extension MainVC {
     /*func tutorial() {
         leftButtonState = .tutorial
@@ -71,6 +90,7 @@ extension MainVC {
     }*/
     func tutorial() {
         leftButtonState = .tutorial
+        titleBar.text = "How it works?"
         game = Game(isTutorial: true)
         game.delegate = self
         T.prevTutorialTime = Date()
@@ -86,13 +106,9 @@ extension MainVC {
         let dif = T.prevTutorialTime.timeIntervalSinceNow
         print(dif)
         T.prevTutorialTime = Date()
-        if T.messageNumber == T.messages.count-1 {
-            leftButtonState = .hint
-        }
     }
     func showEventAfterMessage(messageNumber: Int) {
         switch messageNumber {
-        
         case 5:
             statusIcons![Player(team: .redTeam, type: .spymaster)]!.blink = true
             statusIcons[Player(team: .redTeam, type: .operatives)]!.blink = true
@@ -153,8 +169,8 @@ extension MainVC {
             hideLegend(fade: true)
         case 17:
             revealCardsColors()
+            updateTitleBar()
             statusIcons![Player(team: .redTeam, type: .spymaster)]!.active = true
-            //statusIcons[Player(team: .blueTeam, type: .spymaster)]!.active = false
             statusIcons![Player(team: .redTeam, type: .operatives)]!.active = false
             statusIcons[Player(team: .blueTeam, type: .operatives)]!.active = false
         case 19:
@@ -169,22 +185,33 @@ extension MainVC {
         case 26:
             performSegue(withIdentifier: "toEnterHintVC", sender: leftButton)
         case 28:
-            hideLegend(fade: true)
-            var title = K.Labels.titleBar.waiting[.operatives]!
-            title = title.replacingOccurrences(of: "XXX", with: "4")
-            self.titleBar.text = title
-        case 29:
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
-                self.uicards[1].cover()
+                self.pressed(uicard: self.uicards[1])
             }
             Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
-                self.uicards[23].cover()
+                self.pressed(uicard: self.uicards[23])
             }
+        case 30:
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
+                self.pressed(uicard: self.uicards[3])
+            }
+        case 31:
+            nextTurn()
         case 32:
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
-                self.uicards[3].cover()
+                self.nextTurn()
+                self.performSegue(withIdentifier: "toEnterHintVC", sender: self.leftButton)
             }
-        case T.messages.count: placeCards()
+        case 34:
+            for (i,number) in T.lastSixRedCardsNums.enumerated() {
+                Timer.scheduledTimer(withTimeInterval: T.Delay.betweenCards*Double(i), repeats: false) { _ in
+                    self.pressed(uicard: self.uicards[number])
+                }
+            }
+        case 38:
+            uicards[10].cover()
+        case T.messages.count:
+            leftButtonState = .newGame
         default: ()
         }
     }

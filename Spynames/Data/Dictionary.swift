@@ -26,14 +26,11 @@ struct Ru {
         "ПУСТЫНЯ",
         "ФАЛАНГА"
         ]
-    static let tutorialColors: [CardColor] = [
-        .red, .red, .blue, .neutral, .neutral,
-        .blue, .red, .red, .neutral, .blue,
-        .black, .blue, .blue, .blue, .neutral,
-        .neutral, .red, .blue, .neutral, .red,
-        .blue, .red, .red, .red, .neutral
+    
+    static let tutorialHint = [
+        Team.redTeam: "Африка",
+        Team.blueTeam: "Каргополь"
     ]
-    static let tutorialHint = "Африка"
     static let words = [
         "АГЕНТ",
         "АКТ",

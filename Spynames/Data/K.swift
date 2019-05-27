@@ -243,7 +243,7 @@ struct K {
         static let fadeTimeAppearCard = 1.5
         static let beforeFadeCardsColors = 1.0
         static let beforeFirstWordToTable = 0.0
-        static let betweenWordsToTable = 0.2
+        static let betweenWordsToTable = 0.0
         static let nextTurnAlert = 1.0
         static let titleBarText = 0.5
         static let showAllWords = 1.0

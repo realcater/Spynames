@@ -53,7 +53,7 @@ class Game {
         self.isTutorial = isTutorial
 
         for color in CardColor.allCases { leftCardsOf[color] = [] }
-        generateCards(isTutorial: isTutorial)
+        generateCards()
         generatePersonalLists()
     }
     func nextTurn() {
@@ -64,8 +64,8 @@ class Game {
 }
 
 private extension Game {
-    func generateCards(isTutorial: Bool) {
-        let cardsColors = isTutorial ? Ru.tutorialColors : getRandomCardsColors()
+    func generateCards() {
+        let cardsColors = isTutorial ? T.tutorialColors : getRandomCardsColors()
         let cardsTexts = isTutorial ? Ru.tutorialWords : Helper.getRandomUnique(from: Ru.words, qty: K.Game.ttlCardsQty) as! [String]
         
         for (cardText, cardColor) in zip(cardsTexts, cardsColors) {
