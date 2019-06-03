@@ -192,7 +192,7 @@ struct K {
             static let operatives = "Operatives"
             static let startGame = "Start a game!"
             static let left = [
-                LeftButtonState.tutorial: "Next",
+                LeftButtonState.tutorial: "Skip",
                 LeftButtonState.hint: "Give a hint",
                 LeftButtonState.pass: "PASS",
                 LeftButtonState.newGame: "New game"

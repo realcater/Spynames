@@ -84,33 +84,39 @@ struct T {
 }
 
 extension MainVC {
+    
     func tutorial() {
         leftButtonState = .tutorial
         titleBar.text = "How it works?"
         game = Game(isTutorial: true)
         game.delegate = self
         T.prevTutorialTime = Date()
-        
+        setTimers()
+    }
+
+    func skipTutorial() {
+        self.invalidateTimers()
+        let title = "Skip tutorial"
+        let message = "Do you really want to skip the tutorial and start a new game?"
+        let alertButtons = [
+            AlertButton(text: "New game", action: self.startNewGame),
+            AlertButton(text: "Go on with Tutorial", action: self.setTimers)
+        ]
+        _ = self.addAlertDialog(title: title, message: message, alertButtons: alertButtons)
+    }
+    func setTimers() {
         for (i,m) in T.messages.enumerated() {
-            Timer.scheduledTimer(withTimeInterval: T.Delay.totalBefore[i], repeats: false) { timer in
+            let timer = Timer.scheduledTimer(withTimeInterval: T.Delay.totalBefore[i], repeats: false) { timer in
                 self.chatView.add(m)
                 self.showEventAfterMessage(messageNumber: i)
             }
+            tutorialTimers.append(timer)
         }
-        /*T.messageNumber = 0
-        chatView.add(T.messages[0])*/
-            
     }
-    func showNextMessage() {
-        T.messageNumber+=1
-        print("Message#\(T.messageNumber)")
-        let message = T.messages[T.messageNumber]
-        chatView.add(message)
-        showEventAfterMessage(messageNumber: T.messageNumber)
-
-        let dif = T.prevTutorialTime.timeIntervalSinceNow
-        print(dif)
-        T.prevTutorialTime = Date()
+    func invalidateTimers() {
+        for timer in self.tutorialTimers {
+            timer.invalidate()
+        }
     }
     func showEventAfterMessage(messageNumber: Int) {
         switch messageNumber {

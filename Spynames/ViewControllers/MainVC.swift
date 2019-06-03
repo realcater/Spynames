@@ -41,9 +41,7 @@ class MainVC: UIViewController {
     var rightViewShown = true
     var leftViewShown = true
     private var _leftButtonState: LeftButtonState = .hint
-    
-    
-    
+    var tutorialTimers: [Timer] = []
 }
 //MARK: - override functions
 extension MainVC {
@@ -62,7 +60,6 @@ extension MainVC {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //startNewGame()
         tutorial()
     }
     
@@ -227,7 +224,7 @@ extension MainVC {
 private extension MainVC {
     @IBAction func pressLeftButton(_ sender: Any) {
         switch leftButtonState {
-            case .tutorial: showNextMessage()
+            case .tutorial: skipTutorial()
             case .hint: performSegue(withIdentifier: "toEnterHintVC", sender: sender)
             case .pass: nextTurn(withPause: false)
             case .newGame: startNewGame()
