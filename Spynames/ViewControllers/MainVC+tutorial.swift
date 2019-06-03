@@ -27,7 +27,8 @@ struct T {
         Message(text: "drag-and-drop to move", team: .redTeam, player: .spymaster, delay: 1.0),
         Message(text: "double-tap to separate", team: .redTeam, player: .spymaster, delay: 1.0),
         Message(text: "And she come up with a hint that combines some of them", team: .redTeam, player: .spymaster, delay: 1.5),
-        Message(text: "First 3 words in our case", team: .redTeam, player: .spymaster, delay: 1.5),
+        Message(text: "First 3 words in our case:", team: .redTeam, player: .spymaster, delay: 1.5),
+        Message(text: "\(Ru.tutorialWords[7]), \(Ru.tutorialWords[1]) and \(Ru.tutorialWords[23])", team: .redTeam, player: .spymaster, delay: 1.5),
         Message(text: "Than she tells her operatives this hint", team: .blueTeam, player: .spymaster, delay: 1.0),
         Message(text: "and a number showing how many words are combined", team: .blueTeam, player: .spymaster, delay: 1.5),
         Message(text: "Operatives choose what words suit better", team: .redTeam, player: .operatives, delay: 1.5),
@@ -69,7 +70,7 @@ struct T {
         static let betweenCards = 0.5
         static let enterHintText = 0.8
         static let changePicker = 0.5
-        static let skipAlert = 1.5
+        static let skipAlert = 1.2
     }
     static let picker = [
         Team.redTeam: 2,
@@ -99,6 +100,7 @@ extension MainVC {
     }
     func showNextMessage() {
         T.messageNumber+=1
+        print("Message#\(T.messageNumber)")
         let message = T.messages[T.messageNumber]
         chatView.add(message)
         showEventAfterMessage(messageNumber: T.messageNumber)
@@ -182,35 +184,33 @@ extension MainVC {
             })
         case 21:
             wordsTVC.insertRow(card: Card(text: "", color: .neutral), at: 3)
-        case 26:
+        case 27:
             performSegue(withIdentifier: "toEnterHintVC", sender: leftButton)
-        case 28:
+        case 29:
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
                 self.pressed(uicard: self.uicards[1])
             }
             Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
                 self.pressed(uicard: self.uicards[23])
             }
-        case 30:
+        case 31:
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
                 self.pressed(uicard: self.uicards[3])
             }
-        case 31:
-            nextTurn()
-        case 32:
+        
+        case 33:
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
-                self.nextTurn()
                 self.performSegue(withIdentifier: "toEnterHintVC", sender: self.leftButton)
             }
-        case 34:
+        case 35:
             for (i,number) in T.lastSixRedCardsNums.enumerated() {
                 Timer.scheduledTimer(withTimeInterval: T.Delay.betweenCards*Double(i), repeats: false) { _ in
                     self.pressed(uicard: self.uicards[number])
                 }
             }
-        case 38:
-            uicards[10].cover()
-        case T.messages.count:
+        case 39:
+            uicards[10].cover(withDuration: K.Delays.fadeTimeAppearCard)
+        case T.messages.count-1:
             leftButtonState = .newGame
         default: ()
         }

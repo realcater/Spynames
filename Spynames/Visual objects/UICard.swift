@@ -47,9 +47,9 @@ class UICard {
         let duration = fade ? K.Delays.fadeTimeAppearCard : 0.0
         redraw(withDuration: duration)
     }
-    func cover() {
+    func cover(withDuration duration: Double = 0) {
         card.guessed = !card.guessed
-        redraw()
+        redraw(withDuration: duration)
         delegate?.updateScoreLabels()
         delegate?.updateLeftWordsQtyLabels()
     }
