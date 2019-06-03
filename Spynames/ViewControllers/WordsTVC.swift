@@ -73,7 +73,7 @@ extension WordsTVC {
         let indexPathAt = IndexPath(row: at, section: 0)
         let indexPathTo = IndexPath(row: to, section: 0)
         //tableView.beginUpdates()
-        UIView.animate(withDuration: K.Delays.moveOneRow * Double(abs(at-to)), animations: {
+        UIView.animate(withDuration: K.Delays.moveOneRow /** Double(abs(at-to))*/, animations: {
             self.tableView.moveRow(at: indexPathAt, to: indexPathTo)
         })
         for card in cards { print(card.word) }

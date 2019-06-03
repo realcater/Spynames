@@ -105,7 +105,7 @@ extension MainVC: MainVCDelegate {
             alert = self.addAlertDialog(title: title, message: message, alertButtons: alertButtons)
         })
         if game.isTutorial {
-            DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.nextTurnAlert + T.Delay.skipAlert, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + K.Delays.nextTurnAlert + T.Delay.skipAlertGameOver, execute: {
                 alert.dismiss(animated: true, completion: alertButtons[1].action)
             })
         }

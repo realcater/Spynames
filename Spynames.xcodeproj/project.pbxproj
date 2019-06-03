@@ -34,6 +34,7 @@
 		CA88555A229AF56C00A8574A /* UITextField+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA885559229AF56C00A8574A /* UITextField+extension.swift */; };
 		CA88963021CC1CEC00DB26EB /* UIScrollView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */; };
 		CA8C4F19220B09520045FCC2 /* UICard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8C4F18220B09520045FCC2 /* UICard.swift */; };
+		CAB635A122A59AD800CA81BE /* stairs.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAB635A022A59AD800CA81BE /* stairs.mp3 */; };
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
 		CAC1513E2188F2B400FA96CA /* GameCreatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */; };
 		CAC5BA4921F48FB4001763C5 /* PlayerStatusIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5BA4821F48FB4001763C5 /* PlayerStatusIcon.swift */; };
@@ -85,6 +86,7 @@
 		CA885559229AF56C00A8574A /* UITextField+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extension.swift"; sourceTree = "<group>"; };
 		CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+extension.swift"; sourceTree = "<group>"; };
 		CA8C4F18220B09520045FCC2 /* UICard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICard.swift; sourceTree = "<group>"; };
+		CAB635A022A59AD800CA81BE /* stairs.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stairs.mp3; sourceTree = "<group>"; };
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreatedVC.swift; sourceTree = "<group>"; };
 		CAC5BA4821F48FB4001763C5 /* PlayerStatusIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusIcon.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		CAD84F0A21875FA000E6C6E0 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				CAB635A022A59AD800CA81BE /* stairs.mp3 */,
 				CA398039221450660050FB54 /* cards.wav */,
 				CAD84F0C21875FD200E6C6E0 /* click.wav */,
 				CAD84F0D21875FD200E6C6E0 /* false.wav */,
@@ -298,6 +301,7 @@
 				CAD84F0E21875FD200E6C6E0 /* true.wav in Resources */,
 				CAD84F0F21875FD200E6C6E0 /* click.wav in Resources */,
 				CA3528F72182319B005C489B /* Google-spies.ttf in Resources */,
+				CAB635A122A59AD800CA81BE /* stairs.mp3 in Resources */,
 				CA35290121874162005C489B /* Top Secret Stamp.ttf in Resources */,
 				CA814BC2217F62820009D072 /* LaunchScreen.storyboard in Resources */,
 				CA814BBF217F62820009D072 /* Assets.xcassets in Resources */,

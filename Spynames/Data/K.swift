@@ -76,8 +76,9 @@ struct K {
         }
     }
     struct Sounds {
-        static let click = initSound(filename: "click.wav", volume: 0.2)
+        static let click = initSound(filename: "click.wav", volume: 0.1)
         static let cards = initSound(filename: "cards.wav", volume: 0.5)
+        //static let message = initSound(filename: "stairs.mp3", volume: 0.5)
         //static let correct = initSound(filename: "true.wav", volume: 0.2)
         //static let error = initSound(filename: "false.wav", volume: 0.5)
         static let messageSoundID: SystemSoundID = 1016
@@ -248,6 +249,6 @@ struct K {
         static let titleBarText = 0.5
         static let showAllWords = 1.0
         static let playerStatusIconsBlink = 0.6
-        static let moveOneRow = 0.25
+        static let moveOneRow = 0.5
     }
 }
