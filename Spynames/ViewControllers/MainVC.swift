@@ -265,7 +265,8 @@ private extension MainVC {
         wordsTVC.deleteAll()
         let personalList = (team == nil) ? self.game.personalList[game.currentPlayer.team]! : self.game.personalList[team!]!
         var i=0
-        Timer.scheduledTimer(withTimeInterval: K.Delays.betweenWordsToTable, repeats: true) { timer in
+        let delay = withDelay ? K.Delays.betweenWordsToTable : 0
+        Timer.scheduledTimer(withTimeInterval: delay, repeats: true) { timer in
             self.wordsTVC.insertRow(card: personalList[i], at: i)
             i+=1
             if i==personalList.count { timer.invalidate() }

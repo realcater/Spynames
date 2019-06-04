@@ -14,6 +14,11 @@ class Game {
     var isOver = false
     var isTutorial: Bool
     
+    var currentPlayerMaxCardsQty: Int {
+        get {
+            return K.Game.cardsQty[currentPlayer.team.toCardColor()]![startTeam]!
+        }
+    }
     var cardsOfCurrentTeam: [Card] {
         get {
             return leftCardsOf[currentPlayer.team.toCardColor()]!
@@ -42,7 +47,8 @@ class Game {
         if currentHint?.qty == 0 || currentHint?.qty == Int.max {
             return Int.max
         } else {
-            return currentHint!.qty - guessedThisTurn+1
+            let currentPlayerMaxCardsQty = K.Game.cardsQty[currentPlayer.team.toCardColor()]![startTeam]!
+            return min(currentHint!.qty - guessedThisTurn+1, currentPlayerMaxCardsQty)
         }
     }
     init(isTutorial: Bool = false) {

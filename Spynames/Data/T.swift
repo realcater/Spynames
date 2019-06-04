@@ -1,3 +1,5 @@
+// Tutorial constants
+
 struct T {
     static let messages = [
         Message(text: "Hi, this is Spynames!", team: .redTeam, player: .spymaster, delay: Delay.std),
@@ -19,8 +21,8 @@ struct T {
         Message(text: "and Operatives don't know", team: .redTeam, player: .operatives, delay: Delay.std2),
         Message(text: "Spymaster's task is to give their Operatives a hint", team: .blueTeam, player: .spymaster, delay: Delay.std3),
         Message(text: "that helps them to learn which their words are", team: .blueTeam, player: .spymaster, delay: Delay.std3),
-        Message(text: "She can group her words in a list on the right:", team: .redTeam, player: .spymaster, delay: Delay.std),
-        Message(text: "drag-and-drop to move", team: .redTeam, player: .spymaster, delay: 4.2),
+        Message(text: "She can group her words in a list on the right:", team: .redTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "drag-and-drop to move", team: .redTeam, player: .spymaster, delay: 4.8),
         Message(text: "double-tap to separate", team: .redTeam, player: .spymaster, delay: Delay.std3),
         Message(text: "And she come up with a hint that combines some of them", team: .redTeam, player: .spymaster, delay: Delay.std2),
         Message(text: "First 3 words in our case:", team: .redTeam, player: .spymaster, delay: Delay.std2),
@@ -28,7 +30,7 @@ struct T {
         Message(text: "Than she tells her operatives this hint", team: .blueTeam, player: .spymaster, delay: Delay.std),
         Message(text: "and a number showing how many words are combined", team: .blueTeam, player: .spymaster, delay: 7.0),
         Message(text: "It's Operatives' turn now", team: .redTeam, player: .operatives, delay: Delay.std2),
-        Message(text: "They choose what words suit better", team: .redTeam, player: .operatives, delay: Delay.std3),
+        Message(text: "They choose which words suit better", team: .redTeam, player: .operatives, delay: Delay.std3),
         Message(text: "They can guess no more than the number of words Spymaster combined", team: .blueTeam, player: .operatives, delay: Delay.std),
         Message(text: "plus one", team: .blueTeam, player: .operatives, delay: 5.5),
         Message(text: "And they stop guessing as soon as", team: .redTeam, player: .operatives, delay: Delay.std),
@@ -37,12 +39,12 @@ struct T {
         Message(text: "makes his turn", team: .blueTeam, player: .spymaster, delay: 7.5),
         Message(text: "The game ends when one team", team: .redTeam, player: .operatives, delay: Delay.std),
         Message(text: "guess all its words", team: .blueTeam, player: .operatives, delay: 7.8),
-        Message(text: "This team is a winner", team: .blueTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "This team is a winner", team: .blueTeam, player: .spymaster, delay: Delay.std),
         Message(text: "Or", team: .redTeam, player: .operatives, delay: Delay.std),
         Message(text: "The game ends if one team", team: .redTeam, player: .operatives, delay: Delay.std2),
         Message(text: "guess the bomb!", team: .redTeam, player: .operatives, delay: 4.5),
         Message(text: "That team is a looser", team: .redTeam, player: .spymaster, delay: 4.5),
-        Message(text: "Good luck!", team: .blueTeam, player: .spymaster)
+        Message(text: "Good luck!", team: .blueTeam, player: .operatives)
     ]
     static let tutorialColors: [CardColor] = [
         .red, .red, .blue, .neutral, .neutral,
@@ -55,7 +57,7 @@ struct T {
     
     struct Delay {
         static let totalBefore: [Double] = {
-            var result: [Double] = [0]
+            var result: [Double] = [0.01] //a delay for 1st event
             var sum: Double = 0
             for m in messages.dropLast() {
                 sum+=m.delay

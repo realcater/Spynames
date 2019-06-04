@@ -90,10 +90,10 @@ extension MainVC: MainVCTutorialDelegate {
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
                 self.wordsTVC.moveRow(at: 3, to: 0)
             }
-            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { timer in
                 self.wordsTVC.moveRow(at: 2, to: 1)
             }
-            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
+            Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
                 self.wordsTVC.moveRow(at: 8, to: 2)
             }
         case 21:
