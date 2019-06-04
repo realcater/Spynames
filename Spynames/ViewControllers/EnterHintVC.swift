@@ -49,9 +49,6 @@ class EnterHintVC: UIViewController {
             })
             DispatchQueue.main.asyncAfter(deadline: .now() + T.Delay.enterHintText + T.Delay.changePicker, execute: {
                 self.hint = self.hintInPicker
-                print(self.hint.qty)
-                print(self.hint.text)
-                //self.dismiss(animated: true, completion: nil)
                 self.pressConfirmButton(self.confirmButton)
             })
         }

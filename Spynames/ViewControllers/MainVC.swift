@@ -35,13 +35,15 @@ class MainVC: UIViewController {
     
     var statusIcons: [Player: PlayerStatusIcon]!
     var game: Game!
+    var tutorial: Tutorial!
     var notConfirmedHint = Hint()
     var uicards = [UICard]()
     var wordsTVC: WordsTVC!
     var rightViewShown = true
     var leftViewShown = true
     private var _leftButtonState: LeftButtonState = .hint
-    var tutorialTimers: [Timer] = []
+    
+    
 }
 //MARK: - override functions
 extension MainVC {
@@ -60,7 +62,8 @@ extension MainVC {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tutorial()
+        //startTutorial()
+        tutorial = Tutorial(VCDelegate: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -219,12 +222,22 @@ extension MainVC {
                             self.titleBar.text = title
         }, completion: nil)
     }
+    func showSkipTutorialAlert() {
+        tutorial.pause()
+        let title = "Skip tutorial"
+        let message = "Do you really want to skip the tutorial and start a new game?"
+        let alertButtons = [
+            AlertButton(text: "Skip", action: self.startNewGame),
+            AlertButton(text: "Continue", action: tutorial.startContinue)
+        ]
+        _ = self.addAlertDialog(title: title, message: message, alertButtons: alertButtons)
+    }
 }
 //MARK: - Ongoing use private functions
 private extension MainVC {
     @IBAction func pressLeftButton(_ sender: Any) {
         switch leftButtonState {
-            case .tutorial: skipTutorial()
+            case .tutorial: showSkipTutorialAlert()
             case .hint: performSegue(withIdentifier: "toEnterHintVC", sender: sender)
             case .pass: nextTurn(withPause: false)
             case .newGame: startNewGame()
