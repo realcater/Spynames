@@ -41,7 +41,12 @@ class MainVC: UIViewController {
     var wordsTVC: WordsTVC!
     var rightViewShown = true
     var leftViewShown = true
-    private var _leftButtonState: LeftButtonState = .hint
+    var leftButtonState: LeftButtonState = .hint {
+        didSet {
+            leftButton.setTitle(
+                K.Labels.Buttons.left[leftButtonState], for: .normal)
+        }
+    }
     
     
 }
@@ -117,21 +122,9 @@ private extension MainVC {
         view.layoutIfNeeded()
         
     }
-    
-    
 }
 //MARK: - Ongoing use public functions
 extension MainVC {
-    var leftButtonState: LeftButtonState {
-        get {
-            return _leftButtonState
-        }
-        set  {
-            _leftButtonState = newValue
-            leftButton.setTitle(
-                K.Labels.Buttons.left[_leftButtonState], for: .normal)
-        }
-    }
     
     func startNewGame() {
         game = Game()
@@ -253,6 +246,7 @@ private extension MainVC {
         for team in Team.allCases {
             for playerType in PlayerType.allCases {
                 statusIcons[Player(team: team, type: playerType)]!.online = true
+                statusIcons[Player(team: team, type: playerType)]!.blink = false
                 if (game.currentPlayer.team == team) && (game.currentPlayer.type == playerType) {
                     statusIcons[Player(team: team, type: playerType)]!.active = true
                 } else {
