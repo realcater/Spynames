@@ -6,7 +6,7 @@ class Game {
     var hints: [Team: [Hint]] = [.redTeam: [], .blueTeam: []]
     var guessedThisTurn : Int = 0
     var canGuessMore = true
-    weak var delegate: MainVCDelegate?
+    weak var delegate: MainVCGameDelegate?
     var devicesQty: Int
     var activeDeviceIndex: Int
     var personalList: [Team: [Card]] = [.redTeam: [], .blueTeam: []]
@@ -47,7 +47,6 @@ class Game {
         if currentHint?.qty == 0 || currentHint?.qty == Int.max {
             return Int.max
         } else {
-            let currentPlayerMaxCardsQty = K.Game.cardsQty[currentPlayer.team.toCardColor()]![startTeam]!
             return min(currentHint!.qty - guessedThisTurn+1, currentPlayerMaxCardsQty)
         }
     }

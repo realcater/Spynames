@@ -17,7 +17,7 @@ class UICard {
     var button: UIRoundedButton!
     var view: UIView
     var showDelay: Double
-    weak var delegate: MainVCDelegate?
+    weak var delegate: MainVCUICardDelegate?
     
     var number: Int {
         get {
@@ -151,18 +151,11 @@ extension UICard {
     private func addRecognizers() {
         let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(singleTap))
         singleTapRecognizer.numberOfTapsRequired = 1
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         button.addGestureRecognizer(singleTapRecognizer)
-        button.addGestureRecognizer(longPressRecognizer)
     }
     @objc func singleTap(recognizer: UITapGestureRecognizer) {
         if (recognizer.state == UIGestureRecognizer.State.ended) {
             delegate?.pressed(uicard: self)
-        }
-    }
-    @objc func longPress(recognizer: UITapGestureRecognizer) {
-        if(recognizer.state == UIGestureRecognizer.State.ended) {
-            
         }
     }
 }

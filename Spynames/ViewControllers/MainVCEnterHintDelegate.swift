@@ -1,14 +1,14 @@
 import AVFoundation
 import UIKit
 
-protocol ReturnHintDelegate: class {
+protocol MainVCEnterHintDelegate: class {
     func addHint(hint: Hint)
     func nextTurn()
     func currentTeam() -> Team
 }
 
 //MARK: - delegates
-extension MainVC: ReturnHintDelegate {
+extension MainVC: MainVCEnterHintDelegate {
     func addHint(hint: Hint) {
         game.hints[game.currentPlayer.team]!.append(hint.copy() as! Hint)
         let message = Message(text: hint.text+": "+Helper.StrInf(hint.qty), team: game.currentPlayer.team, player: .spymaster)

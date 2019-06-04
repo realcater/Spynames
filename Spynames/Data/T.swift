@@ -79,4 +79,9 @@ struct T {
         Team.redTeam: 2,
         Team.blueTeam: 7
     ]
+    struct skipTutorialAlert {
+        static let title = "Skip tutorial"
+        static let message = "Do you really want to skip the tutorial and start a new game?"
+        static let buttonsText = ["Skip", "Continue"]
+    }
 }

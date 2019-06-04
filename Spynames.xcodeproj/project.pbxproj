@@ -20,7 +20,7 @@
 		CA6425C9221A0BA100CAEA0F /* MainVC+rightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */; };
 		CA6425CB221A0DAA00CAEA0F /* MainVC+leftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */; };
 		CA6425CD221A1B0E00CAEA0F /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */; };
-		CA6425CF221B498200CAEA0F /* MainVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CE221B498200CAEA0F /* MainVCDelegate.swift */; };
+		CA6425CF221B498200CAEA0F /* MainVCUICardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CE221B498200CAEA0F /* MainVCUICardDelegate.swift */; };
 		CA6425D1221D40DE00CAEA0F /* DeviceRoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425D0221D40DE00CAEA0F /* DeviceRoles.swift */; };
 		CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB7217F62810009D072 /* AppDelegate.swift */; };
 		CA814BBA217F62810009D072 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB9217F62810009D072 /* StartVC.swift */; };
@@ -29,7 +29,7 @@
 		CA814BC2217F62820009D072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BC0217F62820009D072 /* LaunchScreen.storyboard */; };
 		CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */; };
 		CA814BD0217F71DD0009D072 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BCF217F71DD0009D072 /* UIRoundedButton.swift */; };
-		CA885550228DE7AD00A8574A /* ReturnHintDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */; };
+		CA885550228DE7AD00A8574A /* MainVCEnterHintDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88554F228DE7AD00A8574A /* MainVCEnterHintDelegate.swift */; };
 		CA8855562296D65200A8574A /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8855552296D65200A8574A /* Tutorial.swift */; };
 		CA88555A229AF56C00A8574A /* UITextField+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA885559229AF56C00A8574A /* UITextField+extension.swift */; };
 		CA88963021CC1CEC00DB26EB /* UIScrollView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */; };
@@ -37,6 +37,9 @@
 		CAB635A122A59AD800CA81BE /* stairs.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CAB635A022A59AD800CA81BE /* stairs.mp3 */; };
 		CAB635A522A70BF900CA81BE /* T.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB635A422A70BF900CA81BE /* T.swift */; };
 		CAB635A722A70F3600CA81BE /* MainVCTutorialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB635A622A70F3600CA81BE /* MainVCTutorialDelegate.swift */; };
+		CAB635A922A7330800CA81BE /* MainVCGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB635A822A7330800CA81BE /* MainVCGameDelegate.swift */; };
+		CAB635AB22A7359200CA81BE /* MainVC+HighLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB635AA22A7359200CA81BE /* MainVC+HighLevel.swift */; };
+		CAB635AD22A7378000CA81BE /* MainVC+LowLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB635AC22A7378000CA81BE /* MainVC+LowLevel.swift */; };
 		CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9E818217F9C4E002148CD /* UIView+extension.swift */; };
 		CAC1513E2188F2B400FA96CA /* GameCreatedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */; };
 		CAC5BA4921F48FB4001763C5 /* PlayerStatusIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5BA4821F48FB4001763C5 /* PlayerStatusIcon.swift */; };
@@ -72,7 +75,7 @@
 		CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+rightView.swift"; sourceTree = "<group>"; };
 		CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+leftView.swift"; sourceTree = "<group>"; };
 		CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
-		CA6425CE221B498200CAEA0F /* MainVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCDelegate.swift; sourceTree = "<group>"; };
+		CA6425CE221B498200CAEA0F /* MainVCUICardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUICardDelegate.swift; sourceTree = "<group>"; };
 		CA6425D0221D40DE00CAEA0F /* DeviceRoles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRoles.swift; sourceTree = "<group>"; };
 		CA814BB4217F62810009D072 /* Spynames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spynames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA814BB7217F62810009D072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +86,7 @@
 		CA814BC3217F62820009D072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA814BCA217F6DA60009D072 /* ChooseModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseModeVC.swift; sourceTree = "<group>"; };
 		CA814BCF217F71DD0009D072 /* UIRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRoundedButton.swift; sourceTree = "<group>"; };
-		CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnHintDelegate.swift; sourceTree = "<group>"; };
+		CA88554F228DE7AD00A8574A /* MainVCEnterHintDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCEnterHintDelegate.swift; sourceTree = "<group>"; };
 		CA8855552296D65200A8574A /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		CA885559229AF56C00A8574A /* UITextField+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extension.swift"; sourceTree = "<group>"; };
 		CA88962F21CC1CEC00DB26EB /* UIScrollView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+extension.swift"; sourceTree = "<group>"; };
@@ -91,6 +94,9 @@
 		CAB635A022A59AD800CA81BE /* stairs.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stairs.mp3; sourceTree = "<group>"; };
 		CAB635A422A70BF900CA81BE /* T.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T.swift; sourceTree = "<group>"; };
 		CAB635A622A70F3600CA81BE /* MainVCTutorialDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCTutorialDelegate.swift; sourceTree = "<group>"; };
+		CAB635A822A7330800CA81BE /* MainVCGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCGameDelegate.swift; sourceTree = "<group>"; };
+		CAB635AA22A7359200CA81BE /* MainVC+HighLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+HighLevel.swift"; sourceTree = "<group>"; };
+		CAB635AC22A7378000CA81BE /* MainVC+LowLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+LowLevel.swift"; sourceTree = "<group>"; };
 		CAB9E818217F9C4E002148CD /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCreatedVC.swift; sourceTree = "<group>"; };
 		CAC5BA4821F48FB4001763C5 /* PlayerStatusIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatusIcon.swift; sourceTree = "<group>"; };
@@ -193,9 +199,12 @@
 				CAD84F1721879AE400E6C6E0 /* ChooseRole3dVC.swift */,
 				CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */,
 				CACA1F3D21ADDA1200DED049 /* MainVC.swift */,
-				CA6425CE221B498200CAEA0F /* MainVCDelegate.swift */,
+				CAB635AA22A7359200CA81BE /* MainVC+HighLevel.swift */,
+				CAB635AC22A7378000CA81BE /* MainVC+LowLevel.swift */,
+				CAB635A822A7330800CA81BE /* MainVCGameDelegate.swift */,
+				CA6425CE221B498200CAEA0F /* MainVCUICardDelegate.swift */,
+				CA88554F228DE7AD00A8574A /* MainVCEnterHintDelegate.swift */,
 				CAB635A622A70F3600CA81BE /* MainVCTutorialDelegate.swift */,
-				CA88554F228DE7AD00A8574A /* ReturnHintDelegate.swift */,
 				CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */,
 				CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */,
 				CAC5BA4E21F4EBFC001763C5 /* WordsTVC.swift */,
@@ -332,6 +341,7 @@
 				CA814BCB217F6DA60009D072 /* ChooseModeVC.swift in Sources */,
 				CAD84F0921875A7F00E6C6E0 /* UINavigationController+extension.swift in Sources */,
 				CA814BBA217F62810009D072 /* StartVC.swift in Sources */,
+				CAB635AD22A7378000CA81BE /* MainVC+LowLevel.swift in Sources */,
 				CAB635A722A70F3600CA81BE /* MainVCTutorialDelegate.swift in Sources */,
 				CACA1F3E21ADDA1200DED049 /* MainVC.swift in Sources */,
 				CA88963021CC1CEC00DB26EB /* UIScrollView+extension.swift in Sources */,
@@ -350,11 +360,12 @@
 				CA2EFEB521F6662300DF2ACF /* UIPaddingLabel.swift in Sources */,
 				CAE1A1352208D57B00B4E687 /* Dictionary.swift in Sources */,
 				CA6425D1221D40DE00CAEA0F /* DeviceRoles.swift in Sources */,
-				CA885550228DE7AD00A8574A /* ReturnHintDelegate.swift in Sources */,
+				CA885550228DE7AD00A8574A /* MainVCEnterHintDelegate.swift in Sources */,
 				CA8855562296D65200A8574A /* Tutorial.swift in Sources */,
 				CA8C4F19220B09520045FCC2 /* UICard.swift in Sources */,
+				CAB635A922A7330800CA81BE /* MainVCGameDelegate.swift in Sources */,
 				CA2EFEBB21F889D800DF2ACF /* MyTableViewCell.swift in Sources */,
-				CA6425CF221B498200CAEA0F /* MainVCDelegate.swift in Sources */,
+				CA6425CF221B498200CAEA0F /* MainVCUICardDelegate.swift in Sources */,
 				CA6425CD221A1B0E00CAEA0F /* GameTypes.swift in Sources */,
 				CA2EFEBD21F8B5B700DF2ACF /* PlayersChatView.swift in Sources */,
 				CAC9505221B66F2F002262BA /* Message.swift in Sources */,
@@ -362,6 +373,7 @@
 				CA814BD0217F71DD0009D072 /* UIRoundedButton.swift in Sources */,
 				CAD84F142187602B00E6C6E0 /* AVAudioPlayer+extension.swift in Sources */,
 				CAE1A1312207696100B4E687 /* Helper.swift in Sources */,
+				CAB635AB22A7359200CA81BE /* MainVC+HighLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

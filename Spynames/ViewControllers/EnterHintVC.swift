@@ -17,7 +17,7 @@ class EnterHintVC: UIViewController {
     
     var pickerData: [String] = []
     var maxQty: Int!
-    weak var delegate: ReturnHintDelegate?
+    weak var delegate: MainVCEnterHintDelegate?
     var hint: Hint!
     var isTutorial: Bool!
     

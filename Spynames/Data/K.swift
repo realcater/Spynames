@@ -173,6 +173,7 @@ struct K {
             ]
             static let buttonsText = ["New game", "Let me see"]
         }
+        
         struct titleBar {
             static let waiting = [
                 PlayerType.spymaster: "Waiting for your hint, Master!",
