@@ -177,6 +177,7 @@
 				CA814BB7217F62810009D072 /* AppDelegate.swift */,
 				CA814BBB217F62810009D072 /* Main.storyboard */,
 				CA814BC9217F62A40009D072 /* ViewControllers */,
+				CAB635AE22A73C5600CA81BE /* MainVC+ */,
 				CAC5BA4721F48F62001763C5 /* Visual objects */,
 				CA814BCE217F71BD0009D072 /* UIExtensions+Classes */,
 				CA3528F02182267F005C489B /* Data */,
@@ -198,15 +199,6 @@
 				CA3528EE2180BD1D005C489B /* ChooseRole4dVC.swift */,
 				CAD84F1721879AE400E6C6E0 /* ChooseRole3dVC.swift */,
 				CAC1513D2188F2B400FA96CA /* GameCreatedVC.swift */,
-				CACA1F3D21ADDA1200DED049 /* MainVC.swift */,
-				CAB635AA22A7359200CA81BE /* MainVC+HighLevel.swift */,
-				CAB635AC22A7378000CA81BE /* MainVC+LowLevel.swift */,
-				CAB635A822A7330800CA81BE /* MainVCGameDelegate.swift */,
-				CA6425CE221B498200CAEA0F /* MainVCUICardDelegate.swift */,
-				CA88554F228DE7AD00A8574A /* MainVCEnterHintDelegate.swift */,
-				CAB635A622A70F3600CA81BE /* MainVCTutorialDelegate.swift */,
-				CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */,
-				CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */,
 				CAC5BA4E21F4EBFC001763C5 /* WordsTVC.swift */,
 				CAE1A12A2207152D00B4E687 /* EnterHintVC.swift */,
 			);
@@ -229,6 +221,22 @@
 				CA885559229AF56C00A8574A /* UITextField+extension.swift */,
 			);
 			path = "UIExtensions+Classes";
+			sourceTree = "<group>";
+		};
+		CAB635AE22A73C5600CA81BE /* MainVC+ */ = {
+			isa = PBXGroup;
+			children = (
+				CACA1F3D21ADDA1200DED049 /* MainVC.swift */,
+				CAB635AA22A7359200CA81BE /* MainVC+HighLevel.swift */,
+				CAB635AC22A7378000CA81BE /* MainVC+LowLevel.swift */,
+				CAB635A822A7330800CA81BE /* MainVCGameDelegate.swift */,
+				CA6425CE221B498200CAEA0F /* MainVCUICardDelegate.swift */,
+				CA88554F228DE7AD00A8574A /* MainVCEnterHintDelegate.swift */,
+				CAB635A622A70F3600CA81BE /* MainVCTutorialDelegate.swift */,
+				CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */,
+				CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */,
+			);
+			path = "MainVC+";
 			sourceTree = "<group>";
 		};
 		CAC5BA4721F48F62001763C5 /* Visual objects */ = {
