@@ -12,21 +12,15 @@ class StartVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main, tintColor: K.Colors.blueDarker)
-        //view.backgroundColor = K.Colors.lightBrown
         prepareTitle()
         prepareButtons()
-        prepareNavigationBar()
-    }
-    private func prepareNavigationBar() {
-        self.navigationController?.makeInvisible()
-        self.navigationController?.navigationBar.tintColor = K.Colors.foreground
     }
     
     private func prepareButtons() {
         newGameBtn.setTitle(K.Labels.Buttons.newGame, for: .normal)
         joinGameBtn.setTitle(K.Labels.Buttons.joinGame, for: .normal)
         helpBtn.setTitle(K.Labels.Buttons.howToPlay, for: .normal)
-        view.makeAllButtonsRound(color: K.Colors.foreground, font: K.Fonts.Buttons.startVC, sound: K.Sounds.click)
+        view.makeAllButtonsRound(color: K.Colors.foreground, textColor: K.Colors.buttonsText, font: K.Fonts.Buttons.startVC, sound: K.Sounds.click)
         joinGameBtn.isEnabled = false
         helpBtn.isEnabled = false
         joinGameBtn.backgroundColor = K.Colors.gray

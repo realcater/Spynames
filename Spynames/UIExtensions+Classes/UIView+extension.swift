@@ -20,9 +20,9 @@ extension UIView {
 
 //MARK:- All subviews changging
 extension UIView {
-    func makeAllButtonsRound(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
+    func makeAllButtonsRound(cornerRadius:  CGFloat? = nil, color: UIColor? = nil, textColor: UIColor? = nil, font: UIFont? = nil, sound: AVAudioPlayer? = nil) {
         for case let button as UIRoundedButton in self.subviews {
-            button.makeRounded(cornerRadius: cornerRadius, color: color, font: font, sound: sound)
+            button.makeRounded(cornerRadius: cornerRadius, color: color, textColor: textColor, font: font, sound: sound)
         }
     }
     func makeAllSubviewsRound(cornerRadius:  CGFloat? = nil) {

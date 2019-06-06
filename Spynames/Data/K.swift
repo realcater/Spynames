@@ -25,7 +25,7 @@ struct K {
         static let description = [
             "HOTSEAT - all players use the same device one by one",
             "Spymasters of both teams use one device and Operatives of both teams use another device",
-            "Each Spymaster use their own device and Operatives of both teams use the 3d device",
+            "Each Spymaster use their own device and Operatives of both teams use the third device",
             "Each Spymaster and Operatives of each team use their own device"
         ]
         static let imagesName = [
@@ -108,7 +108,8 @@ struct K {
         static let almostBlack = UIColor(red: 20/256, green: 20/256, blue: 20/256, alpha: 1)
         
         static let foreground = blueDarker
-        static let buttonsText = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        static let buttonsText = UIColor.white
+        
         static let forRole = [DeviceRoles.redSpymaster: redDarker,
                                   DeviceRoles.blueSpymaster: blueDarker,
                                   DeviceRoles.redOperatives: redDarker,
@@ -190,8 +191,6 @@ struct K {
             static let newGame = "New game"
             static let joinGame = "Join a game"
             static let howToPlay = "How to play"
-            static let threeDevices = "3 Devices"
-            static let fourDevices = "4 Devices"
             static let redSpymaster = "Red Spymaster"
             static let blueSpymaster = "Blue Spymaster"
             static let redOperatives = "Red Operatives"
