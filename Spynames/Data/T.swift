@@ -46,6 +46,8 @@ struct T {
         Message(text: "That team is a looser", team: .redTeam, player: .spymaster, delay: 4.5),
         Message(text: "Good luck!", team: .blueTeam, player: .operatives)
     ]
+    static let sizeX = 5
+    static let sizeY = 5
     static let tutorialColors: [CardColor] = [
         .red, .red, .blue, .neutral, .neutral,
         .blue, .red, .red, .neutral, .blue,
@@ -57,8 +59,8 @@ struct T {
     
     struct Delay {
         static let totalBefore: [Double] = {
-            var result: [Double] = [0.01] //a delay for 1st event
-            var sum: Double = 0
+            var result: [Double] = [1.5] //a delay for 1st event
+            var sum: Double = result[0]
             for m in messages.dropLast() {
                 sum+=m.delay
                 result.append(sum)

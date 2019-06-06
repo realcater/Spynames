@@ -27,6 +27,10 @@ class StartVC: UIViewController {
         joinGameBtn.setTitle(K.Labels.Buttons.joinGame, for: .normal)
         helpBtn.setTitle(K.Labels.Buttons.howToPlay, for: .normal)
         view.makeAllButtonsRound(color: K.Colors.foreground, font: K.Fonts.Buttons.startVC, sound: K.Sounds.click)
+        joinGameBtn.isEnabled = false
+        helpBtn.isEnabled = false
+        joinGameBtn.backgroundColor = K.Colors.gray
+        helpBtn.backgroundColor = K.Colors.gray
     }
     private func prepareTitle() {
         titleLabel.textColor = K.Colors.foreground

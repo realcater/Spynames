@@ -82,6 +82,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MainVC.showMessageAndEvent(message:messageNumber:):MainVCTutorialDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "wordsTVC">
+            </PersistentString>
+            <PersistentString
+               value = "game.currentPlayer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UIView.makeAllButtonsRound(cornerRadius:color:font:sound:):UIView+extension.swift">
          <PersistentStrings>
             <PersistentString
@@ -107,12 +118,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MainVC.rightViewSwipedRight(recognizer:):MainVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "zoomedView.frame.size.width">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "MainVC.nextTurn(withPause:):MainVC.swift">
       </ContextState>
       <ContextState
          contextName = "MyButton.makeButtonDoubleColor(topColor:bottomColor:):MyButton.swift">
@@ -123,7 +129,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MainVC.nextTurn(withPause:):MainVC.swift">
+         contextName = "MainVC.rightViewSwipedRight(recognizer:):MainVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "zoomedView.frame.size.width">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "PlayerStatusIcon.init(playerType:team:bar:image:):PlayerStatusIcon.swift">
@@ -150,6 +161,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "UICard.frameSize.getter:UICard.swift">
+      </ContextState>
+      <ContextState
          contextName = "MainVC.updateStatusIcons():MainVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -173,6 +187,28 @@
       </ContextState>
       <ContextState
          contextName = "MainVC.revealCardsColors(wordsTVC:):MainVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ChooseModeVC.chooseMode(modeNumber:):ChooseModeVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "modeDescription.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UITextView.centerVertically():UITextView+extension.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(bounds.size.height - size.height * zoomScale) / 2">
+            </PersistentString>
+            <PersistentString
+               value = "contentOffset.y">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainVC.placeCards():MainVC+HighLevel.swift">
       </ContextState>
       <ContextState
          contextName = "MyButton.makeDoubleColor(topColor:bottomColor:):MyButton.swift">

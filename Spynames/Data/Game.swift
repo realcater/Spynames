@@ -1,3 +1,5 @@
+import AVFoundation
+
 class Game {
     var cards = [Card]()
     var leftCardsOf = [CardColor: [Card]]()
@@ -13,54 +15,23 @@ class Game {
     var showLegend = true
     var isOver = false
     var isTutorial: Bool
-    
-    var currentPlayerMaxCardsQty: Int {
-        get {
-            return K.Game.cardsQty[currentPlayer.team.toCardColor()]![startTeam]!
-        }
-    }
-    var cardsOfCurrentTeam: [Card] {
-        get {
-            return leftCardsOf[currentPlayer.team.toCardColor()]!
-        }
-    }
-    var leftWordsQty: [Team: Int] {
-        get {
-            let redQty = leftCardsOf[.red]!.count
-            let blueQty = leftCardsOf[.blue]!.count
-            return [.redTeam: redQty, .blueTeam: blueQty]
-        }
-    }
-    var score: [Team: Int] {
-        get {
-            let redScore = K.Game.cardsQty[CardColor.red]![startTeam]! - leftCardsOf[.red]!.count
-            let blueScore = K.Game.cardsQty[CardColor.blue]![startTeam]! - leftCardsOf[.blue]!.count
-            return [.redTeam: redScore, .blueTeam: blueScore]
-        }
-    }
-    var currentHint: Hint? {
-        get {
-            return hints[currentPlayer.team]?.last
-        }
-    }
-    var leftToGuessThisTurn: Int {
-        if currentHint?.qty == 0 || currentHint?.qty == Int.max {
-            return Int.max
-        } else {
-            return min(currentHint!.qty - guessedThisTurn+1, currentPlayerMaxCardsQty)
-        }
-    }
+    var sizeX, sizeY: Int
+
     init(isTutorial: Bool = false) {
         startTeam = .redTeam
         currentPlayer = Player(team: .redTeam, type: .spymaster)
         devicesQty = 1
         activeDeviceIndex = 0
         self.isTutorial = isTutorial
-
+        sizeX = isTutorial ? T.sizeX : K.Game.sizeX
+        sizeY = isTutorial ? T.sizeY : K.Game.sizeY
         for color in CardColor.allCases { leftCardsOf[color] = [] }
         generateCards()
         generatePersonalLists()
     }
+}
+
+extension Game {
     func nextTurn() {
         currentPlayer = currentPlayer.next()
         canGuessMore = true
@@ -71,7 +42,7 @@ class Game {
 private extension Game {
     func generateCards() {
         let cardsColors = isTutorial ? T.tutorialColors : getRandomCardsColors()
-        let cardsTexts = isTutorial ? Ru.tutorialWords : Helper.getRandomUnique(from: Ru.words, qty: K.Game.ttlCardsQty) as! [String]
+        let cardsTexts = isTutorial ? Ru.tutorialWords : Helper.getRandomUnique(from: Ru.words, qty: ttlCardsQty) as! [String]
         
         for (cardText, cardColor) in zip(cardsTexts, cardsColors) {
             let card = Card(text: cardText.capitalizingFirstLetter(), color: cardColor)
@@ -91,11 +62,80 @@ private extension Game {
     func getRandomCardsColors() -> [CardColor] {
         var cardsColors = [CardColor]()
         for color in CardColor.allCases {
-            for _ in 0..<K.Game.cardsQty[color]![startTeam]! {
+            for _ in 0..<cardsQty[color]![startTeam]! {
                 cardsColors.append(color)
             }
         }
         return cardsColors.shuffled()
+    }
+}
+
+extension Game {
+    var ttlCardsQty: Int {
+        get {
+            return sizeX * sizeY
+        }
+    }
+    var startTeamCardsQty: Int {
+        get {
+            return Int(round(Double(ttlCardsQty)/3))+1
+        }
+    }
+    var secondTeamCardsQty: Int {
+        get {
+            return Int(round(Double(ttlCardsQty)/3))
+        }
+    }
+    var neutralCardsQty: Int {
+        get {
+            return ttlCardsQty-startTeamCardsQty-secondTeamCardsQty-1
+        }
+    }
+    var cardsQty: [CardColor: [Team: Int]] {
+        get {
+            return [
+                CardColor.red: [Team.redTeam: startTeamCardsQty, Team.blueTeam: secondTeamCardsQty],
+                CardColor.blue: [Team.redTeam: secondTeamCardsQty, Team.blueTeam: startTeamCardsQty],
+                CardColor.neutral: [Team.redTeam: neutralCardsQty, Team.blueTeam: neutralCardsQty],
+                CardColor.black: [Team.redTeam: 1, Team.blueTeam: 1]
+            ]
+        }
+    }
+    var currentPlayerMaxCardsQty: Int {
+        get {
+            return cardsQty[currentPlayer.team.toCardColor()]![startTeam]!
+        }
+    }
+    var cardsOfCurrentTeam: [Card] {
+        get {
+            return leftCardsOf[currentPlayer.team.toCardColor()]!
+        }
+    }
+    var leftWordsQty: [Team: Int] {
+        get {
+            let redQty = leftCardsOf[.red]!.count
+            let blueQty = leftCardsOf[.blue]!.count
+            return [.redTeam: redQty, .blueTeam: blueQty]
+        }
+    }
+    var score: [Team: Int] {
+        get {
+            let redScore = cardsQty[CardColor.red]![startTeam]! - leftCardsOf[.red]!.count
+            let blueScore = cardsQty[CardColor.blue]![startTeam]! - leftCardsOf[.blue]!.count
+            return [.redTeam: redScore, .blueTeam: blueScore]
+        }
+    }
+    var currentHint: Hint? {
+        get {
+            return hints[currentPlayer.team]?.last
+        }
+    }
+    var leftToGuessThisTurn: Int {
+        if currentHint?.qty == 0 || currentHint?.qty == Int.max {
+            return Int.max
+        } else {
+            return min(currentHint!.qty - guessedThisTurn+1, currentPlayerMaxCardsQty)
+        }
     }
 }
 

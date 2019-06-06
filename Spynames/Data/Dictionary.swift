@@ -29,7 +29,7 @@ struct Ru {
     
     static let tutorialHint = [
         Team.redTeam: "Африка",
-        Team.blueTeam: "Суперподсказка"
+        Team.blueTeam: "Европа"
     ]
     static let words = [
         "АГЕНТ",

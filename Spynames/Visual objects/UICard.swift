@@ -21,14 +21,15 @@ class UICard {
     
     var number: Int {
         get {
-            return place.y*K.Game.sizeX + place.x
+            return place.y*delegate!.sizeX + place.x
         }
     }
-    init(place: Place, card: Card, showDelay: Double? = nil, in view: UIView) {
+    init(place: Place, card: Card, showDelay: Double? = nil, in view: UIView, delegate: MainVCUICardDelegate) {
         self.place = place
         self.card = card
         self.view = view
         self.showDelay = showDelay ?? 0.0
+        self.delegate = delegate
         colorIsVisible = false
         
         addButton()
@@ -115,9 +116,9 @@ private extension UICard {
     }
     var frameSize: CGSize {
         get {
-            let ttlRelativeWidth = K.Sizes.Cards.marginX * 2 + Double(K.Game.sizeX) + Double(K.Game.sizeX-1)*K.Sizes.Cards.distX
+            let ttlRelativeWidth = K.Sizes.Cards.marginX * 2 + Double(delegate!.sizeX) + Double(delegate!.sizeX-1)*K.Sizes.Cards.distX
             let width = view.frame.width / CGFloat(ttlRelativeWidth)
-            let ttlRelativeHeight = K.Sizes.Cards.marginTop + K.Sizes.Cards.marginBottom + Double(K.Game.sizeY) + Double(K.Game.sizeY-1)*K.Sizes.Cards.distY
+            let ttlRelativeHeight = K.Sizes.Cards.marginTop + K.Sizes.Cards.marginBottom + Double(delegate!.sizeY) + Double(delegate!.sizeY-1)*K.Sizes.Cards.distY
             let height = view.frame.height / CGFloat(ttlRelativeHeight)
             return CGSize(width: width, height: height)
         }

@@ -16,6 +16,7 @@
 		CA35290121874162005C489B /* Top Secret Stamp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA35290021874162005C489B /* Top Secret Stamp.ttf */; };
 		CA398030220CA6B80050FB54 /* UIString+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39802F220CA6B80050FB54 /* UIString+extension.swift */; };
 		CA39803A221450660050FB54 /* cards.wav in Resources */ = {isa = PBXBuildFile; fileRef = CA398039221450660050FB54 /* cards.wav */; };
+		CA49D1B722A9A26C006CF692 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49D1B622A9A26C006CF692 /* UITextView+extension.swift */; };
 		CA6425C72219E1CF00CAEA0F /* CGPoint+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425C62219E1CF00CAEA0F /* CGPoint+extension.swift */; };
 		CA6425C9221A0BA100CAEA0F /* MainVC+rightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */; };
 		CA6425CB221A0DAA00CAEA0F /* MainVC+leftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */; };
@@ -71,6 +72,7 @@
 		CA35290021874162005C489B /* Top Secret Stamp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Top Secret Stamp.ttf"; sourceTree = "<group>"; };
 		CA39802F220CA6B80050FB54 /* UIString+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+extension.swift"; sourceTree = "<group>"; };
 		CA398039221450660050FB54 /* cards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cards.wav; sourceTree = "<group>"; };
+		CA49D1B622A9A26C006CF692 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
 		CA6425C62219E1CF00CAEA0F /* CGPoint+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+extension.swift"; sourceTree = "<group>"; };
 		CA6425C8221A0BA100CAEA0F /* MainVC+rightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+rightView.swift"; sourceTree = "<group>"; };
 		CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+leftView.swift"; sourceTree = "<group>"; };
@@ -179,8 +181,8 @@
 				CA814BC9217F62A40009D072 /* ViewControllers */,
 				CAB635AE22A73C5600CA81BE /* MainVC+ */,
 				CAC5BA4721F48F62001763C5 /* Visual objects */,
-				CA814BCE217F71BD0009D072 /* UIExtensions+Classes */,
 				CA3528F02182267F005C489B /* Data */,
+				CA814BCE217F71BD0009D072 /* UIExtensions+Classes */,
 				CA814BB5217F62810009D072 /* Products */,
 				CA3528F321822F03005C489B /* Fonts */,
 				CAD84F0A21875FA000E6C6E0 /* Sounds */,
@@ -219,6 +221,7 @@
 				CA39802F220CA6B80050FB54 /* UIString+extension.swift */,
 				CA6425C62219E1CF00CAEA0F /* CGPoint+extension.swift */,
 				CA885559229AF56C00A8574A /* UITextField+extension.swift */,
+				CA49D1B622A9A26C006CF692 /* UITextView+extension.swift */,
 			);
 			path = "UIExtensions+Classes";
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				CAC5BA4921F48FB4001763C5 /* PlayerStatusIcon.swift in Sources */,
 				CA814BD0217F71DD0009D072 /* UIRoundedButton.swift in Sources */,
 				CAD84F142187602B00E6C6E0 /* AVAudioPlayer+extension.swift in Sources */,
+				CA49D1B722A9A26C006CF692 /* UITextView+extension.swift in Sources */,
 				CAE1A1312207696100B4E687 /* Helper.swift in Sources */,
 				CAB635AB22A7359200CA81BE /* MainVC+HighLevel.swift in Sources */,
 			);

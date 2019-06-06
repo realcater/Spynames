@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vVa-Qu-fNx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,7 +27,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMZ-6w-Mqr" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
                                 <rect key="frame" x="256" y="207.66666666666666" width="300" height="49.999999999999972"/>
-                                <color key="backgroundColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="HdP-if-IxJ"/>
                                     <constraint firstAttribute="width" constant="300" id="n86-C4-Iir"/>
@@ -50,12 +50,12 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="16j-nc-9fW" kind="show" id="iSS-Qg-0l8"/>
+                                    <segue destination="16j-nc-9fW" kind="show" id="TRc-Fx-7YO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGL-Jr-Ip2" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
                                 <rect key="frame" x="256" y="277.66666666666669" width="300" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="MG0-mf-kVJ"/>
                                     <constraint firstAttribute="height" constant="50" id="lfb-nW-1dT"/>
@@ -130,48 +130,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29K-Nl-qSB" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="426" y="117.66666666666669" width="180" height="180"/>
-                                <color key="backgroundColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="gkP-gk-Auq"/>
-                                    <constraint firstAttribute="width" constant="180" id="rMo-Qp-OOq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="32"/>
-                                <inset key="titleEdgeInsets" minX="-162" minY="-100" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="9" minY="55" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="4 Devices" image="4devices">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="6TB-yp-aHk" kind="show" id="UOs-CL-tYo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxq-AN-gO5" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="206" y="117.66666666666669" width="180" height="180"/>
-                                <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="2w0-X1-ZNJ"/>
-                                    <constraint firstAttribute="height" constant="180" id="Zf6-LE-h3l"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="32"/>
-                                <inset key="titleEdgeInsets" minX="-120" minY="-100" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="27" minY="55" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="3 Devices" image="3devices">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="8bz-q5-fpb" kind="show" id="xOm-7r-6sI"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose game mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l2-az-mAq">
-                                <rect key="frame" x="166" y="47.666666666666657" width="480" height="40"/>
+                                <rect key="frame" x="166" y="37.666666666666664" width="480" height="39.999999999999993"/>
                                 <color key="tintColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="480" id="sMk-V2-2uP"/>
@@ -180,15 +140,122 @@
                                 <color key="textColor" red="0.0" green="0.27843137254901962" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmn-zM-Zj6" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
+                                <rect key="frame" x="146" y="97.666666666666671" width="240" height="36.000000000000014"/>
+                                <color key="backgroundColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="9un-fx-wSF"/>
+                                    <constraint firstAttribute="width" constant="240" id="hlU-84-FUb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="24"/>
+                                <state key="normal" title="1 Device">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deviceBtnPressed:" destination="16j-nc-9fW" eventType="touchUpInside" id="iyp-Rw-oGq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJ5-kh-rD6" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
+                                <rect key="frame" x="146" y="145.66666666666666" width="240" height="36"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="CEr-pT-xdK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="24"/>
+                                <state key="normal" title="2 Devices">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deviceBtnPressed:" destination="16j-nc-9fW" eventType="touchUpInside" id="cd5-dy-gXa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN2-nP-AfN" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
+                                <rect key="frame" x="146" y="193.66666666666666" width="240" height="36"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Xua-SB-R3r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="24"/>
+                                <state key="normal" title="3 Devices">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deviceBtnPressed:" destination="16j-nc-9fW" eventType="touchUpInside" id="oY9-Vs-YaM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-nS-zhx" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
+                                <rect key="frame" x="146" y="241.66666666666663" width="240" height="36"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="rFd-RQ-XHj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="24"/>
+                                <state key="normal" title="4 Devices">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deviceBtnPressed:" destination="16j-nc-9fW" eventType="touchUpInside" id="HvP-7V-CG4"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3dev" translatesAutoresizingMaskIntoConstraints="NO" id="1nL-hy-DDz">
+                                <rect key="frame" x="426" y="97.666666666666686" width="240" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="CjV-eu-UpB"/>
+                                    <constraint firstAttribute="height" constant="90" id="eh2-hm-4tg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mf-dm-JLi" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
+                                <rect key="frame" x="256" y="293.66666666666669" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ir3-hR-NU2"/>
+                                    <constraint firstAttribute="width" constant="300" id="ad7-ae-wcQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="32"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vVa-Qu-fNx" kind="show" id="83I-SB-8jw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each Spymaster use their own device and Operatives of both teams use the 3d device" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsV-gE-d2m">
+                                <rect key="frame" x="426" y="187.66666666666666" width="240" height="89.999999999999972"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Cr3-m7-6RA"/>
+                                    <constraint firstAttribute="height" constant="90" id="cBC-dk-cdA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hxq-AN-gO5" firstAttribute="top" secondItem="6l2-az-mAq" secondAttribute="bottom" constant="30" id="3TW-ZS-m84"/>
+                            <constraint firstItem="KJ5-kh-rD6" firstAttribute="top" secondItem="Fmn-zM-Zj6" secondAttribute="bottom" constant="12" id="0Pg-1y-k48"/>
+                            <constraint firstItem="Fmn-zM-Zj6" firstAttribute="centerX" secondItem="dJY-ay-H7e" secondAttribute="centerX" constant="-140" id="1rj-nV-p67"/>
                             <constraint firstItem="6l2-az-mAq" firstAttribute="centerX" secondItem="dJY-ay-H7e" secondAttribute="centerX" id="5sa-Tn-3PZ"/>
-                            <constraint firstItem="29K-Nl-qSB" firstAttribute="top" secondItem="hxq-AN-gO5" secondAttribute="top" id="MrJ-J0-NhK"/>
-                            <constraint firstItem="hxq-AN-gO5" firstAttribute="centerX" secondItem="dJY-ay-H7e" secondAttribute="centerX" constant="-110" id="STX-85-kvq"/>
-                            <constraint firstItem="29K-Nl-qSB" firstAttribute="centerX" secondItem="dJY-ay-H7e" secondAttribute="centerX" constant="110" id="VQO-Pv-Fa0"/>
-                            <constraint firstItem="6l2-az-mAq" firstAttribute="centerY" secondItem="dJY-ay-H7e" secondAttribute="centerY" constant="-120" id="ihw-3i-K69"/>
+                            <constraint firstItem="KJ5-kh-rD6" firstAttribute="centerX" secondItem="Fmn-zM-Zj6" secondAttribute="centerX" id="9zG-dX-9cT"/>
+                            <constraint firstItem="vN2-nP-AfN" firstAttribute="centerX" secondItem="KJ5-kh-rD6" secondAttribute="centerX" id="KQk-l3-WMD"/>
+                            <constraint firstItem="1nL-hy-DDz" firstAttribute="centerY" secondItem="dJY-ay-H7e" secondAttribute="centerY" constant="-45" id="M5F-hZ-y72"/>
+                            <constraint firstItem="1nL-hy-DDz" firstAttribute="centerX" secondItem="dJY-ay-H7e" secondAttribute="centerX" constant="140" id="MBt-2O-5fN"/>
+                            <constraint firstItem="KJ5-kh-rD6" firstAttribute="width" secondItem="Fmn-zM-Zj6" secondAttribute="width" id="NoN-du-Q4C"/>
+                            <constraint firstItem="u1V-nS-zhx" firstAttribute="top" secondItem="vN2-nP-AfN" secondAttribute="bottom" constant="12" id="RAA-1d-XgV"/>
+                            <constraint firstItem="KsV-gE-d2m" firstAttribute="centerX" secondItem="1nL-hy-DDz" secondAttribute="centerX" id="VLg-50-9Er"/>
+                            <constraint firstItem="u1V-nS-zhx" firstAttribute="centerX" secondItem="vN2-nP-AfN" secondAttribute="centerX" id="WFa-IK-RSc"/>
+                            <constraint firstItem="KsV-gE-d2m" firstAttribute="centerY" secondItem="dJY-ay-H7e" secondAttribute="centerY" constant="45" id="b1O-1c-SdZ"/>
+                            <constraint firstItem="vN2-nP-AfN" firstAttribute="top" secondItem="KJ5-kh-rD6" secondAttribute="bottom" constant="12" id="ftA-B8-yfx"/>
+                            <constraint firstItem="vN2-nP-AfN" firstAttribute="width" secondItem="KJ5-kh-rD6" secondAttribute="width" id="hGF-sW-gOW"/>
+                            <constraint firstItem="6l2-az-mAq" firstAttribute="centerY" secondItem="dJY-ay-H7e" secondAttribute="centerY" constant="-130" id="ihw-3i-K69"/>
+                            <constraint firstItem="4mf-dm-JLi" firstAttribute="centerX" secondItem="dJY-ay-H7e" secondAttribute="centerX" id="jvT-Id-mb9"/>
+                            <constraint firstItem="u1V-nS-zhx" firstAttribute="width" secondItem="vN2-nP-AfN" secondAttribute="width" id="rbc-By-wZ8"/>
+                            <constraint firstItem="KJ5-kh-rD6" firstAttribute="centerY" secondItem="dJY-ay-H7e" secondAttribute="centerY" constant="-24" id="sQg-FM-wNn"/>
+                            <constraint firstItem="4mf-dm-JLi" firstAttribute="top" secondItem="u1V-nS-zhx" secondAttribute="bottom" constant="16.000000000000057" id="zYP-mc-ykU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KEa-vZ-3ZA"/>
                     </view>
@@ -196,9 +263,14 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="X0h-ZV-uBy"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="fourDevicesBtn" destination="29K-Nl-qSB" id="pL5-E2-Nsr"/>
-                        <outlet property="threeDevicesBtn" destination="hxq-AN-gO5" id="fcQ-oM-3C0"/>
+                        <outlet property="continueBtn" destination="4mf-dm-JLi" id="DVy-1e-YMv"/>
+                        <outlet property="modeDescription" destination="KsV-gE-d2m" id="bhu-Th-o9E"/>
+                        <outlet property="modeImageView" destination="1nL-hy-DDz" id="Nce-BI-uOH"/>
                         <outlet property="titleLabel" destination="6l2-az-mAq" id="fYz-Jn-mtY"/>
+                        <outletCollection property="deviceBtns" destination="Fmn-zM-Zj6" collectionClass="NSMutableArray" id="yXv-Dk-ujj"/>
+                        <outletCollection property="deviceBtns" destination="KJ5-kh-rD6" collectionClass="NSMutableArray" id="gJt-Iw-J0o"/>
+                        <outletCollection property="deviceBtns" destination="vN2-nP-AfN" collectionClass="NSMutableArray" id="8Bs-JY-jv7"/>
+                        <outletCollection property="deviceBtns" destination="u1V-nS-zhx" collectionClass="NSMutableArray" id="vsv-7l-Jlm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqm-Wl-sQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,7 +286,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2e9-pv-BnO" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="117.66666666666669" width="260" height="40"/>
+                                <rect key="frame" x="276" y="107.66666666666667" width="260" height="40.000000000000014"/>
                                 <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5My-NP-KSw"/>
@@ -232,7 +304,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRG-69-wcp" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="167.66666666666666" width="260" height="40"/>
+                                <rect key="frame" x="276" y="157.66666666666666" width="260" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="1Y6-7V-d0x"/>
@@ -249,7 +321,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="top" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvo-QF-Dgj" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="217.66666666666666" width="260" height="39.999999999999972"/>
+                                <rect key="frame" x="276" y="207.66666666666666" width="260" height="40"/>
                                 <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="PhX-Lj-ZYh"/>
@@ -266,7 +338,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your role" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od8-FS-ups">
-                                <rect key="frame" x="166" y="47.666666666666657" width="480" height="40"/>
+                                <rect key="frame" x="166" y="37.666666666666664" width="480" height="39.999999999999993"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="480" id="Qff-fJ-FZ5"/>
                                 </constraints>
@@ -275,7 +347,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAQ-nY-XOf" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="267.66666666666669" width="260" height="40"/>
+                                <rect key="frame" x="276" y="257.66666666666669" width="260" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="6xq-Jt-CcE"/>
@@ -302,7 +374,7 @@
                             <constraint firstItem="Qvo-QF-Dgj" firstAttribute="top" secondItem="tRG-69-wcp" secondAttribute="bottom" constant="10" id="LZG-gI-CX5"/>
                             <constraint firstItem="2e9-pv-BnO" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="NA5-4O-cVE"/>
                             <constraint firstItem="tRG-69-wcp" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="So0-oT-RyZ"/>
-                            <constraint firstItem="od8-FS-ups" firstAttribute="centerY" secondItem="euz-eZ-NKh" secondAttribute="centerY" constant="-120" id="THm-oz-t3f"/>
+                            <constraint firstItem="od8-FS-ups" firstAttribute="centerY" secondItem="euz-eZ-NKh" secondAttribute="centerY" constant="-130" id="THm-oz-t3f"/>
                             <constraint firstItem="Qvo-QF-Dgj" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="Wl3-6E-VWT"/>
                             <constraint firstItem="od8-FS-ups" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="nUC-vH-nxK"/>
                         </constraints>
@@ -425,7 +497,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Dp-bQ-VSv" userLabel="Left_note">
-                                <rect key="frame" x="138" y="111.66666666666669" width="258" height="152"/>
+                                <rect key="frame" x="20" y="111.66666666666669" width="132" height="152"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="152" id="fmm-2X-duF"/>
@@ -585,7 +657,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Game name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyU-2P-00d">
-                                <rect key="frame" x="160" y="120.66666666666669" width="126" height="30"/>
+                                <rect key="frame" x="42" y="120.66666666666669" width="0.0" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hga-hI-ST0"/>
                                 </constraints>
@@ -594,7 +666,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Passcode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91s-GP-oli">
-                                <rect key="frame" x="160" y="150.66666666666666" width="103.66666666666669" height="30"/>
+                                <rect key="frame" x="42" y="150.66666666666666" width="5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Gmc-Oc-jll"/>
                                 </constraints>
@@ -603,7 +675,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2113" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpW-Hr-uXw">
-                                <rect key="frame" x="298" y="150.66666666666666" width="98" height="30"/>
+                                <rect key="frame" x="54" y="150.66666666666666" width="98" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="Pls-Vo-uBE"/>
                                     <constraint firstAttribute="height" constant="30" id="bXc-K0-CP8"/>
@@ -613,7 +685,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="app-1726" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZd-n8-4Ui">
-                                <rect key="frame" x="298" y="120.66666666666669" width="98" height="30"/>
+                                <rect key="frame" x="54" y="120.66666666666669" width="98" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="Dc3-Br-tdl"/>
                                     <constraint firstAttribute="height" constant="30" id="LL9-Ps-jCh"/>
@@ -1332,8 +1404,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3devices" width="122" height="83"/>
-        <image name="4devices" width="160" height="81"/>
+        <image name="3dev" width="160" height="90"/>
         <image name="Crown1-80px" width="40" height="40"/>
         <image name="Pawn2-80px" width="40" height="40"/>
         <image name="paper_370x40px" width="370" height="40"/>
@@ -1342,4 +1413,7 @@
         <image name="wait-S80px" width="40" height="40"/>
         <image name="you-icon-80px" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="83I-SB-8jw"/>
+    </inferredMetricsTieBreakers>
 </document>

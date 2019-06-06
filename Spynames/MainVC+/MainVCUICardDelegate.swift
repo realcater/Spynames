@@ -6,9 +6,18 @@ protocol MainVCUICardDelegate: class {
     func updateLeftWordsQtyLabels()
     func pressed(uicard: UICard)
     func showAllWords()
+    var sizeX: Int {get}
+    var sizeY: Int {get}
+    
 }
 
 extension MainVC: MainVCUICardDelegate {
+    var sizeX: Int {
+        return game.sizeX
+    }
+    var sizeY: Int {
+        return game.sizeY
+    }
     
     func updateScoreLabels() {
         guessedRedLabel.text = String(game.score[.redTeam]!)

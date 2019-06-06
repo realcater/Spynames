@@ -64,13 +64,12 @@ extension MainVC {
                 K.Sounds.cards?.play()
             })
         }
-        for y in 0..<K.Game.sizeY {
-            for x in 0..<K.Game.sizeX {
-                let num = y*K.Game.sizeX+x
+        for y in 0..<game.sizeY {
+            for x in 0..<game.sizeX {
+                let num = y*game.sizeX+x
                 let place = Place(x: x, y: y)
-                let delay = K.CardsAnimation.show ? K.CardsAnimation.betweenCardsAppear * Double(num) : 0
-                let uicard = UICard(place: place, card: game.cards[num], showDelay: delay, in: zoomedView)
-                uicard.delegate = self
+                let delay = K.CardsAnimation.show ? delayBetweenCardsAppear * Double(num) : 0
+                let uicard = UICard(place: place, card: game.cards[num], showDelay: delay, in: zoomedView, delegate: self)
                 uicards.append(uicard)
             }
         }

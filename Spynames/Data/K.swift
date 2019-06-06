@@ -9,28 +9,34 @@ enum LeftButtonState {
 }
 
 struct K {
-    //static var i = 0
     struct Game {
         static let sizeX = 5
         static let sizeY = 5
-        static let ttlCardsQty = sizeX * sizeY
-        static let startTeamCardsQty = Int(round(Double(ttlCardsQty)/3))+1
-        static let secondTeamCardsQty = Int(round(Double(ttlCardsQty)/3))
-        static let neutralCardsQty = ttlCardsQty-startTeamCardsQty-secondTeamCardsQty-1
-        static let cardsQty = [
-            CardColor.red: [Team.redTeam: startTeamCardsQty, Team.blueTeam: secondTeamCardsQty],
-            CardColor.blue: [Team.redTeam: secondTeamCardsQty, Team.blueTeam: startTeamCardsQty],
-            CardColor.neutral: [Team.redTeam: neutralCardsQty, Team.blueTeam: neutralCardsQty],
-            CardColor.black: [Team.redTeam: 1, Team.blueTeam: 1]
-        ]
+        
     }
     struct CardsAnimation {
         static let show = true
         static let turns = 1.0
         static let duration = 0.4
         static let delaySound = 0.4
-        static let betweenCardsAppear = 0.72/Double(Game.ttlCardsQty)
+        
     }
+    struct ChooseMode {
+        static let description = [
+            "HOTSEAT - all players use the same device one by one",
+            "Spymasters of both teams use one device and Operatives of both teams use another device",
+            "Each Spymaster use their own device and Operatives of both teams use the 3d device",
+            "Each Spymaster and Operatives of each team use their own device"
+        ]
+        static let imagesName = [
+            "1dev",
+            "2dev",
+            "3dev",
+            "4dev"
+        ]
+        static let defaultModeNumber = 0
+    }
+    
     static let allDeviceRoles = [DeviceRoles.redSpymaster,
                                  DeviceRoles.blueSpymaster,
                                  DeviceRoles.redOperatives,
@@ -213,6 +219,7 @@ struct K {
         struct Buttons {
             static let startVC =  UIFont(name: "Top Secret Stamp", size: 32)
             static let chooseModeVC =  UIFont(name: "Top Secret Stamp", size: 32)
+            static let chooseModeVCSmall =  UIFont(name: "Top Secret Stamp", size: 22)
             static let chooseRole =  UIFont(name: "Top Secret Stamp", size: 28)
         }
         static let chat = UIFont.systemFont(ofSize: 18)

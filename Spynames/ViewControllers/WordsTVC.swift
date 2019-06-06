@@ -57,7 +57,6 @@ class WordsTVC: UITableViewController {
         let itemToMove = cards[sourceIndexPath.row]
         cards.remove(at: sourceIndexPath.row)
         cards.insert(itemToMove, at: destinationIndexPath.row)
-        //deleteUnnecessaryClearCards()
     }
 }
 //MARK: - Public functions

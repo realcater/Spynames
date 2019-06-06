@@ -3,6 +3,11 @@ import UIKit
 
 //MARK: - startUp functions
 extension MainVC {
+    var delayBetweenCardsAppear: Double {
+        get {
+            return 0.72/Double(game.ttlCardsQty)
+        }
+    }
     func prepareViews() {
         guessedScoreView.makeDoubleColor(leftColor: K.Colors.team[.blueTeam]!, rightColor: K.Colors.team[.redTeam]!)
         guessedScoreView.makeRounded(cornerRadius: K.Sizes.smallCornerRadius)
