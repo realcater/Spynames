@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMZ-6w-Mqr" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="256" y="197.66666666666663" width="300" height="50"/>
+                                <rect key="frame" x="256" y="197.66666666666666" width="300" height="50"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="HdP-if-IxJ"/>
@@ -50,7 +50,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="16j-nc-9fW" kind="show" animates="NO" id="TRc-Fx-7YO"/>
+                                    <segue destination="16j-nc-9fW" kind="show" identifier="toChooseMode" animates="NO" id="TRc-Fx-7YO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGL-Jr-Ip2" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
@@ -66,7 +66,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spy Names" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nS8-DH-GcR">
-                                <rect key="frame" x="256" y="37.666666666666629" width="300" height="60"/>
+                                <rect key="frame" x="256" y="37.666666666666657" width="300" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="EIf-Hl-Dx0"/>
                                 </constraints>
@@ -75,14 +75,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spy_male-v2-2" translatesAutoresizingMaskIntoConstraints="NO" id="pCe-jj-N5a">
-                                <rect key="frame" x="156" y="37.666666666666629" width="80" height="285"/>
+                                <rect key="frame" x="156" y="37.666666666666657" width="80" height="285"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="285" id="4JZ-Mb-8lr"/>
                                     <constraint firstAttribute="width" constant="80" id="PDZ-OP-ng7"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spy_female-v2-3" translatesAutoresizingMaskIntoConstraints="NO" id="vwM-Tc-KfA">
-                                <rect key="frame" x="576" y="37.666666666666629" width="80" height="285"/>
+                                <rect key="frame" x="576" y="37.666666666666657" width="80" height="285"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="R3h-Rg-E1J"/>
                                     <constraint firstAttribute="height" constant="285" id="Ycc-Zk-10d"/>
@@ -131,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose game mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6l2-az-mAq">
-                                <rect key="frame" x="166" y="37.666666666666686" width="480" height="39.999999999999993"/>
+                                <rect key="frame" x="166" y="37.666666666666664" width="480" height="39.999999999999993"/>
                                 <color key="tintColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="480" id="sMk-V2-2uP"/>
@@ -141,7 +141,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmn-zM-Zj6" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="146" y="97.666666666666686" width="240" height="36.000000000000014"/>
+                                <rect key="frame" x="146" y="97.666666666666671" width="240" height="36.000000000000014"/>
                                 <color key="backgroundColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="9un-fx-wSF"/>
@@ -157,7 +157,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJ5-kh-rD6" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="146" y="145.66666666666663" width="240" height="36"/>
+                                <rect key="frame" x="146" y="145.66666666666666" width="240" height="36"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="CEr-pT-xdK"/>
@@ -172,7 +172,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN2-nP-AfN" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="146" y="193.66666666666663" width="240" height="36"/>
+                                <rect key="frame" x="146" y="193.66666666666666" width="240" height="36"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Xua-SB-R3r"/>
@@ -225,7 +225,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each Spymaster use their own device and Operatives of both teams use the third device" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsV-gE-d2m">
-                                <rect key="frame" x="426" y="187.66666666666663" width="240" height="89.999999999999972"/>
+                                <rect key="frame" x="426" y="187.66666666666666" width="240" height="89.999999999999972"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="Cr3-m7-6RA"/>
                                     <constraint firstAttribute="height" constant="90" id="cBC-dk-cdA"/>
@@ -235,7 +235,7 @@
                                 <color key="highlightedColor" red="0.0" green="0.2784313725" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZR-Vt-Azk">
-                                <rect key="frame" x="44" y="45.666666666666686" width="24" height="23.999999999999993"/>
+                                <rect key="frame" x="44" y="45.666666666666664" width="24" height="23.999999999999993"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="EDQ-dF-haU"/>
                                     <constraint firstAttribute="width" constant="24" id="ic5-Ti-gDL"/>
@@ -287,7 +287,7 @@
                         <outletCollection property="deviceBtns" destination="KJ5-kh-rD6" collectionClass="NSMutableArray" id="gJt-Iw-J0o"/>
                         <outletCollection property="deviceBtns" destination="vN2-nP-AfN" collectionClass="NSMutableArray" id="8Bs-JY-jv7"/>
                         <outletCollection property="deviceBtns" destination="u1V-nS-zhx" collectionClass="NSMutableArray" id="vsv-7l-Jlm"/>
-                        <segue destination="6TB-yp-aHk" kind="show" identifier="toChooseRole" animates="NO" id="YaE-Ml-5k9"/>
+                        <segue destination="6TB-yp-aHk" kind="show" identifier="toChooseRoleVC" animates="NO" id="YaE-Ml-5k9"/>
                         <segue destination="vVa-Qu-fNx" kind="show" identifier="toMainVC" animates="NO" id="05M-ge-F48"/>
                     </connections>
                 </viewController>
@@ -298,16 +298,16 @@
         <!--chooseRole4dVC-->
         <scene sceneID="6Qf-x6-4HD">
             <objects>
-                <viewController id="6TB-yp-aHk" userLabel="chooseRole4dVC" customClass="ChooseRole4dVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6TB-yp-aHk" userLabel="chooseRole4dVC" customClass="ChooseRoleVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="euz-eZ-NKh">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2e9-pv-BnO" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="107.66666666666669" width="260" height="40.000000000000014"/>
+                                <rect key="frame" x="276" y="107.66666666666667" width="260" height="40.000000000000014"/>
                                 <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="5My-NP-KSw"/>
+                                    <constraint firstAttribute="height" constant="40" identifier="btnHeight" id="5My-NP-KSw"/>
                                     <constraint firstAttribute="width" constant="260" id="FR1-Lq-Zyv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="28"/>
@@ -318,15 +318,14 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1X6-Gr-ShN" kind="show" animates="NO" id="b2c-lm-9DN"/>
+                                    <segue destination="1X6-Gr-ShN" kind="show" identifier="toGameCreatedVC" animates="NO" id="b2c-lm-9DN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRG-69-wcp" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="157.66666666666663" width="260" height="40"/>
+                                <rect key="frame" x="276" y="157.66666666666666" width="260" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="1Y6-7V-d0x"/>
-                                    <constraint firstAttribute="height" constant="40" id="EeQ-FF-gdO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="28"/>
                                 <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -339,11 +338,10 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="top" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvo-QF-Dgj" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="207.66666666666663" width="260" height="40"/>
+                                <rect key="frame" x="276" y="207.66666666666666" width="260" height="40"/>
                                 <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="PhX-Lj-ZYh"/>
-                                    <constraint firstAttribute="height" constant="40" id="VVf-s7-qJa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="28"/>
                                 <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -356,9 +354,10 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your role" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od8-FS-ups">
-                                <rect key="frame" x="166" y="37.666666666666686" width="480" height="39.999999999999993"/>
+                                <rect key="frame" x="166" y="37.666666666666664" width="480" height="39.999999999999993"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="480" id="Qff-fJ-FZ5"/>
+                                    <constraint firstAttribute="height" constant="40" id="nIN-Gy-5oE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Google-spies" family="Google spies" pointSize="48"/>
                                 <color key="textColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -369,7 +368,6 @@
                                 <color key="backgroundColor" red="0.0" green="0.28627450980392155" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="6xq-Jt-CcE"/>
-                                    <constraint firstAttribute="height" constant="40" id="UV9-lq-ADY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="28"/>
                                 <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -382,7 +380,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-Es-idZ">
-                                <rect key="frame" x="44" y="45.666666666666686" width="24" height="23.999999999999993"/>
+                                <rect key="frame" x="44" y="45.666666666666664" width="24" height="23.999999999999993"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="oSL-Hx-3i7"/>
                                     <constraint firstAttribute="width" constant="24" id="sNw-SE-sNK"/>
@@ -398,19 +396,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2e9-pv-BnO" firstAttribute="top" secondItem="od8-FS-ups" secondAttribute="bottom" constant="30" id="2yM-ac-0Fv"/>
-                            <constraint firstItem="bAQ-nY-XOf" firstAttribute="top" secondItem="Qvo-QF-Dgj" secondAttribute="bottom" constant="10" id="3gO-w6-vSj"/>
+                            <constraint firstItem="2e9-pv-BnO" firstAttribute="top" secondItem="od8-FS-ups" secondAttribute="bottom" constant="30" identifier="fromFirstBtnToTitle" id="2yM-ac-0Fv"/>
+                            <constraint firstItem="bAQ-nY-XOf" firstAttribute="top" secondItem="Qvo-QF-Dgj" secondAttribute="bottom" constant="10" identifier="verticalBtnSpace3" id="3gO-w6-vSj"/>
                             <constraint firstItem="bAQ-nY-XOf" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="4xt-sG-GL4"/>
                             <constraint firstItem="od8-FS-ups" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="9WX-dh-FHY"/>
                             <constraint firstItem="l4u-Es-idZ" firstAttribute="centerY" secondItem="od8-FS-ups" secondAttribute="centerY" id="Ajf-DZ-Ipk"/>
-                            <constraint firstItem="tRG-69-wcp" firstAttribute="top" secondItem="2e9-pv-BnO" secondAttribute="bottom" constant="10" id="Ibj-N4-YVs"/>
-                            <constraint firstItem="Qvo-QF-Dgj" firstAttribute="top" secondItem="tRG-69-wcp" secondAttribute="bottom" constant="10" id="LZG-gI-CX5"/>
+                            <constraint firstItem="Qvo-QF-Dgj" firstAttribute="height" secondItem="2e9-pv-BnO" secondAttribute="height" id="ER6-Km-U1Y"/>
+                            <constraint firstItem="tRG-69-wcp" firstAttribute="height" secondItem="2e9-pv-BnO" secondAttribute="height" id="FgP-yO-xlD"/>
+                            <constraint firstItem="tRG-69-wcp" firstAttribute="top" secondItem="2e9-pv-BnO" secondAttribute="bottom" constant="10" identifier="verticalBtnSpace1" id="Ibj-N4-YVs"/>
+                            <constraint firstItem="Qvo-QF-Dgj" firstAttribute="top" secondItem="2e9-pv-BnO" secondAttribute="bottom" constant="59.999999999999972" identifier="verticalSpaceBetween1and3btns" id="LZG-gI-CX5"/>
                             <constraint firstItem="2e9-pv-BnO" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="NA5-4O-cVE"/>
                             <constraint firstItem="tRG-69-wcp" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="So0-oT-RyZ"/>
                             <constraint firstItem="od8-FS-ups" firstAttribute="centerY" secondItem="euz-eZ-NKh" secondAttribute="centerY" constant="-130" id="THm-oz-t3f"/>
                             <constraint firstItem="Qvo-QF-Dgj" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="Wl3-6E-VWT"/>
                             <constraint firstItem="od8-FS-ups" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="nUC-vH-nxK"/>
                             <constraint firstItem="l4u-Es-idZ" firstAttribute="leading" secondItem="w7R-BB-tCT" secondAttribute="leading" id="nxU-Aa-wfh"/>
+                            <constraint firstItem="bAQ-nY-XOf" firstAttribute="height" secondItem="2e9-pv-BnO" secondAttribute="height" id="twG-pq-JGB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w7R-BB-tCT"/>
                     </view>
@@ -418,109 +419,16 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="w4n-9P-qFB"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="blueOperBtn" destination="bAQ-nY-XOf" id="l0g-t9-qXB"/>
-                        <outlet property="blueSpymasterBtn" destination="tRG-69-wcp" id="lmM-Rk-T7X"/>
-                        <outlet property="redOperBtn" destination="Qvo-QF-Dgj" id="q3K-JB-OWQ"/>
-                        <outlet property="redSpymasterBtn" destination="2e9-pv-BnO" id="Qao-Ov-nzy"/>
                         <outlet property="titleLabel" destination="od8-FS-ups" id="gkw-fT-5TC"/>
+                        <outletCollection property="buttons" destination="2e9-pv-BnO" collectionClass="NSMutableArray" id="dmw-oA-7cx"/>
+                        <outletCollection property="buttons" destination="tRG-69-wcp" collectionClass="NSMutableArray" id="ZHS-od-YP2"/>
+                        <outletCollection property="buttons" destination="Qvo-QF-Dgj" collectionClass="NSMutableArray" id="CdW-Kw-x7N"/>
+                        <outletCollection property="buttons" destination="bAQ-nY-XOf" collectionClass="NSMutableArray" id="Gn4-To-cWU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Lx-Ip-Zm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346" y="1629"/>
-        </scene>
-        <!--chooseRole3dVC-->
-        <scene sceneID="fBI-Dm-Oqo">
-            <objects>
-                <viewController id="8bz-q5-fpb" userLabel="chooseRole3dVC" customClass="ChooseRole3dVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4Yx-R7-m1T">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsn-7X-Yg0" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="137.66666666666663" width="260" height="40"/>
-                                <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="NN4-yr-dbX"/>
-                                    <constraint firstAttribute="height" constant="40" id="aMY-zm-A9B"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="28"/>
-                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Red Spymaster" image="Crown1-80px"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="center" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-rx-1ye" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="187.66666666666663" width="260" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="efJ-rT-wzj"/>
-                                    <constraint firstAttribute="height" constant="40" id="keR-4b-NzE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="28"/>
-                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Blue Spymaster" image="Crown1-80px">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="top" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHY-aZ-w0N" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
-                                <rect key="frame" x="276" y="237.66666666666663" width="260" height="40"/>
-                                <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="7YZ-U3-OlU"/>
-                                    <constraint firstAttribute="width" constant="260" id="zZm-p9-doZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TopSecretStamp" family="Top Secret Stamp" pointSize="28"/>
-                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Operatives" image="Pawn2-80px">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your role" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e27-bN-IiQ">
-                                <rect key="frame" x="166" y="47.666666666666629" width="480" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="480" id="juG-NB-qfK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Google-spies" family="Google spies" pointSize="48"/>
-                                <color key="textColor" red="0.0" green="0.28627450980000002" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Xsn-7X-Yg0" firstAttribute="top" secondItem="e27-bN-IiQ" secondAttribute="bottom" constant="50" id="8Td-jo-qLA"/>
-                            <constraint firstItem="hvg-rx-1ye" firstAttribute="top" secondItem="Xsn-7X-Yg0" secondAttribute="bottom" constant="10" id="HAh-LL-bsW"/>
-                            <constraint firstItem="RHY-aZ-w0N" firstAttribute="centerX" secondItem="4Yx-R7-m1T" secondAttribute="centerX" id="cgm-28-iig"/>
-                            <constraint firstItem="RHY-aZ-w0N" firstAttribute="top" secondItem="hvg-rx-1ye" secondAttribute="bottom" constant="10" id="cx0-cb-Rzh"/>
-                            <constraint firstItem="e27-bN-IiQ" firstAttribute="centerX" secondItem="4Yx-R7-m1T" secondAttribute="centerX" id="fnf-0g-3rh"/>
-                            <constraint firstItem="e27-bN-IiQ" firstAttribute="centerX" secondItem="4Yx-R7-m1T" secondAttribute="centerX" id="gF7-V4-mVP"/>
-                            <constraint firstItem="hvg-rx-1ye" firstAttribute="centerX" secondItem="4Yx-R7-m1T" secondAttribute="centerX" id="gMh-69-fGP"/>
-                            <constraint firstItem="e27-bN-IiQ" firstAttribute="centerY" secondItem="4Yx-R7-m1T" secondAttribute="centerY" constant="-120" id="v7c-fY-izz"/>
-                            <constraint firstItem="Xsn-7X-Yg0" firstAttribute="centerX" secondItem="4Yx-R7-m1T" secondAttribute="centerX" id="yyz-d5-oJ0"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="wXZ-WA-1MF"/>
-                    </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="qx4-nG-FKN"/>
-                    <connections>
-                        <outlet property="blueSpymasterBtn" destination="hvg-rx-1ye" id="sbR-dn-VTm"/>
-                        <outlet property="operBtn" destination="RHY-aZ-w0N" id="Bqj-Mk-se0"/>
-                        <outlet property="redSpymasterBtn" destination="Xsn-7X-Yg0" id="Yb5-9N-CMr"/>
-                        <outlet property="titleLabel" destination="e27-bN-IiQ" id="Z3C-OM-lXZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uOi-nK-pC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-275" y="1631"/>
+            <point key="canvasLocation" x="31" y="1654"/>
         </scene>
         <!--chooseRole4dVC-->
         <scene sceneID="Zn2-6Y-t1B">
@@ -1228,7 +1136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Sf-8e-lv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.078817733990149" y="3269.5999999999999"/>
+            <point key="canvasLocation" x="968" y="790"/>
         </scene>
         <!--WordsTVC-->
         <scene sceneID="h8B-w5-cNT">
@@ -1287,7 +1195,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kuu-0H-Zsk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="3271"/>
+            <point key="canvasLocation" x="1363" y="790"/>
         </scene>
         <!--EnterHintVC-->
         <scene sceneID="3Ko-5C-lOy">
@@ -1372,7 +1280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uoa-NZ-iEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-261" y="4103"/>
+            <point key="canvasLocation" x="968" y="1590"/>
         </scene>
         <!--EnterHintVC-->
         <scene sceneID="SDn-mf-oJD">
@@ -1383,7 +1291,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T03-Oa-DgG">
-                                <rect key="frame" x="246" y="137.66666666666663" width="320" height="100"/>
+                                <rect key="frame" x="246" y="137.66666666666666" width="320" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFZ-2s-sTU" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
                                         <rect key="frame" x="100" y="55" width="120" height="30"/>
@@ -1434,7 +1342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEw-9S-bpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="405.66502463054189" y="4101.6000000000004"/>
+            <point key="canvasLocation" x="1780" y="788"/>
         </scene>
     </scenes>
     <resources>
@@ -1449,6 +1357,7 @@
         <image name="you-icon-80px" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="b2c-lm-9DN"/>
         <segue reference="rUF-9L-12K"/>
         <segue reference="nfN-zS-lYu"/>
         <segue reference="9eH-sO-6wM"/>

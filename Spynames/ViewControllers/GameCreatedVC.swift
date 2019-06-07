@@ -19,6 +19,7 @@ class GameCreatedVC: UIViewController {
     
     var devices: [Device]!
     var gameIsReady = false
+    var devicesQty: Int!
     
     @IBAction func waitOrStartGameBtnPressed(_ sender: Any) {
         if gameIsReady {
@@ -39,15 +40,23 @@ class GameCreatedVC: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpDevices()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
-        leftNoteImageView.image = UIImage(named: K.FileNames.leftNote)
-        rightNoteImageView.image = UIImage(named: K.FileNames.rightNote)
+        prepareImages()
         waitOrStartGameBtn.makeRounded()
-        setUpDevices()
     }
     
+    private func prepareImages() {
+        leftNoteImageView.image = UIImage(named: K.FileNames.leftNote)
+        rightNoteImageView.image = UIImage(named: K.FileNames.rightNote)
+        leftNoteImageView.addShadow()
+        rightNoteImageView.addShadow()
+    }
     private func setUpDevices() {
         devices = [
             Device(role: .redSpymaster, label: (labels?[0])!,
@@ -59,5 +68,11 @@ class GameCreatedVC: UIViewController {
             Device(role: .blueOperatives, label: (labels?[3])!,
                    image: (images?[3])!, statusImage: (statusImages?[3])!)
         ]
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backToChooseRoleVC" {
+            let chooseRoleVC = segue.destination as? ChooseRoleVC
+            chooseRoleVC!.devicesQty = devicesQty
+        }
     }
 }

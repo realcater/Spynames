@@ -34,8 +34,34 @@ struct K {
             "3dev",
             "4dev"
         ]
-        static let defaultModeNumber = 0
-        static let hotSeatModeNumber = 0
+        static let defaultDevicesQty = 1
+    }
+    struct ChooseRole {
+        static let fromFirstBtnToTitle: [Int: CGFloat] = [
+            2: 55,
+            3: 40,
+            4: 30
+        ]
+        static let btnHeight: [Int: CGFloat] = [
+            2: 60,
+            3: 50,
+            4: 40
+        ]
+        static let verticalSpaceBetween1and3btns: [Int: CGFloat] = [
+            2: 20,
+            3: 70,
+            4: 60
+        ]
+        static let btnColor: [Int: [UIColor?]] = [
+            2: [nil, nil, nil, nil], //=nil if button is hidden or DoubleColor
+            3: [Colors.redDarker, Colors.blueDarker, nil, nil],
+            4: [Colors.redDarker, Colors.blueDarker, Colors.redDarker, Colors.blueDarker]
+        ]
+        static let btnTitle = [
+            2: ["  Spymasters", nil, "  Operatives", nil],
+            3: ["Red Spymaster", "Blue Spymaster", "Operatives", nil],
+            4: ["Red Spymaster", "Blue Spymaster", "Red Operatives", "Blue Operatives"]
+        ]
     }
     
     static let allDeviceRoles = [DeviceRoles.redSpymaster,
@@ -81,6 +107,7 @@ struct K {
             static let distX = 0.1
             static let distY = 0.2
         }
+        
     }
     struct Sounds {
         static let click = initSound(filename: "click.wav", volume: 0.1)
@@ -192,11 +219,7 @@ struct K {
             static let newGame = "New game"
             static let joinGame = "Join a game"
             static let howToPlay = "How to play"
-            static let redSpymaster = "Red Spymaster"
-            static let blueSpymaster = "Blue Spymaster"
-            static let redOperatives = "Red Operatives"
-            static let blueOperatives = "Blue Operatives"
-            static let operatives = "Operatives"
+            
             static let startGame = "Start a game!"
             static let left = [
                 LeftButtonState.tutorial: "Skip",
@@ -221,6 +244,7 @@ struct K {
             static let chooseModeVC =  UIFont(name: "Top Secret Stamp", size: 32)
             static let chooseModeVCSmall =  UIFont(name: "Top Secret Stamp", size: 22)
             static let chooseRole =  UIFont(name: "Top Secret Stamp", size: 28)
+            static let chooseRoleBigger =  UIFont(name: "Top Secret Stamp", size: 32)
         }
         static let chat = UIFont.systemFont(ofSize: 18)
         static let cardText = UIFont.systemFont(ofSize: 18)
@@ -250,7 +274,7 @@ struct K {
         static let rightNote = "paper_600x450px-2"
     }
     struct Delays {
-        static let clockTurnAround = 0.2
+        static let clockTurnAround = 4.0
         static let fadeTimeAppearCard = 1.5
         static let beforeFadeCardsColors = 1.0
         static let betweenWordsToTable = 0.2
