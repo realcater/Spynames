@@ -39,10 +39,10 @@
          contextName = "Game.leftToGuessThisTurn.getter:Game.swift">
          <PersistentStrings>
             <PersistentString
-               value = "currentHint?.qty">
+               value = "currentHint">
             </PersistentString>
             <PersistentString
-               value = "currentHint">
+               value = "currentHint?.qty">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -51,33 +51,6 @@
          <PersistentStrings>
             <PersistentString
                value = "layer.cornerRadius">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MainVC.addHint(hint:):MainVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "game.hints">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EnterHintVC.pressConfirmButton(_:):EnterHintVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "delegate">
-            </PersistentString>
-            <PersistentString
-               value = "hint">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EnterHintVC.currentHint.getter:EnterHintVC.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -93,13 +66,40 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MainVC.addHint(hint:):MainVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "game.hints">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EnterHintVC.currentHint.getter:EnterHintVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EnterHintVC.pressConfirmButton(_:):EnterHintVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "delegate">
+            </PersistentString>
+            <PersistentString
+               value = "hint">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UIView.makeAllButtonsRound(cornerRadius:color:font:sound:):UIView+extension.swift">
          <PersistentStrings>
             <PersistentString
-               value = "cornerRadius">
+               value = "self.subviews">
             </PersistentString>
             <PersistentString
-               value = "self.subviews">
+               value = "cornerRadius">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -153,15 +153,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "UICard.frameSize.getter:UICard.swift">
+      </ContextState>
+      <ContextState
          contextName = "WordsTVC.doubleTap(recognizer:):WordsTVC.swift">
          <PersistentStrings>
             <PersistentString
                value = "indexPath!.Storage">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UICard.frameSize.getter:UICard.swift">
       </ContextState>
       <ContextState
          contextName = "MainVC.updateStatusIcons():MainVC.swift">
@@ -209,6 +209,14 @@
       </ContextState>
       <ContextState
          contextName = "MainVC.placeCards():MainVC+HighLevel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UIView.rotate(duration:):UIView+extension.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "layer.animation(forKey: UIView.kRotationAnimationKey)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "MyButton.makeDoubleColor(topColor:bottomColor:):MyButton.swift">

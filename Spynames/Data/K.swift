@@ -35,6 +35,7 @@ struct K {
             "4dev"
         ]
         static let defaultModeNumber = 0
+        static let hotSeatModeNumber = 0
     }
     
     static let allDeviceRoles = [DeviceRoles.redSpymaster,
@@ -245,12 +246,13 @@ struct K {
             CardColor.neutral: "peacemaker-256px",
             CardColor.black: "bomb-200px"
         ]
+        static let leftNote = "paper_600x450px"
+        static let rightNote = "paper_600x450px-2"
     }
     struct Delays {
-        static let clockTurnAround = 4.0
+        static let clockTurnAround = 0.2
         static let fadeTimeAppearCard = 1.5
         static let beforeFadeCardsColors = 1.0
-        static let beforeFirstWordToTable = 0.0
         static let betweenWordsToTable = 0.2
         static let nextTurnAlert = 1.0
         static let titleBarText = 0.5

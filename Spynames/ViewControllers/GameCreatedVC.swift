@@ -14,6 +14,8 @@ class GameCreatedVC: UIViewController {
     @IBOutlet var labels: [UILabel]?
     @IBOutlet var images: [UIImageView]?
     @IBOutlet var statusImages: [UIImageView]?
+    @IBOutlet weak var leftNoteImageView: UIImageView!
+    @IBOutlet weak var rightNoteImageView: UIImageView!
     
     var devices: [Device]!
     var gameIsReady = false
@@ -40,6 +42,8 @@ class GameCreatedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setBackgroundImage(named: K.FileNames.background, alpha: K.Alpha.Background.main)
+        leftNoteImageView.image = UIImage(named: K.FileNames.leftNote)
+        rightNoteImageView.image = UIImage(named: K.FileNames.rightNote)
         waitOrStartGameBtn.makeRounded()
         setUpDevices()
     }
