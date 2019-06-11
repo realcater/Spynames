@@ -17,26 +17,16 @@ class GameCreatedVC: UIViewController {
     @IBOutlet weak var leftNoteImageView: UIImageView!
     @IBOutlet weak var rightNoteImageView: UIImageView!
     
-    var devices: [Device]!
+    var devices: [DevicesTableItem] = []
     var gameIsReady = false
     var devicesQty: Int!
+    var thisDeviceRole: [Player]!
     
     @IBAction func waitOrStartGameBtnPressed(_ sender: Any) {
         if gameIsReady {
             performSegue(withIdentifier: "startGame", sender: sender)
         } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                self.devices[1].status = .joined
-            })
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                self.devices[2].status = .joined
-            })
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                self.devices[3].status = .joined
-            })
-            waitOrStartGameBtn.setTitle(K.Labels.Buttons.startGame, for: .normal)
-            waitOrStartGameBtn.backgroundColor = K.Colors.foreground
-            gameIsReady = true
+            refresh()
         }
     }
     
@@ -58,21 +48,36 @@ class GameCreatedVC: UIViewController {
         rightNoteImageView.addShadow()
     }
     private func setUpDevices() {
-        devices = [
-            Device(role: .redSpymaster, label: (labels?[0])!,
-                   image: (images?[0])!, statusImage: (statusImages?[0])!),
-            Device(role: .blueSpymaster, label: (labels?[1])!,
-                   image: (images?[1])!, statusImage: (statusImages?[1])!),
-            Device(role: .redOperatives, label: (labels?[2])!,
-                   image: (images?[2])!, statusImage: (statusImages?[2])!),
-            Device(role: .blueOperatives, label: (labels?[3])!,
-                   image: (images?[3])!, statusImage: (statusImages?[3])!)
-        ]
+        for i in 0..<4 {
+            if i >= devicesQty {
+                statusImages![i].isHidden = true
+                labels![i].isHidden = true
+                images![i].isHidden = true
+            } else {
+                let role = K.Device.roles[devicesQty]![i]!
+                let isMyDevice = (role == thisDeviceRole)
+                let labelText =  K.Labels.Buttons.chooseMode[devicesQty]![i]!
+                let iconImage = K.Device.icons[devicesQty]![i]!
+                let device = DevicesTableItem(
+                                        index: i,
+                                        isMyDevice: isMyDevice,
+                                        role: role,
+                                        iconImage: iconImage,
+                                        label: (labels?[i])!,
+                                        iconImageView: (images?[i])!,
+                                        statusImageView: (statusImages?[i])!,
+                                        labelText: labelText
+                                    )
+                devices.append(device)
+            }
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "backToChooseRoleVC" {
             let chooseRoleVC = segue.destination as? ChooseRoleVC
             chooseRoleVC!.devicesQty = devicesQty
         }
+    }
+    func refresh() {
     }
 }

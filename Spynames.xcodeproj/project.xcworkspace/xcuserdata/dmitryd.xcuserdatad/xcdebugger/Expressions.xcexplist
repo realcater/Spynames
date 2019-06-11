@@ -172,6 +172,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GameCreatedVC.setUpDevices():GameCreatedVC.swift">
+      </ContextState>
+      <ContextState
          contextName = "WordsTVC.insertRow(card:at:):WordsTVC.swift">
          <PersistentStrings>
             <PersistentString
@@ -209,6 +212,9 @@
       </ContextState>
       <ContextState
          contextName = "MainVC.placeCards():MainVC+HighLevel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ChooseRoleVC.viewWillAppear(_:):ChooseRoleVC.swift">
       </ContextState>
       <ContextState
          contextName = "UIView.rotate(duration:):UIView+extension.swift">

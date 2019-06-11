@@ -22,7 +22,6 @@
 		CA6425CB221A0DAA00CAEA0F /* MainVC+leftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */; };
 		CA6425CD221A1B0E00CAEA0F /* GameTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */; };
 		CA6425CF221B498200CAEA0F /* MainVCUICardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425CE221B498200CAEA0F /* MainVCUICardDelegate.swift */; };
-		CA6425D1221D40DE00CAEA0F /* DeviceRoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6425D0221D40DE00CAEA0F /* DeviceRoles.swift */; };
 		CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB7217F62810009D072 /* AppDelegate.swift */; };
 		CA814BBA217F62810009D072 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA814BB9217F62810009D072 /* StartVC.swift */; };
 		CA814BBD217F62810009D072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA814BBB217F62810009D072 /* Main.storyboard */; };
@@ -48,7 +47,7 @@
 		CAC5BA4F21F4EBFC001763C5 /* WordsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5BA4E21F4EBFC001763C5 /* WordsTVC.swift */; };
 		CAC9505221B66F2F002262BA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9505121B66F2F002262BA /* Message.swift */; };
 		CAC9505421B6EB9D002262BA /* UIChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9505321B6EB9D002262BA /* UIChatView.swift */; };
-		CACA1F3C21A379B600DED049 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1F3B21A379B600DED049 /* Device.swift */; };
+		CACA1F3C21A379B600DED049 /* DevicesTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1F3B21A379B600DED049 /* DevicesTableItem.swift */; };
 		CACA1F3E21ADDA1200DED049 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1F3D21ADDA1200DED049 /* MainVC.swift */; };
 		CAD84F0921875A7F00E6C6E0 /* UINavigationController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */; };
 		CAD84F0E21875FD200E6C6E0 /* true.wav in Resources */ = {isa = PBXBuildFile; fileRef = CAD84F0B21875FD100E6C6E0 /* true.wav */; };
@@ -77,7 +76,6 @@
 		CA6425CA221A0DAA00CAEA0F /* MainVC+leftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+leftView.swift"; sourceTree = "<group>"; };
 		CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypes.swift; sourceTree = "<group>"; };
 		CA6425CE221B498200CAEA0F /* MainVCUICardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUICardDelegate.swift; sourceTree = "<group>"; };
-		CA6425D0221D40DE00CAEA0F /* DeviceRoles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRoles.swift; sourceTree = "<group>"; };
 		CA814BB4217F62810009D072 /* Spynames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spynames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA814BB7217F62810009D072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA814BB9217F62810009D072 /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
@@ -105,7 +103,7 @@
 		CAC5BA4E21F4EBFC001763C5 /* WordsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsTVC.swift; sourceTree = "<group>"; };
 		CAC9505121B66F2F002262BA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CAC9505321B6EB9D002262BA /* UIChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIChatView.swift; sourceTree = "<group>"; };
-		CACA1F3B21A379B600DED049 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		CACA1F3B21A379B600DED049 /* DevicesTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesTableItem.swift; sourceTree = "<group>"; };
 		CACA1F3D21ADDA1200DED049 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		CAD84F0821875A7F00E6C6E0 /* UINavigationController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+extension.swift"; sourceTree = "<group>"; };
 		CAD84F0B21875FD100E6C6E0 /* true.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = true.wav; sourceTree = "<group>"; };
@@ -135,8 +133,6 @@
 				CAC5BA4C21F4D3E7001763C5 /* Game.swift */,
 				CA6425CC221A1B0E00CAEA0F /* GameTypes.swift */,
 				CA8855552296D65200A8574A /* Tutorial.swift */,
-				CACA1F3B21A379B600DED049 /* Device.swift */,
-				CA6425D0221D40DE00CAEA0F /* DeviceRoles.swift */,
 				CAC9505121B66F2F002262BA /* Message.swift */,
 				CA3528F1218226A5005C489B /* K.swift */,
 				CAB635A422A70BF900CA81BE /* T.swift */,
@@ -242,6 +238,7 @@
 		CAC5BA4721F48F62001763C5 /* Visual objects */ = {
 			isa = PBXGroup;
 			children = (
+				CACA1F3B21A379B600DED049 /* DevicesTableItem.swift */,
 				CAC5BA4821F48FB4001763C5 /* PlayerStatusIcon.swift */,
 				CA2EFEBA21F889D800DF2ACF /* MyTableViewCell.swift */,
 				CA2EFEBC21F8B5B700DF2ACF /* PlayersChatView.swift */,
@@ -340,7 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CACA1F3C21A379B600DED049 /* Device.swift in Sources */,
+				CACA1F3C21A379B600DED049 /* DevicesTableItem.swift in Sources */,
 				CA6425C72219E1CF00CAEA0F /* CGPoint+extension.swift in Sources */,
 				CAB9E819217F9C4E002148CD /* UIView+extension.swift in Sources */,
 				CAE1A12F220751DE00B4E687 /* UIViewController+extension.swift in Sources */,
@@ -366,7 +363,6 @@
 				CA814BB8217F62810009D072 /* AppDelegate.swift in Sources */,
 				CA2EFEB521F6662300DF2ACF /* UIPaddingLabel.swift in Sources */,
 				CAE1A1352208D57B00B4E687 /* Dictionary.swift in Sources */,
-				CA6425D1221D40DE00CAEA0F /* DeviceRoles.swift in Sources */,
 				CA885550228DE7AD00A8574A /* MainVCEnterHintDelegate.swift in Sources */,
 				CA8855562296D65200A8574A /* Tutorial.swift in Sources */,
 				CA8C4F19220B09520045FCC2 /* UICard.swift in Sources */,

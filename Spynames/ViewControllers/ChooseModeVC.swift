@@ -22,8 +22,7 @@ class ChooseModeVC: UIViewController {
                 }
             }
             modeImageView.image = UIImage(named: K.ChooseMode.imagesName[newValue-1])
-            modeDescription.text = K.ChooseMode.description[newValue-1]
-            //modeDescription.sizeToFit()
+            modeDescription.text = K.Labels.modeDescription[newValue-1]
             if availableDevicesQty.contains(newValue) {
                 continueBtn.isEnabled = true
                 continueBtn.backgroundColor = K.Colors.foreground

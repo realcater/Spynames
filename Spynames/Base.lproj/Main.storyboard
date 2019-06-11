@@ -295,10 +295,10 @@
             </objects>
             <point key="canvasLocation" x="31.03448275862069" y="788"/>
         </scene>
-        <!--chooseRole4dVC-->
+        <!--chooseRoleVC-->
         <scene sceneID="6Qf-x6-4HD">
             <objects>
-                <viewController id="6TB-yp-aHk" userLabel="chooseRole4dVC" customClass="ChooseRoleVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6TB-yp-aHk" userLabel="chooseRoleVC" customClass="ChooseRoleVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="euz-eZ-NKh">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -318,7 +318,7 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1X6-Gr-ShN" kind="show" identifier="toGameCreatedVC" animates="NO" id="b2c-lm-9DN"/>
+                                    <action selector="btnIsPressed:" destination="6TB-yp-aHk" eventType="touchUpInside" id="xEx-sS-1wd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRG-69-wcp" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
@@ -336,6 +336,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnIsPressed:" destination="6TB-yp-aHk" eventType="touchUpInside" id="dah-gd-Xgt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="top" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvo-QF-Dgj" customClass="UIRoundedButton" customModule="Spynames" customModuleProvider="target">
                                 <rect key="frame" x="276" y="207.66666666666666" width="260" height="40"/>
@@ -352,6 +355,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnIsPressed:" destination="6TB-yp-aHk" eventType="touchUpInside" id="Rgi-6r-Y2t"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your role" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od8-FS-ups">
                                 <rect key="frame" x="166" y="37.666666666666664" width="480" height="39.999999999999993"/>
@@ -378,6 +384,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnIsPressed:" destination="6TB-yp-aHk" eventType="touchUpInside" id="8gf-x0-5bx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-Es-idZ">
                                 <rect key="frame" x="44" y="45.666666666666664" width="24" height="23.999999999999993"/>
@@ -403,12 +412,12 @@
                             <constraint firstItem="l4u-Es-idZ" firstAttribute="centerY" secondItem="od8-FS-ups" secondAttribute="centerY" id="Ajf-DZ-Ipk"/>
                             <constraint firstItem="Qvo-QF-Dgj" firstAttribute="height" secondItem="2e9-pv-BnO" secondAttribute="height" id="ER6-Km-U1Y"/>
                             <constraint firstItem="tRG-69-wcp" firstAttribute="height" secondItem="2e9-pv-BnO" secondAttribute="height" id="FgP-yO-xlD"/>
-                            <constraint firstItem="tRG-69-wcp" firstAttribute="top" secondItem="2e9-pv-BnO" secondAttribute="bottom" constant="10" identifier="verticalBtnSpace1" id="Ibj-N4-YVs"/>
-                            <constraint firstItem="Qvo-QF-Dgj" firstAttribute="top" secondItem="2e9-pv-BnO" secondAttribute="bottom" constant="59.999999999999972" identifier="verticalSpaceBetween1and3btns" id="LZG-gI-CX5"/>
+                            <constraint firstItem="tRG-69-wcp" firstAttribute="top" secondItem="2e9-pv-BnO" secondAttribute="bottom" constant="10" identifier="verticalSpaceBetween1and2btns" id="Ibj-N4-YVs"/>
                             <constraint firstItem="2e9-pv-BnO" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="NA5-4O-cVE"/>
                             <constraint firstItem="tRG-69-wcp" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="So0-oT-RyZ"/>
                             <constraint firstItem="od8-FS-ups" firstAttribute="centerY" secondItem="euz-eZ-NKh" secondAttribute="centerY" constant="-130" id="THm-oz-t3f"/>
                             <constraint firstItem="Qvo-QF-Dgj" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="Wl3-6E-VWT"/>
+                            <constraint firstItem="Qvo-QF-Dgj" firstAttribute="top" secondItem="tRG-69-wcp" secondAttribute="bottom" constant="10" id="k50-X8-zAB"/>
                             <constraint firstItem="od8-FS-ups" firstAttribute="centerX" secondItem="euz-eZ-NKh" secondAttribute="centerX" id="nUC-vH-nxK"/>
                             <constraint firstItem="l4u-Es-idZ" firstAttribute="leading" secondItem="w7R-BB-tCT" secondAttribute="leading" id="nxU-Aa-wfh"/>
                             <constraint firstItem="bAQ-nY-XOf" firstAttribute="height" secondItem="2e9-pv-BnO" secondAttribute="height" id="twG-pq-JGB"/>
@@ -424,16 +433,17 @@
                         <outletCollection property="buttons" destination="tRG-69-wcp" collectionClass="NSMutableArray" id="ZHS-od-YP2"/>
                         <outletCollection property="buttons" destination="Qvo-QF-Dgj" collectionClass="NSMutableArray" id="CdW-Kw-x7N"/>
                         <outletCollection property="buttons" destination="bAQ-nY-XOf" collectionClass="NSMutableArray" id="Gn4-To-cWU"/>
+                        <segue destination="1X6-Gr-ShN" kind="show" identifier="toGameCreatedVC" animates="NO" id="dr1-NL-gGK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Lx-Ip-Zm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="31" y="1654"/>
         </scene>
-        <!--chooseRole4dVC-->
+        <!--gameCreatedVC-->
         <scene sceneID="Zn2-6Y-t1B">
             <objects>
-                <viewController id="1X6-Gr-ShN" userLabel="chooseRole4dVC" customClass="GameCreatedVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1X6-Gr-ShN" userLabel="gameCreatedVC" customClass="GameCreatedVC" customModule="Spynames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wcl-JQ-led">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1357,7 +1367,6 @@
         <image name="you-icon-80px" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="b2c-lm-9DN"/>
         <segue reference="rUF-9L-12K"/>
         <segue reference="nfN-zS-lYu"/>
         <segue reference="9eH-sO-6wM"/>

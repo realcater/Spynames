@@ -9,10 +9,21 @@ enum LeftButtonState {
 }
 
 struct K {
+    static let idLength = 32
+    
+    static let redSpymaster = Player(team: .redTeam, type: .spymaster)
+    static let blueSpymaster = Player(team: .blueTeam, type: .spymaster)
+    static let redOperatives = Player(team: .redTeam, type: .operatives)
+    static let blueOperatives = Player(team: .blueTeam, type: .operatives)
+    
+    static let spymasterIcon = UIImage(named: FileNames.playerTypeIcon[.spymaster]!)!
+    static let operativesIcon = UIImage(named: FileNames.playerTypeIcon[.operatives]!)!
+    
+    static let useSmallerFonts = (UIScreen.main.currentMode!.size.width >= 750) ? false : true
+    
     struct Game {
         static let sizeX = 5
         static let sizeY = 5
-        
     }
     struct CardsAnimation {
         static let show = true
@@ -21,13 +32,51 @@ struct K {
         static let delaySound = 0.4
         
     }
-    struct ChooseMode {
-        static let description = [
-            "HOTSEAT - all players use the same device one by one",
-            "Spymasters of both teams use one device and Operatives of both teams use another device",
-            "Each Spymaster use their own device and Operatives of both teams use the third device",
-            "Each Spymaster and Operatives of each team use their own device"
+    
+    struct Device {
+        // deviceRoles[deviceQty][indexBtnPressed] -> [Player]
+        static let roles: [Int: [Int: [Player]]] = [
+            1: [
+                0: [redSpymaster, blueSpymaster, redOperatives, blueOperatives]
+            ],
+            2: [
+                0: [redSpymaster, blueSpymaster],
+                1: [redOperatives, blueOperatives]
+            ],
+            3: [
+                0: [redSpymaster],
+                1: [blueSpymaster],
+                2: [redOperatives, blueOperatives]
+            ],
+            4: [
+                0: [redSpymaster],
+                1: [blueSpymaster],
+                2: [redOperatives],
+                3: [blueOperatives]
+            ]
         ]
+        // deviceRoles[deviceQty][indexBtnPressed] -> UIImage
+        static let icons: [Int: [Int: UIImage]] = [
+            2: [
+                0: spymasterIcon,
+                1: operativesIcon
+                ],
+            3: [
+                0: spymasterIcon,
+                1: spymasterIcon,
+                2: operativesIcon
+                ],
+            4: [
+                0: spymasterIcon,
+                1: spymasterIcon,
+                2: operativesIcon,
+                3: operativesIcon
+                ]
+        ]
+        
+    }
+    struct ChooseMode {
+        
         static let imagesName = [
             "1dev",
             "2dev",
@@ -40,40 +89,32 @@ struct K {
         static let fromFirstBtnToTitle: [Int: CGFloat] = [
             2: 55,
             3: 40,
-            4: 30
+            4: 40
         ]
         static let btnHeight: [Int: CGFloat] = [
             2: 60,
             3: 50,
             4: 40
         ]
-        static let verticalSpaceBetween1and3btns: [Int: CGFloat] = [
+        static let verticalSpaceBetween1and2btns: [Int: CGFloat] = [
             2: 20,
-            3: 70,
-            4: 60
+            3: 10,
+            4: 10
         ]
         static let btnColor: [Int: [UIColor?]] = [
             2: [nil, nil, nil, nil], //=nil if button is hidden or DoubleColor
             3: [Colors.redDarker, Colors.blueDarker, nil, nil],
             4: [Colors.redDarker, Colors.blueDarker, Colors.redDarker, Colors.blueDarker]
         ]
-        static let btnTitle = [
-            2: ["  Spymasters", nil, "  Operatives", nil],
-            3: ["Red Spymaster", "Blue Spymaster", "Operatives", nil],
-            4: ["Red Spymaster", "Blue Spymaster", "Red Operatives", "Blue Operatives"]
+        
+        static let btnImages = [
+            2: [FileNames.playerTypeIcon[.spymaster], FileNames.playerTypeIcon[.operatives], nil, nil],
+            3: [FileNames.playerTypeIcon[.spymaster], FileNames.playerTypeIcon[.spymaster],
+                FileNames.playerTypeIcon[.operatives], nil],
+            4: [FileNames.playerTypeIcon[.spymaster], FileNames.playerTypeIcon[.spymaster],
+                FileNames.playerTypeIcon[.operatives], FileNames.playerTypeIcon[.operatives]]
         ]
     }
-    
-    static let allDeviceRoles = [DeviceRoles.redSpymaster,
-                                 DeviceRoles.blueSpymaster,
-                                 DeviceRoles.redOperatives,
-                                 DeviceRoles.blueOperatives
-    ]
-    static let imageForDeviceConnectStatus = [DeviceConnectStatus.you: "you-icon-80px",
-                                                  DeviceConnectStatus.joined: "joined-icon-80px",
-                                                  DeviceConnectStatus.waited: "wait-S80px"]
-    
-    static let useSmallerFonts = (UIScreen.main.currentMode!.size.width >= 750) ? false : true
     
     struct SideView {
         static let hiddenWidth: CGFloat = 30
@@ -86,7 +127,6 @@ struct K {
         static let cardsCornerRadius : CGFloat = 12
         static let smallCornerRadius : CGFloat = 6
         struct Chat {
-            //static let width: CGFloat = 170
             static let vertSpace: CGFloat = 8
             static let border = CGSize(width: 20, height: 10)
             static let inset = CGSize(width: 21, height: 17)
@@ -107,7 +147,6 @@ struct K {
             static let distX = 0.1
             static let distY = 0.2
         }
-        
     }
     struct Sounds {
         static let click = initSound(filename: "click.wav", volume: 0.1)
@@ -138,11 +177,6 @@ struct K {
         static let foreground = blueDarker
         static let buttonsText = UIColor.white
         
-        static let forRole = [DeviceRoles.redSpymaster: redDarker,
-                                  DeviceRoles.blueSpymaster: blueDarker,
-                                  DeviceRoles.redOperatives: redDarker,
-                                  DeviceRoles.blueOperatives: blueDarker
-                                  ]
         static let team = [
             Team.redTeam: K.Colors.redDarker,
             Team.blueTeam: K.Colors.blueDarker
@@ -193,6 +227,12 @@ struct K {
         static let spymasterText = "Spymaster"
         static let operativesText = "Operatives"
         
+        static let modeDescription = [
+            "HOTSEAT - all players use the same device one by one",
+            "Spymasters of both teams use one device and Operatives of both teams use another device",
+            "Each Spymaster use their own device and Operatives of both teams use the third device",
+            "Each Spymaster and Operatives of each team use their own device"
+        ]
         struct nextTurnAlert {
             static let title = "Next turn"
             static let message = [
@@ -208,7 +248,6 @@ struct K {
             ]
             static let buttonsText = ["New game", "Let me see"]
         }
-        
         struct titleBar {
             static let waiting = [
                 PlayerType.spymaster: "Waiting for your hint, Master!",
@@ -227,6 +266,11 @@ struct K {
                 LeftButtonState.pass: "PASS",
                 LeftButtonState.newGame: "New game"
                 ]
+            static let chooseMode = [
+                2: ["  Spymasters", "  Operatives", nil, nil],
+                3: ["Red Spymaster", "Blue Spymaster", "Operatives", nil],
+                4: ["Red Spymaster", "Blue Spymaster", "Red Operatives", "Blue Operatives"]
+            ]
             }
         struct Titles {
             static let spyNames = "Spy Names"
@@ -272,6 +316,9 @@ struct K {
         ]
         static let leftNote = "paper_600x450px"
         static let rightNote = "paper_600x450px-2"
+        static let deviceConnectStatus = [DeviceConnectStatus.you: "you-icon-80px",
+                                        DeviceConnectStatus.joined: "joined-icon-80px",
+                                        DeviceConnectStatus.waited: "wait-S80px"]
     }
     struct Delays {
         static let clockTurnAround = 4.0

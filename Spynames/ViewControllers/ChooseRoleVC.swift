@@ -6,6 +6,9 @@ class ChooseRoleVC: UIViewController {
     
     @IBOutlet var buttons: [UIRoundedButton]!
     
+    @IBAction func btnIsPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toGameCreatedVC", sender: sender)
+    }
     var devicesQty: Int!
     
     override func viewDidLoad() {
@@ -20,22 +23,24 @@ class ChooseRoleVC: UIViewController {
     private func prepareBtns() {
         view.setConstraint(identifier: "fromFirstBtnToTitle",
                            size: K.ChooseRole.fromFirstBtnToTitle[devicesQty]!)
-        view.setConstraint(identifier: "verticalSpaceBetween1and3btns",
-                           size: K.ChooseRole.verticalSpaceBetween1and3btns[devicesQty]!)
+        view.setConstraint(identifier: "verticalSpaceBetween1and2btns",
+                           size: K.ChooseRole.verticalSpaceBetween1and2btns[devicesQty]!)
         buttons[0].setConstraint(identifier: "btnHeight",
                                  size: K.ChooseRole.btnHeight[devicesQty]!)
         view.layoutIfNeeded()
         
         for (i,button) in buttons.enumerated() {
-            button.isHidden = (K.ChooseRole.btnTitle[devicesQty!]![i] == nil)
+            button.isHidden = (K.Labels.Buttons.chooseMode[devicesQty!]![i] == nil)
             if button.isHidden { continue }
 
-            button.setTitle(K.ChooseRole.btnTitle[devicesQty!]![i], for: .normal)
+            button.setTitle(K.Labels.Buttons.chooseMode[devicesQty!]![i], for: .normal)
             button.makeRounded(color: K.ChooseRole.btnColor[devicesQty!]![i],
                                textColor: K.Colors.buttonsText,
                                tintColor: K.Colors.buttonsText,
                                font: K.Fonts.Buttons.chooseRole,
                                sound: K.Sounds.click)
+            let image = UIImage(named: K.ChooseRole.btnImages[devicesQty!]![i]!)
+            button.setImage(image, for: .normal)
             if K.ChooseRole.btnColor[devicesQty!]![i] == nil {
                 button.makeDoubleColor(topColor: K.Colors.redDarker, bottomColor: K.Colors.blueDarker)
             }
@@ -50,6 +55,10 @@ class ChooseRoleVC: UIViewController {
         if segue.identifier == "toGameCreatedVC" {
             let gameCreatedVC = segue.destination as? GameCreatedVC
             gameCreatedVC!.devicesQty = devicesQty
+            let btnPressed = sender as! UIRoundedButton
+            if let btnIndex = buttons.firstIndex(of: btnPressed) {
+                gameCreatedVC!.thisDeviceRole = K.Device.roles[devicesQty]![btnIndex]
+            }
         } else if segue.identifier == "backToGameChooseModeVC" {
             let chooseModeVC = segue.destination as? ChooseModeVC
             chooseModeVC!.devicesQty = devicesQty
