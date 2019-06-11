@@ -24,7 +24,7 @@ extension MainVC {
     }
     func collapseRightView() {
         if rightViewShown {
-            view.getConstraint(named: "rightViewShift")?.constant = K.SideView.shiftWhenHidden
+            view.getConstraint(named: "rightViewShift")?.constant = K.SideView.Right.shiftWhenHidden
             UIView.animate(withDuration: K.SideView.animationLength, delay: 0, animations: {
                 self.mainView.zoomScale = 1.0
                 self.view.layoutIfNeeded()

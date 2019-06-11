@@ -117,9 +117,16 @@ struct K {
     }
     
     struct SideView {
-        static let hiddenWidth: CGFloat = 30
-        static let width: CGFloat = 150
-        static let shiftWhenHidden: CGFloat = hiddenWidth-width
+        struct Left {
+            static let hiddenWidth: CGFloat = 30
+            static let width: CGFloat = 200
+            static let shiftWhenHidden: CGFloat = hiddenWidth-width
+        }
+        struct Right {
+            static let hiddenWidth: CGFloat = 30
+            static let width: CGFloat = 150
+            static let shiftWhenHidden: CGFloat = hiddenWidth-width
+        }
         static let animationLength = 0.5
     }
     struct Sizes {

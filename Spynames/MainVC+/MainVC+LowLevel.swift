@@ -19,8 +19,8 @@ extension MainVC {
         topViewImage.addShadow()
         bottomViewImage.addShadow()
         leftViewBackground.addShadow()
-        rightView.widthConstraint?.constant = K.SideView.width
-        leftView.widthConstraint?.constant = K.SideView.width
+        rightView.widthConstraint?.constant = K.SideView.Right.width
+        leftView.widthConstraint?.constant = K.SideView.Left.width
     }
     func preparePlayerStatusBar() {
         statusView.makeAllSubviewsRound(cornerRadius: K.Sizes.smallCornerRadius)

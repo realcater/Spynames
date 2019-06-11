@@ -1,7 +1,7 @@
 // Tutorial constants
 
 struct T {
-    static let messages = [
+    static let messagesEng = [
         Message(text: "Hi, this is Spynames!", team: .redTeam, player: .spymaster, delay: Delay.std),
         Message(text: "A game for brave young Spymasters", team: .redTeam, player: .spymaster, delay: Delay.std),
         Message(text: "and their Operatives", team: .blueTeam, player: .operatives, delay: Delay.std),
@@ -46,6 +46,53 @@ struct T {
         Message(text: "That team is a looser", team: .redTeam, player: .spymaster, delay: 4.5),
         Message(text: "Good luck!", team: .blueTeam, player: .operatives)
     ]
+    static let messagesRu = [
+        Message(text: "Привет, это Шпионские Имена!", team: .redTeam, player: .spymaster, delay: Delay.std),
+        Message(text: "Команды шпионов в составе:", team: .redTeam, player: .spymaster, delay: Delay.std),
+        Message(text: "Руководителей и Агентов", team: .blueTeam, player: .operatives, delay: Delay.std),
+        Message(text: "соревнуются во взаимопонимании!", team: .blueTeam, player: .operatives, delay: Delay.std),
+        Message(text: "В игре две команды:", team: .redTeam, player: .operatives, delay: Delay.std),
+        Message(text: "КРАСНЫЕ", team: .redTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "и СИНИЕ", team: .blueTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "У каждой команде есть:", team: .redTeam, player: .operatives, delay: Delay.std),
+        Message(text: "Руководитель (1шт)", team: .redTeam, player: .spymaster, delay: Delay.std3),
+        Message(text: "Агенты (1 или более)", team: .redTeam, player: .operatives, delay: Delay.std3),
+        Message(text: "Всего 25 карточек имен:", team: .blueTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "9 одной команды", team: .redTeam, player: .operatives, delay: Delay.std3),
+        Message(text: "8 другой", team: .blueTeam, player: .spymaster, delay: Delay.std3),
+        Message(text: "1 убийца", team: .blueTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "7 мирных жителей", team: .redTeam, player: .operatives, delay: Delay.std2),
+        Message(text: "Только Оба Руководителя знают, кто есть кто", team: .redTeam, player: .spymaster, delay: Delay.std3),
+        Message(text: "а их Агенты не знают", team: .redTeam, player: .operatives, delay: Delay.std2),
+        Message(text: "Задача Руководителей дать такую подсказку своим агентам", team: .blueTeam, player: .spymaster, delay: Delay.std3),
+        Message(text: "которая поможет им угадать свои имена", team: .blueTeam, player: .spymaster, delay: Delay.std3),
+        Message(text: "Он может группировать слова в списке справа:", team: .redTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "перетаскивать их", team: .redTeam, player: .spymaster, delay: 4.8),
+        Message(text: "отделять группы слов двойным нажатием", team: .redTeam, player: .spymaster, delay: Delay.std3),
+        Message(text: "и придумать такую подсказку, которая объединит несколько слов", team: .redTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "первые 3 в нашем случае:", team: .redTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "\(Ru.tutorialWords[7]), \(Ru.tutorialWords[1]) и \(Ru.tutorialWords[23])", team: .redTeam, player: .spymaster, delay: Delay.std2),
+        Message(text: "Затем он сообщает своим агентам подсказку", team: .blueTeam, player: .spymaster, delay: Delay.std),
+        Message(text: "и число, показывающее сколько слов он объединил", team: .blueTeam, player: .spymaster, delay: 7.0),
+        Message(text: "Теперь ход оперативников", team: .redTeam, player: .operatives, delay: Delay.std2),
+        Message(text: "Они выбирают свои слова", team: .redTeam, player: .operatives, delay: Delay.std3),
+        Message(text: "Они могут угадать количество слов не больше, чем загадал Руководитель", team: .blueTeam, player: .operatives, delay: Delay.std),
+        Message(text: "плюс одно", team: .blueTeam, player: .operatives, delay: 5.5),
+        Message(text: "Они заканчивают отгадывать", team: .redTeam, player: .operatives, delay: Delay.std),
+        Message(text: "как только сделают ошибку", team: .redTeam, player: .operatives, delay: 6.0),
+        Message(text: "После этого ход переходит ", team: .blueTeam, player: .spymaster, delay: Delay.std),
+        Message(text: "к Руководителю следующей команды", team: .blueTeam, player: .spymaster, delay: 7.5),
+        Message(text: "Игра заканчивается, когда одна команда", team: .redTeam, player: .operatives, delay: Delay.std),
+        Message(text: "Угадает все свои слова", team: .blueTeam, player: .operatives, delay: 7.8),
+        Message(text: "Это команда - победитель!", team: .blueTeam, player: .spymaster, delay: Delay.std),
+        Message(text: "Или", team: .redTeam, player: .operatives, delay: Delay.std),
+        Message(text: "Игра закнчивается когда одна из команд", team: .redTeam, player: .operatives, delay: Delay.std2),
+        Message(text: "угадают убийцу!", team: .redTeam, player: .operatives, delay: 4.5),
+        Message(text: "Эта команда проиграла", team: .redTeam, player: .spymaster, delay: 4.5),
+        Message(text: "Удачи!", team: .blueTeam, player: .operatives)
+    ]
+    static let messages = messagesEng
+    
     static let sizeX = 5
     static let sizeY = 5
     static let tutorialColors: [CardColor] = [
