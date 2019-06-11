@@ -119,7 +119,7 @@ struct K {
     struct SideView {
         struct Left {
             static let hiddenWidth: CGFloat = 30
-            static let width: CGFloat = 200
+            static let width: CGFloat = 150
             static let shiftWhenHidden: CGFloat = hiddenWidth-width
         }
         struct Right {
